@@ -423,7 +423,8 @@
         "11-36",
         "11-37",
         "11-38",
-        "11-39"
+        "11-39",
+        "11-40"
       ],
       "branches": {},
       "color": "#861a2a",
@@ -620,7 +621,8 @@
         "17-10",
         "17-11",
         "17-12",
-        "17-13"
+        "17-13",
+        "17-14"
       ],
       "branches": {},
       "color": "#bc7970",
@@ -4891,6 +4893,26 @@
       "name_en": "",
       "name_zh": "三鲁公路",
       "transfer_group": null
+    },
+    "11-40": {
+      "line": "11",
+      "x": 3872.0,
+      "y": 4294.0,
+      "name_en": "Kangheng Rd.",
+      "name_zh": "康恒路",
+      "transfer_group": null,
+      "manual": true,
+      "extend_line": false
+    },
+    "17-14": {
+      "line": "17",
+      "x": 360.0,
+      "y": 3972.0,
+      "name_en": "Xicen",
+      "name_zh": "西岑",
+      "transfer_group": null,
+      "manual": true,
+      "extend_line": true
     }
   }
 }

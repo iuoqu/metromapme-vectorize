@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5348 7213" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;pointer-events:none">
 <g id="stations" style="pointer-events:auto">
+<!-- manual line extensions -->
+<line class="line-extension" data-line="17" x1="445.1" y1="3877.5" x2="360.0" y2="3972.0" stroke="#bc7970" stroke-width="16" stroke-linecap="round" fill="none" />
 <!-- regular stations -->
 <rect id="01-02" class="station" data-line="1" x="2396.6" y="3160.7" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
 <rect id="01-03" class="station" data-line="1" x="1806.2" y="3960.8" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
@@ -323,6 +325,8 @@
 <rect id="Pujiang-04" class="station" data-line="Pujiang" x="3141.5" y="5242.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#b6b6b6" stroke-width="5" style="cursor:pointer" />
 <rect id="Pujiang-05" class="station" data-line="Pujiang" x="3141.5" y="5369.7" width="32" height="22" rx="11" ry="11" fill="white" stroke="#b6b6b6" stroke-width="5" style="cursor:pointer" />
 <rect id="Pujiang-06" class="station" data-line="Pujiang" x="3118.5" y="4985.3" width="32" height="22" rx="11" ry="11" fill="white" stroke="#b6b6b6" stroke-width="5" style="cursor:pointer" />
+<rect id="11-40" class="station" data-line="11" x="3856.0" y="4283.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#861a2a" stroke-width="5" style="cursor:pointer" />
+<rect id="17-14" class="station" data-line="17" x="344.0" y="3961.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#bc7970" stroke-width="5" style="cursor:pointer" />
 <!-- transfer stations -->
 <path id="01-01" class="station" data-line="1" data-tgroup="T001" data-cx="1626.5" data-cy="4151.0" d="M1632.6,4168.2 L1615.8,4168.2 C1607.8,4168.2 1601.3,4161.7 1601.3,4153.7 C1601.3,4145.7 1607.8,4139.2 1615.8,4139.2 L1632.6,4139.2 C1640.6,4139.2 1647.1,4145.7 1647.1,4153.7 C1647.1,4161.7 1640.6,4168.2 1632.6,4168.2 Z" fill="white" stroke="#333333" stroke-width="6" style="cursor:pointer" />
 <path id="01-19" class="station" data-line="1" data-tgroup="T002" data-cx="1915.5" data-cy="3862.6" d="M1923.2,3876.5 L1906.5,3876.5 C1898.5,3876.5 1892.0,3870.0 1892.0,3862.0 C1892.0,3854.0 1898.5,3847.5 1906.5,3847.5 L1923.2,3847.5 C1931.3,3847.5 1937.8,3854.0 1937.8,3862.0 C1937.8,3870.0 1931.3,3876.5 1923.2,3876.5 Z" fill="white" stroke="#333333" stroke-width="6" style="cursor:pointer" />

@@ -56,6 +56,19 @@ LINE_STATION_MAX_DIST_OVERRIDES: dict[str, float] = {
 }
 LOOP_LINES = {"4"}
 
+# Stations not drawn in the PDF (new/planned/extension) that we inject manually.
+# Each entry: {line, name_zh, name_en, x, y, extend_line}. If extend_line is True,
+# the overlay SVG draws a short colored line segment from the nearest existing
+# station on that line to this one (for stations BEYOND the drawn polyline).
+MANUAL_STATIONS: list[dict] = [
+    # L11 康恒路 — 浦三路 (3678,4287) 与 御桥 (4066,4301) 的中点
+    {"line": "11", "name_zh": "康恒路", "name_en": "Kangheng Rd.",
+     "x": 3872, "y": 4294, "extend_line": False},
+    # L17 西岑 — 东方绿舟 (445,3878) 向西南外推 (朱家角→东方绿舟 方向延续)
+    {"line": "17", "name_zh": "西岑", "name_en": "Xicen",
+     "x": 360, "y": 3972, "extend_line": True},
+]
+
 # Filter out non-station text patterns
 NON_STATION_TEXT_PATTERNS = [
     re.compile(r"^Transfer", re.I),
@@ -1628,6 +1641,37 @@ def write_overlay_svg(
         '<g id="stations" style="pointer-events:auto">',
     ]
 
+    # ── Layer 0: line extensions for manual-injection stations that sit
+    #    BEYOND the drawn polyline (e.g. L17 西岑). Draw a colored stroke
+    #    from the nearest existing same-line station to the manual station.
+    ext_parts: list[str] = []
+    for sid, meta in stations.items():
+        if not meta.get("extend_line"):
+            continue
+        lid = meta["line"]
+        color = line_colors.get(lid, "#000")
+        # Find nearest same-line station (non-manual) by Euclidean distance
+        nearest = None
+        best_d = float("inf")
+        for osid, ometa in stations.items():
+            if osid == sid or ometa["line"] != lid or ometa.get("manual"):
+                continue
+            d = _dist((meta["x"], meta["y"]), (ometa["x"], ometa["y"]))
+            if d < best_d:
+                best_d = d
+                nearest = ometa
+        if nearest is None:
+            continue
+        ext_parts.append(
+            f'<line class="line-extension" data-line="{lid}" '
+            f'x1="{nearest["x"]:.1f}" y1="{nearest["y"]:.1f}" '
+            f'x2="{meta["x"]:.1f}" y2="{meta["y"]:.1f}" '
+            f'stroke="{color}" stroke-width="16" stroke-linecap="round" fill="none" />'
+        )
+    if ext_parts:
+        parts.append('<!-- manual line extensions -->')
+        parts.extend(ext_parts)
+
     # ── Layer 1: regular station boxes (drawn first = painted below) ──────────
     parts.append('<!-- regular stations -->')
     for sid, meta in stations.items():
@@ -1787,6 +1831,31 @@ def main() -> int:
     stations, lines_data, transfers = compute_station_ids_and_transfers(
         per_line, polylines
     )
+
+    # Inject manually-specified stations not present in the PDF (new/planned
+    # stations like L11 康恒路 and L17 西岑).  Assigned the next ID on their line.
+    if MANUAL_STATIONS:
+        print("→ Injecting manual stations...")
+        lines_by_id = {ld["id"]: ld for ld in lines_data}
+        for m in MANUAL_STATIONS:
+            lid = m["line"]
+            ld = lines_by_id.get(lid)
+            if ld is None:
+                continue
+            next_idx = len(ld["trunk"]) + 1
+            sid = f"{_pad(lid)}-{next_idx:02d}"
+            stations[sid] = {
+                "line": lid,
+                "x": float(m["x"]),
+                "y": float(m["y"]),
+                "name_en": m.get("name_en", ""),
+                "name_zh": m.get("name_zh", ""),
+                "transfer_group": None,
+                "manual": True,
+                "extend_line": bool(m.get("extend_line", False)),
+            }
+            ld["trunk"].append(sid)
+            print(f"  + {sid} {m.get('name_zh','')} ({m['x']},{m['y']}) on L{lid}")
 
     line_colors_hex = {
         lid: rgb_to_hex(rgb) for lid, (_, rgb) in line_color_map_by_id.items()
