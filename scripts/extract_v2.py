@@ -739,6 +739,46 @@ def extract_white_bordered_line(page: fitz.Page) -> list[list[tuple[float, float
     return [chain] if len(chain) >= 5 else []
 
 
+def extract_maglev_line(page: fitz.Page) -> list[list[tuple[float, float]]]:
+    """
+    The Shanghai Maglev (磁浮线) runs from 龙阳路 to 浦东国际机场 as a single
+    stroke path with color ~(0.94, 0.44, 0.01) and width 8 — distinct from
+    L7's orange color (0.925, 0.431, 0.0, w=16) by its thinner stroke width.
+    Returns the polyline as a list of (x,y) sample points along the path.
+    """
+    for d in page.get_drawings():
+        if d.get("type") != "s":
+            continue
+        c = d.get("color")
+        if not c:
+            continue
+        # Maglev orange is slightly brighter than L7 orange; also w=8 (thin)
+        if not (0.93 < c[0] < 0.95 and 0.42 < c[1] < 0.46 and c[2] < 0.02):
+            continue
+        if abs((d.get("width", 0) or 0) - 8.0) > 0.5:
+            continue
+        items = d.get("items", [])
+        if len(items) < 5:
+            continue
+        # Sample dense points along the path
+        pts: list[tuple[float, float]] = []
+        for it in items:
+            if it[0] == "l":
+                a, b = it[1], it[2]
+                pts.extend([(a.x, a.y), (b.x, b.y)])
+            elif it[0] == "c":
+                a, p1, p2, b = it[1], it[2], it[3], it[4]
+                # sample cubic bezier
+                for k in range(11):
+                    t = k / 10
+                    mt = 1 - t
+                    x = mt**3*a.x + 3*mt**2*t*p1.x + 3*mt*t**2*p2.x + t**3*b.x
+                    y = mt**3*a.y + 3*mt**2*t*p1.y + 3*mt*t**2*p2.y + t**3*b.y
+                    pts.append((x, y))
+        return [pts] if pts else []
+    return []
+
+
 def extract_al_polygon_ticks(page: fitz.Page) -> list[tuple[float, float]]:
     """
     The AL white-bordered polygon has small rectangular INDENTATIONS or V-notches
@@ -1698,6 +1738,14 @@ def main() -> int:
     if white_al:
         polylines["AL"] = white_al
         print(f"  + AL white-bordered centerline: {len(white_al[0])} pts")
+
+    # The Maglev (磁浮线) isn't detected via find_line_color_map (it lacks a
+    # "Line N" style label). Extract it directly from the w=8 orange stroke.
+    maglev = extract_maglev_line(page)
+    if maglev:
+        polylines["ML"] = maglev
+        line_color_map_by_id["ML"] = ("Maglev Line", (0.937, 0.439, 0.008))
+        print(f"  + Maglev line: {len(maglev[0])} pts")
 
     for lid, polys in sorted(polylines.items()):
         n = sum(len(p) for p in polys)

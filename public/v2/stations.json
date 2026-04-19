@@ -675,6 +675,16 @@
       "label": "Airport Link Line"
     },
     {
+      "id": "ML",
+      "trunk": [
+        "ML-01",
+        "ML-02"
+      ],
+      "branches": {},
+      "color": "#ef7002",
+      "label": "Maglev Line"
+    },
+    {
       "id": "Pujiang",
       "trunk": [
         "Pujiang-01",
@@ -4814,6 +4824,22 @@
       "line": "AL",
       "x": 5120,
       "y": 4872,
+      "name_en": "",
+      "name_zh": "",
+      "transfer_group": null
+    },
+    "ML-01": {
+      "line": "ML",
+      "x": 4310.17,
+      "y": 3433.67,
+      "name_en": "",
+      "name_zh": "",
+      "transfer_group": null
+    },
+    "ML-02": {
+      "line": "ML",
+      "x": 5155.17,
+      "y": 4920.59,
       "name_en": "",
       "name_zh": "1&2浦东1号2号航站楼",
       "transfer_group": null

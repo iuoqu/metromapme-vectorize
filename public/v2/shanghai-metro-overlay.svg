@@ -316,6 +316,8 @@
 <rect id="AL-05" class="station" data-line="AL" x="4543.1" y="4316.9" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
 <rect id="AL-06" class="station" data-line="AL" x="4750.4" y="4416.6" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
 <rect id="AL-07" class="station" data-line="AL" x="5104.0" y="4861.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
+<rect id="ML-01" class="station" data-line="ML" x="4294.2" y="3422.7" width="32" height="22" rx="11" ry="11" fill="white" stroke="#ef7002" stroke-width="5" style="cursor:pointer" />
+<rect id="ML-02" class="station" data-line="ML" x="5139.2" y="4909.6" width="32" height="22" rx="11" ry="11" fill="white" stroke="#ef7002" stroke-width="5" style="cursor:pointer" />
 <rect id="Pujiang-02" class="station" data-line="Pujiang" x="3020.2" y="5454.5" width="32" height="22" rx="11" ry="11" fill="white" stroke="#b6b6b6" stroke-width="5" style="cursor:pointer" />
 <rect id="Pujiang-03" class="station" data-line="Pujiang" x="3141.5" y="5107.7" width="32" height="22" rx="11" ry="11" fill="white" stroke="#b6b6b6" stroke-width="5" style="cursor:pointer" />
 <rect id="Pujiang-04" class="station" data-line="Pujiang" x="3141.5" y="5242.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#b6b6b6" stroke-width="5" style="cursor:pointer" />
