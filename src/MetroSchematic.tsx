@@ -21,7 +21,10 @@ export interface StationMeta {
   line: string;
   x: number;
   y: number;
-  transfer_group?: string;
+  transfer_group?: string | null;
+  /** present when extracted from v2 PDF */
+  name_en?: string;
+  name_zh?: string;
 }
 
 export interface LineData {
@@ -29,6 +32,8 @@ export interface LineData {
   color: string;
   trunk: StationId[];
   branches: Record<string, { fork_at: string; stations: StationId[] }>;
+  /** present in v2 outputs */
+  label?: string;
 }
 
 export interface StationsData {
@@ -38,11 +43,14 @@ export interface StationsData {
 }
 
 export interface Props {
-  /** URL prefix for assets; defaults to "/" */
+  /**
+   * URL prefix for assets. Defaults to "/v2/" (data with station names).
+   * Use "/v1/" for the original ID-only dataset.
+   */
   baseUrl?: string;
   highlightedStations?: StationId[];
   highlightedSegments?: Segment[];
-  /** Map from station ID to display label */
+  /** Optional override map for tooltip labels (overrides name_en/name_zh). */
   stationLabels?: Record<StationId, string>;
   onStationClick?(id: StationId): void;
   onStationHover?(id: StationId | null): void;
@@ -133,7 +141,7 @@ function resolveRouteSegments(
 const MetroSchematic = forwardRef<MetroSchematicHandle, Props>(
   function MetroSchematic(
     {
-      baseUrl = "/",
+      baseUrl = "/v2/",
       highlightedStations,
       highlightedSegments,
       stationLabels,
@@ -396,19 +404,28 @@ const MetroSchematic = forwardRef<MetroSchematicHandle, Props>(
           className="metro-container"
           style={{ width: "100%", height: "100%", overflow: "hidden", position: "relative" }}
         />
-        {tooltip && (
-          <div
-            className="metro-tooltip"
-            style={{ left: tooltip.x, top: tooltip.y }}
-          >
-            <span className="metro-tooltip-id">{tooltip.id}</span>
-            {stationLabels?.[tooltip.id] && (
-              <span className="metro-tooltip-label">
-                {stationLabels[tooltip.id]}
-              </span>
-            )}
-          </div>
-        )}
+        {tooltip && (() => {
+          const meta = stationsData?.stations[tooltip.id];
+          const overrideLabel = stationLabels?.[tooltip.id];
+          const en = meta?.name_en;
+          const zh = meta?.name_zh;
+          return (
+            <div
+              className="metro-tooltip"
+              style={{ left: tooltip.x, top: tooltip.y }}
+            >
+              <span className="metro-tooltip-id">{tooltip.id}</span>
+              {overrideLabel ? (
+                <span className="metro-tooltip-label">{overrideLabel}</span>
+              ) : (
+                <>
+                  {en && <span className="metro-tooltip-label">{en}</span>}
+                  {zh && <span className="metro-tooltip-label">{zh}</span>}
+                </>
+              )}
+            </div>
+          );
+        })()}
       </div>
     );
   }

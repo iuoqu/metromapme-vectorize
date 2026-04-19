@@ -1,0 +1,470 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5348 7213" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;pointer-events:none">
+<g id="stations" style="pointer-events:auto">
+<circle id="01-01" class="station" data-line="1" data-tgroup="T001" cx="1626.5" cy="4151.0" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-02" class="station" data-line="1" cx="2976.27" cy="883.68" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-03" class="station" data-line="1" cx="2976.27" cy="227.68" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-04" class="station" data-line="1" cx="2976.27" cy="392.35" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-05" class="station" data-line="1" cx="2976.27" cy="556.01" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-06" class="station" data-line="1" cx="2976.27" cy="718.68" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-07" class="station" data-line="1" cx="2976.27" cy="1047.01" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-08" class="station" data-line="1" cx="2976.27" cy="1374.34" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-09" class="station" data-line="1" cx="2976.27" cy="2030.26" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-10" class="station" data-line="1" cx="2976.27" cy="227.68" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-11" class="station" data-line="1" cx="2976.27" cy="883.68" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-12" class="station" data-line="1" cx="2976.27" cy="1211.35" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-13" class="station" data-line="1" cx="2976.27" cy="1538.34" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-14" class="station" data-line="1" cx="2976.27" cy="1866.68" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-15" class="station" data-line="1" cx="1697.83" cy="4113.83" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-16" class="station" data-line="1" cx="1763.16" cy="4049.16" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-17" class="station" data-line="1" cx="1993.59" cy="3784.75" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-18" class="station" data-line="1" cx="2065.5" cy="3656.44" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-19" class="station" data-line="1" data-tgroup="T002" cx="2187.71" cy="3377.26" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-20" class="station" data-line="1" data-tgroup="T003" cx="2356.74" cy="3208.88" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-21" class="station" data-line="1" data-tgroup="T004" cx="3061.22" cy="2979.92" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-22" class="station" data-line="1" cx="3111.34" cy="2950.27" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-23" class="station" data-line="1" data-tgroup="T005" cx="3129.32" cy="2931.74" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-24" class="station" data-line="1" data-tgroup="T006" cx="3211.5" cy="2780.45" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="01-25" class="station" data-line="1" cx="3001.5" cy="2396.2" r="18" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
+<circle id="02-01" class="station" data-line="2" cx="1290.92" cy="2704.32" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-02" class="station" data-line="2" cx="1494.91" cy="2704.32" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-03" class="station" data-line="2" cx="1698.43" cy="2704.32" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-04" class="station" data-line="2" cx="4417.41" cy="3374.89" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-05" class="station" data-line="2" cx="4589.12" cy="3374.89" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-06" class="station" data-line="2" cx="4760.63" cy="3374.89" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-07" class="station" data-line="2" cx="4933.1" cy="3374.89" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-08" class="station" data-line="2" cx="5104.66" cy="3374.89" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-09" class="station" data-line="2" data-tgroup="T007" cx="5197.5" cy="4915.5" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-10" class="station" data-line="2" data-tgroup="T007" cx="5197.5" cy="4915.5" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-11" class="station" data-line="2" cx="5177.78" cy="3695.02" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-12" class="station" data-line="2" cx="5177.78" cy="3498.76" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-13" class="station" data-line="2" cx="5177.78" cy="4087.03" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-14" class="station" data-line="2" cx="5177.78" cy="4283.03" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-15" class="station" data-line="2" cx="5177.78" cy="3892.03" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-16" class="station" data-line="2" cx="5177.78" cy="3695.02" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-17" class="station" data-line="2" cx="4095.2" cy="3218.31" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-18" class="station" data-line="2" cx="4206.92" cy="3296.12" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-19" class="station" data-line="2" cx="4070.71" cy="3161.32" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-20" class="station" data-line="2" cx="4052.79" cy="3143.59" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-21" class="station" data-line="2" data-tgroup="T008" cx="3897.28" cy="2985.55" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-22" class="station" data-line="2" data-tgroup="T009" cx="3772.17" cy="2800.0" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-23" class="station" data-line="2" data-tgroup="T010" cx="3707.5" cy="2800.07" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-24" class="station" data-line="2" cx="1990.46" cy="2725.92" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-25" class="station" data-line="2" cx="1362.04" cy="2725.55" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-26" class="station" data-line="2" data-tgroup="T011" cx="1166.11" cy="2811.21" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-27" class="station" data-line="2" data-tgroup="T011" cx="1150.6" cy="2819.07" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-28" class="station" data-line="2" data-tgroup="T012" cx="955.39" cy="2823.0" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-29" class="station" data-line="2" data-tgroup="T013" cx="819.81" cy="2823.0" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-30" class="station" data-line="2" data-tgroup="T013" cx="783.91" cy="2823.38" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="02-31" class="station" data-line="2" data-tgroup="T014" cx="700.01" cy="2883.04" r="18" fill="white" stroke="#8bc21f" stroke-width="6" style="cursor:pointer" />
+<circle id="03-01" class="station" data-line="3" cx="2173.5" cy="3552.0" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-02" class="station" data-line="3" cx="3453.17" cy="242.0" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-03" class="station" data-line="3" cx="3381.84" cy="1384.33" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-04" class="station" data-line="3" cx="3659.17" cy="243.34" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-05" class="station" data-line="3" cx="3659.17" cy="243.34" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-06" class="station" data-line="3" cx="3350.17" cy="1817.34" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-07" class="station" data-line="3" cx="3350.17" cy="1675.0" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-08" class="station" data-line="3" cx="3350.17" cy="1675.0" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-09" class="station" data-line="3" cx="3350.17" cy="1817.34" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-10" class="station" data-line="3" cx="3803.83" cy="385.34" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-11" class="station" data-line="3" cx="3803.83" cy="385.34" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-12" class="station" data-line="3" cx="3803.83" cy="521.67" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-13" class="station" data-line="3" cx="3348.83" cy="1535.67" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-14" class="station" data-line="3" cx="3802.5" cy="933.34" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-15" class="station" data-line="3" cx="3802.5" cy="659.0" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-16" class="station" data-line="3" cx="3802.5" cy="796.34" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-17" class="station" data-line="3" cx="3673.84" cy="1092.67" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-18" class="station" data-line="3" cx="3673.84" cy="1092.67" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-19" class="station" data-line="3" cx="2112.39" cy="3862.0" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-20" class="station" data-line="3" cx="2219.33" cy="3654.05" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-21" class="station" data-line="3" data-tgroup="T015" cx="2131.0" cy="3208.62" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-22" class="station" data-line="3" data-tgroup="T016" cx="2131.0" cy="3008.63" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-23" class="station" data-line="3" data-tgroup="T017" cx="2131.0" cy="2843.04" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-24" class="station" data-line="3" data-tgroup="T018" cx="2131.0" cy="2668.93" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-25" class="station" data-line="3" data-tgroup="T019" cx="2131.0" cy="2399.61" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-26" class="station" data-line="3" data-tgroup="T020" cx="2172.55" cy="2246.66" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-27" class="station" data-line="3" data-tgroup="T021" cx="2765.54" cy="2234.0" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-28" class="station" data-line="3" data-tgroup="T022" cx="2835.29" cy="2234.0" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-29" class="station" data-line="3" data-tgroup="T023" cx="2923.8" cy="2234.0" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-30" class="station" data-line="3" data-tgroup="T024" cx="3290.59" cy="2219.47" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-31" class="station" data-line="3" data-tgroup="T025" cx="3372.5" cy="1955.71" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="03-32" class="station" data-line="3" data-tgroup="T026" cx="3537.12" cy="1260.01" r="18" fill="white" stroke="#fdd700" stroke-width="6" style="cursor:pointer" />
+<circle id="04-01" class="station" data-line="4" data-tgroup="T002" cx="2148.5" cy="3377.26" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-02" class="station" data-line="4" data-tgroup="T015" cx="2148.5" cy="3208.62" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-03" class="station" data-line="4" data-tgroup="T016" cx="2148.5" cy="3008.63" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-04" class="station" data-line="4" data-tgroup="T017" cx="2148.5" cy="2843.04" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-05" class="station" data-line="4" data-tgroup="T018" cx="2148.5" cy="2668.93" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-06" class="station" data-line="4" data-tgroup="T019" cx="2148.5" cy="2399.61" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-07" class="station" data-line="4" data-tgroup="T020" cx="2181.05" cy="2262.31" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-08" class="station" data-line="4" data-tgroup="T027" cx="2323.85" cy="2252.12" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-09" class="station" data-line="4" data-tgroup="T028" cx="2589.13" cy="2252.12" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-10" class="station" data-line="4" data-tgroup="T021" cx="2765.54" cy="2252.12" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-11" class="station" data-line="4" data-tgroup="T022" cx="2835.29" cy="2252.12" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-12" class="station" data-line="4" data-tgroup="T023" cx="2923.8" cy="2252.12" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-13" class="station" data-line="4" data-tgroup="T024" cx="3312.53" cy="2252.12" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-14" class="station" data-line="4" data-tgroup="T029" cx="3469.19" cy="2252.12" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-15" class="station" data-line="4" data-tgroup="T030" cx="3804.51" cy="2252.12" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-16" class="station" data-line="4" data-tgroup="T031" cx="3941.2" cy="2727.04" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-17" class="station" data-line="4" data-tgroup="T008" cx="3941.2" cy="2985.55" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-18" class="station" data-line="4" cx="3655.0" cy="2273.5" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-19" class="station" data-line="4" cx="2461.33" cy="3460.34" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-20" class="station" data-line="4" cx="2965.0" cy="3459.5" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-21" class="station" data-line="4" cx="3421.5" cy="3458.5" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-22" class="station" data-line="4" cx="3967.5" cy="3297.0" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-23" class="station" data-line="4" cx="3639.5" cy="3455.5" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-24" class="station" data-line="4" cx="3834.27" cy="3482.0" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-25" class="station" data-line="4" data-tgroup="T032" cx="3317.5" cy="3482.0" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-26" class="station" data-line="4" cx="2992.74" cy="3482.0" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="04-27" class="station" data-line="4" cx="2947.54" cy="3482.0" r="18" fill="white" stroke="#461d85" stroke-width="6" style="cursor:pointer" />
+<circle id="05-01" class="station" data-line="5" cx="1193.83" cy="5308.34" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-02" class="station" data-line="5" cx="1346.17" cy="5308.34" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-03" class="station" data-line="5" cx="1042.83" cy="5308.34" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-04" class="station" data-line="5" cx="1570.17" cy="5668.67" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-05" class="station" data-line="5" cx="1570.17" cy="5668.67" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-06" class="station" data-line="5" cx="1613.0" cy="5422.67" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-07" class="station" data-line="5" cx="1613.0" cy="4504.84" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-08" class="station" data-line="5" cx="1613.0" cy="4686.67" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-09" class="station" data-line="5" cx="1613.0" cy="4872.67" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-10" class="station" data-line="5" cx="1613.0" cy="5055.67" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-11" class="station" data-line="5" cx="2257.5" cy="5779.07" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-12" class="station" data-line="5" cx="1613.83" cy="4394.68" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-13" class="station" data-line="5" cx="1498.5" cy="5306.34" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-14" class="station" data-line="5" cx="1566.83" cy="5574.0" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-15" class="station" data-line="5" cx="1958.5" cy="5692.0" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-16" class="station" data-line="5" cx="2167.99" cy="5716.0" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-17" class="station" data-line="5" cx="1763.33" cy="5716.0" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="05-18" class="station" data-line="5" data-tgroup="T001" cx="1618.99" cy="4160.3" r="18" fill="white" stroke="#964b9b" stroke-width="6" style="cursor:pointer" />
+<circle id="06-01" class="station" data-line="6" cx="3739.75" cy="3234.64" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-02" class="station" data-line="6" cx="3739.75" cy="3234.64" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-03" class="station" data-line="6" data-tgroup="T033" cx="3075.1" cy="4134.0" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-04" class="station" data-line="6" cx="3171.5" cy="4154.5" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-05" class="station" data-line="6" cx="3357.17" cy="4154.5" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-06" class="station" data-line="6" cx="3542.54" cy="4148.0" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-07" class="station" data-line="6" cx="4564.83" cy="1791.0" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-08" class="station" data-line="6" cx="4564.83" cy="1903.0" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-09" class="station" data-line="6" cx="4564.83" cy="2013.67" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-10" class="station" data-line="6" cx="4687.83" cy="1446.0" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-11" class="station" data-line="6" cx="3615.5" cy="4068.23" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-12" class="station" data-line="6" cx="4566.17" cy="2274.33" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-13" class="station" data-line="6" cx="4566.17" cy="2366.34" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-14" class="station" data-line="6" cx="3699.33" cy="3586.17" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-15" class="station" data-line="6" cx="4535.98" cy="2464.85" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-16" class="station" data-line="6" cx="3594.17" cy="3982.44" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-17" class="station" data-line="6" data-tgroup="T034" cx="3594.17" cy="3726.73" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-18" class="station" data-line="6" cx="3766.0" cy="3420.61" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-19" class="station" data-line="6" data-tgroup="T035" cx="4175.47" cy="2792.91" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-20" class="station" data-line="6" data-tgroup="T036" cx="4432.22" cy="2531.81" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-21" class="station" data-line="6" data-tgroup="T037" cx="4542.14" cy="2203.4" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="06-22" class="station" data-line="6" data-tgroup="T038" cx="4664.83" cy="1199.34" r="18" fill="white" stroke="#e20169" stroke-width="6" style="cursor:pointer" />
+<circle id="07-01" class="station" data-line="7" cx="4435.17" cy="3184.67" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-02" class="station" data-line="7" cx="2962.17" cy="3796.34" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-03" class="station" data-line="7" cx="3443.0" cy="3796.84" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-04" class="station" data-line="7" cx="2610.5" cy="2627.5" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-05" class="station" data-line="7" cx="2562.75" cy="1786.75" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-06" class="station" data-line="7" cx="2562.75" cy="1554.5" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-07" class="station" data-line="7" cx="2562.75" cy="1670.25" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-08" class="station" data-line="7" cx="2562.75" cy="1786.75" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-09" class="station" data-line="7" cx="4048.67" cy="3606.67" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-10" class="station" data-line="7" cx="3960.33" cy="3695.0" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-11" class="station" data-line="7" cx="2562.75" cy="2137.75" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-12" class="station" data-line="7" cx="2562.75" cy="2020.5" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-13" class="station" data-line="7" cx="2562.75" cy="1904.5" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-14" class="station" data-line="7" cx="2562.75" cy="2137.75" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-15" class="station" data-line="7" cx="2562.75" cy="2020.5" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-16" class="station" data-line="7" cx="2116.25" cy="1291.75" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-17" class="station" data-line="7" cx="1711.25" cy="406.25" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-18" class="station" data-line="7" cx="1710.75" cy="1140.75" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-19" class="station" data-line="7" cx="1710.75" cy="1140.75" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-20" class="station" data-line="7" cx="1710.5" cy="775.25" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-21" class="station" data-line="7" cx="1710.5" cy="775.25" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-22" class="station" data-line="7" cx="1710.25" cy="590.75" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-23" class="station" data-line="7" cx="1710.25" cy="223.25" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-24" class="station" data-line="7" cx="2503.25" cy="1392.5" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-25" class="station" data-line="7" cx="4379.22" cy="3240.52" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-26" class="station" data-line="7" data-tgroup="T039" cx="4217.49" cy="3401.98" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-27" class="station" data-line="7" cx="4556.83" cy="3953.18" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-28" class="station" data-line="7" data-tgroup="T034" cx="3594.17" cy="3776.0" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-29" class="station" data-line="7" cx="4933.83" cy="4376.28" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-30" class="station" data-line="7" data-tgroup="T007" cx="5155.17" cy="4923.5" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-31" class="station" data-line="7" data-tgroup="T007" cx="5155.17" cy="4923.5" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-32" class="station" data-line="7" data-tgroup="T040" cx="2605.0" cy="3752.56" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-33" class="station" data-line="7" cx="2589.13" cy="3532.6" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-34" class="station" data-line="7" cx="2589.13" cy="3296.8" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-35" class="station" data-line="7" cx="2589.13" cy="2921.45" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-36" class="station" data-line="7" data-tgroup="T041" cx="2589.13" cy="2780.47" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-37" class="station" data-line="7" cx="2589.13" cy="2512.38" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-38" class="station" data-line="7" data-tgroup="T028" cx="2589.13" cy="2298.29" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-39" class="station" data-line="7" cx="2371.28" cy="1319.51" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="07-40" class="station" data-line="7" cx="2117.76" cy="1318.5" r="18" fill="white" stroke="#ec6e00" stroke-width="6" style="cursor:pointer" />
+<circle id="08-01" class="station" data-line="8" cx="3834.33" cy="1967.34" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-02" class="station" data-line="8" cx="3522.61" cy="1967.17" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-03" class="station" data-line="8" cx="3168.0" cy="3999.0" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-04" class="station" data-line="8" cx="3231.5" cy="2120.17" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-05" class="station" data-line="8" cx="2970.0" cy="4301.17" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-06" class="station" data-line="8" cx="2970.0" cy="4545.75" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-07" class="station" data-line="8" cx="3296.17" cy="2042.16" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-08" class="station" data-line="8" cx="4181.67" cy="1629.67" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-09" class="station" data-line="8" cx="4181.83" cy="1528.84" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-10" class="station" data-line="8" cx="2971.25" cy="4683.25" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-11" class="station" data-line="8" cx="2972.5" cy="4820.0" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-12" class="station" data-line="8" data-tgroup="T042" cx="3661.49" cy="1986.67" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-13" class="station" data-line="8" cx="3486.61" cy="1986.67" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-14" class="station" data-line="8" data-tgroup="T025" cx="3381.81" cy="1989.04" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-15" class="station" data-line="8" cx="3231.5" cy="2403.28" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-16" class="station" data-line="8" data-tgroup="T006" cx="3250.69" cy="2751.35" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-17" class="station" data-line="8" cx="3317.5" cy="3008.85" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-18" class="station" data-line="8" cx="3317.5" cy="3296.85" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-19" class="station" data-line="8" data-tgroup="T032" cx="3317.5" cy="3531.14" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-20" class="station" data-line="8" cx="3317.5" cy="3721.8" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-21" class="station" data-line="8" data-tgroup="T043" cx="3316.53" cy="3975.43" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="08-22" class="station" data-line="8" data-tgroup="T033" cx="3075.1" cy="4107.91" r="18" fill="white" stroke="#0095da" stroke-width="6" style="cursor:pointer" />
+<circle id="09-01" class="station" data-line="9" cx="1170.2" cy="3432.7" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-02" class="station" data-line="9" cx="1458.5" cy="3427.34" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-03" class="station" data-line="9" cx="4774.17" cy="2619.84" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-04" class="station" data-line="9" cx="769.83" cy="3857.17" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-05" class="station" data-line="9" cx="666.67" cy="4033.35" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-06" class="station" data-line="9" cx="869.33" cy="3761.01" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-07" class="station" data-line="9" cx="2948.17" cy="3265.0" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-08" class="station" data-line="9" cx="4691.42" cy="2706.58" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-09" class="station" data-line="9" cx="1613.67" cy="3474.17" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-10" class="station" data-line="9" cx="968.08" cy="3665.09" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-11" class="station" data-line="9" cx="1301.33" cy="3474.34" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-12" class="station" data-line="9" cx="4915.5" cy="2531.84" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-13" class="station" data-line="9" cx="5052.5" cy="2531.84" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-14" class="station" data-line="9" cx="3505.84" cy="3119.83" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-15" class="station" data-line="9" cx="5191.33" cy="2532.67" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-16" class="station" data-line="9" cx="3750.0" cy="3052.5" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-17" class="station" data-line="9" cx="4398.58" cy="3001.92" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-18" class="station" data-line="9" data-tgroup="T044" cx="4506.36" cy="2858.19" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-19" class="station" data-line="9" data-tgroup="T045" cx="4215.14" cy="3027.0" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-20" class="station" data-line="9" data-tgroup="T045" cx="4197.71" cy="3027.0" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-21" class="station" data-line="9" data-tgroup="T008" cx="3897.28" cy="3027.0" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-22" class="station" data-line="9" cx="2499.5" cy="3242.54" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-23" class="station" data-line="9" data-tgroup="T003" cx="2390.28" cy="3242.54" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="09-24" class="station" data-line="9" data-tgroup="T015" cx="2145.12" cy="3248.03" r="18" fill="white" stroke="#87c9ec" stroke-width="6" style="cursor:pointer" />
+<circle id="10-01" class="station" data-line="10" cx="4253.75" cy="1225.77" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-02" class="station" data-line="10" cx="1776.5" cy="2871.34" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-03" class="station" data-line="10" cx="1776.5" cy="2871.34" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-04" class="station" data-line="10" cx="1523.33" cy="2987.84" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-05" class="station" data-line="10" cx="1385.17" cy="3124.67" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-06" class="station" data-line="10" cx="3724.71" cy="1905.46" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-07" class="station" data-line="10" cx="1308.83" cy="2831.0" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-08" class="station" data-line="10" cx="4823.5" cy="1180.34" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-09" class="station" data-line="10" cx="1181.17" cy="3236.34" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-10" class="station" data-line="10" cx="3918.0" cy="1749.09" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-11" class="station" data-line="10" cx="3918.0" cy="1445.96" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-12" class="station" data-line="10" cx="3918.0" cy="1547.0" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-13" class="station" data-line="10" cx="1520.83" cy="2824.0" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-14" class="station" data-line="10" cx="4032.75" cy="1178.5" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-15" class="station" data-line="10" cx="4392.0" cy="1178.5" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-16" class="station" data-line="10" cx="4528.5" cy="1178.5" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-17" class="station" data-line="10" cx="1954.7" cy="2931.54" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-18" class="station" data-line="10" cx="2419.0" cy="3038.34" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-19" class="station" data-line="10" cx="2037.19" cy="3020.69" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-20" class="station" data-line="10" cx="2037.19" cy="3020.69" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-21" class="station" data-line="10" cx="3581.63" cy="2123.13" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-22" class="station" data-line="10" data-tgroup="T038" cx="4664.83" cy="1204.77" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-23" class="station" data-line="10" data-tgroup="T042" cx="3661.49" cy="2002.2" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-24" class="station" data-line="10" data-tgroup="T029" cx="3469.19" cy="2202.67" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-25" class="station" data-line="10" cx="3463.33" cy="2561.27" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-26" class="station" data-line="10" cx="3463.33" cy="2672.91" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-27" class="station" data-line="10" data-tgroup="T046" cx="3458.64" cy="2936.19" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-28" class="station" data-line="10" data-tgroup="T047" cx="3099.89" cy="3061.38" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-29" class="station" data-line="10" data-tgroup="T016" cx="2095.72" cy="3041.9" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-30" class="station" data-line="10" cx="1723.18" cy="2850.11" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-31" class="station" data-line="10" data-tgroup="T011" cx="1194.29" cy="2850.11" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="10-32" class="station" data-line="10" data-tgroup="T011" cx="1162.77" cy="2850.11" r="18" fill="white" stroke="#c6afd3" stroke-width="6" style="cursor:pointer" />
+<circle id="11-01" class="station" data-line="11" cx="607.5" cy="1390.22" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-02" class="station" data-line="11" cx="1859.94" cy="1795.9" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-03" class="station" data-line="11" cx="3302.5" cy="4274.29" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-04" class="station" data-line="11" cx="3489.83" cy="4277.14" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-05" class="station" data-line="11" cx="3678.5" cy="4276.47" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-06" class="station" data-line="11" cx="4518.44" cy="4428.2" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-07" class="station" data-line="11" cx="1102.83" cy="758.34" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-08" class="station" data-line="11" cx="4594.05" cy="4554.2" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-09" class="station" data-line="11" cx="2525.34" cy="3874.84" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-10" class="station" data-line="11" cx="728.83" cy="1367.67" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-11" class="station" data-line="11" cx="483.5" cy="1442.67" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-12" class="station" data-line="11" cx="1104.5" cy="498.34" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-13" class="station" data-line="11" cx="2666.5" cy="4012.67" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-14" class="station" data-line="11" cx="1304.5" cy="1172.0" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-15" class="station" data-line="11" cx="1697.5" cy="1564.34" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-16" class="station" data-line="11" cx="1797.33" cy="1663.5" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-17" class="station" data-line="11" cx="1599.5" cy="1465.0" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-18" class="station" data-line="11" cx="1500.67" cy="1366.17" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-19" class="station" data-line="11" data-tgroup="T048" cx="4025.93" cy="4301.17" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-20" class="station" data-line="11" cx="354.59" cy="1419.0" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-21" class="station" data-line="11" data-tgroup="T033" cx="3057.1" cy="4146.01" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-22" class="station" data-line="11" cx="2869.42" cy="4137.96" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-23" class="station" data-line="11" data-tgroup="T049" cx="2353.82" cy="3735.51" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-24" class="station" data-line="11" cx="2329.36" cy="3118.44" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-25" class="station" data-line="11" cx="2327.09" cy="2780.25" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-26" class="station" data-line="11" cx="2325.3" cy="2514.47" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-27" class="station" data-line="11" data-tgroup="T027" cx="2323.85" cy="2298.22" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="11-28" class="station" data-line="11" data-tgroup="T050" cx="2151.21" cy="2055.17" r="18" fill="white" stroke="#861a2a" stroke-width="6" style="cursor:pointer" />
+<circle id="12-01" class="station" data-line="12" cx="4316.5" cy="2180.5" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-02" class="station" data-line="12" cx="4714.25" cy="2141.0" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-03" class="station" data-line="12" cx="4880.5" cy="2231.75" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-04" class="station" data-line="12" cx="4149.25" cy="2180.25" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-05" class="station" data-line="12" cx="4236.5" cy="2137.5" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-06" class="station" data-line="12" cx="4451.0" cy="2137.25" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-07" class="station" data-line="12" cx="1584.25" cy="3733.5" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-08" class="station" data-line="12" cx="1584.25" cy="3733.5" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-09" class="station" data-line="12" cx="1101.5" cy="3898.5" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-10" class="station" data-line="12" cx="3741.0" cy="2377.0" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-11" class="station" data-line="12" cx="4062.5" cy="2134.25" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-12" class="station" data-line="12" cx="1516.87" cy="3798.13" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-13" class="station" data-line="12" cx="1670.25" cy="3684.0" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-14" class="station" data-line="12" cx="1360.5" cy="3895.5" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-15" class="station" data-line="12" cx="4860.0" cy="2453.55" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-16" class="station" data-line="12" data-tgroup="T037" cx="4542.14" cy="2159.5" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-17" class="station" data-line="12" data-tgroup="T051" cx="3913.87" cy="2169.95" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-18" class="station" data-line="12" data-tgroup="T030" cx="3804.51" cy="2278.99" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-19" class="station" data-line="12" cx="3158.9" cy="2458.18" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-20" class="station" data-line="12" cx="2919.0" cy="2780.47" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-21" class="station" data-line="12" data-tgroup="T052" cx="2814.79" cy="2927.14" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-22" class="station" data-line="12" cx="2808.95" cy="3297.18" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-23" class="station" data-line="12" cx="2808.95" cy="3425.14" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-24" class="station" data-line="12" data-tgroup="T040" cx="2605.0" cy="3710.62" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-25" class="station" data-line="12" cx="2448.59" cy="3710.62" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-26" class="station" data-line="12" data-tgroup="T049" cx="2353.82" cy="3710.62" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-27" class="station" data-line="12" cx="1848.37" cy="3710.62" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="12-28" class="station" data-line="12" cx="1276.84" cy="3922.81" r="18" fill="white" stroke="#00785f" stroke-width="6" style="cursor:pointer" />
+<circle id="13-01" class="station" data-line="13" cx="3780.5" cy="3950.87" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-02" class="station" data-line="13" cx="3961.17" cy="3951.67" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-03" class="station" data-line="13" cx="1656.83" cy="2399.67" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-04" class="station" data-line="13" cx="1656.83" cy="2399.67" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-05" class="station" data-line="13" cx="4745.17" cy="4006.34" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-06" class="station" data-line="13" cx="4876.17" cy="4006.34" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-07" class="station" data-line="13" cx="4615.83" cy="4006.34" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-08" class="station" data-line="13" cx="1389.5" cy="2207.67" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-09" class="station" data-line="13" cx="3870.83" cy="3906.67" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-10" class="station" data-line="13" cx="3075.5" cy="3638.58" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-11" class="station" data-line="13" cx="3075.5" cy="3638.58" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-12" class="station" data-line="13" cx="2760.83" cy="2432.34" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-13" class="station" data-line="13" cx="3690.83" cy="3904.67" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-14" class="station" data-line="13" cx="895.17" cy="2205.0" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-15" class="station" data-line="13" cx="1134.17" cy="2205.0" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-16" class="station" data-line="13" data-tgroup="T043" cx="3316.53" cy="3930.62" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-17" class="station" data-line="13" cx="3099.89" cy="3724.79" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-18" class="station" data-line="13" cx="3099.89" cy="3299.18" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-19" class="station" data-line="13" cx="3099.89" cy="3146.27" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-20" class="station" data-line="13" data-tgroup="T047" cx="3099.89" cy="3099.47" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-21" class="station" data-line="13" data-tgroup="T004" cx="3047.78" cy="2990.5" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-22" class="station" data-line="13" cx="3006.17" cy="2662.34" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-23" class="station" data-line="13" cx="3006.17" cy="2619.14" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-24" class="station" data-line="13" cx="1768.76" cy="2456.75" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="13-25" class="station" data-line="13" cx="1443.42" cy="2231.29" r="18" fill="white" stroke="#e899c0" stroke-width="6" style="cursor:pointer" />
+<circle id="14-01" class="station" data-line="14" cx="4870.0" cy="2864.58" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-02" class="station" data-line="14" cx="2433.25" cy="2603.75" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-03" class="station" data-line="14" cx="1551.86" cy="1974.25" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-04" class="station" data-line="14" cx="4724.0" cy="2908.25" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-05" class="station" data-line="14" cx="1802.25" cy="2016.75" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-06" class="station" data-line="14" cx="1480.75" cy="1903.0" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-07" class="station" data-line="14" cx="1333.25" cy="1830.5" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-08" class="station" data-line="14" cx="5159.75" cy="2909.0" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-09" class="station" data-line="14" cx="5014.5" cy="2910.5" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-10" class="station" data-line="14" cx="4274.97" cy="2525.99" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-11" class="station" data-line="14" cx="773.5" cy="1827.75" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-12" class="station" data-line="14" cx="961.25" cy="1827.75" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-13" class="station" data-line="14" cx="1148.36" cy="1827.75" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-14" class="station" data-line="14" cx="2297.5" cy="2075.0" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-15" class="station" data-line="14" cx="4104.12" cy="2696.63" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-16" class="station" data-line="14" cx="4104.12" cy="2696.63" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-17" class="station" data-line="14" data-tgroup="T050" cx="2166.88" cy="2039.5" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-18" class="station" data-line="14" cx="2447.37" cy="2405.88" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-19" class="station" data-line="14" data-tgroup="T041" cx="2613.91" cy="2754.99" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-20" class="station" data-line="14" data-tgroup="T052" cx="2814.86" cy="2899.18" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-21" class="station" data-line="14" data-tgroup="T005" cx="3096.52" cy="2899.93" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-22" class="station" data-line="14" cx="3381.97" cy="2900.68" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-23" class="station" data-line="14" data-tgroup="T046" cx="3449.08" cy="2898.98" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-24" class="station" data-line="14" data-tgroup="T010" cx="3707.29" cy="2778.03" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-25" class="station" data-line="14" data-tgroup="T009" cx="3772.15" cy="2777.4" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-26" class="station" data-line="14" data-tgroup="T031" cx="3941.67" cy="2775.75" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-27" class="station" data-line="14" data-tgroup="T053" cx="4217.41" cy="2622.75" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-28" class="station" data-line="14" data-tgroup="T053" cx="4233.0" cy="2606.64" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-29" class="station" data-line="14" data-tgroup="T036" cx="4464.6" cy="2563.65" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-30" class="station" data-line="14" cx="4465.0" cy="2640.24" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-31" class="station" data-line="14" cx="4465.0" cy="2826.16" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-32" class="station" data-line="14" data-tgroup="T044" cx="4534.33" cy="2886.36" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="14-33" class="station" data-line="14" cx="4694.81" cy="2886.03" r="18" fill="white" stroke="#626020" stroke-width="6" style="cursor:pointer" />
+<circle id="15-01" class="station" data-line="15" cx="2125.25" cy="4155.5" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-02" class="station" data-line="15" cx="2125.25" cy="4274.0" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-03" class="station" data-line="15" cx="2125.25" cy="4717.0" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-04" class="station" data-line="15" cx="2125.25" cy="4856.5" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-05" class="station" data-line="15" cx="2126.25" cy="4995.75" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-06" class="station" data-line="15" cx="2126.25" cy="5136.5" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-07" class="station" data-line="15" cx="2041.17" cy="1695.05" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-08" class="station" data-line="15" cx="1959.89" cy="1014.89" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-09" class="station" data-line="15" cx="2041.17" cy="1491.0" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-10" class="station" data-line="15" cx="2041.17" cy="1593.9" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-11" class="station" data-line="15" cx="2127.75" cy="5277.0" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-12" class="station" data-line="15" cx="1793.83" cy="3182.67" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-13" class="station" data-line="15" cx="1854.41" cy="2540.0" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-14" class="station" data-line="15" cx="1900.43" cy="2193.74" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-15" class="station" data-line="15" cx="2015.47" cy="2091.45" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-16" class="station" data-line="15" cx="1879.65" cy="2404.28" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-17" class="station" data-line="15" cx="1880.24" cy="2668.93" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="15-18" class="station" data-line="15" cx="1768.48" cy="3395.35" r="18" fill="white" stroke="#cab08d" stroke-width="6" style="cursor:pointer" />
+<circle id="16-01" class="station" data-line="16" cx="4481.25" cy="5469.75" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-02" class="station" data-line="16" cx="4371.25" cy="5054.0" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-03" class="station" data-line="16" cx="4373.25" cy="4530.25" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-04" class="station" data-line="16" cx="5175.25" cy="5791.0" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-05" class="station" data-line="16" cx="4892.0" cy="5507.25" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-06" class="station" data-line="16" cx="5079.0" cy="5697.5" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-07" class="station" data-line="16" cx="4652.5" cy="5421.0" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-08" class="station" data-line="16" cx="4816.5" cy="5421.0" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-09" class="station" data-line="16" cx="4984.38" cy="5602.63" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-10" class="station" data-line="16" data-tgroup="T054" cx="4277.14" cy="3532.0" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-11" class="station" data-line="16" cx="4350.5" cy="4080.66" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-12" class="station" data-line="16" cx="4350.5" cy="4246.72" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-13" class="station" data-line="16" cx="4350.5" cy="4423.05" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-14" class="station" data-line="16" cx="4805.69" cy="5446.0" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-15" class="station" data-line="16" cx="4963.46" cy="5546.24" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-16" class="station" data-line="16" cx="5049.78" cy="5632.81" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="16-17" class="station" data-line="16" cx="5147.45" cy="5730.75" r="18" fill="white" stroke="#98d1c0" stroke-width="6" style="cursor:pointer" />
+<circle id="17-01" class="station" data-line="17" data-tgroup="T012" cx="955.39" cy="2801.0" r="18" fill="white" stroke="#bc7970" stroke-width="6" style="cursor:pointer" />
+<circle id="17-02" class="station" data-line="17" cx="571.66" cy="3308.34" r="18" fill="white" stroke="#bc7970" stroke-width="6" style="cursor:pointer" />
+<circle id="17-03" class="station" data-line="17" cx="571.66" cy="3187.67" r="18" fill="white" stroke="#bc7970" stroke-width="6" style="cursor:pointer" />
+<circle id="17-04" class="station" data-line="17" cx="453.53" cy="3885.97" r="18" fill="white" stroke="#bc7970" stroke-width="6" style="cursor:pointer" />
+<circle id="17-05" class="station" data-line="17" cx="538.8" cy="3792.7" r="18" fill="white" stroke="#bc7970" stroke-width="6" style="cursor:pointer" />
+<circle id="17-06" class="station" data-line="17" data-tgroup="T014" cx="664.91" cy="2848.26" r="18" fill="white" stroke="#bc7970" stroke-width="6" style="cursor:pointer" />
+<circle id="17-07" class="station" data-line="17" cx="597.08" cy="2915.99" r="18" fill="white" stroke="#bc7970" stroke-width="6" style="cursor:pointer" />
+<circle id="17-08" class="station" data-line="17" cx="597.08" cy="2915.99" r="18" fill="white" stroke="#bc7970" stroke-width="6" style="cursor:pointer" />
+<circle id="17-09" class="station" data-line="17" data-tgroup="T013" cx="819.81" cy="2801.0" r="18" fill="white" stroke="#bc7970" stroke-width="6" style="cursor:pointer" />
+<circle id="17-10" class="station" data-line="17" data-tgroup="T013" cx="782.79" cy="2801.0" r="18" fill="white" stroke="#bc7970" stroke-width="6" style="cursor:pointer" />
+<circle id="18-01" class="station" data-line="18" data-tgroup="T026" cx="3519.27" cy="1282.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-02" class="station" data-line="18" cx="4043.17" cy="5458.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-03" class="station" data-line="18" cx="4043.17" cy="5294.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-04" class="station" data-line="18" cx="4043.17" cy="5294.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-05" class="station" data-line="18" cx="4043.17" cy="5458.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-06" class="station" data-line="18" cx="4128.83" cy="2363.34" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-07" class="station" data-line="18" cx="4052.17" cy="2287.38" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-08" class="station" data-line="18" cx="3543.83" cy="1432.67" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-09" class="station" data-line="18" cx="4041.5" cy="5127.34" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-10" class="station" data-line="18" cx="4041.5" cy="4628.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-11" class="station" data-line="18" cx="4041.5" cy="4794.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-12" class="station" data-line="18" cx="4041.5" cy="5127.34" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-13" class="station" data-line="18" cx="4041.5" cy="4628.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-14" class="station" data-line="18" cx="4041.5" cy="4960.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-15" class="station" data-line="18" cx="4189.17" cy="3920.34" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-16" class="station" data-line="18" cx="4189.17" cy="3808.67" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-17" class="station" data-line="18" cx="3692.17" cy="1665.34" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-18" class="station" data-line="18" cx="3581.5" cy="1553.67" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-19" class="station" data-line="18" cx="3903.97" cy="1875.86" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-20" class="station" data-line="18" cx="4039.5" cy="4461.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-21" class="station" data-line="18" cx="4039.5" cy="4461.0" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-22" class="station" data-line="18" cx="3787.9" cy="1797.46" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-23" class="station" data-line="18" data-tgroup="T051" cx="3959.96" cy="2153.44" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-24" class="station" data-line="18" cx="4106.01" cy="2306.66" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-25" class="station" data-line="18" data-tgroup="T053" cx="4197.71" cy="2572.48" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-26" class="station" data-line="18" data-tgroup="T053" cx="4197.71" cy="2603.68" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-27" class="station" data-line="18" data-tgroup="T035" cx="4197.71" cy="2814.78" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-28" class="station" data-line="18" cx="4197.71" cy="2898.11" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-29" class="station" data-line="18" data-tgroup="T045" cx="4197.71" cy="2978.49" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-30" class="station" data-line="18" data-tgroup="T045" cx="4215.14" cy="3044.58" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-31" class="station" data-line="18" cx="4261.5" cy="3201.4" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-32" class="station" data-line="18" data-tgroup="T039" cx="4261.5" cy="3401.98" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-33" class="station" data-line="18" data-tgroup="T054" cx="4261.5" cy="3536.55" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-34" class="station" data-line="18" cx="4163.5" cy="4080.66" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+<circle id="18-35" class="station" data-line="18" data-tgroup="T048" cx="4066.44" cy="4303.02" r="18" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
+</g></svg>

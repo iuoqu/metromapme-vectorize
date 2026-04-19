@@ -4,14 +4,24 @@ import MetroSchematic, {
   StationId,
 } from "@/MetroSchematic";
 
-const EXAMPLE_ROUTES: Record<string, string> = {
-  "L1 partial": "01-04,01-05,01-06,01-07,01-08,01-09",
-  "L2 partial": "02-10,02-11,02-12,02-13,02-14,02-15",
-  "L1→L4 via transfer": "01-08,01-09,01-10,04-05,04-06,04-07",
+type Version = "v1" | "v2";
+
+const EXAMPLE_ROUTES: Record<Version, Record<string, string>> = {
+  v1: {
+    "L1 partial": "01-04,01-05,01-06,01-07,01-08,01-09",
+    "L2 partial": "02-10,02-11,02-12,02-13,02-14,02-15",
+    "L1→L4 via transfer": "01-08,01-09,01-10,04-05,04-06,04-07",
+  },
+  v2: {
+    "L1 partial": "01-04,01-05,01-06,01-07,01-08,01-09,01-10",
+    "L2 partial": "02-10,02-11,02-12,02-13,02-14,02-15",
+    "L1↔L4 transfer": "01-08,01-09,04-05,04-06",
+  },
 };
 
 export default function App() {
   const schRef = useRef<MetroSchematicHandle>(null);
+  const [version, setVersion] = useState<Version>("v2");
   const [inputValue, setInputValue] = useState("");
   const [highlighted, setHighlighted] = useState<StationId[]>([]);
   const [lastClicked, setLastClicked] = useState<StationId | null>(null);
@@ -61,6 +71,27 @@ export default function App() {
           Shanghai Metro Schematic
         </span>
 
+        <div style={{ display: "flex", gap: 4 }}>
+          {(["v2", "v1"] as Version[]).map((v) => (
+            <button
+              key={v}
+              onClick={() => {
+                setVersion(v);
+                setHighlighted([]);
+                setInputValue("");
+                schRef.current?.clearHighlight();
+              }}
+              style={btnStyle(version === v ? "#e8c94a" : "#333", {
+                color: version === v ? "#000" : "#ccc",
+                fontWeight: 600,
+                fontSize: 11,
+              })}
+            >
+              {v.toUpperCase()}{v === "v2" ? " (with names)" : ""}
+            </button>
+          ))}
+        </div>
+
         <textarea
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
@@ -88,7 +119,7 @@ export default function App() {
         </button>
 
         <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-          {Object.entries(EXAMPLE_ROUTES).map(([label, ids]) => (
+          {Object.entries(EXAMPLE_ROUTES[version]).map(([label, ids]) => (
             <button
               key={label}
               onClick={() => handleExampleClick(ids)}
@@ -114,7 +145,9 @@ export default function App() {
       {/* ── Map area ── */}
       <div style={{ flex: 1, minHeight: 0 }}>
         <MetroSchematic
+          key={version}  /* force remount on version switch */
           ref={schRef}
+          baseUrl={`/${version}/`}
           highlightedStations={highlighted.length > 0 ? highlighted : undefined}
           onStationClick={handleStationClick}
           style={{ width: "100%", height: "100%" }}
