@@ -603,6 +603,51 @@ def build_station_labels(spans: list[TextSpan]) -> list[StationLabel]:
     return labels
 
 
+# ── Phase 4a: extract non-transfer station "tick" markers ────────────
+def extract_station_ticks(
+    page: fitz.Page, color_to_line: dict[tuple, str]
+) -> dict[str, list[tuple[float, float]]]:
+    """
+    Each non-transfer station in the v2 PDF is rendered as a single short
+    perpendicular stroke of the line's color (length ~25pt, width = line width).
+    Group these per line and return their midpoints as exact station positions.
+    """
+    per_line: dict[str, list[tuple[float, float]]] = defaultdict(list)
+    for d in page.get_drawings():
+        if d.get("type") != "s":
+            continue
+        w = d.get("width", 0)
+        if abs(w - LINE_STROKE_WIDTH) >= 0.5 and abs(w - 8.0) >= 0.5:
+            continue
+        items = d.get("items", [])
+        if len(items) != 1 or items[0][0] != "l":
+            continue
+        it = items[0]
+        p0 = (it[1].x, it[1].y)
+        p1 = (it[2].x, it[2].y)
+        seg_len = math.hypot(p0[0] - p1[0], p0[1] - p1[1])
+        if not (16 <= seg_len <= 34):
+            continue
+        c = d.get("color")
+        if not c:
+            continue
+        c_rounded = tuple(round(x, 3) for x in c)
+        if color_close(c_rounded, (1, 1, 1)) or color_close(c_rounded, (0, 0, 0)):
+            continue
+        line_id, best_dist = None, float("inf")
+        for cl, lid in color_to_line.items():
+            dist = sum(abs(c_rounded[i] - cl[i]) for i in range(3))
+            if dist < best_dist:
+                best_dist = dist
+                line_id = lid
+        if line_id is None or best_dist >= 3 * COLOR_TOL:
+            continue
+        cx = (p0[0] + p1[0]) / 2
+        cy = (p0[1] + p1[1]) / 2
+        per_line[line_id].append((cx, cy))
+    return per_line
+
+
 # ── Phase 4: extract per-color polylines ─────────────────────────────
 def extract_polylines_per_color(
     page: fitz.Page, color_to_line: dict[tuple, str]
@@ -863,9 +908,104 @@ def _closest_point_on_polyline(
     return best_pt
 
 
+# ── Phase 5b: geometry-first station assignment ──────────────────────
+def assign_stations_geometric(
+    labels: list[StationLabel],
+    ticks_per_line: dict[str, list[tuple[float, float]]],
+    transfer_clusters: list[dict],
+    polylines_per_line: dict[str, list[list[tuple[float, float]]]],
+) -> tuple[
+    dict[str, list[tuple[StationLabel, float, float, float, str]]],
+    dict[int, set[str]],
+]:
+    """
+    Geometry-first station extraction:
+      * Tick marks (1-segment width-16 strokes) are exact non-transfer station positions.
+      * Transfer cluster centers are exact transfer station positions; line membership
+        is determined by which polylines pass within TRANSFER_CLUSTER_TOL_PT.
+      * Chinese labels are matched to markers by nearest-neighbor (only for naming).
+
+    Returns:
+      per_line: line_id -> [(label, x, y, arc_len, marker_id)] sorted by arc_len
+      cluster_lines: cluster_idx -> set of line_ids that pass through this transfer cluster
+    """
+    # Determine which lines pass through each transfer cluster
+    cluster_lines: dict[int, set[str]] = {}
+    for ci, cl in enumerate(transfer_clusters):
+        cx, cy = cl["cx"], cl["cy"]
+        members = set()
+        for line_id, polys in polylines_per_line.items():
+            best_d = float("inf")
+            for poly in polys:
+                d, _ = project_to_polyline((cx, cy), poly)
+                if d < best_d:
+                    best_d = d
+            if best_d <= TRANSFER_CLUSTER_TOL_PT:
+                members.add(line_id)
+        cluster_lines[ci] = members
+
+    # Collect every (line_id, x, y, marker_id) station position
+    all_markers: list[tuple[str, float, float, str]] = []
+    for line_id, ticks in ticks_per_line.items():
+        for i, (x, y) in enumerate(ticks):
+            all_markers.append((line_id, x, y, f"tick:{line_id}:{i}"))
+    for ci, members in cluster_lines.items():
+        cl = transfer_clusters[ci]
+        # Snap to each line's polyline so the marker sits on that line, not at the
+        # cluster centroid (which is between lines)
+        for line_id in members:
+            polys = polylines_per_line[line_id]
+            best_d, best_pt = float("inf"), (cl["cx"], cl["cy"])
+            for poly in polys:
+                d, _ = project_to_polyline((cl["cx"], cl["cy"]), poly)
+                if d < best_d:
+                    best_d = d
+                    best_pt = _closest_point_on_polyline((cl["cx"], cl["cy"]), poly)
+            all_markers.append((line_id, best_pt[0], best_pt[1], f"trans:{ci}"))
+
+    # Match labels to markers by nearest-neighbor.
+    # A transfer label can apply to multiple markers (one per line), so labels
+    # are matched per-marker; non-transfer labels naturally end up at their nearest tick.
+    marker_to_label: dict[str, StationLabel] = {}
+    for line_id, x, y, mid in all_markers:
+        if mid in marker_to_label:
+            continue
+        best_d, best_lab = float("inf"), None
+        for label in labels:
+            d = math.hypot(label.x - x, label.y - y)
+            if d < best_d:
+                best_d = d
+                best_lab = label
+        # Within 200pt — beyond that, no naming
+        if best_lab and best_d <= 200:
+            marker_to_label[mid] = best_lab
+
+    # Build per_line
+    per_line: dict[str, list[tuple[StationLabel, float, float, float, str]]] = defaultdict(list)
+    for line_id, x, y, mid in all_markers:
+        polys = polylines_per_line.get(line_id, [])
+        # arc-length on this line
+        best_d, arc = float("inf"), 0.0
+        for poly in polys:
+            d, a = project_to_polyline((x, y), poly)
+            if d < best_d:
+                best_d = d
+                arc = a
+        label = marker_to_label.get(mid) or StationLabel(
+            name_en="", name_zh="", x=x, y=y, spans=[]
+        )
+        per_line[line_id].append((label, x, y, arc, mid))
+
+    # Sort each line by arc-length
+    for lid in per_line:
+        per_line[lid].sort(key=lambda e: e[3])
+
+    return per_line, cluster_lines
+
+
 # ── Phase 6: compute station IDs + transfer clusters ─────────────────
 def compute_station_ids_and_transfers(
-    per_line: dict[str, list[tuple[StationLabel, float, float, float]]],
+    per_line: dict[str, list[tuple[StationLabel, float, float, float, str]]],
     polylines_per_line: dict[str, list[list[tuple[float, float]]]],
 ) -> tuple[dict[str, dict], list[dict], list[dict]]:
     """
@@ -873,25 +1013,25 @@ def compute_station_ids_and_transfers(
       - stations: {station_id: {line, x, y, name_en, name_zh, transfer_group}}
       - lines_data: [{id, color, trunk, branches}]
       - transfers: [{group_id, station_ids, center_x, center_y}]
+
+    Each per_line entry is (label, x, y, arc_len, marker_id).  Markers prefixed
+    with "trans:<idx>" are transfer-cluster markers; sids sharing the same
+    marker_id are the same physical transfer station on different lines.
     """
     stations: dict[str, dict] = {}
     lines_data: list[dict] = []
-    label_to_ids: dict[int, list[str]] = defaultdict(list)  # by label id()
+    marker_to_sids: dict[str, list[str]] = defaultdict(list)
 
     sorted_line_ids = _sort_line_ids(per_line.keys())
 
     for line_id in sorted_line_ids:
         entries = per_line[line_id]
-        # For loop lines, we'd want to start at westernmost and go clockwise;
-        # in v2, we approximate with arc-length ordering only (loops handled
-        # by the polyline naturally if it's a closed curve).
-        if line_id in LOOP_LINES:
-            # Find the entry with smallest x — start there
+        if line_id in LOOP_LINES and entries:
             start_idx = min(range(len(entries)), key=lambda i: entries[i][1])
             entries = entries[start_idx:] + entries[:start_idx]
 
         trunk_ids = []
-        for i, (label, x, y, arc) in enumerate(entries, start=1):
+        for i, (label, x, y, arc, mid) in enumerate(entries, start=1):
             sid = f"{_pad(line_id)}-{i:02d}"
             trunk_ids.append(sid)
             stations[sid] = {
@@ -902,7 +1042,7 @@ def compute_station_ids_and_transfers(
                 "name_zh": label.name_zh,
                 "transfer_group": None,
             }
-            label_to_ids[id(label)].append(sid)
+            marker_to_sids[mid].append(sid)
 
         lines_data.append({
             "id": line_id,
@@ -910,18 +1050,8 @@ def compute_station_ids_and_transfers(
             "branches": {},
         })
 
-    # Transfer clustering: a label that maps to multiple lines = transfer
-    # Also do a positional cluster pass for nearby distinct labels (rare)
+    # Transfer detection: marker_ids that begin with "trans:" cluster their sids
     transfers: list[dict] = []
-    seen: set[str] = set()
-
-    # First pass: same label, multiple lines
-    same_label_groups: list[list[str]] = []
-    for label_obj_id, sids in label_to_ids.items():
-        if len(sids) >= 2:
-            same_label_groups.append(sids)
-
-    # Second pass: positional clustering across all stations not yet grouped
     sid_list = list(stations.keys())
     parent = {sid: sid for sid in sid_list}
 
@@ -936,23 +1066,10 @@ def compute_station_ids_and_transfers(
         if ra != rb:
             parent[ra] = rb
 
-    for group in same_label_groups:
-        for sid in group[1:]:
-            union(group[0], sid)
-
-    # Spatial clustering (different lines, close coords)
-    for i, sa in enumerate(sid_list):
-        ma = stations[sa]
-        for sb in sid_list[i + 1:]:
-            mb = stations[sb]
-            if ma["line"] == mb["line"]:
-                continue
-            if abs(ma["x"] - mb["x"]) > TRANSFER_CLUSTER_TOL_PT:
-                continue
-            if abs(ma["y"] - mb["y"]) > TRANSFER_CLUSTER_TOL_PT:
-                continue
-            if math.hypot(ma["x"] - mb["x"], ma["y"] - mb["y"]) <= TRANSFER_CLUSTER_TOL_PT:
-                union(sa, sb)
+    for mid, sids in marker_to_sids.items():
+        if mid.startswith("trans:") and len(sids) >= 2:
+            for s in sids[1:]:
+                union(sids[0], s)
 
     cluster_map: dict[str, list[str]] = defaultdict(list)
     for sid in sid_list:
@@ -1236,8 +1353,21 @@ def main() -> int:
         n = sum(len(p) for p in polys)
         print(f"  Line {lid}: {len(polys)} polylines, {n} pts")
 
-    print("→ Assigning stations to lines...")
-    per_line = assign_stations_to_lines(labels, polylines)
+    print("→ Extracting station tick markers...")
+    ticks_per_line = extract_station_ticks(page, color_to_line)
+    for lid, ticks in sorted(ticks_per_line.items()):
+        print(f"  Line {lid}: {len(ticks)} ticks")
+    total_ticks = sum(len(t) for t in ticks_per_line.values())
+    print(f"  Total non-transfer markers: {total_ticks}")
+
+    print("→ Extracting transfer marker clusters...")
+    transfer_clusters = extract_station_marker_clusters(page)
+    print(f"  {len(transfer_clusters)} transfer clusters")
+
+    print("→ Assigning stations geometrically...")
+    per_line, _ = assign_stations_geometric(
+        labels, ticks_per_line, transfer_clusters, polylines
+    )
 
     print("→ Computing IDs + transfers...")
     stations, lines_data, transfers = compute_station_ids_and_transfers(
