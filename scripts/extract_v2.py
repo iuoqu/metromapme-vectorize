@@ -739,6 +739,66 @@ def extract_white_bordered_line(page: fitz.Page) -> list[list[tuple[float, float
     return [chain] if len(chain) >= 5 else []
 
 
+def extract_al_polygon_ticks(page: fitz.Page) -> list[tuple[float, float]]:
+    """
+    The AL white-bordered polygon has small rectangular INDENTATIONS or V-notches
+    along its boundary at non-transfer station positions (三林南, 康桥东,
+    上海国际旅游度假区).  These show up as runs of 3+ consecutive short (<25pt)
+    items in the polygon's path.  Return the centroid of each run as a station
+    position on the AL line.
+    """
+    target = None
+    for d in page.get_drawings():
+        if d.get("type") != "fs":
+            continue
+        fill = d.get("fill")
+        c = d.get("color")
+        items = d.get("items", [])
+        if not fill or not c or len(items) < 20:
+            continue
+        if not all(x > 0.95 for x in fill):
+            continue
+        if not (0.4 < c[0] < 0.5 and abs(c[0] - c[1]) < 0.05 and abs(c[1] - c[2]) < 0.05):
+            continue
+        w = d.get("width", 0)
+        if abs((w or 0) - 2.0) > 0.5:
+            continue
+        target = d
+        break
+    if not target:
+        return []
+
+    def _item_len(it):
+        if it[0] == "l":
+            a, b = it[1], it[2]
+            return math.hypot(b.x - a.x, b.y - a.y)
+        if it[0] == "c":
+            a, b = it[1], it[4]
+            return math.hypot(b.x - a.x, b.y - a.y)
+        return 0.0
+
+    items = target["items"]
+    ticks: list[tuple[float, float]] = []
+    i = 0
+    while i < len(items):
+        if items[i][0] not in ("l", "c") or _item_len(items[i]) >= 25.0:
+            i += 1
+            continue
+        run_start = i
+        while i < len(items) and items[i][0] in ("l", "c") and _item_len(items[i]) < 25.0:
+            i += 1
+        if i - run_start >= 3:
+            pts = []
+            for j in range(run_start, i):
+                it = items[j]
+                pts.append(it[1])
+                pts.append(it[-1])
+            cx = sum(p.x for p in pts) / len(pts)
+            cy = sum(p.y for p in pts) / len(pts)
+            ticks.append((cx, cy))
+    return ticks
+
+
 def extract_al_rect_markers(page: fitz.Page) -> list[tuple[float, float]]:
     """
     Non-transfer station markers drawn as a rounded-rectangle shape with
@@ -1048,6 +1108,7 @@ def assign_stations_geometric(
     ticks_per_line: dict[str, list[tuple[float, float]]],
     transfer_clusters: list[dict],
     polylines_per_line: dict[str, list[list[tuple[float, float]]]],
+    polygon_tick_lines: set[str] | None = None,
 ) -> tuple[
     dict[str, list[tuple[StationLabel, float, float, float, str]]],
     dict[int, set[str]],
@@ -1099,7 +1160,11 @@ def assign_stations_geometric(
     # Allow single-line clusters for those lines (they're real station markers, not
     # decorative shapes). For lines WITH ticks, require ≥2 lines per cluster to
     # suppress false-positive decorative white shapes.
-    tick_lines = set(ticks_per_line.keys())
+    # tick_lines controls the single-line cluster filter and terminus filter.
+    # Lines whose ticks come only from polygon-boundary indents (AL) are NOT
+    # included here: their circle/box clusters (Pudong T1/T2) remain valid
+    # single-line clusters.
+    tick_lines = set(ticks_per_line.keys()) - (polygon_tick_lines or set())
 
     # Special case: a small-box cluster located at the TERMINUS (first/last polyline
     # point) of a non-tick line is that line's own station marker, not a shared
@@ -1624,12 +1689,14 @@ def main() -> int:
     print("→ Extracting line polylines...")
     polylines = extract_polylines_per_color(page, color_to_line)
 
-    # Merge the white-bordered AL centerline into AL's polyline set so its
-    # stations (drawn in the "white fill + gray border" style) can be
-    # detected by the same geometry-first assignment as other lines.
+    # Use the white-bordered polygon's centerline as AL's ONLY polyline.
+    # (Replace any color-extracted AL strokes — e.g. the teal auxiliary branch
+    # from (4314,3429) that's actually a decorative/maglev overlay, not the
+    # main AL route — otherwise it causes false station detection at 4314,3429
+    # and pulls 浦东T2 into AL when it should be merged with T1.)
     white_al = extract_white_bordered_line(page)
     if white_al:
-        polylines.setdefault("AL", []).extend(white_al)
+        polylines["AL"] = white_al
         print(f"  + AL white-bordered centerline: {len(white_al[0])} pts")
 
     for lid, polys in sorted(polylines.items()):
@@ -1638,6 +1705,16 @@ def main() -> int:
 
     print("→ Extracting station tick markers...")
     ticks_per_line = extract_station_ticks(page, color_to_line)
+
+    # AL's non-transfer stations (三林南, 康桥东, 上海国际旅游度假区) are drawn
+    # as tiny rectangular/V-notches in the AL polygon boundary itself, not as
+    # separate marker shapes. Detect them from the polygon path.
+    al_polygon_ticks = extract_al_polygon_ticks(page)
+    polygon_tick_lines: set[str] = set()
+    if al_polygon_ticks:
+        ticks_per_line.setdefault("AL", []).extend(al_polygon_ticks)
+        polygon_tick_lines.add("AL")
+        print(f"  + AL polygon-boundary ticks: {len(al_polygon_ticks)}")
 
     # 39×29 dark-gray bordered white-fill rectangles are handled via
     # extract_station_marker_clusters (flagged "small") with a tight
@@ -1654,7 +1731,8 @@ def main() -> int:
 
     print("→ Assigning stations geometrically...")
     per_line, _ = assign_stations_geometric(
-        labels, ticks_per_line, transfer_clusters, polylines
+        labels, ticks_per_line, transfer_clusters, polylines,
+        polygon_tick_lines=polygon_tick_lines,
     )
 
     print("→ Computing IDs + transfers...")

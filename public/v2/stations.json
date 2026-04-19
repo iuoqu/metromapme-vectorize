@@ -667,7 +667,8 @@
         "AL-03",
         "AL-04",
         "AL-05",
-        "AL-06"
+        "AL-06",
+        "AL-07"
       ],
       "branches": {},
       "color": "#0d7370",
@@ -4771,29 +4772,13 @@
     },
     "AL-02": {
       "line": "AL",
-      "x": 4313.83,
-      "y": 3429.36,
-      "name_en": "",
-      "name_zh": "",
-      "transfer_group": null
-    },
-    "AL-03": {
-      "line": "AL",
       "x": 1064.0,
       "y": 3537.92,
       "name_en": "",
       "name_zh": "中春路",
       "transfer_group": "T071"
     },
-    "AL-04": {
-      "line": "AL",
-      "x": 5158.83,
-      "y": 4919.19,
-      "name_en": "",
-      "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": null
-    },
-    "AL-05": {
+    "AL-03": {
       "line": "AL",
       "x": 2102.5,
       "y": 4350.0,
@@ -4801,12 +4786,36 @@
       "name_zh": "景洪路",
       "transfer_group": "T091"
     },
+    "AL-04": {
+      "line": "AL",
+      "x": 2849.6,
+      "y": 4367.21,
+      "name_en": "",
+      "name_zh": "三林南",
+      "transfer_group": null
+    },
+    "AL-05": {
+      "line": "AL",
+      "x": 4559.05,
+      "y": 4327.95,
+      "name_en": "",
+      "name_zh": "康桥东",
+      "transfer_group": null
+    },
     "AL-06": {
+      "line": "AL",
+      "x": 4766.42,
+      "y": 4427.63,
+      "name_en": "",
+      "name_zh": "",
+      "transfer_group": null
+    },
+    "AL-07": {
       "line": "AL",
       "x": 5120,
       "y": 4872,
       "name_en": "",
-      "name_zh": "",
+      "name_zh": "1&2浦东1号2号航站楼",
       "transfer_group": null
     },
     "Pujiang-01": {

@@ -312,9 +312,10 @@
 <rect id="18-15" class="station" data-line="18" x="3878.6" y="1874.3" width="32" height="22" rx="11" ry="11" fill="white" stroke="#c4984f" stroke-width="5" style="cursor:pointer" />
 <rect id="18-16" class="station" data-line="18" x="4036.9" y="4450.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#c4984f" stroke-width="5" style="cursor:pointer" />
 <rect id="AL-01" class="station" data-line="AL" x="1048.0" y="2817.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
-<rect id="AL-02" class="station" data-line="AL" x="4297.8" y="3418.4" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
-<rect id="AL-04" class="station" data-line="AL" x="5142.8" y="4908.2" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
-<rect id="AL-06" class="station" data-line="AL" x="5104.0" y="4861.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
+<rect id="AL-04" class="station" data-line="AL" x="2833.6" y="4356.2" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
+<rect id="AL-05" class="station" data-line="AL" x="4543.1" y="4316.9" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
+<rect id="AL-06" class="station" data-line="AL" x="4750.4" y="4416.6" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
+<rect id="AL-07" class="station" data-line="AL" x="5104.0" y="4861.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#0d7370" stroke-width="5" style="cursor:pointer" />
 <rect id="Pujiang-02" class="station" data-line="Pujiang" x="3020.2" y="5454.5" width="32" height="22" rx="11" ry="11" fill="white" stroke="#b6b6b6" stroke-width="5" style="cursor:pointer" />
 <rect id="Pujiang-03" class="station" data-line="Pujiang" x="3141.5" y="5107.7" width="32" height="22" rx="11" ry="11" fill="white" stroke="#b6b6b6" stroke-width="5" style="cursor:pointer" />
 <rect id="Pujiang-04" class="station" data-line="Pujiang" x="3141.5" y="5242.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#b6b6b6" stroke-width="5" style="cursor:pointer" />
@@ -520,7 +521,7 @@
 <circle id="18-23" class="station" data-line="18" data-tgroup="T012" cx="4261.5" cy="3365.2" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
 <circle id="18-24" class="station" data-line="18" data-tgroup="T086" cx="4163.5" cy="4029.3" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
 <circle id="18-25" class="station" data-line="18" data-tgroup="T078" cx="4066.5" cy="4302.4" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
-<circle id="AL-03" class="station" data-line="AL" data-tgroup="T071" cx="1064.0" cy="3537.9" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
-<circle id="AL-05" class="station" data-line="AL" data-tgroup="T091" cx="2102.5" cy="4350.0" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
+<circle id="AL-02" class="station" data-line="AL" data-tgroup="T071" cx="1064.0" cy="3537.9" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
+<circle id="AL-03" class="station" data-line="AL" data-tgroup="T091" cx="2102.5" cy="4350.0" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
 <circle id="Pujiang-01" class="station" data-line="Pujiang" data-tgroup="T064" cx="2949.5" cy="4953.4" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
 </g></svg>
