@@ -1756,7 +1756,8 @@ def write_clean_svg(
         meta = stations[sid]
         lid = meta["line"]
         if not meta.get("extend_line"):
-            prev_by_line[lid] = meta
+            # See note in write_overlay_svg: non-extension manual stations must
+            # NOT seed prev_by_line, otherwise they wrongly anchor the next chain.
             continue
         color = line_colors.get(lid, "#000")
         prev = prev_by_line.get(lid)
@@ -1890,7 +1891,10 @@ def write_overlay_svg(
     for sid in manual_sids:
         meta = stations[sid]
         if not meta.get("extend_line"):
-            prev_by_line[meta["line"]] = meta
+            # Non-extension manual stations (like L18 沈梅路 that sits on the
+            # existing polyline) must NOT seed prev_by_line — they belong to
+            # a different part of the line and would wrongly anchor the next
+            # extension chain (e.g. 通南路 → 沈梅路 instead of 通南路 → 长江南路).
             continue
         lid = meta["line"]
         color = line_colors.get(lid, "#000")
