@@ -1,55 +1,61 @@
 group_id,n_stations,diameter_pt,names_en,names_zh,station_ids
-T001,2,12.0,Xinzhuang / Xinzhuang,莘庄 / 莘庄,01-01 05-17
-T002,2,39.2,Shanghai Indoor Stadium / Shanghai Indoor Stadium,上海体育馆 / 上海体育馆,01-10 04-01
-T003,2,47.5,Xujiahui / Xujiahui,徐家汇 / 徐家汇,01-11 09-23
-T004,2,17.1,Congress ·Huangpi Rd. (S) / Congress ·Huangpi Rd. (S),一大会址·黄陂南路 / 一大会址·黄陂南路,01-12 13-18
-T005,2,45.7,Huaihai Rd. (M) / Huaihai Rd. (M),淮海中路 / 淮海中路,01-14 14-20
-T006,2,48.8,People's Square / People's Square,人民广场 / 人民广场,01-15 08-16
-T007,2,43.1,Pudong Airport Terminal / Pudong Airport Terminal,1&2浦东1号2号航站楼 / 1&2浦东1号2号航站楼,02-09 Pujiang-03
-T008,3,60.4,Century Ave. / Century Ave. / Century Ave.,世纪大道 / 世纪大道 / 世纪大道,02-14 04-17 09-21
-T009,2,22.6,Pudong Rd. (S) / Pudong Rd. (S),浦东南路 / 浦东南路,02-15 14-24
-T010,2,22.0,Lujiazui / Lujiazui,陆家嘴 / 陆家嘴,02-16 14-23
-T011,4,58.5,Hongqiao Airport / Terminal 2 / Hongqiao Airport / Terminal 2,虹桥2号 航站楼 / 虹桥2号 航站楼,02-19 02-20 10-29 10-30
-T012,2,22.0,Station / Station,虹桥火车站 / 虹桥火车站,02-21 17-01
-T013,4,43.3,Panxiang Rd. · / Panxiang Rd. ·,国家会展中心 / 国家会展中心,02-22 02-23 17-08 17-09
-T014,2,49.4,Panlong Rd. / Panlong Rd.,蟠龙路 / 蟠龙路,02-24 17-06
-T015,3,43.1,Yishan Rd. / Yishan Rd. / Yishan Rd.,宜山路 / 宜山路 / 宜山路,03-15 04-02 09-24
-T016,3,62.4,Hongqiao Rd. / Hongqiao Rd. / Hongqiao Rd.,虹桥路 / 虹桥路 / 虹桥路,03-16 04-03 10-27
-T017,2,17.5,Yan'an Rd. (W) / Yan'an Rd. (W),延安西路 / 延安西路,03-17 04-04
-T018,2,17.5,Zhongshan Park / Zhongshan Park,中山公园 / 中山公园,03-18 04-05
-T019,2,17.5,Jinshajiang Rd. / Jinshajiang Rd.,金沙江路 / 金沙江路,03-19 04-06
-T020,2,17.8,Fengqiao Rd. / Fengqiao Rd.,枫桥路 / 枫桥路,03-20 04-07
-T021,2,18.1,Zhongtan Rd. / Zhongtan Rd.,中潭路 / 中潭路,03-21 04-10
-T022,2,18.1,Shanghai Railway Station / Shanghai Railway Station,,03-22 04-11
-T023,2,18.1,,上海火车站 / 上海火车站,03-23 04-12
-T024,2,39.3,Baoshan Rd. / Baoshan Rd.,宝山路 / 宝山路,03-24 04-13
-T025,2,34.6,,虹口足球场 / 虹口足球场,03-25 08-14
-T026,2,19.2,Changjiang Rd. (S) / Changjiang Rd. (S),长江南路 / 长江南路,03-26 18-01
-T027,2,46.1,Caoyang Rd. / Caoyang Rd.,曹杨路 / 曹杨路,04-08 11-27
-T028,2,46.2,Zhenping Rd. / Zhenping Rd.,镇坪路 / 镇坪路,04-09 07-29
-T029,2,49.4,Hailun Rd. / Hailun Rd.,海伦路 / 海伦路,04-14 10-22
-T030,2,26.9,Dalian Rd. / Dalian Rd.,大连路 / 大连路,04-15 12-17
+T001,2,12.0,Xinzhuang / Xinzhuang,莘庄 / 莘庄,01-01 05-20
+T002,2,39.2,Shanghai Indoor Stadium / Shanghai Indoor Stadium,上海体育馆 / 上海体育馆,01-19 04-01
+T003,2,47.5,Xujiahui / Xujiahui,徐家汇 / 徐家汇,01-20 09-28
+T004,2,17.1,Congress ·Huangpi Rd. (S) / Congress ·Huangpi Rd. (S),一大会址·黄陂南路 / 一大会址·黄陂南路,01-21 13-18
+T005,2,45.7,Huaihai Rd. (M) / Huaihai Rd. (M),淮海中路 / 淮海中路,01-23 14-20
+T006,2,48.8,People's Square / People's Square,人民广场 / 人民广场,01-24 08-22
+T007,3,43.1,Pudong Airport Terminal / Pudong Airport Terminal / Pudong Airport Terminal,1&2浦东1号2号航站楼 / 1&2浦东1号2号航站楼 / 1&2浦东1号2号航站楼,02-09 07-25 AL-03
+T008,3,60.4,Century Ave. / Century Ave. / Century Ave.,世纪大道 / 世纪大道 / 世纪大道,02-17 04-17 09-26
+T009,2,22.6,Pudong Rd. (S) / Pudong Rd. (S),浦东南路 / 浦东南路,02-18 14-24
+T010,2,22.0,Lujiazui / Lujiazui,陆家嘴 / 陆家嘴,02-19 14-23
+T011,4,58.5,Hongqiao Airport / Terminal 2 / Hongqiao Airport / Terminal 2,虹桥2号 航站楼 / 虹桥2号 航站楼,02-22 02-23 10-33 10-34
+T012,5,53.7,Hongqiao Railway / Station / Hongqiao Railway / Hongqiao Railway / Station,虹桥火车站 / 虹桥火车站,02-24 02-25 10-35 17-01 17-02
+T013,10,105.5,Shanghai National / Panxiang Rd. · / National Exhibition / and Convention Center / Shanghai National / Panxiang Rd. · / National Exhibition / and Convention Center,Accounting Institute 蟠 / 国家会展中心 / Accounting Institute 蟠 / 国家会展中心,02-26 02-27 02-28 02-29 02-30 17-14 17-15 17-16 17-17 17-18
+T014,2,49.4,Panlong Rd. / Panlong Rd.,蟠龙路 / 蟠龙路,02-31 17-12
+T015,3,43.1,Yishan Rd. / Yishan Rd. / Yishan Rd.,宜山路 / 宜山路 / 宜山路,03-16 04-02 09-29
+T016,3,62.4,Hongqiao Rd. / Hongqiao Rd. / Hongqiao Rd.,虹桥路 / 虹桥路 / 虹桥路,03-17 04-03 10-31
+T017,2,17.5,Yan'an Rd. (W) / Yan'an Rd. (W),延安西路 / 延安西路,03-18 04-04
+T018,2,17.5,Zhongshan Park / Zhongshan Park,中山公园 / 中山公园,03-19 04-05
+T019,2,17.5,Jinshajiang Rd. / Jinshajiang Rd.,金沙江路 / 金沙江路,03-20 04-06
+T020,2,17.8,Fengqiao Rd. / Fengqiao Rd.,枫桥路 / 枫桥路,03-21 04-07
+T021,2,18.1,Zhongtan Rd. / Zhongtan Rd.,中潭路 / 中潭路,03-22 04-10
+T022,2,18.1,Shanghai Railway Station / Shanghai Railway Station,,03-23 04-11
+T023,2,18.1,,上海火车站 / 上海火车站,03-24 04-12
+T024,2,39.3,Baoshan Rd. / Baoshan Rd.,宝山路 / 宝山路,03-25 04-13
+T025,2,34.6,,虹口足球场 / 虹口足球场,03-26 08-20
+T026,2,19.2,Changjiang Rd. (S) / Changjiang Rd. (S),长江南路 / 长江南路,03-28 18-01
+T027,2,46.1,Caoyang Rd. / Caoyang Rd.,曹杨路 / 曹杨路,04-08 11-33
+T028,2,46.2,Zhenping Rd. / Zhenping Rd.,镇坪路 / 镇坪路,04-09 07-32
+T029,2,49.4,Hailun Rd. / Hailun Rd.,海伦路 / 海伦路,04-14 10-26
+T030,2,26.9,Dalian Rd. / Dalian Rd.,大连路 / 大连路,04-15 12-20
 T031,2,48.7,Pudong Ave. / Pudong Ave.,浦东大道 / 浦东大道,04-16 14-25
-T032,2,49.1,Xizang Rd. (S) / Xizang Rd. (S),西藏南路 / 西藏南路,04-25 08-19
-T033,3,42.1,Oriental Sports Center / Oriental Sports Center / Oriental Sports Center,东方体育中心 / 东方体育中心 / 东方体育中心,06-02 08-22 11-21
-T034,2,49.3,Gaoke Rd. (W) / Gaoke Rd. (W),高科西路 / 高科西路,06-16 07-22
-T035,2,31.2,Minsheng Rd. / Minsheng Rd.,民生路 / 民生路,06-18 18-20
-T036,2,45.4,Yunshan Rd. / Yunshan Rd.,云山路 / 云山路,06-19 14-27
-T037,2,43.9,Jufeng Rd. / Jufeng Rd.,巨峰路 / 巨峰路,06-20 12-15
-T038,2,5.4,Gangcheng Rd. / Gangcheng Rd.,港城路 / 港城路,06-21 10-20
-T039,2,46.2,Longyang Rd. / Longyang Rd.,龙阳路 / 龙阳路,07-21 18-25
-T040,2,41.9,Middle Longhua Rd. / Middle Longhua Rd.,龙华中路 / 龙华中路,07-23 12-23
-T041,2,35.5,Jing'an Temple / Jing'an Temple,静安寺 / 静安寺,07-27 14-18
-T042,2,15.5,Siping Rd. / Siping Rd.,四平路 / 四平路,08-12 10-21
-T043,2,44.8,Chengshan Rd. / Chengshan Rd.,成山路 / 成山路,08-21 13-13
-T044,2,39.7,Huangyang Rd. / Huangyang Rd.,黄杨路 / 黄杨路,09-18 14-30
-T045,4,68.3,Science & Technology / Yanggao Rd. (M) / Yanggao Rd. (M) / Science & Technology,杨高中路 / 杨高中路,09-19 09-20 18-22 18-23
-T046,2,38.4,Yu Garden / Yu Garden,豫园 / 豫园,10-25 14-22
-T047,2,38.1,Site of the First CPC National / Site of the First CPC National,,10-26 13-17
-T048,2,40.6,Yuqiao / Yuqiao,御桥 / 御桥,11-19 18-28
-T049,2,24.9,Longhu / Longhu,龙华 / 龙华,11-23 12-25
-T050,2,22.2,Zhenru / Zhenru,真如 / 真如,11-28 14-16
-T051,2,49.0,Jiangpu Park / Jiangpu Park,江浦公园 / 江浦公园,12-16 18-18
-T052,2,28.0,Shanxi Rd. (S) / Shanxi Rd. (S),陕西南路 / 陕西南路,12-20 14-19
-T053,2,38.3,Changyi Rd. / Changyi Rd.,昌邑路 / 昌邑路,14-26 18-19
-T054,2,16.3,Fanghua Rd. / Fanghua Rd.,芳华路 / 芳华路,16-09 18-26
+T032,2,47.5,Medical Center / Medical Center,上海儿童医学中心 / 上海儿童医学中心,04-26 06-18
+T033,2,49.1,Xizang Rd. (S) / Xizang Rd. (S),西藏南路 / 西藏南路,04-27 08-25
+T034,3,42.1,Oriental Sports Center / Oriental Sports Center / Oriental Sports Center,东方体育中心 / 东方体育中心 / 东方体育中心,06-02 08-28 11-27
+T035,2,49.3,Gaoke Rd. (W) / Gaoke Rd. (W),高科西路 / 高科西路,06-17 07-23
+T036,2,31.2,Minsheng Rd. / Minsheng Rd.,民生路 / 民生路,06-20 18-22
+T037,2,45.4,Yunshan Rd. / Yunshan Rd.,云山路 / 云山路,06-21 14-27
+T038,2,43.9,Jufeng Rd. / Jufeng Rd.,巨峰路 / 巨峰路,06-22 12-18
+T039,2,5.4,Gangcheng Rd. / Gangcheng Rd.,港城路 / 港城路,06-23 10-24
+T040,2,46.2,Longyang Rd. / Longyang Rd.,龙阳路 / 龙阳路,07-21 18-27
+T041,2,3.7,Zhongke Rd. / Zhongke Rd.,中科路 / 中科路,07-22 AL-01
+T042,2,3.7,Shanghai International / Shanghai International,Resort上海国际旅游度假区 / Resort上海国际旅游度假区,07-24 AL-02
+T043,2,41.9,Middle Longhua Rd. / Middle Longhua Rd.,龙华中路 / 龙华中路,07-26 12-26
+T044,2,35.5,Jing'an Temple / Jing'an Temple,静安寺 / 静安寺,07-30 14-18
+T045,2,8.6,Gucun Park / Gucun Park,顾村公园 / 顾村公园,07-35 15-01
+T046,2,29.7,Jiangpu Rd. / Jiangpu Rd.,江浦路 / 江浦路,08-17 18-19
+T047,2,15.5,Siping Rd. / Siping Rd.,四平路 / 四平路,08-18 10-25
+T048,2,44.8,Chengshan Rd. / Chengshan Rd.,成山路 / 成山路,08-27 13-13
+T049,2,39.7,Huangyang Rd. / Huangyang Rd.,黄杨路 / 黄杨路,09-23 14-30
+T050,4,68.3,Science & Technology / Yanggao Rd. (M) / Yanggao Rd. (M) / Science & Technology,杨高中路 / 杨高中路,09-24 09-25 18-24 18-25
+T051,2,38.4,Yu Garden / Yu Garden,豫园 / 豫园,10-29 14-22
+T052,2,38.1,Site of the First CPC National / Site of the First CPC National,,10-30 13-17
+T053,2,40.6,Yuqiao / Yuqiao,御桥 / 御桥,11-25 18-30
+T054,2,24.9,Longhu / Longhu,龙华 / 龙华,11-29 12-28
+T055,2,22.2,Zhenru / Zhenru,真如 / 真如,11-34 14-16
+T056,2,44.0,Railway Station / Railway Station,上海西站 / 上海西站,11-35 15-22
+T057,2,49.0,Jiangpu Park / Jiangpu Park,江浦公园 / 江浦公园,12-19 18-20
+T058,2,28.0,Shanxi Rd. (S) / Shanxi Rd. (S),陕西南路 / 陕西南路,12-23 14-19
+T059,2,38.3,Changyi Rd. / Changyi Rd.,昌邑路 / 昌邑路,14-26 18-21
+T060,2,16.3,Fanghua Rd. / Fanghua Rd.,芳华路 / 芳华路,16-10 18-28

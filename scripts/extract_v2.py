@@ -46,7 +46,7 @@ LINE_STROKE_WIDTH = 16.0          # base line stroke width in v2 PDF
 COLOR_TOL = 0.025                 # color matching tolerance
 TEXT_PAIR_DX = 80.0               # max x-diff to pair English+Chinese text
 TEXT_PAIR_DY = 80.0               # max y-diff (Chinese typically below English)
-STATION_TO_LINE_MAX_DIST = 80.0   # how far a label center can be from a line
+STATION_TO_LINE_MAX_DIST = 130.0  # how far a label center can be from a line
 TRANSFER_TOL_PT = 50.0            # spatial tolerance for transfer clustering
 SECONDARY_LINE_MAX_DIST = 35.0    # only assign to extra lines if very close
 LOOP_LINES = {"4"}
@@ -57,6 +57,9 @@ NON_STATION_TEXT_PATTERNS = [
     re.compile(r"^转乘", re.I),
     re.compile(r"^换乘", re.I),
     re.compile(r"^Pujiang Line", re.I),
+    re.compile(r"^Airport Link Line", re.I),
+    re.compile(r"^机场联络线"),
+    re.compile(r"^市域机场线"),
     re.compile(r"^Jinshan Line", re.I),
     re.compile(r"^Suzhou", re.I),
     re.compile(r"^Maglev", re.I),
@@ -163,17 +166,17 @@ def find_line_color_map(
     rectangle (~104×43 pt) that contains or sits behind the text — that
     is the line's badge with its canonical color.
 
-    For Pujiang Line (no badge), we use the unique width=8 stroke color.
+    For lines without a badge (Pujiang, Airport Link Line), find the stroke
+    nearest to the line's text label.
     """
     line_label_spans: list[TextSpan] = []
     for s in spans:
-        if abs(s.size - 30) >= 0.5:
-            continue
         t = s.text.strip()
-        if (re.match(r"^Line\s+\d+$", t)
-                or t == "Pujiang Line"
-                or t == "Suzhou Line 11"):
-            line_label_spans.append(s)
+        if abs(s.size - 30) < 0.5:
+            if (re.match(r"^Line\s+\d+$", t)
+                    or t == "Pujiang Line"
+                    or t == "Suzhou Line 11"):
+                line_label_spans.append(s)
 
     drawings = page.get_drawings()
     # Candidate badges: small filled re rectangles, not white/black/gray
@@ -228,22 +231,51 @@ def find_line_color_map(
                 best = fill
         if best is not None:
             result[line_id] = (label, best)
+            continue
 
-    # Pujiang Line: detect by unique width=8 stroke
-    if "Pujiang" not in result:
+        # No badge found: fall back to nearest non-white/black width-16 stroke
+        # Only use if the nearest stroke is within 500pt (guards against
+        # legend labels that are far from the actual line on the schematic).
+        best_c, best_d2 = None, float("inf")
         for d in drawings:
             if d.get("type") != "s":
                 continue
-            if abs(d.get("width", 0) - 8) > 0.5:
+            if abs(d.get("width", 0) - LINE_STROKE_WIDTH) > 0.5:
                 continue
             c = d.get("color")
             if not c:
                 continue
-            c_rounded = tuple(round(x, 3) for x in c)
-            if color_close(c_rounded, (0, 0, 0)) or color_close(c_rounded, (1, 1, 1)):
+            c_r = tuple(round(x, 3) for x in c)
+            if color_close(c_r, (0, 0, 0)) or color_close(c_r, (1, 1, 1)):
                 continue
-            result["Pujiang"] = ("Pujiang Line", c_rounded)
-            break
+            dr = d.get("rect")
+            if not dr:
+                continue
+            dist = math.hypot((dr.x0 + dr.x1) / 2 - span.cx,
+                              (dr.y0 + dr.y1) / 2 - span.cy)
+            if dist < best_d2:
+                best_d2 = dist
+                best_c = c_r
+        if best_c is not None and best_d2 < 500:
+            result[line_id] = (label, best_c)
+
+    # Airport Link Line: teal color, no badge, label far from actual stroke.
+    # Detect directly from the unique teal (low-R, G≈B≈0.44) width-16 stroke.
+    if "AL" not in result:
+        for d in drawings:
+            if d.get("type") != "s":
+                continue
+            if abs(d.get("width", 0) - LINE_STROKE_WIDTH) > 0.5:
+                continue
+            c = d.get("color")
+            if not c:
+                continue
+            c_r = tuple(round(x, 3) for x in c)
+            # Teal: very low red, G and B both moderate and close to each other
+            if (c_r[0] < 0.15 and c_r[1] > 0.35 and c_r[2] > 0.35
+                    and abs(c_r[1] - c_r[2]) < 0.05):
+                result["AL"] = ("Airport Link Line", c_r)
+                break
 
     # The badge color often differs slightly (or substantially for lines 6/15/16)
     # from the actual stroke color. Replace each badge color with the closest
