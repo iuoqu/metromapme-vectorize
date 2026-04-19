@@ -376,45 +376,36 @@ def build_station_labels_from_blocks(page: fitz.Page) -> list[StationLabel]:
                 used[j] = True
         zh_clusters.append(cluster)
 
-    # Strict mutual-best-match pairing using CENTER-Y difference
+    # Two-pass mutual-best-match pairing using CENTER-Y difference.
     # (line bboxes overlap each other by ~40pt due to ascender/descender,
-    # so y_bot/y_top is unreliable; cy difference is stable ~31pt).
+    # so y_bot/y_top is unreliable; cy difference is stable ~31pt.)
+    #
+    # Pass 1 (dx ≤ 12): high-confidence pairs — horizontal-line stations where
+    #   EN and ZH labels are nearly left-aligned.
+    # Pass 2 (dx ≤ 120): runs only on rows still unmatched after Pass 1.
+    #   Recovers stations on diagonal/vertical line sections where ZH x0 is
+    #   shifted up to ~100 pt from EN x0. Because Pass 1 has already consumed
+    #   the tightly-aligned ZH labels, Pass 2 cannot steal them.
     TYPICAL_GAP = 31.0
 
-    def pair_score(ec: list, zc: list) -> float:
+    def _score(ec: list, zc: list, dx_limit: float) -> float:
         ec_x0 = min(r.x0 for r in ec)
         ec_cy = max(r.cy for r in ec)
         zc_x0 = min(r.x0 for r in zc)
         zc_cy = min(r.cy for r in zc)
-        # tight x alignment
         dx = abs(zc_x0 - ec_x0)
-        if dx > 12:
+        if dx > dx_limit:
             return float("inf")
         dcy = zc_cy - ec_cy
-        # Chinese must be below English (positive dcy), within ~15pt of typical
         if dcy < 15 or dcy > 50:
             return float("inf")
         return dx * 2 + abs(dcy - TYPICAL_GAP)
-
-    en_best = []
-    for i, ec in enumerate(en_clusters):
-        scores = sorted(
-            ((pair_score(ec, zc), j) for j, zc in enumerate(zh_clusters))
-        )
-        en_best.append(scores[0][1] if scores and scores[0][0] < float("inf") else -1)
-
-    zh_best = []
-    for j, zc in enumerate(zh_clusters):
-        scores = sorted(
-            ((pair_score(ec, zc), i) for i, ec in enumerate(en_clusters))
-        )
-        zh_best.append(scores[0][1] if scores and scores[0][0] < float("inf") else -1)
 
     labels: list[StationLabel] = []
     used_en = [False] * len(en_clusters)
     used_zh = [False] * len(zh_clusters)
 
-    def emit(ec, zc):
+    def emit(ec: list, zc: list) -> None:
         en_text = " ".join(r.text for r in ec).strip()
         zh_text = "".join(r.text for r in zc).strip()
         all_rows = ec + zc
@@ -425,13 +416,41 @@ def build_station_labels_from_blocks(page: fitz.Page) -> list[StationLabel]:
             spans=[TextSpan(text=r.text, x0=r.x0, y0=r.y0, x1=r.x1, y1=r.y1, size=r.size) for r in all_rows],
         ))
 
-    for i, j in enumerate(en_best):
-        if j == -1:
-            continue
-        if zh_best[j] == i:
-            emit(en_clusters[i], zh_clusters[j])
-            used_en[i] = True
-            used_zh[j] = True
+    def _run_pass(dx_limit: float) -> None:
+        en_best = []
+        for i, ec in enumerate(en_clusters):
+            if used_en[i]:
+                en_best.append(-1)
+                continue
+            scores = sorted(
+                (_score(ec, zc, dx_limit), j)
+                for j, zc in enumerate(zh_clusters)
+                if not used_zh[j]
+            )
+            en_best.append(scores[0][1] if scores and scores[0][0] < float("inf") else -1)
+
+        zh_best = []
+        for j, zc in enumerate(zh_clusters):
+            if used_zh[j]:
+                zh_best.append(-1)
+                continue
+            scores = sorted(
+                (_score(ec, zc, dx_limit), i)
+                for i, ec in enumerate(en_clusters)
+                if not used_en[i]
+            )
+            zh_best.append(scores[0][1] if scores and scores[0][0] < float("inf") else -1)
+
+        for i, j in enumerate(en_best):
+            if j == -1:
+                continue
+            if zh_best[j] == i:
+                emit(en_clusters[i], zh_clusters[j])
+                used_en[i] = True
+                used_zh[j] = True
+
+    _run_pass(12.0)    # Pass 1: high-confidence tight alignment
+    _run_pass(120.0)   # Pass 2: diagonal/vertical-line stations
 
     # Orphan handling
     for i, ec in enumerate(en_clusters):
@@ -632,12 +651,16 @@ def extract_polylines_per_color(
         if not c:
             continue
         c_rounded = tuple(round(x, 3) for x in c)
+        # Use closest-match rather than first-within-tolerance to avoid
+        # ambiguity between adjacent colors (e.g. Line 7 vs Pujiang).
         line_id = None
+        best_dist = float("inf")
         for cl, lid in color_to_line.items():
-            if color_close(c_rounded, cl):
+            dist = sum(abs(c_rounded[i] - cl[i]) for i in range(3))
+            if dist < best_dist:
+                best_dist = dist
                 line_id = lid
-                break
-        if line_id is None:
+        if line_id is None or best_dist >= 3 * COLOR_TOL:
             continue
 
         # Reconstruct path from items
@@ -979,6 +1002,103 @@ def _sort_line_ids(ids: Iterable[str]) -> list[str]:
 
 
 # ── Phase 7: SVG output ──────────────────────────────────────────────
+
+def _items_to_svg_path(items: list) -> str:
+    """Convert a PyMuPDF drawing items list to an SVG path data string."""
+    parts: list[str] = []
+    cursor: tuple[float, float] | None = None
+    for it in items:
+        op = it[0]
+        if op == "l":
+            p0 = (round(it[1].x, 1), round(it[1].y, 1))
+            p1 = (round(it[2].x, 1), round(it[2].y, 1))
+            if cursor is None or abs(cursor[0]-p0[0]) > 0.5 or abs(cursor[1]-p0[1]) > 0.5:
+                parts.append(f"M{p0[0]},{p0[1]}")
+            parts.append(f"L{p1[0]},{p1[1]}")
+            cursor = p1
+        elif op == "c":
+            p0 = (round(it[1].x, 1), round(it[1].y, 1))
+            c1 = (round(it[2].x, 1), round(it[2].y, 1))
+            c2 = (round(it[3].x, 1), round(it[3].y, 1))
+            p3 = (round(it[4].x, 1), round(it[4].y, 1))
+            if cursor is None or abs(cursor[0]-p0[0]) > 0.5 or abs(cursor[1]-p0[1]) > 0.5:
+                parts.append(f"M{p0[0]},{p0[1]}")
+            parts.append(f"C{c1[0]},{c1[1]} {c2[0]},{c2[1]} {p3[0]},{p3[1]}")
+            cursor = p3
+        elif op == "re":
+            r = it[1]
+            parts.append(f"M{r.x0:.1f},{r.y0:.1f}H{r.x1:.1f}V{r.y1:.1f}H{r.x0:.1f}Z")
+            cursor = None
+    if parts and not parts[-1].endswith("Z"):
+        parts.append("Z")
+    return " ".join(parts)
+
+
+def extract_station_marker_clusters(page: fitz.Page) -> list[dict]:
+    """
+    Extract white-fill station marker shapes from the PDF and cluster nearby ones.
+    Returns list of dicts: {cx, cy, path_d} where path_d is combined SVG path data.
+    These are the capsule/circle markers visible on transfer stations in the source PDF.
+    """
+    raw: list[dict] = []
+    for d in page.get_drawings():
+        fill = d.get("fill")
+        if not fill or not all(x > 0.9 for x in fill):
+            continue
+        r = d.get("rect")
+        if not r or r.width < 10 or r.height < 10 or r.width > 250 or r.height > 250:
+            continue
+        dtype = d.get("type")
+        if dtype not in ("fs", "f"):
+            continue
+        items = d.get("items", [])
+        if not items:
+            continue
+        path_d = _items_to_svg_path(items)
+        if not path_d:
+            continue
+        raw.append({
+            "cx": (r.x0 + r.x1) / 2,
+            "cy": (r.y0 + r.y1) / 2,
+            "path_d": path_d,
+        })
+
+    if not raw:
+        return []
+
+    # Cluster nearby shapes via union-find (tol = 35 pt)
+    n = len(raw)
+    parent = list(range(n))
+
+    def _find(i: int) -> int:
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    def _union(i: int, j: int) -> None:
+        ri, rj = _find(i), _find(j)
+        if ri != rj:
+            parent[ri] = rj
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            if _dist((raw[i]["cx"], raw[i]["cy"]), (raw[j]["cx"], raw[j]["cy"])) < 35.0:
+                _union(i, j)
+
+    groups: dict[int, list[int]] = {}
+    for i in range(n):
+        groups.setdefault(_find(i), []).append(i)
+
+    clusters: list[dict] = []
+    for members in groups.values():
+        cx = sum(raw[m]["cx"] for m in members) / len(members)
+        cy = sum(raw[m]["cy"] for m in members) / len(members)
+        path_d = " ".join(raw[m]["path_d"] for m in members)
+        clusters.append({"cx": cx, "cy": cy, "path_d": path_d})
+    return clusters
+
+
 def write_full_svg(page: fitz.Page, out_path: Path) -> None:
     svg_text = page.get_svg_image()
     out_path.write_text(svg_text, encoding="utf-8")
@@ -990,7 +1110,27 @@ def write_overlay_svg(
     line_colors: dict[str, str],
     out_path: Path,
 ) -> None:
+    """
+    Overlay SVG drawing order (SVG paints later elements on top):
+      Layer 1 — regular (non-transfer) station boxes: small rounded-rect per station
+      Layer 2 — transfer station shapes: actual PDF capsule/circle/irregular geometry
+    """
     rect = page.rect
+
+    # Extract marker shape clusters from the PDF (capsules/circles on transfer stations)
+    marker_clusters = extract_station_marker_clusters(page)
+
+    # Associate each station with its nearest shape cluster (within 60 pt)
+    station_cluster: dict[str, dict | None] = {}
+    for sid, meta in stations.items():
+        best_d, best_cl = float("inf"), None
+        for cl in marker_clusters:
+            d = _dist((cl["cx"], cl["cy"]), (meta["x"], meta["y"]))
+            if d < 60.0 and d < best_d:
+                best_d = d
+                best_cl = cl
+        station_cluster[sid] = best_cl
+
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" '
         f'viewBox="0 0 {rect.width:.0f} {rect.height:.0f}" '
@@ -998,16 +1138,66 @@ def write_overlay_svg(
         f'style="width:100%;height:100%;pointer-events:none">',
         '<g id="stations" style="pointer-events:auto">',
     ]
+
+    # ── Layer 1: regular station boxes (drawn first = painted below) ──────────
+    parts.append('<!-- regular stations -->')
     for sid, meta in stations.items():
+        if meta.get("transfer_group"):
+            continue   # skipped here; handled in Layer 2
         color = line_colors.get(meta["line"], "#000")
-        tg_attr = f' data-tgroup="{meta["transfer_group"]}"' if meta["transfer_group"] else ""
+        x, y = meta["x"], meta["y"]
+        # Small white rounded-rect capsule oriented horizontally (32×22 pt)
+        hw, hh = 16, 11
         parts.append(
-            f'<circle id="{sid}" class="station" '
-            f'data-line="{meta["line"]}"{tg_attr} '
-            f'cx="{meta["x"]}" cy="{meta["y"]}" r="18" '
-            f'fill="white" stroke="{color}" stroke-width="6" '
+            f'<rect id="{sid}" class="station" '
+            f'data-line="{meta["line"]}" '
+            f'x="{x - hw:.1f}" y="{y - hh:.1f}" width="{hw*2}" height="{hh*2}" rx="11" ry="11" '
+            f'fill="white" stroke="{color}" stroke-width="5" '
             f'style="cursor:pointer" />'
         )
+
+    # ── Layer 2: transfer station shapes (drawn on top) ───────────────────────
+    parts.append('<!-- transfer stations -->')
+    rendered_clusters: set[int] = set()
+    for sid, meta in stations.items():
+        if not meta.get("transfer_group"):
+            continue
+        tg_attr = f' data-tgroup="{meta["transfer_group"]}"'
+        cl = station_cluster.get(sid)
+
+        if cl is not None:
+            cl_key = id(cl)
+            if cl_key not in rendered_clusters:
+                rendered_clusters.add(cl_key)
+                # Render the actual PDF shape (capsule / circle / irregular)
+                parts.append(
+                    f'<path id="{sid}" class="station" '
+                    f'data-line="{meta["line"]}"{tg_attr} '
+                    f'data-cx="{meta["x"]:.1f}" data-cy="{meta["y"]:.1f}" '
+                    f'd="{cl["path_d"]}" '
+                    f'fill="white" stroke="#333333" stroke-width="6" '
+                    f'style="cursor:pointer" />'
+                )
+            else:
+                # Secondary station in same cluster: invisible hit circle
+                parts.append(
+                    f'<circle id="{sid}" class="station" '
+                    f'data-line="{meta["line"]}"{tg_attr} '
+                    f'cx="{meta["x"]:.1f}" cy="{meta["y"]:.1f}" r="22" '
+                    f'fill="transparent" stroke="transparent" '
+                    f'style="cursor:pointer" />'
+                )
+        else:
+            # Transfer station but no geometric shape found: fallback circle
+            color = line_colors.get(meta["line"], "#000")
+            parts.append(
+                f'<circle id="{sid}" class="station" '
+                f'data-line="{meta["line"]}"{tg_attr} '
+                f'cx="{meta["x"]:.1f}" cy="{meta["y"]:.1f}" r="22" '
+                f'fill="white" stroke="{color}" stroke-width="6" '
+                f'style="cursor:pointer" />'
+            )
+
     parts.append("</g></svg>")
     out_path.write_text("\n".join(parts), encoding="utf-8")
 

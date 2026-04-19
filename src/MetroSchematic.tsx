@@ -231,18 +231,22 @@ const MetroSchematic = forwardRef<MetroSchematicHandle, Props>(
             passive: false,
           });
 
-          // Attach station event listeners
-          const circles = overlaySvg.querySelectorAll<SVGCircleElement>(
-            "circle.station"
+          // Attach station event listeners (works for both <circle> and <path> stations)
+          const stationEls = overlaySvg.querySelectorAll<SVGElement>(
+            ".station"
           );
-          for (const circle of circles) {
-            const sid = circle.id as StationId;
-            circle.addEventListener("click", () => onStationClick?.(sid));
-            circle.addEventListener("mouseenter", (e) => {
+          for (const el of stationEls) {
+            const sid = el.id as StationId;
+            el.addEventListener("click", () => onStationClick?.(sid));
+            el.addEventListener("mouseenter", (e) => {
               const rect = container.getBoundingClientRect();
-              const cx = parseFloat(circle.getAttribute("cx") || "0");
-              const cy = parseFloat(circle.getAttribute("cy") || "0");
-              // Transform SVG coords to screen coords via getScreenCTM
+              // cx/cy on <circle>; data-cx/data-cy on <path>
+              const cx = parseFloat(
+                el.getAttribute("cx") || el.getAttribute("data-cx") || "0"
+              );
+              const cy = parseFloat(
+                el.getAttribute("cy") || el.getAttribute("data-cy") || "0"
+              );
               const ctm = (overlaySvg as unknown as SVGGraphicsElement).getScreenCTM();
               if (ctm) {
                 const pt = (overlaySvg as unknown as SVGSVGElement).createSVGPoint();
@@ -256,12 +260,12 @@ const MetroSchematic = forwardRef<MetroSchematicHandle, Props>(
                 });
               }
               onStationHover?.(sid);
-              (e.currentTarget as SVGCircleElement).classList.add("hovered");
+              (e.currentTarget as SVGElement).classList.add("hovered");
             });
-            circle.addEventListener("mouseleave", (e) => {
+            el.addEventListener("mouseleave", (e) => {
               setTooltip(null);
               onStationHover?.(null);
-              (e.currentTarget as SVGCircleElement).classList.remove("hovered");
+              (e.currentTarget as SVGElement).classList.remove("hovered");
             });
           }
 
@@ -276,15 +280,15 @@ const MetroSchematic = forwardRef<MetroSchematicHandle, Props>(
         if (!overlaySvg || !stationsData) return;
         highlightedRef.current = ids;
 
-        const circles = overlaySvg.querySelectorAll<SVGCircleElement>(
-          "circle.station"
+        const stationEls = overlaySvg.querySelectorAll<SVGElement>(
+          ".station"
         );
         const dimAll = ids.size > 0;
 
-        for (const circle of circles) {
-          const sid = circle.id as StationId;
-          circle.classList.toggle("dimmed", dimAll && !ids.has(sid));
-          circle.classList.toggle("highlighted", ids.has(sid));
+        for (const el of stationEls) {
+          const sid = el.id as StationId;
+          el.classList.toggle("dimmed", dimAll && !ids.has(sid));
+          el.classList.toggle("highlighted", ids.has(sid));
         }
 
         // Dim/highlight the base SVG lines using data-line paths
