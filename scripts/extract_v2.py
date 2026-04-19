@@ -1621,6 +1621,198 @@ def write_full_svg(page: fitz.Page, out_path: Path) -> None:
     out_path.write_text(svg_text, encoding="utf-8")
 
 
+def write_clean_svg(
+    page: fitz.Page,
+    stations: dict[str, dict],
+    line_colors: dict[str, str],
+    color_to_line: dict[tuple, str],
+    out_path: Path,
+) -> None:
+    """
+    Write a minimal SVG containing ONLY the line shapes and station markers.
+    No labels, legends, backgrounds, icons, or decorative text — suitable for
+    flexible downstream display (colour swaps, highlighting, interactive routes).
+
+    Layers:
+      <g id="lines">           — colored line strokes (one <g data-line="X"> per line)
+      <g id="line-extensions"> — manual extensions for stations beyond the PDF route
+      <g id="transfers">       — transfer cluster shapes (white capsules with dark border)
+      <g id="stations">        — non-transfer station markers (small rounded rects)
+    """
+    rect = page.rect
+    COLOR_TOL = 0.025
+
+    # Group line-stroke drawings by line, preserving original Bezier curves
+    line_drawings: dict[str, list[dict]] = defaultdict(list)
+    al_polygon = None
+    maglev_stroke = None
+    for d in page.get_drawings():
+        dtype = d.get("type")
+        items = d.get("items", [])
+        w = d.get("width", 0) or 0
+        c = d.get("color")
+        fill = d.get("fill")
+        if not items:
+            continue
+
+        # AL white-bordered polygon
+        if (dtype == "fs" and fill and c
+                and all(x > 0.95 for x in fill)
+                and 0.4 < c[0] < 0.5 and abs(c[0]-c[1]) < 0.05 and abs(c[1]-c[2]) < 0.05
+                and abs(w - 2.0) < 0.5 and len(items) >= 20):
+            al_polygon = d
+            continue
+
+        # Maglev (w=8 orange)
+        if (dtype == "s" and c
+                and 0.93 < c[0] < 0.95 and 0.42 < c[1] < 0.46 and c[2] < 0.02
+                and abs(w - 8.0) < 0.5 and len(items) >= 5):
+            maglev_stroke = d
+            continue
+
+        # Regular line strokes (w=16, matching a known line color)
+        if dtype != "s" or not c or abs(w - 16.0) > 2:
+            continue
+        for rgb, lid in color_to_line.items():
+            if all(abs(c[i] - rgb[i]) < COLOR_TOL for i in range(3)):
+                line_drawings[lid].append(d)
+                break
+
+    # Marker clusters (transfer capsules + small single-line boxes)
+    marker_clusters = extract_station_marker_clusters(page)
+    station_cluster: dict[str, dict | None] = {}
+    for sid, meta in stations.items():
+        best_d, best_cl = float("inf"), None
+        for cl in marker_clusters:
+            d = _dist((cl["cx"], cl["cy"]), (meta["x"], meta["y"]))
+            if d < 60.0 and d < best_d:
+                best_d, best_cl = d, cl
+        station_cluster[sid] = best_cl
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" '
+        f'viewBox="0 0 {rect.width:.0f} {rect.height:.0f}" '
+        f'preserveAspectRatio="xMidYMid meet">',
+    ]
+
+    # ── Lines ─────────────────────────────────────────────────────────────
+    parts.append('<g id="lines" fill="none" stroke-linecap="round" stroke-linejoin="round">')
+    for lid in sorted(line_drawings.keys(), key=lambda s: (len(s), s)):
+        color = line_colors.get(lid, "#000")
+        parts.append(f'<g data-line="{lid}" stroke="{color}" stroke-width="16">')
+        for d in line_drawings[lid]:
+            path_d = _items_to_svg_path(d.get("items", []))
+            if path_d:
+                parts.append(f'<path d="{path_d}" />')
+        parts.append('</g>')
+
+    # AL: white-bordered polygon
+    if al_polygon:
+        path_d = _items_to_svg_path(al_polygon.get("items", []))
+        if path_d:
+            parts.append(
+                f'<g data-line="AL">'
+                f'<path d="{path_d}" fill="white" stroke="{line_colors.get("AL","#757575")}" '
+                f'stroke-width="2" fill-rule="evenodd" />'
+                f'</g>'
+            )
+
+    # Maglev: w=8 orange stroke
+    if maglev_stroke:
+        path_d = _items_to_svg_path(maglev_stroke.get("items", []))
+        if path_d:
+            parts.append(
+                f'<g data-line="ML">'
+                f'<path d="{path_d}" fill="none" stroke="{line_colors.get("ML","#ef7002")}" '
+                f'stroke-width="8" />'
+                f'</g>'
+            )
+    parts.append('</g>')
+
+    # ── Manual line extensions (chained) ─────────────────────────────────
+    parts.append('<g id="line-extensions" fill="none" stroke-linecap="round">')
+    prev_by_line: dict[str, dict] = {}
+    manual_sids = sorted(
+        [sid for sid, m in stations.items() if m.get("manual")],
+        key=lambda s: (stations[s]["line"], int(s.split("-")[-1])),
+    )
+    for sid in manual_sids:
+        meta = stations[sid]
+        lid = meta["line"]
+        if not meta.get("extend_line"):
+            prev_by_line[lid] = meta
+            continue
+        color = line_colors.get(lid, "#000")
+        prev = prev_by_line.get(lid)
+        if prev is None:
+            best_d, best = float("inf"), None
+            for osid, ometa in stations.items():
+                if osid == sid or ometa["line"] != lid or ometa.get("manual"):
+                    continue
+                d = _dist((meta["x"], meta["y"]), (ometa["x"], ometa["y"]))
+                if d < best_d:
+                    best_d, best = d, ometa
+            prev = best
+        if prev is not None:
+            parts.append(
+                f'<line data-line="{lid}" '
+                f'x1="{prev["x"]:.1f}" y1="{prev["y"]:.1f}" '
+                f'x2="{meta["x"]:.1f}" y2="{meta["y"]:.1f}" '
+                f'stroke="{color}" stroke-width="16" />'
+            )
+        prev_by_line[lid] = meta
+    parts.append('</g>')
+
+    # ── Transfer station shapes ──────────────────────────────────────────
+    parts.append('<g id="transfers">')
+    rendered_clusters: set[int] = set()
+    for sid, meta in stations.items():
+        if not meta.get("transfer_group"):
+            continue
+        cl = station_cluster.get(sid)
+        if cl is None:
+            continue
+        cl_key = id(cl)
+        if cl_key in rendered_clusters:
+            continue
+        rendered_clusters.add(cl_key)
+        parts.append(
+            f'<path data-tgroup="{meta["transfer_group"]}" '
+            f'd="{cl["path_d"]}" fill="white" stroke="#333" stroke-width="6" />'
+        )
+    parts.append('</g>')
+
+    # ── Regular (non-transfer) station markers ───────────────────────────
+    parts.append('<g id="stations">')
+    hw, hh = 16, 11
+    for sid, meta in stations.items():
+        if meta.get("transfer_group"):
+            continue
+        color = line_colors.get(meta["line"], "#000")
+        x, y = meta["x"], meta["y"]
+        parts.append(
+            f'<rect id="{sid}" data-line="{meta["line"]}" '
+            f'x="{x-hw:.1f}" y="{y-hh:.1f}" width="{hw*2}" height="{hh*2}" '
+            f'rx="11" ry="11" fill="white" stroke="{color}" stroke-width="5" />'
+        )
+    # Fallback circles for transfer stations without a cluster shape
+    for sid, meta in stations.items():
+        if not meta.get("transfer_group"):
+            continue
+        if station_cluster.get(sid) is not None:
+            continue
+        color = line_colors.get(meta["line"], "#000")
+        parts.append(
+            f'<circle id="{sid}" data-line="{meta["line"]}" data-tgroup="{meta["transfer_group"]}" '
+            f'cx="{meta["x"]:.1f}" cy="{meta["y"]:.1f}" r="22" '
+            f'fill="white" stroke="{color}" stroke-width="6" />'
+        )
+    parts.append('</g>')
+
+    parts.append('</svg>')
+    out_path.write_text("\n".join(parts), encoding="utf-8")
+
+
 def write_overlay_svg(
     page: fitz.Page,
     stations: dict[str, dict],
@@ -1945,6 +2137,10 @@ def main() -> int:
 
     print("→ Writing overlay SVG...")
     write_overlay_svg(page, stations, line_colors_hex, OUT_DIR / "shanghai-metro-overlay.svg")
+
+    print("→ Writing clean SVG (lines + stations only)...")
+    write_clean_svg(page, stations, line_colors_hex, color_to_line,
+                    OUT_DIR / "shanghai-metro-clean.svg")
 
     print()
     print(f"✓ Total stations: {len(stations)}")
