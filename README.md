@@ -1,8 +1,15 @@
 # Shanghai Metro Vectorize
 
-Automated pipeline to convert `Shanghai Metro Network Map.pdf` into an
-interactive vector schematic: clean SVG + structured JSON + a React component
-that can highlight routes.
+Automated pipeline to convert Shanghai Metro PDFs into an interactive vector
+schematic: clean SVG + structured JSON + a React component that can highlight
+routes.
+
+Two source PDFs are supported, with separate pipelines:
+
+| Version | Source PDF | Key difference |
+|---------|-----------|-----------------|
+| **v1** (legacy) | `Shanghai Metro Network Map.pdf` (612×792 pt) | Text is rasterised; only IDs available |
+| **v2** (default) | `metro.pdf` (5348×7213 pt) | Real text — extracts Chinese + English station names |
 
 ---
 
@@ -11,29 +18,44 @@ that can highlight routes.
 ```bash
 # 1. Extract (Python)
 pip install pymupdf
-python3 scripts/extract.py
+python3 scripts/extract_v2.py    # primary — gives station names
+python3 scripts/extract.py       # legacy — IDs only, kept for reference
 
-# 2. Demo (Node ≥ 18, pnpm recommended)
-pnpm install
-pnpm dev          # opens localhost:5173
+# 2. Demo (Node ≥ 18)
+npm install
+npm run dev                      # opens localhost:5173
 ```
+
+The demo's top-left buttons toggle between v1/v2.
 
 ---
 
-## Pipeline: `scripts/extract.py`
+## Pipelines
+
+### `scripts/extract_v2.py` — recommended
+
+Reads `metro.pdf` and writes:
 
 ```
-Shanghai Metro Network Map.pdf
-        │
-        ▼
-scripts/extract.py
-        │
-        ├── public/shanghai-metro.svg          full-fidelity SVG render
-        ├── public/shanghai-metro-overlay.svg  transparent station circles
-        ├── public/stations.json               line / station / branch data
-        ├── public/transfers.json              auto-clustered transfer groups
-        └── transfers_review.csv               human-review CSV
+public/v2/
+  ├── shanghai-metro.svg          full vector render of the PDF
+  ├── shanghai-metro-overlay.svg  transparent overlay with station circles
+  ├── stations.json               lines + stations w/ name_en + name_zh
+  ├── transfers.json              auto-clustered transfer groups
+  └── transfers_review.csv        diameter & names for human review
 ```
+
+Key techniques used:
+- Line colours auto-detected from coloured `re` badges behind each "Line N" text label
+- Station labels paired EN↔ZH via mutual-best-match on row centre-Y
+- Stations snapped to closest line polyline; transfers detected by checking
+  whether other line polylines pass through the snap point
+
+### `scripts/extract.py` — legacy
+
+Reads the older `Shanghai Metro Network Map.pdf`. No text in source, so
+stations are detected geometrically and IDs are emitted without names.
+Outputs to `public/v1/`.
 
 ### Debug mode
 
@@ -48,27 +70,33 @@ overlaid on the raw PDF render. Use this to verify station ordering.
 
 ## Output schemas
 
-### `stations.json`
+### `stations.json` (v2)
 
 ```jsonc
 {
-  "viewBox": [0, 0, 612, 792],   // PDF coordinate space
+  "viewBox": [0, 0, 5348, 7213],   // PDF coordinate space
   "lines": [
     {
       "id": "1",
-      "color": "#e81a38",
+      "label": "Line 1",
+      "color": "#e20229",
       "trunk": ["01-01", "01-02", "…"],
-      "branches": {
-        // only present for branching lines
-        "B": { "fork_at": "10-18", "stations": ["10-B01", "…"] }
-      }
+      "branches": {}
     }
   ],
   "stations": {
-    "01-09": { "line": "1", "x": 240.5, "y": 411.3, "transfer_group": "T001" }
+    "01-09": {
+      "line": "1",
+      "x": 2345.4, "y": 3253.0,
+      "name_en": "Xujiahui",
+      "name_zh": "徐家汇",
+      "transfer_group": "T012"
+    }
   }
 }
 ```
+
+The v1 schema is the same, minus the `name_en`/`name_zh`/`label` fields.
 
 ### `transfers.json`
 
@@ -85,38 +113,45 @@ overlaid on the raw PDF render. Use this to verify station ordering.
 
 ---
 
-## Station ID table
+## Station / line table (v2 — current run)
 
 IDs are assigned left-to-right (westernmost = `LL-01`) along each line.
-Map these IDs to Chinese/English names on your side after deployment.
+v2 includes Chinese + English names directly (no manual mapping needed).
 
-| Line | Color     | Range            | Count |
-|------|-----------|------------------|-------|
-| 1    | `#e81a38` | `01-01`…`01-29`  | 29    |
-| 2    | `#83c340` | `02-01`…`02-33`  | 33    |
-| 3    | `#fbd004` | `03-01`…`03-31`  | 31    |
-| 4    | `#9056a3` | `04-01`…`04-19`  | 19 (loop) |
-| 5    | `#b8a4c9` | `05-01`…`05-13`  | 13    |
-| 6    | `#e70a6f` | `06-01`…`06-28`  | 28    |
-| 7    | `#f47121` | `07-01`…`07-34`  | 34    |
-| 8    | `#009dd8` | `08-01`…`08-31`  | 31    |
-| 9    | `#7ac7ea` | `09-01`…`09-23`  | 23    |
-| 10   | `#bca7d0` | `10-01`…`10-13`  | 13    |
-| 11   | `#7e2130` | `11-01`…`11-38`  | 38    |
-| 12   | `#007a64` | `12-01`…`12-33`  | 33    |
-| 13   | `#e694c0` | `13-01`…`13-33`  | 33    |
-| 14   | `#8ed1c1` | `14-01`…`14-13`  | 13    |
-| 15   | `#a8a9ad` | `15-01`…`15-06`  | 6     |
-| 16   | `#2d7977` | sparse           | 1     |
-| 17   | `#b87875` | sparse           | 1     |
-| 18   | `#4e2d8b` | `18-01`…`18-19`  | 19    |
+| Line | Color | Endpoints (EN / ZH) | Count |
+|------|-------|---------------------|-------|
+| Line 1  | `#e20229` | Xinzhuang → Hanzhong Rd. | 25 |
+| Line 2  | `#8bc21f` | Songhong Rd. → 蟠龙路 | 31 |
+| Line 3  | `#fdd700` | Caoxi Rd. → 长江南路 | 32 |
+| Line 4  | `#461d85` | Shanghai Indoor Stadium → World Expo Museum | 27 |
+| Line 5  | `#964b9b` | Wenjing Rd. → Xinzhuang | 18 |
+| Line 6  | `#e20169` | Pudian Rd. → Gangcheng Rd. | 22 |
+| Line 7  | `#ec6e00` | Huamu Rd. → Fengxiang Rd. | 40 |
+| Line 8  | `#0095da` | Anshan Xincun → Oriental Sports Center | 22 |
+| Line 9  | `#87c9ec` | Qibao → Yishan Rd. | 24 |
+| Line 10 | `#c6afd3` | Shuangjiang Rd. → Terminal 2 | 32 |
+| Line 11 | `#861a2a` | Zhaofeng Rd. → Zhenru | 28 |
+| Line 12 | `#00785f` | Fuxing Island → Hongxin Rd. | 28 |
+| Line 13 | `#e899c0` | Xia'nan Rd. → Qilianshan Rd. (S) | 25 |
+| Line 14 | `#626020` | Stadium → Taierzhuang Rd. | 33 |
+| Line 15 | `#cab08d` | Luoxiu Rd. → Guilin Rd. | 18 |
+| Line 16 | `#98d1c0` | Xinchang → Dishui Lake | 17 |
+| Line 17 | `#bc7970` | Station → 国家会展中心 | 10 |
+| Line 18 | `#c4984f` | 长江南路 → Yuqiao | 35 |
+| Pujiang Line | `#ef7002` | 8 stations | 8 |
 
-> **Note:** Lines 16 and 17 have very few colored marker shapes in this PDF
-> version; they may need manual coordinate entry via `scripts/line_overrides.yaml`.
+**Total:** 467 stations across 19 lines, 54 transfer groups auto-detected.
 
-**Transfer groups:** 60 groups auto-detected.  
-Review `transfers_review.csv` to catch false merges (cluster diameter > 8 pt)
-or missed merges (physically overlapping stations in different groups).
+> **Known limitations of v2 extraction:**
+> - Several lines (esp. 6, 8, 11, 13, 15) under-count due to stations near
+>   line crossings being assigned to the wrong line.
+> - A handful of lines slightly over-count when polyline merging fragments.
+> - Transfer detection uses snap-point coincidence; some real transfers may
+>   be missed if the polylines don't quite intersect.
+>
+> Audit by opening `transfers_review.csv` and the demo. The
+> `transfer_group` field on each station and the cluster diameter help find
+> false positives quickly.
 
 ---
 
@@ -145,10 +180,10 @@ ref.current?.focusStation("01-09");
 
 | Prop | Type | Description |
 |------|------|-------------|
-| `baseUrl` | `string` | URL prefix for SVG/JSON assets (default: `"/"`) |
+| `baseUrl` | `string` | URL prefix for SVG/JSON assets (default: `"/v2/"`; use `"/v1/"` for the legacy dataset) |
 | `highlightedStations` | `StationId[]` | Station IDs to highlight |
 | `highlightedSegments` | `Segment[]` | `{from, to, line}` segments to highlight |
-| `stationLabels` | `Record<StationId, string>` | Optional display labels for tooltip |
+| `stationLabels` | `Record<StationId, string>` | Optional override for tooltip labels (otherwise tooltip shows `name_en` + `name_zh` from stations.json) |
 | `onStationClick` | `(id) => void` | Click callback |
 | `onStationHover` | `(id \| null) => void` | Hover callback |
 
@@ -185,5 +220,5 @@ return (
 );
 ```
 
-The schematic reads assets from `baseUrl`. Copy `public/` to wherever your
-server serves static files and set `baseUrl` accordingly.
+The schematic reads assets from `baseUrl`. Copy `public/v2/` (or `public/v1/`)
+to wherever your server serves static files and set `baseUrl` accordingly.

@@ -1,0 +1,1120 @@
+#!/usr/bin/env python3
+"""
+Shanghai Metro v2 PDF → SVG + JSON pipeline.
+
+Differences from v1 extractor:
+  * v2 PDF has real extractable text (Chinese + English station names).
+  * Lines are stored as a few long polyline strokes (~17-29 per line) instead
+    of thousands of tiny segments — much simpler to reconstruct.
+  * Line→color mapping is auto-detected from "Line N" / "Pujiang Line" text
+    labels (size=30 spans) sitting next to colored strokes.
+  * Stations are extracted from text label positions (English + Chinese pairs)
+    projected onto the nearest line stroke.
+
+Outputs (under public/v2/):
+  - shanghai-metro.svg          full vector render of the PDF
+  - shanghai-metro-overlay.svg  transparent overlay with station circles
+  - stations.json               line/station data with name_en + name_zh
+  - transfers.json              auto-clustered transfer groups
+  - transfers_review.csv        for human review
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import math
+import re
+import sys
+import unicodedata
+from collections import defaultdict
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Iterable
+
+import fitz  # PyMuPDF
+
+# ── Paths ────────────────────────────────────────────────────────────
+ROOT = Path(__file__).resolve().parent.parent
+PDF_PATH = ROOT / "metro.pdf"
+OUT_DIR = ROOT / "public" / "v2"
+DEBUG_DIR = ROOT / "debug"
+
+# ── Tunables ─────────────────────────────────────────────────────────
+LINE_STROKE_WIDTH = 16.0          # base line stroke width in v2 PDF
+COLOR_TOL = 0.025                 # color matching tolerance
+TEXT_PAIR_DX = 80.0               # max x-diff to pair English+Chinese text
+TEXT_PAIR_DY = 80.0               # max y-diff (Chinese typically below English)
+STATION_TO_LINE_MAX_DIST = 80.0   # how far a label center can be from a line
+TRANSFER_TOL_PT = 50.0            # spatial tolerance for transfer clustering
+SECONDARY_LINE_MAX_DIST = 35.0    # only assign to extra lines if very close
+LOOP_LINES = {"4"}
+
+# Filter out non-station text patterns
+NON_STATION_TEXT_PATTERNS = [
+    re.compile(r"^Transfer", re.I),
+    re.compile(r"^转乘", re.I),
+    re.compile(r"^换乘", re.I),
+    re.compile(r"^Pujiang Line", re.I),
+    re.compile(r"^Jinshan Line", re.I),
+    re.compile(r"^Suzhou", re.I),
+    re.compile(r"^Maglev", re.I),
+    re.compile(r"^磁浮", re.I),
+    re.compile(r"^浦江线"),
+    re.compile(r"^金山线"),
+    re.compile(r"^to\s", re.I),
+    re.compile(r"^SHANGHAI METRO", re.I),
+]
+
+
+def is_chinese(s: str) -> bool:
+    return any("CJK UNIFIED" in unicodedata.name(c, "") for c in s)
+
+
+def is_station_text(text: str) -> bool:
+    text = text.strip()
+    if not text:
+        return False
+    for pat in NON_STATION_TEXT_PATTERNS:
+        if pat.search(text):
+            return False
+    # Filter pure line-label English ("Line 7", "Line 11")
+    if re.match(r"^Line\s+\d+$", text):
+        return False
+    return True
+
+
+# ── Data classes ─────────────────────────────────────────────────────
+@dataclass
+class TextSpan:
+    text: str
+    x0: float
+    y0: float
+    x1: float
+    y1: float
+    size: float
+
+    @property
+    def cx(self) -> float:
+        return (self.x0 + self.x1) / 2
+
+    @property
+    def cy(self) -> float:
+        return (self.y0 + self.y1) / 2
+
+
+@dataclass
+class StationLabel:
+    name_en: str
+    name_zh: str
+    x: float          # center x of the label cluster
+    y: float          # center y
+    spans: list[TextSpan] = field(default_factory=list)
+
+
+@dataclass
+class LineData:
+    line_id: str           # "1", "2", ..., "Pujiang"
+    label: str             # "Line 1", "Pujiang Line"
+    color_rgb: tuple[float, float, float]
+    color_hex: str
+    polylines: list[list[tuple[float, float]]] = field(default_factory=list)
+
+
+# ── Color helpers ────────────────────────────────────────────────────
+def color_close(a: tuple, b: tuple, tol: float = COLOR_TOL) -> bool:
+    return all(abs(a[i] - b[i]) < tol for i in range(3))
+
+
+def rgb_to_hex(rgb: tuple) -> str:
+    r, g, b = (int(round(c * 255)) for c in rgb)
+    return f"#{r:02x}{g:02x}{b:02x}"
+
+
+# ── Phase 1: extract text spans ──────────────────────────────────────
+def extract_text_spans(page: fitz.Page) -> list[TextSpan]:
+    spans: list[TextSpan] = []
+    for block in page.get_text("dict")["blocks"]:
+        if block.get("type") != 0:
+            continue
+        for line in block.get("lines", []):
+            for sp in line.get("spans", []):
+                t = sp["text"].strip()
+                if not t:
+                    continue
+                spans.append(TextSpan(
+                    text=t,
+                    x0=sp["bbox"][0], y0=sp["bbox"][1],
+                    x1=sp["bbox"][2], y1=sp["bbox"][3],
+                    size=sp["size"],
+                ))
+    return spans
+
+
+# ── Phase 2: line-label spans (size~30) → color mapping ──────────────
+def find_line_color_map(
+    page: fitz.Page, spans: list[TextSpan]
+) -> dict[str, tuple[str, tuple[float, float, float]]]:
+    """
+    Returns: line_id -> (label, color_rgb)
+
+    Strategy: For each "Line N" text label, find the small colored `re`
+    rectangle (~104×43 pt) that contains or sits behind the text — that
+    is the line's badge with its canonical color.
+
+    For Pujiang Line (no badge), we use the unique width=8 stroke color.
+    """
+    line_label_spans: list[TextSpan] = []
+    for s in spans:
+        if abs(s.size - 30) >= 0.5:
+            continue
+        t = s.text.strip()
+        if (re.match(r"^Line\s+\d+$", t)
+                or t == "Pujiang Line"
+                or t == "Suzhou Line 11"):
+            line_label_spans.append(s)
+
+    drawings = page.get_drawings()
+    # Candidate badges: small filled re rectangles, not white/black/gray
+    badges = []
+    for d in drawings:
+        if d.get("type") not in ("f", "fs"):
+            continue
+        if not d.get("fill"):
+            continue
+        items = d.get("items", [])
+        if not any(it[0] == "re" for it in items):
+            continue
+        r = d["rect"]
+        if r.width > 200 or r.height > 80:
+            continue
+        fill = tuple(round(x, 3) for x in d["fill"])
+        if color_close(fill, (1, 1, 1)):
+            continue
+        # skip pure grays (badge legend swatches handled below)
+        if max(fill) - min(fill) < 0.02 and 0.3 < min(fill) < 0.95:
+            continue
+        badges.append((fill, r))
+
+    result: dict[str, tuple[str, tuple[float, float, float]]] = {}
+    for span in line_label_spans:
+        label = span.text.strip()
+        if label == "Suzhou Line 11":
+            continue
+        m = re.match(r"^Line\s+(\d+)$", label)
+        if m:
+            line_id = m.group(1)
+        elif label == "Pujiang Line":
+            line_id = "Pujiang"
+        else:
+            continue
+
+        if line_id in result:
+            continue
+
+        # Find the badge that the text label sits inside (or nearest)
+        best, best_d = None, float("inf")
+        for fill, r in badges:
+            cx, cy = (r.x0 + r.x1) / 2, (r.y0 + r.y1) / 2
+            # require text center to be reasonably inside badge bbox
+            if not (r.x0 - 30 <= span.cx <= r.x1 + 30):
+                continue
+            if not (r.y0 - 20 <= span.cy <= r.y1 + 20):
+                continue
+            d2 = abs(cx - span.cx) + abs(cy - span.cy)
+            if d2 < best_d:
+                best_d = d2
+                best = fill
+        if best is not None:
+            result[line_id] = (label, best)
+
+    # Pujiang Line: detect by unique width=8 stroke
+    if "Pujiang" not in result:
+        for d in drawings:
+            if d.get("type") != "s":
+                continue
+            if abs(d.get("width", 0) - 8) > 0.5:
+                continue
+            c = d.get("color")
+            if not c:
+                continue
+            c_rounded = tuple(round(x, 3) for x in c)
+            if color_close(c_rounded, (0, 0, 0)) or color_close(c_rounded, (1, 1, 1)):
+                continue
+            result["Pujiang"] = ("Pujiang Line", c_rounded)
+            break
+
+    # The badge color often differs slightly (or substantially for lines 6/15/16)
+    # from the actual stroke color. Replace each badge color with the closest
+    # stroke color we actually find on the page.
+    stroke_colors: set[tuple[float, float, float]] = set()
+    for d in drawings:
+        if d.get("type") != "s":
+            continue
+        w = d.get("width", 0)
+        if abs(w - LINE_STROKE_WIDTH) >= 0.5 and abs(w - 8.0) >= 0.5:
+            continue
+        c = d.get("color")
+        if not c:
+            continue
+        c_rounded = tuple(round(x, 3) for x in c)
+        if color_close(c_rounded, (1, 1, 1)) or color_close(c_rounded, (0, 0, 0)):
+            continue
+        stroke_colors.add(c_rounded)
+
+    used_strokes: set[tuple[float, float, float]] = set()
+    # Process in order of best-match strength so unique perfect matches lock first
+    items_list = list(result.items())
+    items_list.sort(key=lambda kv: min(
+        sum(abs(kv[1][1][i] - sc[i]) for i in range(3)) for sc in stroke_colors
+    ))
+    refined: dict[str, tuple[str, tuple[float, float, float]]] = {}
+    for line_id, (label, badge) in items_list:
+        candidates = sorted(
+            (sc for sc in stroke_colors if sc not in used_strokes),
+            key=lambda sc: sum(abs(sc[i] - badge[i]) for i in range(3))
+        )
+        if not candidates:
+            refined[line_id] = (label, badge)
+            continue
+        best = candidates[0]
+        # Only accept if the diff is < 0.5 total (lets even Line 16 match)
+        if sum(abs(best[i] - badge[i]) for i in range(3)) < 0.5:
+            refined[line_id] = (label, best)
+            used_strokes.add(best)
+        else:
+            refined[line_id] = (label, badge)
+    return refined
+
+
+# ── Phase 3: pair English + Chinese spans into station labels ────────
+def build_station_labels_from_blocks(page: fitz.Page) -> list[StationLabel]:
+    """
+    Use PyMuPDF text *lines* (one text-row each) and pair English↔Chinese
+    rows that share an x-range with a typical y-gap (~30 pt).
+
+    A single "block" can contain MANY stations (5+ side-by-side), so we
+    cannot merge whole blocks; we must work at line granularity.
+    """
+    blocks = page.get_text("dict")["blocks"]
+
+    @dataclass
+    class TextRow:
+        text: str
+        x0: float
+        y0: float
+        x1: float
+        y1: float
+        size: float
+
+        @property
+        def cx(self) -> float:
+            return (self.x0 + self.x1) / 2
+
+        @property
+        def cy(self) -> float:
+            return (self.y0 + self.y1) / 2
+
+    rows: list[TextRow] = []
+    for b in blocks:
+        if b.get("type") != 0:
+            continue
+        for line in b.get("lines", []):
+            spans = line.get("spans", [])
+            if not spans:
+                continue
+            text = " ".join(sp["text"].strip() for sp in spans).strip()
+            if not text:
+                continue
+            sz = max(sp["size"] for sp in spans)
+            if sz > 28:  # line-name labels & title
+                continue
+            if not is_station_text(text):
+                continue
+            bb = line["bbox"]
+            rows.append(TextRow(
+                text=text,
+                x0=bb[0], y0=bb[1], x1=bb[2], y1=bb[3], size=sz,
+            ))
+
+    en_rows = [r for r in rows if not is_chinese(r.text)]
+    zh_rows = [r for r in rows if is_chinese(r.text)]
+
+    # Cluster vertically-adjacent EN rows into one multi-line name.
+    en_rows.sort(key=lambda r: (round(r.x0 / 5), r.y0))
+    en_clusters: list[list[TextRow]] = []
+    used = [False] * len(en_rows)
+    for i, r in enumerate(en_rows):
+        if used[i]:
+            continue
+        cluster = [r]
+        used[i] = True
+        for j, t in enumerate(en_rows):
+            if used[j] or i == j:
+                continue
+            # very tight x match + small y gap
+            if abs(t.x0 - cluster[-1].x0) < 6 and 0 < (t.y0 - cluster[-1].y1) < 6:
+                cluster.append(t)
+                used[j] = True
+        en_clusters.append(cluster)
+
+    # Same for Chinese (multi-line Chinese is rare but possible)
+    zh_rows.sort(key=lambda r: (round(r.x0 / 5), r.y0))
+    zh_clusters: list[list[TextRow]] = []
+    used = [False] * len(zh_rows)
+    for i, r in enumerate(zh_rows):
+        if used[i]:
+            continue
+        cluster = [r]
+        used[i] = True
+        for j, t in enumerate(zh_rows):
+            if used[j] or i == j:
+                continue
+            if abs(t.x0 - cluster[-1].x0) < 6 and 0 < (t.y0 - cluster[-1].y1) < 6:
+                cluster.append(t)
+                used[j] = True
+        zh_clusters.append(cluster)
+
+    # Strict mutual-best-match pairing using CENTER-Y difference
+    # (line bboxes overlap each other by ~40pt due to ascender/descender,
+    # so y_bot/y_top is unreliable; cy difference is stable ~31pt).
+    TYPICAL_GAP = 31.0
+
+    def pair_score(ec: list, zc: list) -> float:
+        ec_x0 = min(r.x0 for r in ec)
+        ec_cy = max(r.cy for r in ec)
+        zc_x0 = min(r.x0 for r in zc)
+        zc_cy = min(r.cy for r in zc)
+        # tight x alignment
+        dx = abs(zc_x0 - ec_x0)
+        if dx > 12:
+            return float("inf")
+        dcy = zc_cy - ec_cy
+        # Chinese must be below English (positive dcy), within ~15pt of typical
+        if dcy < 15 or dcy > 50:
+            return float("inf")
+        return dx * 2 + abs(dcy - TYPICAL_GAP)
+
+    en_best = []
+    for i, ec in enumerate(en_clusters):
+        scores = sorted(
+            ((pair_score(ec, zc), j) for j, zc in enumerate(zh_clusters))
+        )
+        en_best.append(scores[0][1] if scores and scores[0][0] < float("inf") else -1)
+
+    zh_best = []
+    for j, zc in enumerate(zh_clusters):
+        scores = sorted(
+            ((pair_score(ec, zc), i) for i, ec in enumerate(en_clusters))
+        )
+        zh_best.append(scores[0][1] if scores and scores[0][0] < float("inf") else -1)
+
+    labels: list[StationLabel] = []
+    used_en = [False] * len(en_clusters)
+    used_zh = [False] * len(zh_clusters)
+
+    def emit(ec, zc):
+        en_text = " ".join(r.text for r in ec).strip()
+        zh_text = "".join(r.text for r in zc).strip()
+        all_rows = ec + zc
+        x = sum(r.cx for r in all_rows) / len(all_rows)
+        y = sum(r.cy for r in all_rows) / len(all_rows)
+        labels.append(StationLabel(
+            name_en=en_text, name_zh=zh_text, x=x, y=y,
+            spans=[TextSpan(text=r.text, x0=r.x0, y0=r.y0, x1=r.x1, y1=r.y1, size=r.size) for r in all_rows],
+        ))
+
+    for i, j in enumerate(en_best):
+        if j == -1:
+            continue
+        if zh_best[j] == i:
+            emit(en_clusters[i], zh_clusters[j])
+            used_en[i] = True
+            used_zh[j] = True
+
+    # Orphan handling
+    for i, ec in enumerate(en_clusters):
+        if used_en[i]:
+            continue
+        en_text = " ".join(r.text for r in ec).strip()
+        x = sum(r.cx for r in ec) / len(ec)
+        y = sum(r.cy for r in ec) / len(ec)
+        labels.append(StationLabel(
+            name_en=en_text, name_zh="", x=x, y=y,
+            spans=[TextSpan(text=r.text, x0=r.x0, y0=r.y0, x1=r.x1, y1=r.y1, size=r.size) for r in ec],
+        ))
+    for j, zc in enumerate(zh_clusters):
+        if used_zh[j]:
+            continue
+        zh_text = "".join(r.text for r in zc).strip()
+        x = sum(r.cx for r in zc) / len(zc)
+        y = sum(r.cy for r in zc) / len(zc)
+        labels.append(StationLabel(
+            name_en="", name_zh=zh_text, x=x, y=y,
+            spans=[TextSpan(text=r.text, x0=r.x0, y0=r.y0, x1=r.x1, y1=r.y1, size=r.size) for r in zc],
+        ))
+
+    return labels
+
+
+def build_station_labels(spans: list[TextSpan]) -> list[StationLabel]:
+    """[Deprecated] kept for reference; build_station_labels_from_blocks is used."""
+    station_spans = [s for s in spans if abs(s.size - 26) < 1.5 and is_station_text(s.text)]
+    en = [s for s in station_spans if not is_chinese(s.text)]
+    zh = [s for s in station_spans if is_chinese(s.text)]
+
+    # Cluster English spans that are vertically adjacent (multiline names)
+    en.sort(key=lambda s: (s.x0, s.y0))
+    en_clusters: list[list[TextSpan]] = []
+    used = [False] * len(en)
+    for i, s in enumerate(en):
+        if used[i]:
+            continue
+        cluster = [s]
+        used[i] = True
+        for j, t in enumerate(en):
+            if used[j]:
+                continue
+            # Same x-range, t directly below
+            if abs(s.x0 - t.x0) < 30 and 0 < (t.y0 - cluster[-1].y1) < 8:
+                cluster.append(t)
+                used[j] = True
+        en_clusters.append(cluster)
+
+    # Cluster Chinese spans similarly
+    zh.sort(key=lambda s: (s.x0, s.y0))
+    zh_clusters: list[list[TextSpan]] = []
+    used = [False] * len(zh)
+    for i, s in enumerate(zh):
+        if used[i]:
+            continue
+        cluster = [s]
+        used[i] = True
+        for j, t in enumerate(zh):
+            if used[j]:
+                continue
+            if abs(s.x0 - t.x0) < 30 and 0 < (t.y0 - cluster[-1].y1) < 8:
+                cluster.append(t)
+                used[j] = True
+        zh_clusters.append(cluster)
+
+    # Use mutual-best-match bipartite pairing.
+    # Score = horizontal misalignment + |dy - typical_gap|.
+    TYPICAL_GAP = 33.0  # observed typical en→zh vertical offset
+
+    def pair_score(ec, zc) -> float:
+        ec_xmid = sum(s.cx for s in ec) / len(ec)
+        ec_y_bot = max(s.y1 for s in ec)
+        zc_xmid = sum(s.cx for s in zc) / len(zc)
+        zc_y_top = min(s.y0 for s in zc)
+        dx = abs(zc_xmid - ec_xmid)
+        dy = zc_y_top - ec_y_bot
+        if dx > TEXT_PAIR_DX:
+            return float("inf")
+        if dy < -10 or dy > TEXT_PAIR_DY:
+            return float("inf")
+        return dx + 2 * abs(dy - TYPICAL_GAP)
+
+    en_best_zh = []
+    for ec in en_clusters:
+        scores = [(pair_score(ec, zc), j) for j, zc in enumerate(zh_clusters)]
+        scores.sort()
+        en_best_zh.append(scores[0][1] if scores and scores[0][0] < float("inf") else -1)
+
+    zh_best_en = []
+    for zc in zh_clusters:
+        scores = [(pair_score(ec, zc), i) for i, ec in enumerate(en_clusters)]
+        scores.sort()
+        zh_best_en.append(scores[0][1] if scores and scores[0][0] < float("inf") else -1)
+
+    labels: list[StationLabel] = []
+    used_en = [False] * len(en_clusters)
+    used_zh = [False] * len(zh_clusters)
+
+    # Mutual best-match
+    for i, j in enumerate(en_best_zh):
+        if j == -1:
+            continue
+        if zh_best_en[j] == i:
+            ec = en_clusters[i]
+            zc = zh_clusters[j]
+            name_en = " ".join(s.text for s in ec).strip()
+            name_zh = "".join(s.text for s in zc).strip()
+            xs = [s.cx for s in ec + zc]
+            ys = [(s.y0 + s.y1) / 2 for s in ec + zc]
+            labels.append(StationLabel(
+                name_en=name_en, name_zh=name_zh,
+                x=sum(xs) / len(xs), y=sum(ys) / len(ys),
+                spans=list(ec) + list(zc),
+            ))
+            used_en[i] = True
+            used_zh[j] = True
+
+    # Pass 2: greedy match remaining via best score
+    while True:
+        best_pair, best_score = None, float("inf")
+        for i, ec in enumerate(en_clusters):
+            if used_en[i]:
+                continue
+            for j, zc in enumerate(zh_clusters):
+                if used_zh[j]:
+                    continue
+                s = pair_score(ec, zc)
+                if s < best_score:
+                    best_score = s
+                    best_pair = (i, j)
+        if best_pair is None or best_score == float("inf"):
+            break
+        i, j = best_pair
+        ec = en_clusters[i]
+        zc = zh_clusters[j]
+        name_en = " ".join(s.text for s in ec).strip()
+        name_zh = "".join(s.text for s in zc).strip()
+        xs = [s.cx for s in ec + zc]
+        ys = [(s.y0 + s.y1) / 2 for s in ec + zc]
+        labels.append(StationLabel(
+            name_en=name_en, name_zh=name_zh,
+            x=sum(xs) / len(xs), y=sum(ys) / len(ys),
+            spans=list(ec) + list(zc),
+        ))
+        used_en[i] = True
+        used_zh[j] = True
+
+    # Orphan English clusters
+    for i, ec in enumerate(en_clusters):
+        if used_en[i]:
+            continue
+        name_en = " ".join(s.text for s in ec).strip()
+        xs = [s.cx for s in ec]
+        ys = [(s.y0 + s.y1) / 2 for s in ec]
+        labels.append(StationLabel(
+            name_en=name_en, name_zh="",
+            x=sum(xs) / len(xs), y=sum(ys) / len(ys),
+            spans=list(ec),
+        ))
+
+    # Orphan Chinese clusters
+    for j, zc in enumerate(zh_clusters):
+        if used_zh[j]:
+            continue
+        name_zh = "".join(s.text for s in zc).strip()
+        xs = [s.cx for s in zc]
+        ys = [(s.y0 + s.y1) / 2 for s in zc]
+        labels.append(StationLabel(
+            name_en="", name_zh=name_zh,
+            x=sum(xs) / len(xs), y=sum(ys) / len(ys),
+            spans=list(zc),
+        ))
+
+    return labels
+
+
+# ── Phase 4: extract per-color polylines ─────────────────────────────
+def extract_polylines_per_color(
+    page: fitz.Page, color_to_line: dict[tuple, str]
+) -> dict[str, list[list[tuple[float, float]]]]:
+    """
+    Walk page strokes (width=16). For each stroke drawing, sample its path
+    points (handle 'l' and 'c' Bézier curves) → list of polylines per line.
+    """
+    drawings = page.get_drawings()
+    raw_per_line: dict[str, list[list[tuple[float, float]]]] = defaultdict(list)
+
+    for d in drawings:
+        if d.get("type") != "s":
+            continue
+        # Accept both standard (width=16) and Pujiang-style (width=8) strokes
+        w = d.get("width", 0)
+        if abs(w - LINE_STROKE_WIDTH) >= 0.5 and abs(w - 8.0) >= 0.5:
+            continue
+        c = d.get("color")
+        if not c:
+            continue
+        c_rounded = tuple(round(x, 3) for x in c)
+        line_id = None
+        for cl, lid in color_to_line.items():
+            if color_close(c_rounded, cl):
+                line_id = lid
+                break
+        if line_id is None:
+            continue
+
+        # Reconstruct path from items
+        # Each path can have multiple subpaths separated by `re`/`m`-style breaks.
+        # We track "current" path: starts at first move-equivalent point.
+        items = d.get("items", [])
+        current: list[tuple[float, float]] = []
+        for it in items:
+            op = it[0]
+            if op == "l":
+                # ('l', Point start, Point end)
+                p0 = (it[1].x, it[1].y)
+                p1 = (it[2].x, it[2].y)
+                if not current:
+                    current.append(p0)
+                elif _dist(current[-1], p0) > 0.5:
+                    if len(current) >= 2:
+                        raw_per_line[line_id].append(current)
+                    current = [p0]
+                current.append(p1)
+            elif op == "c":
+                # ('c', P0, P1, P2, P3) — cubic Bezier
+                p0 = (it[1].x, it[1].y)
+                p3 = (it[4].x, it[4].y)
+                ctrl1 = (it[2].x, it[2].y)
+                ctrl2 = (it[3].x, it[3].y)
+                if not current:
+                    current.append(p0)
+                elif _dist(current[-1], p0) > 0.5:
+                    if len(current) >= 2:
+                        raw_per_line[line_id].append(current)
+                    current = [p0]
+                # Sample bezier into ~8 segments
+                for t in range(1, 9):
+                    tt = t / 8
+                    x = (1 - tt) ** 3 * p0[0] + 3 * (1 - tt) ** 2 * tt * ctrl1[0] \
+                        + 3 * (1 - tt) * tt ** 2 * ctrl2[0] + tt ** 3 * p3[0]
+                    y = (1 - tt) ** 3 * p0[1] + 3 * (1 - tt) ** 2 * tt * ctrl1[1] \
+                        + 3 * (1 - tt) * tt ** 2 * ctrl2[1] + tt ** 3 * p3[1]
+                    current.append((x, y))
+            elif op == "re":
+                # rectangle — emit and skip
+                if len(current) >= 2:
+                    raw_per_line[line_id].append(current)
+                current = []
+        if len(current) >= 2:
+            raw_per_line[line_id].append(current)
+
+    # Merge polylines that share endpoints (within 1 pt)
+    merged_per_line: dict[str, list[list[tuple[float, float]]]] = {}
+    for line_id, polys in raw_per_line.items():
+        merged_per_line[line_id] = _merge_chains(polys)
+
+    return merged_per_line
+
+
+def _dist(a: tuple, b: tuple) -> float:
+    return math.hypot(a[0] - b[0], a[1] - b[1])
+
+
+def _merge_chains(
+    polys: list[list[tuple[float, float]]], tol: float = 1.0
+) -> list[list[tuple[float, float]]]:
+    """Greedy merge of polylines whose endpoints touch."""
+    polys = [list(p) for p in polys if len(p) >= 2]
+    changed = True
+    while changed:
+        changed = False
+        for i in range(len(polys)):
+            if not polys[i]:
+                continue
+            for j in range(len(polys)):
+                if i == j or not polys[j]:
+                    continue
+                a_start, a_end = polys[i][0], polys[i][-1]
+                b_start, b_end = polys[j][0], polys[j][-1]
+                if _dist(a_end, b_start) <= tol:
+                    polys[i] = polys[i] + polys[j][1:]
+                    polys[j] = []
+                    changed = True
+                    break
+                if _dist(a_end, b_end) <= tol:
+                    polys[i] = polys[i] + list(reversed(polys[j]))[1:]
+                    polys[j] = []
+                    changed = True
+                    break
+                if _dist(a_start, b_end) <= tol:
+                    polys[i] = polys[j] + polys[i][1:]
+                    polys[j] = []
+                    changed = True
+                    break
+                if _dist(a_start, b_start) <= tol:
+                    polys[i] = list(reversed(polys[j])) + polys[i][1:]
+                    polys[j] = []
+                    changed = True
+                    break
+            if changed:
+                break
+    return [p for p in polys if p]
+
+
+# ── Phase 5: assign each station label to the nearest line(s) ────────
+def project_to_polyline(
+    pt: tuple[float, float], poly: list[tuple[float, float]]
+) -> tuple[float, float]:
+    """Returns (closest distance, arc-length position along polyline)."""
+    best_d = float("inf")
+    best_arc = 0.0
+    arc = 0.0
+    for i in range(len(poly) - 1):
+        a, b = poly[i], poly[i + 1]
+        seg_len = _dist(a, b)
+        if seg_len == 0:
+            continue
+        # Project pt onto segment
+        t = ((pt[0] - a[0]) * (b[0] - a[0]) + (pt[1] - a[1]) * (b[1] - a[1])) / (seg_len ** 2)
+        t = max(0, min(1, t))
+        proj = (a[0] + t * (b[0] - a[0]), a[1] + t * (b[1] - a[1]))
+        d = _dist(pt, proj)
+        if d < best_d:
+            best_d = d
+            best_arc = arc + t * seg_len
+        arc += seg_len
+    return best_d, best_arc
+
+
+def assign_stations_to_lines(
+    labels: list[StationLabel],
+    polylines_per_line: dict[str, list[list[tuple[float, float]]]],
+) -> dict[str, list[tuple[StationLabel, float, float, float]]]:
+    """
+    For each line, returns list of (label, snap_x, snap_y, arc_length)
+    sorted by arc_length.
+
+    Step 1: assign each label to its closest line (primary).
+    Step 2: at the primary snap point, check if any OTHER line's polyline
+            passes within TRANSFER_TOL_PT — if yes, it's a transfer station
+            and the label is also added to that line.
+    """
+    per_line: dict[str, list[tuple[StationLabel, float, float, float]]] = defaultdict(list)
+
+    for label in labels:
+        # Step 1: closest line
+        best_d, best_line, best_pt, best_arc = float("inf"), None, (0.0, 0.0), 0.0
+        for line_id, polys in polylines_per_line.items():
+            for poly in polys:
+                d, arc = project_to_polyline((label.x, label.y), poly)
+                if d < best_d:
+                    best_d = d
+                    best_line = line_id
+                    best_arc = arc
+                    best_pt = _closest_point_on_polyline((label.x, label.y), poly)
+        if best_line is None or best_d > STATION_TO_LINE_MAX_DIST:
+            continue
+        per_line[best_line].append((label, best_pt[0], best_pt[1], best_arc))
+
+        # Step 2: which other lines pass through the primary snap point?
+        for line_id, polys in polylines_per_line.items():
+            if line_id == best_line:
+                continue
+            # Find the closest point on this OTHER line to our primary snap point
+            sub_d, sub_arc, sub_pt = float("inf"), 0.0, (0.0, 0.0)
+            for poly in polys:
+                d, arc = project_to_polyline(best_pt, poly)
+                if d < sub_d:
+                    sub_d = d
+                    sub_arc = arc
+                    sub_pt = _closest_point_on_polyline(best_pt, poly)
+            if sub_d <= TRANSFER_TOL_PT:
+                per_line[line_id].append((label, sub_pt[0], sub_pt[1], sub_arc))
+
+    # Sort each line's stations by arc length and dedupe near-duplicates
+    for lid in per_line:
+        per_line[lid].sort(key=lambda x: x[3])
+        # Drop consecutive entries with same label name (created by labels
+        # whose snap projects to multiple disjoint polylines on one line)
+        dedup = []
+        seen_names = set()
+        for entry in per_line[lid]:
+            label = entry[0]
+            key = (label.name_en, label.name_zh, round(entry[1] / 30), round(entry[2] / 30))
+            if key in seen_names:
+                continue
+            seen_names.add(key)
+            dedup.append(entry)
+        per_line[lid] = dedup
+    return per_line
+
+
+def _closest_point_on_polyline(
+    pt: tuple[float, float], poly: list[tuple[float, float]]
+) -> tuple[float, float]:
+    best_d = float("inf")
+    best_pt = poly[0]
+    for i in range(len(poly) - 1):
+        a, b = poly[i], poly[i + 1]
+        seg_len = _dist(a, b)
+        if seg_len == 0:
+            continue
+        t = ((pt[0] - a[0]) * (b[0] - a[0]) + (pt[1] - a[1]) * (b[1] - a[1])) / (seg_len ** 2)
+        t = max(0, min(1, t))
+        proj = (a[0] + t * (b[0] - a[0]), a[1] + t * (b[1] - a[1]))
+        d = _dist(pt, proj)
+        if d < best_d:
+            best_d = d
+            best_pt = proj
+    return best_pt
+
+
+# ── Phase 6: compute station IDs + transfer clusters ─────────────────
+def compute_station_ids_and_transfers(
+    per_line: dict[str, list[tuple[StationLabel, float, float, float]]],
+    polylines_per_line: dict[str, list[list[tuple[float, float]]]],
+) -> tuple[dict[str, dict], list[dict], list[dict]]:
+    """
+    Returns:
+      - stations: {station_id: {line, x, y, name_en, name_zh, transfer_group}}
+      - lines_data: [{id, color, trunk, branches}]
+      - transfers: [{group_id, station_ids, center_x, center_y}]
+    """
+    stations: dict[str, dict] = {}
+    lines_data: list[dict] = []
+    label_to_ids: dict[int, list[str]] = defaultdict(list)  # by label id()
+
+    sorted_line_ids = _sort_line_ids(per_line.keys())
+
+    for line_id in sorted_line_ids:
+        entries = per_line[line_id]
+        # For loop lines, we'd want to start at westernmost and go clockwise;
+        # in v2, we approximate with arc-length ordering only (loops handled
+        # by the polyline naturally if it's a closed curve).
+        if line_id in LOOP_LINES:
+            # Find the entry with smallest x — start there
+            start_idx = min(range(len(entries)), key=lambda i: entries[i][1])
+            entries = entries[start_idx:] + entries[:start_idx]
+
+        trunk_ids = []
+        for i, (label, x, y, arc) in enumerate(entries, start=1):
+            sid = f"{_pad(line_id)}-{i:02d}"
+            trunk_ids.append(sid)
+            stations[sid] = {
+                "line": line_id,
+                "x": round(x, 2),
+                "y": round(y, 2),
+                "name_en": label.name_en,
+                "name_zh": label.name_zh,
+                "transfer_group": None,
+            }
+            label_to_ids[id(label)].append(sid)
+
+        lines_data.append({
+            "id": line_id,
+            "trunk": trunk_ids,
+            "branches": {},
+        })
+
+    # Transfer clustering: a label that maps to multiple lines = transfer
+    # Also do a positional cluster pass for nearby distinct labels (rare)
+    transfers: list[dict] = []
+    seen: set[str] = set()
+
+    # First pass: same label, multiple lines
+    same_label_groups: list[list[str]] = []
+    for label_obj_id, sids in label_to_ids.items():
+        if len(sids) >= 2:
+            same_label_groups.append(sids)
+
+    # Second pass: positional clustering across all stations not yet grouped
+    sid_list = list(stations.keys())
+    parent = {sid: sid for sid in sid_list}
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[ra] = rb
+
+    for group in same_label_groups:
+        for sid in group[1:]:
+            union(group[0], sid)
+
+    # Spatial clustering (different lines, close coords)
+    for i, sa in enumerate(sid_list):
+        ma = stations[sa]
+        for sb in sid_list[i + 1:]:
+            mb = stations[sb]
+            if ma["line"] == mb["line"]:
+                continue
+            if abs(ma["x"] - mb["x"]) > TRANSFER_TOL_PT:
+                continue
+            if abs(ma["y"] - mb["y"]) > TRANSFER_TOL_PT:
+                continue
+            if math.hypot(ma["x"] - mb["x"], ma["y"] - mb["y"]) <= TRANSFER_TOL_PT:
+                union(sa, sb)
+
+    cluster_map: dict[str, list[str]] = defaultdict(list)
+    for sid in sid_list:
+        cluster_map[find(sid)].append(sid)
+
+    transfer_idx = 1
+    for root, members in cluster_map.items():
+        if len(members) < 2:
+            continue
+        gid = f"T{transfer_idx:03d}"
+        transfer_idx += 1
+        cx = sum(stations[m]["x"] for m in members) / len(members)
+        cy = sum(stations[m]["y"] for m in members) / len(members)
+        for m in members:
+            stations[m]["transfer_group"] = gid
+        transfers.append({
+            "group_id": gid,
+            "station_ids": sorted(members),
+            "center_x": round(cx, 2),
+            "center_y": round(cy, 2),
+        })
+
+    return stations, lines_data, transfers
+
+
+def _pad(line_id: str) -> str:
+    if line_id.isdigit():
+        return f"{int(line_id):02d}"
+    return line_id
+
+
+def _sort_line_ids(ids: Iterable[str]) -> list[str]:
+    nums, names = [], []
+    for x in ids:
+        if x.isdigit():
+            nums.append(x)
+        else:
+            names.append(x)
+    return sorted(nums, key=int) + sorted(names)
+
+
+# ── Phase 7: SVG output ──────────────────────────────────────────────
+def write_full_svg(page: fitz.Page, out_path: Path) -> None:
+    svg_text = page.get_svg_image()
+    out_path.write_text(svg_text, encoding="utf-8")
+
+
+def write_overlay_svg(
+    page: fitz.Page,
+    stations: dict[str, dict],
+    line_colors: dict[str, str],
+    out_path: Path,
+) -> None:
+    rect = page.rect
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" '
+        f'viewBox="0 0 {rect.width:.0f} {rect.height:.0f}" '
+        f'preserveAspectRatio="xMidYMid meet" '
+        f'style="width:100%;height:100%;pointer-events:none">',
+        '<g id="stations" style="pointer-events:auto">',
+    ]
+    for sid, meta in stations.items():
+        color = line_colors.get(meta["line"], "#000")
+        tg_attr = f' data-tgroup="{meta["transfer_group"]}"' if meta["transfer_group"] else ""
+        parts.append(
+            f'<circle id="{sid}" class="station" '
+            f'data-line="{meta["line"]}"{tg_attr} '
+            f'cx="{meta["x"]}" cy="{meta["y"]}" r="18" '
+            f'fill="white" stroke="{color}" stroke-width="6" '
+            f'style="cursor:pointer" />'
+        )
+    parts.append("</g></svg>")
+    out_path.write_text("\n".join(parts), encoding="utf-8")
+
+
+# ── Main ─────────────────────────────────────────────────────────────
+def main() -> int:
+    p = argparse.ArgumentParser()
+    p.add_argument("--debug", action="store_true")
+    args = p.parse_args()
+
+    if not PDF_PATH.exists():
+        print(f"ERROR: {PDF_PATH} not found", file=sys.stderr)
+        return 1
+
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    if args.debug:
+        DEBUG_DIR.mkdir(exist_ok=True)
+
+    print(f"Opening {PDF_PATH.name}...")
+    doc = fitz.open(PDF_PATH)
+    page = doc[0]
+
+    print("→ Extracting text spans...")
+    spans = extract_text_spans(page)
+    print(f"  {len(spans)} spans")
+
+    print("→ Mapping line labels to colors...")
+    line_color_map_by_id = find_line_color_map(page, spans)
+    color_to_line: dict[tuple, str] = {
+        rgb: line_id for line_id, (_, rgb) in line_color_map_by_id.items()
+    }
+    print(f"  {len(line_color_map_by_id)} lines identified:")
+    for lid, (label, rgb) in sorted(line_color_map_by_id.items()):
+        print(f"    {label} (id={lid}): {rgb_to_hex(rgb)}")
+
+    print("→ Building station label pairs (block-based)...")
+    labels = build_station_labels_from_blocks(page)
+    print(f"  {len(labels)} labels")
+
+    print("→ Extracting line polylines...")
+    polylines = extract_polylines_per_color(page, color_to_line)
+    for lid, polys in sorted(polylines.items()):
+        n = sum(len(p) for p in polys)
+        print(f"  Line {lid}: {len(polys)} polylines, {n} pts")
+
+    print("→ Assigning stations to lines...")
+    per_line = assign_stations_to_lines(labels, polylines)
+
+    print("→ Computing IDs + transfers...")
+    stations, lines_data, transfers = compute_station_ids_and_transfers(
+        per_line, polylines
+    )
+
+    line_colors_hex = {
+        lid: rgb_to_hex(rgb) for lid, (_, rgb) in line_color_map_by_id.items()
+    }
+
+    # Augment lines_data with colors
+    for ld in lines_data:
+        ld["color"] = line_colors_hex.get(ld["id"], "#000")
+        ld["label"] = line_color_map_by_id.get(ld["id"], (f"Line {ld['id']}", None))[0]
+
+    rect = page.rect
+    out = {
+        "viewBox": [0, 0, round(rect.width, 2), round(rect.height, 2)],
+        "lines": lines_data,
+        "stations": stations,
+    }
+
+    (OUT_DIR / "stations.json").write_text(json.dumps(out, ensure_ascii=False, indent=2))
+    (OUT_DIR / "transfers.json").write_text(json.dumps(transfers, ensure_ascii=False, indent=2))
+
+    print("→ Writing transfers_review.csv...")
+    csv_path = OUT_DIR / "transfers_review.csv"
+    with csv_path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["group_id", "n_stations", "diameter_pt", "names_en", "names_zh", "station_ids"])
+        for t in transfers:
+            members = t["station_ids"]
+            xs = [stations[m]["x"] for m in members]
+            ys = [stations[m]["y"] for m in members]
+            diam = math.hypot(max(xs) - min(xs), max(ys) - min(ys))
+            names_en = " / ".join(stations[m]["name_en"] for m in members if stations[m]["name_en"])
+            names_zh = " / ".join(stations[m]["name_zh"] for m in members if stations[m]["name_zh"])
+            w.writerow([t["group_id"], len(members), f"{diam:.1f}", names_en, names_zh, " ".join(members)])
+
+    print("→ Writing full SVG...")
+    write_full_svg(page, OUT_DIR / "shanghai-metro.svg")
+
+    print("→ Writing overlay SVG...")
+    write_overlay_svg(page, stations, line_colors_hex, OUT_DIR / "shanghai-metro-overlay.svg")
+
+    print()
+    print(f"✓ Total stations: {len(stations)}")
+    print(f"✓ Transfer groups: {len(transfers)}")
+    print(f"✓ Lines: {len(lines_data)}")
+    print()
+    for ld in lines_data:
+        n = len(ld["trunk"])
+        first = ld["trunk"][0] if ld["trunk"] else "—"
+        last = ld["trunk"][-1] if ld["trunk"] else "—"
+        first_name = stations[first]["name_en"] if ld["trunk"] else ""
+        last_name = stations[last]["name_en"] if ld["trunk"] else ""
+        print(f"  {ld['label']:>16} ({ld['color']}): {first} ({first_name}) … {last} ({last_name}) — {n} stations")
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

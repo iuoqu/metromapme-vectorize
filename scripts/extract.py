@@ -819,7 +819,7 @@ def main():
     parser = argparse.ArgumentParser(description="Shanghai Metro PDF → SVG + JSON pipeline")
     parser.add_argument("--pdf", default="Shanghai Metro Network Map.pdf",
                         help="Input PDF path")
-    parser.add_argument("--out", default="public",
+    parser.add_argument("--out", default="public/v1",
                         help="Output directory for SVG and JSON files")
     parser.add_argument("--debug", action="store_true",
                         help="Save debug images to debug/")
@@ -867,7 +867,7 @@ def main():
     emit_json(line_geoms, all_stations, transfer_groups,
               out_dir / "stations.json",
               out_dir / "transfers.json")
-    emit_review_csv(transfer_groups, line_geoms, Path("transfers_review.csv"))
+    emit_review_csv(transfer_groups, line_geoms, out_dir / "transfers_review.csv")
 
     print("\n=== Summary ===")
     print(f"  Total stations: {len(all_stations)}")
