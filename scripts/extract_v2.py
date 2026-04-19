@@ -1097,12 +1097,15 @@ def assign_stations_geometric(
 
     for ci, members in cluster_lines.items():
         cl = transfer_clusters[ci]
-        # Apply min_lines filter: multi-line = always valid; single-line only for
-        # no-tick lines (AL etc.) or the cluster is very close (≤12pt) to one line.
-        if len(members) < 2:
-            # Check if the sole member line has 0 ticks (then it's allowed)
+        # Apply min_lines filter. A single-line cluster is valid when:
+        #  * the line has no tick marks (AL etc.), OR
+        #  * the cluster is a "small" (39×29) single-box marker — this IS a
+        #    genuine non-transfer station marker, not a decorative shape.
+        # A single-line LARGE (capsule) cluster on a ticked line is almost
+        # always a decorative artifact and is skipped.
+        if len(members) < 2 and not cl.get("small"):
             if not members or (members & tick_lines):
-                continue  # skip: single-line cluster on a ticked line = likely decorative
+                continue
 
         # Snap to each line's polyline so the marker sits on that line, not at the
         # cluster centroid (which is between lines)
@@ -1388,6 +1391,7 @@ def extract_station_marker_clusters(page: fitz.Page) -> list[dict]:
             "cy": (r.y0 + r.y1) / 2,
             "path_d": path_d,
             "small": is_small_box,
+            "area": r.width * r.height,
         })
 
     if not raw:
@@ -1419,10 +1423,20 @@ def extract_station_marker_clusters(page: fitz.Page) -> list[dict]:
 
     clusters: list[dict] = []
     for members in groups.values():
-        cx = sum(raw[m]["cx"] for m in members) / len(members)
-        cy = sum(raw[m]["cy"] for m in members) / len(members)
+        # Centroid: if one member shape has clearly the largest area (>1.5× the
+        # next one), that's the main transfer capsule — use its center and
+        # ignore the smaller decorative shapes (label boxes, icons) that get
+        # clustered with it. Otherwise (equal-size shapes, like 3 identical
+        # 29×29 segments of a 3-line transfer marker) use the arithmetic mean.
+        sorted_members = sorted(members, key=lambda m: -raw[m]["area"])
+        top = raw[sorted_members[0]]
+        next_area = raw[sorted_members[1]]["area"] if len(sorted_members) > 1 else 0
+        if top["area"] >= 1.5 * next_area:
+            cx, cy = top["cx"], top["cy"]
+        else:
+            cx = sum(raw[m]["cx"] for m in members) / len(members)
+            cy = sum(raw[m]["cy"] for m in members) / len(members)
         path_d = " ".join(raw[m]["path_d"] for m in members)
-        # A cluster is "small" only if ALL its member shapes are small boxes
         small = all(raw[m]["small"] for m in members)
         clusters.append({"cx": cx, "cy": cy, "path_d": path_d, "small": small})
     return clusters
