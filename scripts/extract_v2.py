@@ -67,6 +67,9 @@ MANUAL_STATIONS: list[dict] = [
     # L17 西岑 — 东方绿舟 (445,3878) 向西南外推 (朱家角→东方绿舟 方向延续)
     {"line": "17", "name_zh": "西岑", "name_en": "Xicen",
      "x": 360, "y": 3972, "extend_line": True},
+    # L18 沈梅路 — 鹤涛路 (4054,5127) 和 繁荣路 (4054,4794) 之间，线路已经画到了
+    {"line": "18", "name_zh": "沈梅路", "name_en": "Shenmei Rd.",
+     "x": 4054, "y": 4961, "extend_line": False},
     # L18 北段延长线: 长江南路 (3519,1282) → 呼兰路 (L1换乘, 2989,884) → 康文路 终点
     # 4 intermediate stations spaced ~130pt along the diagonal; 康文路 extrapolated
     {"line": "18", "name_zh": "通南路", "name_en": "Tongnan Rd.",
