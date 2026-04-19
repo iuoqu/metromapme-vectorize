@@ -655,7 +655,12 @@
         "18-22",
         "18-23",
         "18-24",
-        "18-25"
+        "18-25",
+        "18-26",
+        "18-27",
+        "18-28",
+        "18-29",
+        "18-30"
       ],
       "branches": {},
       "color": "#c4984f",
@@ -812,7 +817,7 @@
       "y": 883.67,
       "name_en": "",
       "name_zh": "呼兰路",
-      "transfer_group": null
+      "transfer_group": "M092"
     },
     "01-15": {
       "line": "1",
@@ -4910,6 +4915,56 @@
       "y": 3972.0,
       "name_en": "Xicen",
       "name_zh": "西岑",
+      "transfer_group": null,
+      "manual": true,
+      "extend_line": true
+    },
+    "18-26": {
+      "line": "18",
+      "x": 3387.0,
+      "y": 1183.0,
+      "name_en": "Tongnan Rd.",
+      "name_zh": "通南路",
+      "transfer_group": null,
+      "manual": true,
+      "extend_line": true
+    },
+    "18-27": {
+      "line": "18",
+      "x": 3255.0,
+      "y": 1084.0,
+      "name_en": "Changjiang West Rd.",
+      "name_zh": "长江西路",
+      "transfer_group": null,
+      "manual": true,
+      "extend_line": true
+    },
+    "18-28": {
+      "line": "18",
+      "x": 3123.0,
+      "y": 985.0,
+      "name_en": "Aihui Rd.",
+      "name_zh": "爱辉路",
+      "transfer_group": null,
+      "manual": true,
+      "extend_line": true
+    },
+    "18-29": {
+      "line": "18",
+      "x": 2989.0,
+      "y": 884.0,
+      "name_en": "Hulan Rd.",
+      "name_zh": "呼兰路",
+      "transfer_group": "M092",
+      "manual": true,
+      "extend_line": true
+    },
+    "18-30": {
+      "line": "18",
+      "x": 2857.0,
+      "y": 785.0,
+      "name_en": "Kangwen Rd.",
+      "name_zh": "康文路",
       "transfer_group": null,
       "manual": true,
       "extend_line": true

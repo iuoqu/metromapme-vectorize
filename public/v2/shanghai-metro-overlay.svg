@@ -2,6 +2,11 @@
 <g id="stations" style="pointer-events:auto">
 <!-- manual line extensions -->
 <line class="line-extension" data-line="17" x1="445.1" y1="3877.5" x2="360.0" y2="3972.0" stroke="#bc7970" stroke-width="16" stroke-linecap="round" fill="none" />
+<line class="line-extension" data-line="18" x1="3519.3" y1="1282.0" x2="3387.0" y2="1183.0" stroke="#c4984f" stroke-width="16" stroke-linecap="round" fill="none" />
+<line class="line-extension" data-line="18" x1="3387.0" y1="1183.0" x2="3255.0" y2="1084.0" stroke="#c4984f" stroke-width="16" stroke-linecap="round" fill="none" />
+<line class="line-extension" data-line="18" x1="3255.0" y1="1084.0" x2="3123.0" y2="985.0" stroke="#c4984f" stroke-width="16" stroke-linecap="round" fill="none" />
+<line class="line-extension" data-line="18" x1="3123.0" y1="985.0" x2="2989.0" y2="884.0" stroke="#c4984f" stroke-width="16" stroke-linecap="round" fill="none" />
+<line class="line-extension" data-line="18" x1="2989.0" y1="884.0" x2="2857.0" y2="785.0" stroke="#c4984f" stroke-width="16" stroke-linecap="round" fill="none" />
 <!-- regular stations -->
 <rect id="01-02" class="station" data-line="1" x="2396.6" y="3160.7" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
 <rect id="01-03" class="station" data-line="1" x="1806.2" y="3960.8" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
@@ -15,7 +20,6 @@
 <rect id="01-11" class="station" data-line="1" x="2972.8" y="1363.3" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
 <rect id="01-12" class="station" data-line="1" x="2972.8" y="1200.3" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
 <rect id="01-13" class="station" data-line="1" x="2972.8" y="1036.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
-<rect id="01-14" class="station" data-line="1" x="2972.8" y="872.7" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
 <rect id="01-15" class="station" data-line="1" x="2972.8" y="707.7" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
 <rect id="01-16" class="station" data-line="1" x="2972.8" y="545.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
 <rect id="01-17" class="station" data-line="1" x="2972.8" y="381.3" width="32" height="22" rx="11" ry="11" fill="white" stroke="#e20229" stroke-width="5" style="cursor:pointer" />
@@ -327,8 +331,13 @@
 <rect id="Pujiang-06" class="station" data-line="Pujiang" x="3118.5" y="4985.3" width="32" height="22" rx="11" ry="11" fill="white" stroke="#b6b6b6" stroke-width="5" style="cursor:pointer" />
 <rect id="11-40" class="station" data-line="11" x="3856.0" y="4283.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#861a2a" stroke-width="5" style="cursor:pointer" />
 <rect id="17-14" class="station" data-line="17" x="344.0" y="3961.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#bc7970" stroke-width="5" style="cursor:pointer" />
+<rect id="18-26" class="station" data-line="18" x="3371.0" y="1172.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#c4984f" stroke-width="5" style="cursor:pointer" />
+<rect id="18-27" class="station" data-line="18" x="3239.0" y="1073.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#c4984f" stroke-width="5" style="cursor:pointer" />
+<rect id="18-28" class="station" data-line="18" x="3107.0" y="974.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#c4984f" stroke-width="5" style="cursor:pointer" />
+<rect id="18-30" class="station" data-line="18" x="2841.0" y="774.0" width="32" height="22" rx="11" ry="11" fill="white" stroke="#c4984f" stroke-width="5" style="cursor:pointer" />
 <!-- transfer stations -->
 <path id="01-01" class="station" data-line="1" data-tgroup="T001" data-cx="1626.5" data-cy="4151.0" d="M1632.6,4168.2 L1615.8,4168.2 C1607.8,4168.2 1601.3,4161.7 1601.3,4153.7 C1601.3,4145.7 1607.8,4139.2 1615.8,4139.2 L1632.6,4139.2 C1640.6,4139.2 1647.1,4145.7 1647.1,4153.7 C1647.1,4161.7 1640.6,4168.2 1632.6,4168.2 Z" fill="white" stroke="#333333" stroke-width="6" style="cursor:pointer" />
+<circle id="01-14" class="station" data-line="1" data-tgroup="M092" cx="2988.8" cy="883.7" r="22" fill="white" stroke="#e20229" stroke-width="6" style="cursor:pointer" />
 <path id="01-19" class="station" data-line="1" data-tgroup="T002" data-cx="1915.5" data-cy="3862.6" d="M1923.2,3876.5 L1906.5,3876.5 C1898.5,3876.5 1892.0,3870.0 1892.0,3862.0 C1892.0,3854.0 1898.5,3847.5 1906.5,3847.5 L1923.2,3847.5 C1931.3,3847.5 1937.8,3854.0 1937.8,3862.0 C1937.8,3870.0 1931.3,3876.5 1923.2,3876.5 Z" fill="white" stroke="#333333" stroke-width="6" style="cursor:pointer" />
 <path id="01-20" class="station" data-line="1" data-tgroup="T003" data-cx="2062.6" data-cy="3707.8" d="M2069.2,3722.9 L2059.0,3722.9 C2051.0,3722.9 2044.5,3716.4 2044.5,3708.4 C2044.5,3700.4 2051.0,3693.9 2059.0,3693.9 L2069.2,3693.9 C2077.2,3693.9 2083.7,3700.4 2083.7,3708.4 C2083.7,3716.4 2077.2,3722.9 2069.2,3722.9 Z" fill="white" stroke="#333333" stroke-width="6" style="cursor:pointer" />
 <path id="01-21" class="station" data-line="1" data-tgroup="T004" data-cx="2154.3" data-cy="3410.5" d="M2163.6,3429.2 L2153.4,3429.2 C2145.4,3429.2 2138.9,3422.7 2138.9,3414.7 C2138.9,3406.7 2145.4,3400.2 2153.4,3400.2 L2163.6,3400.2 C2171.6,3400.2 2178.1,3406.7 2178.1,3414.7 C2178.1,3422.7 2171.6,3429.2 2163.6,3429.2 Z" fill="white" stroke="#333333" stroke-width="6" style="cursor:pointer" />
@@ -530,4 +539,5 @@
 <circle id="AL-02" class="station" data-line="AL" data-tgroup="T071" cx="1064.0" cy="3537.9" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
 <circle id="AL-03" class="station" data-line="AL" data-tgroup="T091" cx="2102.5" cy="4350.0" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
 <circle id="Pujiang-01" class="station" data-line="Pujiang" data-tgroup="T064" cx="2949.5" cy="4953.4" r="22" fill="transparent" stroke="transparent" style="cursor:pointer" />
+<circle id="18-29" class="station" data-line="18" data-tgroup="M092" cx="2989.0" cy="884.0" r="22" fill="white" stroke="#c4984f" stroke-width="6" style="cursor:pointer" />
 </g></svg>

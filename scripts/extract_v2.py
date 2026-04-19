@@ -67,6 +67,18 @@ MANUAL_STATIONS: list[dict] = [
     # L17 西岑 — 东方绿舟 (445,3878) 向西南外推 (朱家角→东方绿舟 方向延续)
     {"line": "17", "name_zh": "西岑", "name_en": "Xicen",
      "x": 360, "y": 3972, "extend_line": True},
+    # L18 北段延长线: 长江南路 (3519,1282) → 呼兰路 (L1换乘, 2989,884) → 康文路 终点
+    # 4 intermediate stations spaced ~130pt along the diagonal; 康文路 extrapolated
+    {"line": "18", "name_zh": "通南路", "name_en": "Tongnan Rd.",
+     "x": 3387, "y": 1183, "extend_line": True},
+    {"line": "18", "name_zh": "长江西路", "name_en": "Changjiang West Rd.",
+     "x": 3255, "y": 1084, "extend_line": True},
+    {"line": "18", "name_zh": "爱辉路", "name_en": "Aihui Rd.",
+     "x": 3123, "y": 985, "extend_line": True},
+    {"line": "18", "name_zh": "呼兰路", "name_en": "Hulan Rd.",
+     "x": 2989, "y": 884, "extend_line": True, "transfer_with": "01-14"},
+    {"line": "18", "name_zh": "康文路", "name_en": "Kangwen Rd.",
+     "x": 2857, "y": 785, "extend_line": True},
 ]
 
 # Filter out non-station text patterns
@@ -1642,32 +1654,42 @@ def write_overlay_svg(
     ]
 
     # ── Layer 0: line extensions for manual-injection stations that sit
-    #    BEYOND the drawn polyline (e.g. L17 西岑). Draw a colored stroke
-    #    from the nearest existing same-line station to the manual station.
+    #    BEYOND the drawn polyline. Draw a colored stroke from the prior
+    #    station in the route chain: first manual station on each line
+    #    connects to the nearest existing (non-manual) station; each
+    #    subsequent one connects to the prior manual station in route
+    #    order (as given in MANUAL_STATIONS).
     ext_parts: list[str] = []
-    for sid, meta in stations.items():
+    prev_by_line: dict[str, dict] = {}
+    # Iterate stations in MANUAL_STATIONS input order so chaining is correct
+    manual_sids = [sid for sid, meta in stations.items() if meta.get("manual")]
+    manual_sids.sort(key=lambda s: (stations[s]["line"], int(s.split("-")[-1])))
+    for sid in manual_sids:
+        meta = stations[sid]
         if not meta.get("extend_line"):
+            prev_by_line[meta["line"]] = meta
             continue
         lid = meta["line"]
         color = line_colors.get(lid, "#000")
-        # Find nearest same-line station (non-manual) by Euclidean distance
-        nearest = None
-        best_d = float("inf")
-        for osid, ometa in stations.items():
-            if osid == sid or ometa["line"] != lid or ometa.get("manual"):
-                continue
-            d = _dist((meta["x"], meta["y"]), (ometa["x"], ometa["y"]))
-            if d < best_d:
-                best_d = d
-                nearest = ometa
-        if nearest is None:
-            continue
-        ext_parts.append(
-            f'<line class="line-extension" data-line="{lid}" '
-            f'x1="{nearest["x"]:.1f}" y1="{nearest["y"]:.1f}" '
-            f'x2="{meta["x"]:.1f}" y2="{meta["y"]:.1f}" '
-            f'stroke="{color}" stroke-width="16" stroke-linecap="round" fill="none" />'
-        )
+        prev = prev_by_line.get(lid)
+        if prev is None:
+            # First manual station on this line: connect to nearest non-manual
+            best_d = float("inf")
+            for osid, ometa in stations.items():
+                if osid == sid or ometa["line"] != lid or ometa.get("manual"):
+                    continue
+                d = _dist((meta["x"], meta["y"]), (ometa["x"], ometa["y"]))
+                if d < best_d:
+                    best_d = d
+                    prev = ometa
+        if prev is not None:
+            ext_parts.append(
+                f'<line class="line-extension" data-line="{lid}" '
+                f'x1="{prev["x"]:.1f}" y1="{prev["y"]:.1f}" '
+                f'x2="{meta["x"]:.1f}" y2="{meta["y"]:.1f}" '
+                f'stroke="{color}" stroke-width="16" stroke-linecap="round" fill="none" />'
+            )
+        prev_by_line[lid] = meta
     if ext_parts:
         parts.append('<!-- manual line extensions -->')
         parts.extend(ext_parts)
@@ -1834,9 +1856,11 @@ def main() -> int:
 
     # Inject manually-specified stations not present in the PDF (new/planned
     # stations like L11 康恒路 and L17 西岑).  Assigned the next ID on their line.
+    # Supports transfer_with: create/join a transfer_group with an existing sid.
     if MANUAL_STATIONS:
         print("→ Injecting manual stations...")
         lines_by_id = {ld["id"]: ld for ld in lines_data}
+        tgroup_counter = len(transfers)
         for m in MANUAL_STATIONS:
             lid = m["line"]
             ld = lines_by_id.get(lid)
@@ -1855,7 +1879,30 @@ def main() -> int:
                 "extend_line": bool(m.get("extend_line", False)),
             }
             ld["trunk"].append(sid)
-            print(f"  + {sid} {m.get('name_zh','')} ({m['x']},{m['y']}) on L{lid}")
+
+            # Handle transfer linkage with an existing station
+            tw = m.get("transfer_with")
+            if tw and tw in stations:
+                tgrp = stations[tw].get("transfer_group")
+                if tgrp is None:
+                    tgroup_counter += 1
+                    tgrp = f"M{tgroup_counter:03d}"
+                    stations[tw]["transfer_group"] = tgrp
+                    transfers.append({
+                        "group_id": tgrp,
+                        "station_ids": [tw, sid],
+                        "center_x": round((stations[tw]["x"] + stations[sid]["x"]) / 2, 2),
+                        "center_y": round((stations[tw]["y"] + stations[sid]["y"]) / 2, 2),
+                    })
+                else:
+                    for t in transfers:
+                        if t["group_id"] == tgrp:
+                            t["station_ids"].append(sid)
+                            break
+                stations[sid]["transfer_group"] = tgrp
+
+            print(f"  + {sid} {m.get('name_zh','')} ({m['x']},{m['y']}) on L{lid}"
+                  + (f" ↔ {tw}" if tw else ""))
 
     line_colors_hex = {
         lid: rgb_to_hex(rgb) for lid, (_, rgb) in line_color_map_by_id.items()
