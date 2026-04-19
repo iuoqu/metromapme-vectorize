@@ -853,5 +853,19 @@
 <path d="M3144.2,5380.7 L3170.8,5380.7" />
 <path d="M3036.2,5477.4 L3036.2,5453.7" />
 </g>
+<!-- manual-station synthetic ticks -->
+<g data-line="11" stroke="#861a2a" stroke-width="16">
+<line x1="3872.4" y1="4283.0" x2="3871.6" y2="4305.0" data-manual-tick="11-40" />
+</g>
+<g data-line="17" stroke="#bc7970" stroke-width="16">
+<line x1="368.2" y1="3979.4" x2="351.8" y2="3964.6" data-manual-tick="17-14" />
+</g>
+<g data-line="18" stroke="#c4984f" stroke-width="16">
+<line x1="4043.0" y1="4961.0" x2="4065.0" y2="4961.0" data-manual-tick="18-26" />
+<line x1="3393.6" y1="1174.2" x2="3380.4" y2="1191.8" data-manual-tick="18-27" />
+<line x1="3248.4" y1="1092.8" x2="3261.6" y2="1075.2" data-manual-tick="18-28" />
+<line x1="3116.4" y1="993.8" x2="3129.6" y2="976.2" data-manual-tick="18-29" />
+<line x1="2850.4" y1="793.8" x2="2863.6" y2="776.2" data-manual-tick="18-31" />
+</g>
 </g>
 </svg>

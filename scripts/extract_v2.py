@@ -1836,6 +1836,57 @@ def write_clean_svg(
             if path_d:
                 parts.append(f'<path d="{path_d}" />')
         parts.append('</g>')
+
+    # Synthetic ticks for manual (non-PDF) stations so they look consistent
+    # with the PDF-drawn ticks. Direction is inferred from the line's tangent
+    # at that station (nearest same-line neighbours); the tick is a short
+    # perpendicular segment 22pt long centred on the station.
+    TICK_HALF = 11.0
+    manual_nontransfer = [
+        (sid, m) for sid, m in stations.items()
+        if m.get("manual") and not m.get("transfer_group")
+    ]
+    # Pre-index non-manual stations per line for tangent computation
+    per_line_nonmanual: dict[str, list[dict]] = defaultdict(list)
+    for sid, m in stations.items():
+        if not m.get("manual"):
+            per_line_nonmanual[m["line"]].append(m)
+    synth_by_line: dict[str, list[str]] = defaultdict(list)
+    for sid, meta in manual_nontransfer:
+        lid = meta["line"]
+        x, y = meta["x"], meta["y"]
+        # Find the two nearest same-line stations (any kind) for a tangent
+        others = [o for osid, o in stations.items()
+                  if osid != sid and o["line"] == lid]
+        others.sort(key=lambda o: _dist((x, y), (o["x"], o["y"])))
+        if len(others) >= 2:
+            a, b = others[0], others[1]
+            # Prefer a→b direction if station is roughly between them; else
+            # use direction from nearest neighbour to this station.
+            if _dist((x, y), (a["x"], a["y"])) + _dist((x, y), (b["x"], b["y"])) \
+               < _dist((a["x"], a["y"]), (b["x"], b["y"])) + 30:
+                dx, dy = b["x"] - a["x"], b["y"] - a["y"]
+            else:
+                dx, dy = x - a["x"], y - a["y"]
+        elif others:
+            dx, dy = x - others[0]["x"], y - others[0]["y"]
+        else:
+            dx, dy = 1, 0
+        L = math.hypot(dx, dy) or 1
+        # Perpendicular unit vector
+        px, py = -dy / L, dx / L
+        x1, y1 = x - px * TICK_HALF, y - py * TICK_HALF
+        x2, y2 = x + px * TICK_HALF, y + py * TICK_HALF
+        synth_by_line[lid].append(
+            f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" data-manual-tick="{sid}" />'
+        )
+    if synth_by_line:
+        parts.append('<!-- manual-station synthetic ticks -->')
+        for lid in sorted(synth_by_line.keys(), key=lambda s: (len(s), s)):
+            color = line_colors.get(lid, "#000")
+            parts.append(f'<g data-line="{lid}" stroke="{color}" stroke-width="16">')
+            parts.extend(synth_by_line[lid])
+            parts.append('</g>')
     parts.append('</g>')
 
     parts.append('</svg>')
