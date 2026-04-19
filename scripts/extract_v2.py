@@ -741,9 +741,12 @@ def extract_white_bordered_line(page: fitz.Page) -> list[list[tuple[float, float
 
 def extract_al_rect_markers(page: fitz.Page) -> list[tuple[float, float]]:
     """
-    Non-transfer station markers for the white-bordered AL line: rounded
-    rectangle shape with dark-gray border (#242424-ish) and white fill,
-    ~39×29pt, 6 path items.
+    Non-transfer station markers drawn as a rounded-rectangle shape with
+    dark-gray border (w=3, fill=white, ~39×29pt, 6-item path).
+
+    These appear on multiple lines (not just AL) — used for stations drawn
+    in the "box" style rather than the colored-tick style. Caller assigns
+    each marker to its nearest line.
     """
     markers: list[tuple[float, float]] = []
     for d in page.get_drawings():
@@ -1060,10 +1063,16 @@ def assign_stations_geometric(
       per_line: line_id -> [(label, x, y, arc_len, marker_id)] sorted by arc_len
       cluster_lines: cluster_idx -> set of line_ids that pass through this transfer cluster
     """
-    # Determine which lines pass through each transfer cluster
+    # Determine which lines pass through each transfer cluster.
+    # Small single-box markers (39×29 rectangles) use a tight tolerance (12pt)
+    # because their "membership" is only real for lines whose polyline truly
+    # coincides with the box — nearby parallel lines don't stop here.
+    # Larger transfer capsules use the standard tolerance (30pt).
+    SMALL_BOX_TOL = 12.0
     cluster_lines: dict[int, set[str]] = {}
     for ci, cl in enumerate(transfer_clusters):
         cx, cy = cl["cx"], cl["cy"]
+        tol = SMALL_BOX_TOL if cl.get("small") else TRANSFER_CLUSTER_TOL_PT
         members = set()
         for line_id, polys in polylines_per_line.items():
             best_d = float("inf")
@@ -1071,12 +1080,8 @@ def assign_stations_geometric(
                 d, _ = project_to_polyline((cx, cy), poly)
                 if d < best_d:
                     best_d = d
-            if best_d <= TRANSFER_CLUSTER_TOL_PT:
+            if best_d <= tol:
                 members.add(line_id)
-        # Only use clusters where ≥2 lines pass through (single-line clusters
-        # are decorative white shapes, not actual transfer stations).
-        # Exception: keep single-member sets so we can do a fallback pass for
-        # lines that end up with 0 stations (e.g. AL after L7 polyline fix).
         cluster_lines[ci] = members
 
     # Collect every (line_id, x, y, marker_id) station position
@@ -1111,22 +1116,63 @@ def assign_stations_geometric(
                     best_pt = _closest_point_on_polyline((cl["cx"], cl["cy"]), poly)
             all_markers.append((line_id, best_pt[0], best_pt[1], f"trans:{ci}"))
 
-    # Match labels to markers by nearest-neighbor.
-    # A transfer label can apply to multiple markers (one per line), so labels
-    # are matched per-marker; non-transfer labels naturally end up at their nearest tick.
+    # Match labels to markers with label uniqueness via greedy bipartite.
+    # Each distinct mid (transfer cluster OR tick) gets one label. Transfer
+    # markers sharing the same mid ("trans:ci") naturally share that label
+    # across all their member lines. Enforce that each label NAME is used by
+    # at most one mid, to prevent a label like 石龙路 being stolen from its
+    # legitimate marker by a nearby unrelated marker on a different line.
     marker_to_label: dict[str, StationLabel] = {}
+
+    # One representative position per mid (cluster center or tick position)
+    unique_mids: dict[str, tuple[float, float]] = {}
     for line_id, x, y, mid in all_markers:
-        if mid in marker_to_label:
-            continue
-        best_d, best_lab = float("inf"), None
+        if mid not in unique_mids:
+            unique_mids[mid] = (x, y)
+
+    # For each marker, ranked list of nearest labels (within 200pt)
+    ranked_labels: dict[str, list[tuple[float, StationLabel]]] = {}
+    for mid, (x, y) in unique_mids.items():
+        cands = []
         for label in labels:
             d = math.hypot(label.x - x, label.y - y)
+            if d <= 200:
+                cands.append((d, label))
+        cands.sort(key=lambda t: t[0])
+        ranked_labels[mid] = cands
+
+    # Greedy bipartite: iteratively pick the smallest-distance (mid, label) pair
+    # from top-available candidates. Each label name is taken by at most one mid.
+    assigned_label_names: set[str] = set()
+    cursor: dict[str, int] = {mid: 0 for mid in unique_mids}
+    while True:
+        best = None
+        best_d = float("inf")
+        for mid in unique_mids:
+            if mid in marker_to_label:
+                continue
+            # Advance cursor past already-taken labels
+            cands = ranked_labels[mid]
+            i = cursor[mid]
+            while i < len(cands) and (cands[i][1].name_zh in assigned_label_names):
+                i += 1
+            cursor[mid] = i
+            if i >= len(cands):
+                marker_to_label[mid] = None  # no available label
+                continue
+            d, lab = cands[i]
             if d < best_d:
                 best_d = d
-                best_lab = label
-        # Within 200pt — beyond that, no naming
-        if best_lab and best_d <= 200:
-            marker_to_label[mid] = best_lab
+                best = (mid, lab)
+        if best is None:
+            break
+        mid, lab = best
+        marker_to_label[mid] = lab
+        if lab.name_zh:
+            assigned_label_names.add(lab.name_zh)
+
+    # Drop None entries
+    marker_to_label = {k: v for k, v in marker_to_label.items() if v is not None}
 
     # Build per_line
     per_line: dict[str, list[tuple[StationLabel, float, float, float, str]]] = defaultdict(list)
@@ -1306,8 +1352,9 @@ def _items_to_svg_path(items: list) -> str:
 def extract_station_marker_clusters(page: fitz.Page) -> list[dict]:
     """
     Extract white-fill station marker shapes from the PDF and cluster nearby ones.
-    Returns list of dicts: {cx, cy, path_d} where path_d is combined SVG path data.
-    These are the capsule/circle markers visible on transfer stations in the source PDF.
+    Returns list of dicts: {cx, cy, path_d, small} where `small` is True if the
+    cluster came from a single small rectangle marker (caller uses this flag to
+    apply a tighter line-membership tolerance).
     """
     raw: list[dict] = []
     for d in page.get_drawings():
@@ -1323,6 +1370,16 @@ def extract_station_marker_clusters(page: fitz.Page) -> list[dict]:
         items = d.get("items", [])
         if not items:
             continue
+        # Flag "small" rectangles: 39×29-ish single-box markers whose shape can
+        # be attributed to 1-2 lines at most. Used later to tighten membership.
+        c = d.get("color")
+        w = d.get("width", 0)
+        is_small_box = bool(
+            c and all(x < 0.2 for x in c)
+            and abs((w or 0) - 3.0) < 0.5
+            and len(items) == 6
+            and max(r.width, r.height) < 50
+        )
         path_d = _items_to_svg_path(items)
         if not path_d:
             continue
@@ -1330,6 +1387,7 @@ def extract_station_marker_clusters(page: fitz.Page) -> list[dict]:
             "cx": (r.x0 + r.x1) / 2,
             "cy": (r.y0 + r.y1) / 2,
             "path_d": path_d,
+            "small": is_small_box,
         })
 
     if not raw:
@@ -1364,7 +1422,9 @@ def extract_station_marker_clusters(page: fitz.Page) -> list[dict]:
         cx = sum(raw[m]["cx"] for m in members) / len(members)
         cy = sum(raw[m]["cy"] for m in members) / len(members)
         path_d = " ".join(raw[m]["path_d"] for m in members)
-        clusters.append({"cx": cx, "cy": cy, "path_d": path_d})
+        # A cluster is "small" only if ALL its member shapes are small boxes
+        small = all(raw[m]["small"] for m in members)
+        clusters.append({"cx": cx, "cy": cy, "path_d": path_d, "small": small})
     return clusters
 
 
@@ -1524,17 +1584,9 @@ def main() -> int:
     print("→ Extracting station tick markers...")
     ticks_per_line = extract_station_ticks(page, color_to_line)
 
-    # AL non-transfer stations are drawn as 39×29 dark-gray bordered white-fill
-    # rectangles on top of the line, not as colored perpendicular ticks. Find
-    # rectangles that sit on (or very close to) the AL centerline and register
-    # them as AL ticks.
-    if "AL" in polylines:
-        al_rects = extract_al_rect_markers(page)
-        al_polys = polylines["AL"]
-        for mx, my in al_rects:
-            best_d = min(project_to_polyline((mx, my), p)[0] for p in al_polys)
-            if best_d <= 20.0:
-                ticks_per_line.setdefault("AL", []).append((mx, my))
+    # 39×29 dark-gray bordered white-fill rectangles are handled via
+    # extract_station_marker_clusters (flagged "small") with a tight
+    # line-membership tolerance. No separate tick registration needed.
 
     for lid, ticks in sorted(ticks_per_line.items()):
         print(f"  Line {lid}: {len(ticks)} ticks")
