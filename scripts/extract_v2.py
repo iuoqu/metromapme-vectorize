@@ -1493,8 +1493,15 @@ def _sort_line_ids(ids: Iterable[str]) -> list[str]:
 
 # ── Phase 7: SVG output ──────────────────────────────────────────────
 
-def _items_to_svg_path(items: list) -> str:
-    """Convert a PyMuPDF drawing items list to an SVG path data string."""
+def _items_to_svg_path(items: list, close: bool = True) -> str:
+    """Convert a PyMuPDF drawing items list to an SVG path data string.
+
+    If `close` is True (default) and the path doesn't already end in Z, a Z is
+    appended to close the shape — correct for filled shapes (transfer capsules,
+    rectangles).  Callers rendering open stroke paths (e.g. line routes) must
+    pass close=False, otherwise SVG draws a spurious straight segment back to
+    the starting point (e.g. terminal-to-terminal line across the map).
+    """
     parts: list[str] = []
     cursor: tuple[float, float] | None = None
     for it in items:
@@ -1519,7 +1526,7 @@ def _items_to_svg_path(items: list) -> str:
             r = it[1]
             parts.append(f"M{r.x0:.1f},{r.y0:.1f}H{r.x1:.1f}V{r.y1:.1f}H{r.x0:.1f}Z")
             cursor = None
-    if parts and not parts[-1].endswith("Z"):
+    if close and parts and not parts[-1].endswith("Z"):
         parts.append("Z")
     return " ".join(parts)
 
@@ -1642,8 +1649,11 @@ def write_clean_svg(
     rect = page.rect
     COLOR_TOL = 0.025
 
-    # Group line-stroke drawings by line, preserving original Bezier curves
-    line_drawings: dict[str, list[dict]] = defaultdict(list)
+    # Group drawings by line, splitting into:
+    #   main_paths[lid]  — multi-item line routes (drawn bottom)
+    #   tick_paths[lid]  — short 1-item marks at non-transfer stations (drawn top)
+    main_paths: dict[str, list[dict]] = defaultdict(list)
+    tick_paths: dict[str, list[dict]] = defaultdict(list)
     al_polygon = None
     maglev_stroke = None
     for d in page.get_drawings():
@@ -1675,7 +1685,13 @@ def write_clean_svg(
             continue
         for rgb, lid in color_to_line.items():
             if all(abs(c[i] - rgb[i]) < COLOR_TOL for i in range(3)):
-                line_drawings[lid].append(d)
+                # A tick is a single-segment short stroke; the main route path
+                # has many segments.  Splitting them lets ticks be drawn in a
+                # layer ABOVE the station markers.
+                if len(items) == 1:
+                    tick_paths[lid].append(d)
+                else:
+                    main_paths[lid].append(d)
                 break
 
     # Marker clusters (transfer capsules + small single-line boxes)
@@ -1695,20 +1711,20 @@ def write_clean_svg(
         f'preserveAspectRatio="xMidYMid meet">',
     ]
 
-    # ── Lines ─────────────────────────────────────────────────────────────
+    # ── Lines (main route paths, NOT closed — line strokes are open) ─────
     parts.append('<g id="lines" fill="none" stroke-linecap="round" stroke-linejoin="round">')
-    for lid in sorted(line_drawings.keys(), key=lambda s: (len(s), s)):
+    for lid in sorted(main_paths.keys(), key=lambda s: (len(s), s)):
         color = line_colors.get(lid, "#000")
         parts.append(f'<g data-line="{lid}" stroke="{color}" stroke-width="16">')
-        for d in line_drawings[lid]:
-            path_d = _items_to_svg_path(d.get("items", []))
+        for d in main_paths[lid]:
+            path_d = _items_to_svg_path(d.get("items", []), close=False)
             if path_d:
                 parts.append(f'<path d="{path_d}" />')
         parts.append('</g>')
 
-    # AL: white-bordered polygon
+    # AL: white-bordered polygon (CLOSED shape — it's a filled polygon)
     if al_polygon:
-        path_d = _items_to_svg_path(al_polygon.get("items", []))
+        path_d = _items_to_svg_path(al_polygon.get("items", []), close=True)
         if path_d:
             parts.append(
                 f'<g data-line="AL">'
@@ -1717,9 +1733,9 @@ def write_clean_svg(
                 f'</g>'
             )
 
-    # Maglev: w=8 orange stroke
+    # Maglev: w=8 orange stroke (open path)
     if maglev_stroke:
-        path_d = _items_to_svg_path(maglev_stroke.get("items", []))
+        path_d = _items_to_svg_path(maglev_stroke.get("items", []), close=False)
         if path_d:
             parts.append(
                 f'<g data-line="ML">'
@@ -1763,8 +1779,8 @@ def write_clean_svg(
         prev_by_line[lid] = meta
     parts.append('</g>')
 
-    # ── Transfer station shapes ──────────────────────────────────────────
-    parts.append('<g id="transfers">')
+    # ── Transfer station shapes (hollow: line passes through) ────────────
+    parts.append('<g id="transfers" fill="none">')
     rendered_clusters: set[int] = set()
     for sid, meta in stations.items():
         if not meta.get("transfer_group"):
@@ -1778,12 +1794,12 @@ def write_clean_svg(
         rendered_clusters.add(cl_key)
         parts.append(
             f'<path data-tgroup="{meta["transfer_group"]}" '
-            f'd="{cl["path_d"]}" fill="white" stroke="#333" stroke-width="6" />'
+            f'd="{cl["path_d"]}" stroke="#333" stroke-width="6" />'
         )
     parts.append('</g>')
 
-    # ── Regular (non-transfer) station markers ───────────────────────────
-    parts.append('<g id="stations">')
+    # ── Regular (non-transfer) station markers (hollow) ──────────────────
+    parts.append('<g id="stations" fill="none">')
     hw, hh = 16, 11
     for sid, meta in stations.items():
         if meta.get("transfer_group"):
@@ -1793,7 +1809,7 @@ def write_clean_svg(
         parts.append(
             f'<rect id="{sid}" data-line="{meta["line"]}" '
             f'x="{x-hw:.1f}" y="{y-hh:.1f}" width="{hw*2}" height="{hh*2}" '
-            f'rx="11" ry="11" fill="white" stroke="{color}" stroke-width="5" />'
+            f'rx="11" ry="11" stroke="{color}" stroke-width="5" />'
         )
     # Fallback circles for transfer stations without a cluster shape
     for sid, meta in stations.items():
@@ -1805,8 +1821,20 @@ def write_clean_svg(
         parts.append(
             f'<circle id="{sid}" data-line="{meta["line"]}" data-tgroup="{meta["transfer_group"]}" '
             f'cx="{meta["x"]:.1f}" cy="{meta["y"]:.1f}" r="22" '
-            f'fill="white" stroke="{color}" stroke-width="6" />'
+            f'stroke="{color}" stroke-width="6" />'
         )
+    parts.append('</g>')
+
+    # ── Ticks (tiny perpendicular stroke at each non-transfer stop, on top) ──
+    parts.append('<g id="ticks" fill="none" stroke-linecap="butt">')
+    for lid in sorted(tick_paths.keys(), key=lambda s: (len(s), s)):
+        color = line_colors.get(lid, "#000")
+        parts.append(f'<g data-line="{lid}" stroke="{color}" stroke-width="16">')
+        for d in tick_paths[lid]:
+            path_d = _items_to_svg_path(d.get("items", []), close=False)
+            if path_d:
+                parts.append(f'<path d="{path_d}" />')
+        parts.append('</g>')
     parts.append('</g>')
 
     parts.append('</svg>')
