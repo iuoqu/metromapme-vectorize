@@ -47,8 +47,13 @@ COLOR_TOL = 0.025                 # color matching tolerance
 TEXT_PAIR_DX = 80.0               # max x-diff to pair English+Chinese text
 TEXT_PAIR_DY = 80.0               # max y-diff (Chinese typically below English)
 STATION_TO_LINE_MAX_DIST = 130.0  # how far a label center can be from a line
-TRANSFER_TOL_PT = 50.0            # spatial tolerance for transfer clustering
+SECONDARY_ASSIGN_TOL_PT = 50.0    # snap-point proximity for secondary line assignment
+TRANSFER_CLUSTER_TOL_PT = 65.0    # spatial tolerance for transfer group clustering
 SECONDARY_LINE_MAX_DIST = 35.0    # only assign to extra lines if very close
+# Lines that allow a larger label-to-polyline distance (labels placed far from stroke)
+LINE_STATION_MAX_DIST_OVERRIDES: dict[str, float] = {
+    "AL": 175.0,
+}
 LOOP_LINES = {"4"}
 
 # Filter out non-station text patterns
@@ -68,6 +73,11 @@ NON_STATION_TEXT_PATTERNS = [
     re.compile(r"^金山线"),
     re.compile(r"^to\s", re.I),
     re.compile(r"^SHANGHAI METRO", re.I),
+    # Fragment filters: partial station names split across text rows
+    re.compile(r"^Station$", re.I),           # lone fragment from "… Railway Station"
+    re.compile(r"^and\s+[A-Z]", re.I),        # "and Convention Center"
+    re.compile(r"·\s*$"),                      # trailing Chinese-separator artifact
+    re.compile(r"[a-zA-Z]\s*[\u4e00-\u9fff]+\s*$"),  # EN text bleeding into ZH chars
 ]
 
 
@@ -348,6 +358,24 @@ def build_station_labels_from_blocks(page: fitz.Page) -> list[StationLabel]:
         def cy(self) -> float:
             return (self.y0 + self.y1) / 2
 
+    # Collect rows WITHOUT individual fragment filtering first, so that
+    # multi-line station names (e.g. "National Exhibition" + "and Convention
+    # Center") can be clustered before filtering.  Only hard exclusions
+    # (size, line-name labels, truly non-station tokens) are applied here.
+    HARD_EXCLUDE = [
+        re.compile(r"^Line\s+\d+$"),
+        re.compile(r"^Suzhou Line", re.I),
+        re.compile(r"^(Transfer|转乘|换乘)", re.I),
+        re.compile(r"^(Pujiang Line|浦江线|金山线|Jinshan Line)", re.I),
+        re.compile(r"^(Maglev|磁浮)", re.I),
+        re.compile(r"^(Airport Link Line|机场联络线|市域机场线)", re.I),
+        re.compile(r"^to\s", re.I),
+        re.compile(r"^SHANGHAI METRO", re.I),
+    ]
+
+    def _hard_exclude(text: str) -> bool:
+        return any(p.search(text) for p in HARD_EXCLUDE)
+
     rows: list[TextRow] = []
     for b in blocks:
         if b.get("type") != 0:
@@ -362,7 +390,7 @@ def build_station_labels_from_blocks(page: fitz.Page) -> list[StationLabel]:
             sz = max(sp["size"] for sp in spans)
             if sz > 28:  # line-name labels & title
                 continue
-            if not is_station_text(text):
+            if _hard_exclude(text):
                 continue
             bb = line["bbox"]
             rows.append(TextRow(
@@ -373,137 +401,51 @@ def build_station_labels_from_blocks(page: fitz.Page) -> list[StationLabel]:
     en_rows = [r for r in rows if not is_chinese(r.text)]
     zh_rows = [r for r in rows if is_chinese(r.text)]
 
-    # Cluster vertically-adjacent EN rows into one multi-line name.
-    en_rows.sort(key=lambda r: (round(r.x0 / 5), r.y0))
-    en_clusters: list[list[TextRow]] = []
-    used = [False] * len(en_rows)
-    for i, r in enumerate(en_rows):
-        if used[i]:
-            continue
-        cluster = [r]
-        used[i] = True
-        for j, t in enumerate(en_rows):
-            if used[j] or i == j:
+    def _cluster_rows(row_list: list) -> list[list[TextRow]]:
+        """Cluster vertically-adjacent rows with same x-position.
+
+        Text rows in this PDF have large y-bboxes that overlap the next row
+        (ascenders/descenders ~40pt), so y_top/y_bot gap is always negative.
+        Use center-y distance instead: two rows that are part of the same
+        multi-line label will have cy-gap ≈ 31pt (same as EN↔ZH gap).
+        Two rows from *different* stations are typically ≥ 60pt apart.
+        """
+        row_list = sorted(row_list, key=lambda r: (round(r.x0 / 5), r.cy))
+        clusters: list[list[TextRow]] = []
+        used = [False] * len(row_list)
+        for i, r in enumerate(row_list):
+            if used[i]:
                 continue
-            # very tight x match + small y gap
-            if abs(t.x0 - cluster[-1].x0) < 6 and 0 < (t.y0 - cluster[-1].y1) < 6:
-                cluster.append(t)
-                used[j] = True
-        en_clusters.append(cluster)
+            cluster = [r]
+            used[i] = True
+            for j, t in enumerate(row_list):
+                if used[j] or i == j:
+                    continue
+                # Same column (x-diff < 10pt) and cy directly below within 45pt
+                dcy = t.cy - cluster[-1].cy
+                if abs(t.x0 - cluster[-1].x0) < 10 and 0 < dcy < 45:
+                    cluster.append(t)
+                    used[j] = True
+            clusters.append(cluster)
+        return clusters
 
-    # Same for Chinese (multi-line Chinese is rare but possible)
-    zh_rows.sort(key=lambda r: (round(r.x0 / 5), r.y0))
-    zh_clusters: list[list[TextRow]] = []
-    used = [False] * len(zh_rows)
-    for i, r in enumerate(zh_rows):
-        if used[i]:
-            continue
-        cluster = [r]
-        used[i] = True
-        for j, t in enumerate(zh_rows):
-            if used[j] or i == j:
-                continue
-            if abs(t.x0 - cluster[-1].x0) < 6 and 0 < (t.y0 - cluster[-1].y1) < 6:
-                cluster.append(t)
-                used[j] = True
-        zh_clusters.append(cluster)
-
-    # Two-pass mutual-best-match pairing using CENTER-Y difference.
-    # (line bboxes overlap each other by ~40pt due to ascender/descender,
-    # so y_bot/y_top is unreliable; cy difference is stable ~31pt.)
-    #
-    # Pass 1 (dx ≤ 12): high-confidence pairs — horizontal-line stations where
-    #   EN and ZH labels are nearly left-aligned.
-    # Pass 2 (dx ≤ 120): runs only on rows still unmatched after Pass 1.
-    #   Recovers stations on diagonal/vertical line sections where ZH x0 is
-    #   shifted up to ~100 pt from EN x0. Because Pass 1 has already consumed
-    #   the tightly-aligned ZH labels, Pass 2 cannot steal them.
-    TYPICAL_GAP = 31.0
-
-    def _score(ec: list, zc: list, dx_limit: float) -> float:
-        ec_x0 = min(r.x0 for r in ec)
-        ec_cy = max(r.cy for r in ec)
-        zc_x0 = min(r.x0 for r in zc)
-        zc_cy = min(r.cy for r in zc)
-        dx = abs(zc_x0 - ec_x0)
-        if dx > dx_limit:
-            return float("inf")
-        dcy = zc_cy - ec_cy
-        if dcy < 15 or dcy > 50:
-            return float("inf")
-        return dx * 2 + abs(dcy - TYPICAL_GAP)
+    # Use ONLY Chinese rows for station detection.
+    # English text in this PDF wraps onto multiple lines unpredictably and
+    # creates many fragmentation/pairing problems (e.g. "Hongqiao Railway"
+    # + "Station", "National Exhibition" + "and Convention Center"). Chinese
+    # labels are single-token and always one row per station.
+    zh_clusters_raw = _cluster_rows(zh_rows)
 
     labels: list[StationLabel] = []
-    used_en = [False] * len(en_clusters)
-    used_zh = [False] * len(zh_clusters)
-
-    def emit(ec: list, zc: list) -> None:
-        en_text = " ".join(r.text for r in ec).strip()
-        zh_text = "".join(r.text for r in zc).strip()
-        all_rows = ec + zc
-        x = sum(r.cx for r in all_rows) / len(all_rows)
-        y = sum(r.cy for r in all_rows) / len(all_rows)
-        labels.append(StationLabel(
-            name_en=en_text, name_zh=zh_text, x=x, y=y,
-            spans=[TextSpan(text=r.text, x0=r.x0, y0=r.y0, x1=r.x1, y1=r.y1, size=r.size) for r in all_rows],
-        ))
-
-    def _run_pass(dx_limit: float) -> None:
-        en_best = []
-        for i, ec in enumerate(en_clusters):
-            if used_en[i]:
-                en_best.append(-1)
-                continue
-            scores = sorted(
-                (_score(ec, zc, dx_limit), j)
-                for j, zc in enumerate(zh_clusters)
-                if not used_zh[j]
-            )
-            en_best.append(scores[0][1] if scores and scores[0][0] < float("inf") else -1)
-
-        zh_best = []
-        for j, zc in enumerate(zh_clusters):
-            if used_zh[j]:
-                zh_best.append(-1)
-                continue
-            scores = sorted(
-                (_score(ec, zc, dx_limit), i)
-                for i, ec in enumerate(en_clusters)
-                if not used_en[i]
-            )
-            zh_best.append(scores[0][1] if scores and scores[0][0] < float("inf") else -1)
-
-        for i, j in enumerate(en_best):
-            if j == -1:
-                continue
-            if zh_best[j] == i:
-                emit(en_clusters[i], zh_clusters[j])
-                used_en[i] = True
-                used_zh[j] = True
-
-    _run_pass(12.0)    # Pass 1: high-confidence tight alignment
-    _run_pass(120.0)   # Pass 2: diagonal/vertical-line stations
-
-    # Orphan handling
-    for i, ec in enumerate(en_clusters):
-        if used_en[i]:
+    for cluster in zh_clusters_raw:
+        zh_text = "".join(r.text for r in cluster).strip()
+        if not is_station_text(zh_text):
             continue
-        en_text = " ".join(r.text for r in ec).strip()
-        x = sum(r.cx for r in ec) / len(ec)
-        y = sum(r.cy for r in ec) / len(ec)
-        labels.append(StationLabel(
-            name_en=en_text, name_zh="", x=x, y=y,
-            spans=[TextSpan(text=r.text, x0=r.x0, y0=r.y0, x1=r.x1, y1=r.y1, size=r.size) for r in ec],
-        ))
-    for j, zc in enumerate(zh_clusters):
-        if used_zh[j]:
-            continue
-        zh_text = "".join(r.text for r in zc).strip()
-        x = sum(r.cx for r in zc) / len(zc)
-        y = sum(r.cy for r in zc) / len(zc)
+        x = sum(r.cx for r in cluster) / len(cluster)
+        y = sum(r.cy for r in cluster) / len(cluster)
         labels.append(StationLabel(
             name_en="", name_zh=zh_text, x=x, y=y,
-            spans=[TextSpan(text=r.text, x0=r.x0, y0=r.y0, x1=r.x1, y1=r.y1, size=r.size) for r in zc],
+            spans=[TextSpan(text=r.text, x0=r.x0, y0=r.y0, x1=r.x1, y1=r.y1, size=r.size) for r in cluster],
         ))
 
     return labels
@@ -829,8 +771,8 @@ def assign_stations_to_lines(
 
     Step 1: assign each label to its closest line (primary).
     Step 2: at the primary snap point, check if any OTHER line's polyline
-            passes within TRANSFER_TOL_PT — if yes, it's a transfer station
-            and the label is also added to that line.
+            passes within SECONDARY_ASSIGN_TOL_PT — if yes, it's a transfer
+            station and the label is also added to that line.
     """
     per_line: dict[str, list[tuple[StationLabel, float, float, float]]] = defaultdict(list)
 
@@ -861,8 +803,27 @@ def assign_stations_to_lines(
                     sub_d = d
                     sub_arc = arc
                     sub_pt = _closest_point_on_polyline(best_pt, poly)
-            if sub_d <= TRANSFER_TOL_PT:
+            if sub_d <= SECONDARY_ASSIGN_TOL_PT:
                 per_line[line_id].append((label, sub_pt[0], sub_pt[1], sub_arc))
+
+    # Extra pass: lines with larger per-line max-distance overrides.
+    # Used for lines (e.g. AL) whose labels are placed far from the stroke in the PDF.
+    for override_line_id, override_max_d in LINE_STATION_MAX_DIST_OVERRIDES.items():
+        if override_line_id not in polylines_per_line:
+            continue
+        assigned_labels = {id(e[0]) for e in per_line.get(override_line_id, [])}
+        for label in labels:
+            if id(label) in assigned_labels:
+                continue
+            best_d, best_arc, best_pt = float("inf"), 0.0, (0.0, 0.0)
+            for poly in polylines_per_line[override_line_id]:
+                d, arc = project_to_polyline((label.x, label.y), poly)
+                if d < best_d:
+                    best_d = d
+                    best_arc = arc
+                    best_pt = _closest_point_on_polyline((label.x, label.y), poly)
+            if best_d <= override_max_d:
+                per_line[override_line_id].append((label, best_pt[0], best_pt[1], best_arc))
 
     # Sort each line's stations by arc length and dedupe near-duplicates
     for lid in per_line:
@@ -986,11 +947,11 @@ def compute_station_ids_and_transfers(
             mb = stations[sb]
             if ma["line"] == mb["line"]:
                 continue
-            if abs(ma["x"] - mb["x"]) > TRANSFER_TOL_PT:
+            if abs(ma["x"] - mb["x"]) > TRANSFER_CLUSTER_TOL_PT:
                 continue
-            if abs(ma["y"] - mb["y"]) > TRANSFER_TOL_PT:
+            if abs(ma["y"] - mb["y"]) > TRANSFER_CLUSTER_TOL_PT:
                 continue
-            if math.hypot(ma["x"] - mb["x"], ma["y"] - mb["y"]) <= TRANSFER_TOL_PT:
+            if math.hypot(ma["x"] - mb["x"], ma["y"] - mb["y"]) <= TRANSFER_CLUSTER_TOL_PT:
                 union(sa, sb)
 
     cluster_map: dict[str, list[str]] = defaultdict(list)
@@ -1331,8 +1292,8 @@ def main() -> int:
         n = len(ld["trunk"])
         first = ld["trunk"][0] if ld["trunk"] else "—"
         last = ld["trunk"][-1] if ld["trunk"] else "—"
-        first_name = stations[first]["name_en"] if ld["trunk"] else ""
-        last_name = stations[last]["name_en"] if ld["trunk"] else ""
+        first_name = stations[first]["name_zh"] if ld["trunk"] else ""
+        last_name = stations[last]["name_zh"] if ld["trunk"] else ""
         print(f"  {ld['label']:>16} ({ld['color']}): {first} ({first_name}) … {last} ({last_name}) — {n} stations")
 
     return 0

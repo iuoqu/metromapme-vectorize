@@ -33,7 +33,8 @@
         "01-22",
         "01-23",
         "01-24",
-        "01-25"
+        "01-25",
+        "01-26"
       ],
       "branches": {},
       "color": "#e20229",
@@ -68,11 +69,7 @@
         "02-24",
         "02-25",
         "02-26",
-        "02-27",
-        "02-28",
-        "02-29",
-        "02-30",
-        "02-31"
+        "02-27"
       ],
       "branches": {},
       "color": "#8bc21f",
@@ -140,11 +137,7 @@
         "04-21",
         "04-22",
         "04-23",
-        "04-24",
-        "04-25",
-        "04-26",
-        "04-27",
-        "04-28"
+        "04-24"
       ],
       "branches": {},
       "color": "#461d85",
@@ -171,8 +164,7 @@
         "05-16",
         "05-17",
         "05-18",
-        "05-19",
-        "05-20"
+        "05-19"
       ],
       "branches": {},
       "color": "#964b9b",
@@ -203,7 +195,8 @@
         "06-20",
         "06-21",
         "06-22",
-        "06-23"
+        "06-23",
+        "06-24"
       ],
       "branches": {},
       "color": "#e20169",
@@ -245,8 +238,7 @@
         "07-31",
         "07-32",
         "07-33",
-        "07-34",
-        "07-35"
+        "07-34"
       ],
       "branches": {},
       "color": "#ec6e00",
@@ -281,8 +273,7 @@
         "08-24",
         "08-25",
         "08-26",
-        "08-27",
-        "08-28"
+        "08-27"
       ],
       "branches": {},
       "color": "#0095da",
@@ -320,7 +311,8 @@
         "09-27",
         "09-28",
         "09-29",
-        "09-30"
+        "09-30",
+        "09-31"
       ],
       "branches": {},
       "color": "#87c9ec",
@@ -406,7 +398,10 @@
         "11-32",
         "11-33",
         "11-34",
-        "11-35"
+        "11-35",
+        "11-36",
+        "11-37",
+        "11-38"
       ],
       "branches": {},
       "color": "#861a2a",
@@ -473,7 +468,9 @@
         "13-18",
         "13-19",
         "13-20",
-        "13-21"
+        "13-21",
+        "13-22",
+        "13-23"
       ],
       "branches": {},
       "color": "#e899c0",
@@ -510,10 +507,7 @@
         "14-26",
         "14-27",
         "14-28",
-        "14-29",
-        "14-30",
-        "14-31",
-        "14-32"
+        "14-29"
       ],
       "branches": {},
       "color": "#626020",
@@ -548,7 +542,8 @@
         "15-24",
         "15-25",
         "15-26",
-        "15-27"
+        "15-27",
+        "15-28"
       ],
       "branches": {},
       "color": "#cab08d",
@@ -569,8 +564,7 @@
         "16-10",
         "16-11",
         "16-12",
-        "16-13",
-        "16-14"
+        "16-13"
       ],
       "branches": {},
       "color": "#98d1c0",
@@ -591,12 +585,7 @@
         "17-10",
         "17-11",
         "17-12",
-        "17-13",
-        "17-14",
-        "17-15",
-        "17-16",
-        "17-17",
-        "17-18"
+        "17-13"
       ],
       "branches": {},
       "color": "#bc7970",
@@ -628,13 +617,7 @@
         "18-21",
         "18-22",
         "18-23",
-        "18-24",
-        "18-25",
-        "18-26",
-        "18-27",
-        "18-28",
-        "18-29",
-        "18-30"
+        "18-24"
       ],
       "branches": {},
       "color": "#c4984f",
@@ -645,7 +628,12 @@
       "trunk": [
         "AL-01",
         "AL-02",
-        "AL-03"
+        "AL-03",
+        "AL-04",
+        "AL-05",
+        "AL-06",
+        "AL-07",
+        "AL-08"
       ],
       "branches": {},
       "color": "#0d7370",
@@ -671,111 +659,111 @@
       "line": "1",
       "x": 1626.5,
       "y": 4151.0,
-      "name_en": "Xinzhuang",
+      "name_en": "",
       "name_zh": "莘庄",
       "transfer_group": "T001"
     },
     "01-02": {
       "line": "1",
       "x": 2976.27,
-      "y": 2030.26,
-      "name_en": "Zhongshan Rd. (N)",
-      "name_zh": "中山北路",
+      "y": 1702.01,
+      "name_en": "",
+      "name_zh": "上海马戏城",
       "transfer_group": null
     },
     "01-03": {
       "line": "1",
       "x": 2976.27,
-      "y": 1047.01,
-      "name_en": "Tonghe Xincun",
-      "name_zh": "通河新村",
+      "y": 392.35,
+      "name_en": "",
+      "name_zh": "友谊西路",
       "transfer_group": null
     },
     "01-04": {
       "line": "1",
       "x": 2976.27,
-      "y": 1374.34,
-      "name_en": "Pengpu Xincun",
-      "name_zh": "彭浦新村",
+      "y": 556.01,
+      "name_en": "",
+      "name_zh": "宝安公路",
       "transfer_group": null
     },
     "01-05": {
       "line": "1",
       "x": 2976.27,
       "y": 718.68,
-      "name_en": "Gongfu Xincun",
+      "name_en": "",
       "name_zh": "共富新村",
       "transfer_group": null
     },
     "01-06": {
       "line": "1",
       "x": 2976.27,
-      "y": 1211.35,
-      "name_en": "Gongkang Rd.",
-      "name_zh": "共康路",
+      "y": 1047.01,
+      "name_en": "",
+      "name_zh": "通河新村",
       "transfer_group": null
     },
     "01-07": {
       "line": "1",
       "x": 2976.27,
-      "y": 1866.68,
-      "name_en": "Yanchang Rd.",
-      "name_zh": "延长路",
+      "y": 1374.34,
+      "name_en": "",
+      "name_zh": "彭浦新村",
       "transfer_group": null
     },
     "01-08": {
       "line": "1",
       "x": 2976.27,
-      "y": 392.35,
-      "name_en": "Youyi Rd. (W)",
-      "name_zh": "友谊西路",
+      "y": 2030.26,
+      "name_en": "",
+      "name_zh": "中山北路",
       "transfer_group": null
     },
     "01-09": {
       "line": "1",
       "x": 2976.27,
-      "y": 1538.34,
-      "name_en": "Wenshui Rd.",
-      "name_zh": "汶水路",
+      "y": 227.68,
+      "name_en": "",
+      "name_zh": "富锦路",
       "transfer_group": null
     },
     "01-10": {
       "line": "1",
       "x": 2976.27,
-      "y": 1702.01,
-      "name_en": "Circus World",
-      "name_zh": "上海马戏城",
+      "y": 883.68,
+      "name_en": "",
+      "name_zh": "呼兰路",
       "transfer_group": null
     },
     "01-11": {
       "line": "1",
       "x": 2976.27,
-      "y": 556.01,
-      "name_en": "Baoan Hwy.",
-      "name_zh": "宝安公路",
+      "y": 1211.35,
+      "name_en": "",
+      "name_zh": "共康路",
       "transfer_group": null
     },
     "01-12": {
       "line": "1",
       "x": 2976.27,
-      "y": 883.68,
-      "name_en": "Hulan Rd.",
-      "name_zh": "呼兰路",
+      "y": 1538.34,
+      "name_en": "",
+      "name_zh": "汶水路",
       "transfer_group": null
     },
     "01-13": {
       "line": "1",
       "x": 2976.27,
-      "y": 227.68,
-      "name_en": "Fujin Rd.",
-      "name_zh": "富锦路",
+      "y": 1866.68,
+      "name_en": "",
+      "name_zh": "延长路",
       "transfer_group": null
     },
     "01-14": {
       "line": "1",
       "x": 1829.16,
       "y": 3979.83,
-      "name_en": "Jinjiang Park",
+      "name_en": "",
       "name_zh": "锦江乐园",
       "transfer_group": null
     },
@@ -783,7 +771,7 @@
       "line": "1",
       "x": 1697.83,
       "y": 4113.83,
-      "name_en": "Waihuan Rd.",
+      "name_en": "",
       "name_zh": "外环路",
       "transfer_group": null
     },
@@ -791,87 +779,95 @@
       "line": "1",
       "x": 1763.16,
       "y": 4049.16,
-      "name_en": "Lianhua Rd.",
+      "name_en": "",
       "name_zh": "莲花路",
       "transfer_group": null
     },
     "01-17": {
       "line": "1",
-      "x": 1993.59,
-      "y": 3784.75,
-      "name_en": "South Railway Station",
-      "name_zh": "上海南站",
+      "x": 3125.24,
+      "y": 2549.63,
+      "name_en": "",
+      "name_zh": "新闸路",
       "transfer_group": null
     },
     "01-18": {
       "line": "1",
-      "x": 2065.5,
-      "y": 3656.44,
-      "name_en": "Caobao Rd.",
-      "name_zh": "漕宝路",
-      "transfer_group": null
+      "x": 1965.55,
+      "y": 3812.73,
+      "name_en": "",
+      "name_zh": "上海南站",
+      "transfer_group": "T002"
     },
     "01-19": {
       "line": "1",
-      "x": 2187.71,
-      "y": 3377.26,
-      "name_en": "Shanghai Indoor Stadium",
-      "name_zh": "上海体育馆",
-      "transfer_group": "T002"
+      "x": 2065.5,
+      "y": 3672.04,
+      "name_en": "",
+      "name_zh": "漕宝路",
+      "transfer_group": "T003"
     },
     "01-20": {
       "line": "1",
-      "x": 2356.74,
-      "y": 3208.88,
-      "name_en": "Xujiahui",
-      "name_zh": "徐家汇",
-      "transfer_group": "T003"
+      "x": 2158.86,
+      "y": 3406.0,
+      "name_en": "",
+      "name_zh": "上海体育馆",
+      "transfer_group": "T004"
     },
     "01-21": {
       "line": "1",
-      "x": 3061.22,
-      "y": 2979.92,
-      "name_en": "Congress ·Huangpi Rd. (S)",
-      "name_zh": "一大会址·黄陂南路",
-      "transfer_group": "T004"
+      "x": 2295.87,
+      "y": 3269.52,
+      "name_en": "",
+      "name_zh": "徐家汇",
+      "transfer_group": "T005"
     },
     "01-22": {
       "line": "1",
-      "x": 3111.34,
-      "y": 2950.27,
-      "name_en": "Site of the First CPC National",
-      "name_zh": "",
-      "transfer_group": null
+      "x": 2598.3,
+      "y": 2981.05,
+      "name_en": "",
+      "name_zh": "常熟路",
+      "transfer_group": "T006"
     },
     "01-23": {
       "line": "1",
-      "x": 3129.32,
-      "y": 2931.74,
-      "name_en": "Huaihai Rd. (M)",
-      "name_zh": "淮海中路",
-      "transfer_group": "T005"
+      "x": 2809.75,
+      "y": 2980.0,
+      "name_en": "",
+      "name_zh": "陕西南路",
+      "transfer_group": "T007"
     },
     "01-24": {
       "line": "1",
-      "x": 3211.5,
-      "y": 2780.45,
-      "name_en": "People's Square",
-      "name_zh": "人民广场",
-      "transfer_group": "T006"
+      "x": 3048.93,
+      "y": 2980.0,
+      "name_en": "",
+      "name_zh": "一大会址·黄陂南路",
+      "transfer_group": "T008"
     },
     "01-25": {
       "line": "1",
-      "x": 3001.5,
-      "y": 2396.2,
-      "name_en": "Hanzhong Rd.",
-      "name_zh": "汉中路",
+      "x": 3211.5,
+      "y": 2796.05,
+      "name_en": "",
+      "name_zh": "人民广场",
       "transfer_group": null
+    },
+    "01-26": {
+      "line": "1",
+      "x": 3001.5,
+      "y": 2411.8,
+      "name_en": "",
+      "name_zh": "汉中路",
+      "transfer_group": "T009"
     },
     "02-01": {
       "line": "2",
       "x": 1290.92,
       "y": 2704.32,
-      "name_en": "Songhong Rd.",
+      "name_en": "",
       "name_zh": "淞虹路",
       "transfer_group": null
     },
@@ -879,7 +875,7 @@
       "line": "2",
       "x": 1494.91,
       "y": 2704.32,
-      "name_en": "Beixinjing",
+      "name_en": "",
       "name_zh": "北新泾",
       "transfer_group": null
     },
@@ -887,63 +883,63 @@
       "line": "2",
       "x": 1698.43,
       "y": 2704.32,
-      "name_en": "Weining Rd.",
+      "name_en": "",
       "name_zh": "威宁路",
       "transfer_group": null
     },
     "02-04": {
       "line": "2",
-      "x": 4417.41,
+      "x": 4589.12,
       "y": 3374.89,
-      "name_en": "Technology Park",
-      "name_zh": "张江高科",
-      "transfer_group": null
+      "name_en": "",
+      "name_zh": "金科路",
+      "transfer_group": "T010"
     },
     "02-05": {
       "line": "2",
-      "x": 4589.12,
+      "x": 4760.63,
       "y": 3374.89,
-      "name_en": "Jingke Rd.",
-      "name_zh": "金科路",
+      "name_en": "",
+      "name_zh": "广兰路",
       "transfer_group": null
     },
     "02-06": {
       "line": "2",
-      "x": 4760.63,
+      "x": 4933.1,
       "y": 3374.89,
-      "name_en": "Guanglan Rd.",
-      "name_zh": "广兰路",
+      "name_en": "",
+      "name_zh": "唐镇",
       "transfer_group": null
     },
     "02-07": {
       "line": "2",
-      "x": 4933.1,
+      "x": 5104.66,
       "y": 3374.89,
-      "name_en": "Tangzhen",
-      "name_zh": "唐镇",
+      "name_en": "",
+      "name_zh": "创新中路",
       "transfer_group": null
     },
     "02-08": {
       "line": "2",
-      "x": 5104.66,
-      "y": 3374.89,
-      "name_en": "Middle Chuangxin Rd.",
-      "name_zh": "创新中路",
-      "transfer_group": null
+      "x": 5197.5,
+      "y": 4915.5,
+      "name_en": "",
+      "name_zh": "1&2浦东1号2号航站楼",
+      "transfer_group": "T011"
     },
     "02-09": {
       "line": "2",
-      "x": 5197.5,
-      "y": 4915.5,
-      "name_en": "Pudong Airport Terminal",
-      "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T007"
+      "x": 5177.78,
+      "y": 3498.76,
+      "name_en": "",
+      "name_zh": "华夏东路",
+      "transfer_group": null
     },
     "02-10": {
       "line": "2",
       "x": 5177.78,
       "y": 4087.03,
-      "name_en": "Yuandong Ave.",
+      "name_en": "",
       "name_zh": "远东大道",
       "transfer_group": null
     },
@@ -951,247 +947,215 @@
       "line": "2",
       "x": 5177.78,
       "y": 4283.03,
-      "name_en": "Haitian 3rd Rd.",
+      "name_en": "",
       "name_zh": "海天三路",
-      "transfer_group": null
+      "transfer_group": "T012"
     },
     "02-12": {
       "line": "2",
       "x": 5177.78,
-      "y": 3498.76,
-      "name_en": "Huaxia Rd. (E)",
-      "name_zh": "华夏东路",
+      "y": 3892.03,
+      "name_en": "",
+      "name_zh": "凌空路",
       "transfer_group": null
     },
     "02-13": {
       "line": "2",
       "x": 5177.78,
-      "y": 3892.03,
-      "name_en": "Lingkong Rd.",
-      "name_zh": "凌空路",
+      "y": 3695.02,
+      "name_en": "",
+      "name_zh": "川沙",
       "transfer_group": null
     },
     "02-14": {
       "line": "2",
-      "x": 5177.78,
-      "y": 3695.02,
-      "name_en": "Chuansha",
-      "name_zh": "川沙",
+      "x": 4095.2,
+      "y": 3218.31,
+      "name_en": "",
+      "name_zh": "世纪公园",
       "transfer_group": null
     },
     "02-15": {
       "line": "2",
-      "x": 4070.71,
-      "y": 3161.32,
-      "name_en": "Museum",
-      "name_zh": "上海科技馆",
-      "transfer_group": null
+      "x": 4375.32,
+      "y": 3396.0,
+      "name_en": "",
+      "name_zh": "张江高科",
+      "transfer_group": "T013"
     },
     "02-16": {
       "line": "2",
-      "x": 4066.54,
-      "y": 3157.2,
-      "name_en": "Century Park",
-      "name_zh": "世纪公园",
+      "x": 4081.15,
+      "y": 3171.65,
+      "name_en": "",
+      "name_zh": "上海科技馆",
       "transfer_group": null
     },
     "02-17": {
       "line": "2",
-      "x": 3897.28,
-      "y": 2985.55,
-      "name_en": "Century Ave.",
+      "x": 3900.82,
+      "y": 2991.65,
+      "name_en": "",
       "name_zh": "世纪大道",
-      "transfer_group": "T008"
+      "transfer_group": "T014"
     },
     "02-18": {
       "line": "2",
-      "x": 3772.17,
-      "y": 2800.0,
-      "name_en": "Pudong Rd. (S)",
+      "x": 3751.83,
+      "y": 2800.02,
+      "name_en": "",
       "name_zh": "浦东南路",
-      "transfer_group": "T009"
+      "transfer_group": "T015"
     },
     "02-19": {
       "line": "2",
       "x": 3707.5,
       "y": 2800.07,
-      "name_en": "Lujiazui",
+      "name_en": "",
       "name_zh": "陆家嘴",
-      "transfer_group": "T010"
+      "transfer_group": "T015"
     },
     "02-20": {
       "line": "2",
-      "x": 1990.46,
-      "y": 2725.92,
-      "name_en": "Hongbaoshi Rd.",
-      "name_zh": "红宝石路",
-      "transfer_group": null
+      "x": 3463.31,
+      "y": 2726.78,
+      "name_en": "",
+      "name_zh": "南京东路",
+      "transfer_group": "T016"
     },
     "02-21": {
       "line": "2",
-      "x": 1362.04,
-      "y": 2725.55,
-      "name_en": "Hongqiao Airport",
-      "name_zh": "",
-      "transfer_group": null
+      "x": 3006.14,
+      "y": 2726.51,
+      "name_en": "",
+      "name_zh": "自然博物馆",
+      "transfer_group": "T017"
     },
     "02-22": {
       "line": "2",
-      "x": 1166.11,
-      "y": 2811.21,
-      "name_en": "Hongqiao Airport",
-      "name_zh": "",
-      "transfer_group": "T011"
+      "x": 2130.98,
+      "y": 2726.0,
+      "name_en": "",
+      "name_zh": "中山公园",
+      "transfer_group": "T018"
     },
     "02-23": {
       "line": "2",
-      "x": 1150.6,
-      "y": 2819.07,
-      "name_en": "Terminal 2",
-      "name_zh": "虹桥2号 航站楼",
-      "transfer_group": "T011"
+      "x": 1880.25,
+      "y": 2725.86,
+      "name_en": "",
+      "name_zh": "娄山关路",
+      "transfer_group": "T019"
     },
     "02-24": {
       "line": "2",
-      "x": 970.17,
-      "y": 2823.0,
-      "name_en": "Hongqiao Railway",
-      "name_zh": "",
-      "transfer_group": "T012"
+      "x": 1157.69,
+      "y": 2816.03,
+      "name_en": "",
+      "name_zh": "虹桥2号 航站楼",
+      "transfer_group": "T020"
     },
     "02-25": {
       "line": "2",
-      "x": 955.39,
+      "x": 964.72,
       "y": 2823.0,
-      "name_en": "Station",
+      "name_en": "",
       "name_zh": "虹桥火车站",
-      "transfer_group": "T012"
+      "transfer_group": "T021"
     },
     "02-26": {
-      "line": "2",
-      "x": 854.6,
-      "y": 2823.0,
-      "name_en": "Shanghai National",
-      "name_zh": "Accounting Institute 蟠",
-      "transfer_group": "T013"
-    },
-    "02-27": {
-      "line": "2",
-      "x": 819.81,
-      "y": 2823.0,
-      "name_en": "Panxiang Rd. ·",
-      "name_zh": "",
-      "transfer_group": "T013"
-    },
-    "02-28": {
       "line": "2",
       "x": 783.91,
       "y": 2823.38,
       "name_en": "",
       "name_zh": "国家会展中心",
-      "transfer_group": "T013"
+      "transfer_group": "T022"
     },
-    "02-29": {
-      "line": "2",
-      "x": 770.84,
-      "y": 2825.91,
-      "name_en": "National Exhibition",
-      "name_zh": "",
-      "transfer_group": "T013"
-    },
-    "02-30": {
-      "line": "2",
-      "x": 761.96,
-      "y": 2828.91,
-      "name_en": "and Convention Center",
-      "name_zh": "",
-      "transfer_group": "T013"
-    },
-    "02-31": {
+    "02-27": {
       "line": "2",
       "x": 700.01,
       "y": 2883.04,
-      "name_en": "Panlong Rd.",
+      "name_en": "",
       "name_zh": "蟠龙路",
-      "transfer_group": "T014"
+      "transfer_group": "T023"
     },
     "03-01": {
       "line": "3",
-      "x": 2173.5,
-      "y": 3552.0,
-      "name_en": "Caoxi Rd.",
-      "name_zh": "漕溪路",
+      "x": 3453.17,
+      "y": 242.0,
+      "name_en": "",
+      "name_zh": "江杨北路",
       "transfer_group": null
     },
     "03-02": {
       "line": "3",
-      "x": 3453.17,
-      "y": 242.0,
-      "name_en": "Jiangyang Rd. (N)",
-      "name_zh": "江杨北路",
+      "x": 3381.84,
+      "y": 1384.33,
+      "name_en": "",
+      "name_zh": "殷高西路",
       "transfer_group": null
     },
     "03-03": {
       "line": "3",
-      "x": 3381.84,
-      "y": 1384.33,
-      "name_en": "Yingao Rd. (W)",
-      "name_zh": "殷高西路",
+      "x": 3659.17,
+      "y": 243.34,
+      "name_en": "",
+      "name_zh": "铁力路",
       "transfer_group": null
     },
     "03-04": {
       "line": "3",
-      "x": 3659.17,
-      "y": 243.34,
-      "name_en": "Tieli Rd.",
-      "name_zh": "铁力路",
+      "x": 3350.17,
+      "y": 1675.0,
+      "name_en": "",
+      "name_zh": "大柏树",
       "transfer_group": null
     },
     "03-05": {
       "line": "3",
       "x": 3350.17,
       "y": 1817.34,
-      "name_en": "Chifeng Rd.",
+      "name_en": "",
       "name_zh": "赤峰路",
       "transfer_group": null
     },
     "03-06": {
       "line": "3",
-      "x": 3350.17,
-      "y": 1675.0,
-      "name_en": "Dabaishu",
-      "name_zh": "大柏树",
+      "x": 3803.83,
+      "y": 385.34,
+      "name_en": "",
+      "name_zh": "友谊路",
       "transfer_group": null
     },
     "03-07": {
       "line": "3",
       "x": 3803.83,
       "y": 521.67,
-      "name_en": "Baoyang Rd.",
+      "name_en": "",
       "name_zh": "宝杨路",
       "transfer_group": null
     },
     "03-08": {
       "line": "3",
-      "x": 3803.83,
-      "y": 385.34,
-      "name_en": "Youyi Rd.",
-      "name_zh": "友谊路",
+      "x": 3348.83,
+      "y": 1535.67,
+      "name_en": "",
+      "name_zh": "江湾镇",
       "transfer_group": null
     },
     "03-09": {
       "line": "3",
-      "x": 3348.83,
-      "y": 1535.67,
-      "name_en": "Jiangwan Town",
-      "name_zh": "江湾镇",
+      "x": 3396.17,
+      "y": 2065.34,
+      "name_en": "",
+      "name_zh": "东宝兴路",
       "transfer_group": null
     },
     "03-10": {
       "line": "3",
       "x": 3802.5,
       "y": 933.34,
-      "name_en": "Zhanghuabang",
+      "name_en": "",
       "name_zh": "张华浜",
       "transfer_group": null
     },
@@ -1199,7 +1163,7 @@
       "line": "3",
       "x": 3802.5,
       "y": 659.0,
-      "name_en": "Shuichan Rd.",
+      "name_en": "",
       "name_zh": "水产路",
       "transfer_group": null
     },
@@ -1207,7 +1171,7 @@
       "line": "3",
       "x": 3802.5,
       "y": 796.34,
-      "name_en": "Songbin Rd.",
+      "name_en": "",
       "name_zh": "淞滨路",
       "transfer_group": null
     },
@@ -1215,379 +1179,323 @@
       "line": "3",
       "x": 3673.84,
       "y": 1092.67,
-      "name_en": "Songfa Rd.",
+      "name_en": "",
       "name_zh": "淞发路",
       "transfer_group": null
     },
     "03-14": {
       "line": "3",
-      "x": 2112.39,
+      "x": 1965.55,
       "y": 3862.0,
-      "name_en": "Shilong Rd.",
-      "name_zh": "石龙路",
-      "transfer_group": null
+      "name_en": "",
+      "name_zh": "上海南站",
+      "transfer_group": "T002"
     },
     "03-15": {
       "line": "3",
-      "x": 2219.33,
-      "y": 3654.05,
-      "name_en": "Longcao Rd.",
-      "name_zh": "龙漕路",
+      "x": 2096.04,
+      "y": 3862.0,
+      "name_en": "",
+      "name_zh": "石龙路",
       "transfer_group": null
     },
     "03-16": {
       "line": "3",
-      "x": 2131.0,
-      "y": 3208.62,
-      "name_en": "Yishan Rd.",
-      "name_zh": "宜山路",
-      "transfer_group": "T015"
+      "x": 2220.5,
+      "y": 3672.07,
+      "name_en": "",
+      "name_zh": "龙漕路",
+      "transfer_group": "T024"
     },
     "03-17": {
       "line": "3",
-      "x": 2131.0,
-      "y": 3008.63,
-      "name_en": "Hongqiao Rd.",
-      "name_zh": "虹桥路",
-      "transfer_group": "T016"
+      "x": 2189.06,
+      "y": 3600.56,
+      "name_en": "",
+      "name_zh": "漕溪路",
+      "transfer_group": null
     },
     "03-18": {
       "line": "3",
       "x": 2131.0,
-      "y": 2843.04,
-      "name_en": "Yan'an Rd. (W)",
-      "name_zh": "延安西路",
-      "transfer_group": "T017"
+      "y": 3378.03,
+      "name_en": "",
+      "name_zh": "上海体育馆",
+      "transfer_group": "T004"
     },
     "03-19": {
       "line": "3",
       "x": 2131.0,
-      "y": 2668.93,
-      "name_en": "Zhongshan Park",
-      "name_zh": "中山公园",
-      "transfer_group": "T018"
+      "y": 3273.31,
+      "name_en": "",
+      "name_zh": "宜山路",
+      "transfer_group": "T025"
     },
     "03-20": {
       "line": "3",
       "x": 2131.0,
-      "y": 2399.61,
-      "name_en": "Jinshajiang Rd.",
-      "name_zh": "金沙江路",
-      "transfer_group": "T019"
+      "y": 3024.23,
+      "name_en": "",
+      "name_zh": "虹桥路",
+      "transfer_group": "T026"
     },
     "03-21": {
       "line": "3",
-      "x": 2172.55,
-      "y": 2246.66,
-      "name_en": "Fengqiao Rd.",
-      "name_zh": "枫桥路",
-      "transfer_group": "T020"
+      "x": 2131.0,
+      "y": 2858.64,
+      "name_en": "",
+      "name_zh": "延安西路",
+      "transfer_group": "T027"
     },
     "03-22": {
       "line": "3",
-      "x": 2765.54,
-      "y": 2234.0,
-      "name_en": "Zhongtan Rd.",
-      "name_zh": "中潭路",
-      "transfer_group": "T021"
+      "x": 2131.0,
+      "y": 2684.53,
+      "name_en": "",
+      "name_zh": "中山公园",
+      "transfer_group": "T018"
     },
     "03-23": {
       "line": "3",
-      "x": 2835.29,
-      "y": 2234.0,
-      "name_en": "Shanghai Railway Station",
-      "name_zh": "",
-      "transfer_group": "T022"
+      "x": 2131.0,
+      "y": 2415.21,
+      "name_en": "",
+      "name_zh": "金沙江路",
+      "transfer_group": "T028"
     },
     "03-24": {
+      "line": "3",
+      "x": 2163.04,
+      "y": 2253.47,
+      "name_en": "",
+      "name_zh": "枫桥路",
+      "transfer_group": "T029"
+    },
+    "03-25": {
+      "line": "3",
+      "x": 2742.87,
+      "y": 2234.0,
+      "name_en": "",
+      "name_zh": "中潭路",
+      "transfer_group": "T030"
+    },
+    "03-26": {
       "line": "3",
       "x": 2923.8,
       "y": 2234.0,
       "name_en": "",
       "name_zh": "上海火车站",
-      "transfer_group": "T023"
+      "transfer_group": "T031"
     },
-    "03-25": {
-      "line": "3",
-      "x": 3290.59,
-      "y": 2219.47,
-      "name_en": "Baoshan Rd.",
-      "name_zh": "宝山路",
-      "transfer_group": "T024"
-    },
-    "03-26": {
+    "03-27": {
       "line": "3",
       "x": 3372.5,
       "y": 1955.71,
       "name_en": "",
       "name_zh": "虹口足球场",
-      "transfer_group": "T025"
-    },
-    "03-27": {
-      "line": "3",
-      "x": 3372.5,
-      "y": 1924.51,
-      "name_en": "Hongkou Football Stadium",
-      "name_zh": "",
-      "transfer_group": null
+      "transfer_group": "T032"
     },
     "03-28": {
       "line": "3",
-      "x": 3530.53,
-      "y": 1266.45,
-      "name_en": "Changjiang Rd. (S)",
+      "x": 3537.12,
+      "y": 1260.01,
+      "name_en": "",
       "name_zh": "长江南路",
-      "transfer_group": "T026"
+      "transfer_group": "T033"
     },
     "04-01": {
       "line": "4",
       "x": 2148.5,
-      "y": 3377.26,
-      "name_en": "Shanghai Indoor Stadium",
+      "y": 3378.03,
+      "name_en": "",
       "name_zh": "上海体育馆",
-      "transfer_group": "T002"
+      "transfer_group": "T004"
     },
     "04-02": {
       "line": "4",
       "x": 2148.5,
-      "y": 3208.62,
-      "name_en": "Yishan Rd.",
+      "y": 3273.31,
+      "name_en": "",
       "name_zh": "宜山路",
-      "transfer_group": "T015"
+      "transfer_group": "T025"
     },
     "04-03": {
       "line": "4",
       "x": 2148.5,
-      "y": 3008.63,
-      "name_en": "Hongqiao Rd.",
+      "y": 3024.23,
+      "name_en": "",
       "name_zh": "虹桥路",
-      "transfer_group": "T016"
+      "transfer_group": "T026"
     },
     "04-04": {
       "line": "4",
       "x": 2148.5,
-      "y": 2843.04,
-      "name_en": "Yan'an Rd. (W)",
+      "y": 2858.64,
+      "name_en": "",
       "name_zh": "延安西路",
-      "transfer_group": "T017"
+      "transfer_group": "T027"
     },
     "04-05": {
       "line": "4",
       "x": 2148.5,
-      "y": 2668.93,
-      "name_en": "Zhongshan Park",
+      "y": 2684.53,
+      "name_en": "",
       "name_zh": "中山公园",
       "transfer_group": "T018"
     },
     "04-06": {
       "line": "4",
       "x": 2148.5,
-      "y": 2399.61,
-      "name_en": "Jinshajiang Rd.",
+      "y": 2415.21,
+      "name_en": "",
       "name_zh": "金沙江路",
-      "transfer_group": "T019"
+      "transfer_group": "T028"
     },
     "04-07": {
       "line": "4",
-      "x": 2181.05,
-      "y": 2262.31,
-      "name_en": "Fengqiao Rd.",
+      "x": 2174.31,
+      "y": 2267.14,
+      "name_en": "",
       "name_zh": "枫桥路",
-      "transfer_group": "T020"
+      "transfer_group": "T029"
     },
     "04-08": {
       "line": "4",
-      "x": 2323.85,
+      "x": 2742.87,
       "y": 2252.12,
-      "name_en": "Caoyang Rd.",
-      "name_zh": "曹杨路",
-      "transfer_group": "T027"
+      "name_en": "",
+      "name_zh": "中潭路",
+      "transfer_group": "T030"
     },
     "04-09": {
-      "line": "4",
-      "x": 2589.13,
-      "y": 2252.12,
-      "name_en": "Zhenping Rd.",
-      "name_zh": "镇坪路",
-      "transfer_group": "T028"
-    },
-    "04-10": {
-      "line": "4",
-      "x": 2765.54,
-      "y": 2252.12,
-      "name_en": "Zhongtan Rd.",
-      "name_zh": "中潭路",
-      "transfer_group": "T021"
-    },
-    "04-11": {
-      "line": "4",
-      "x": 2835.29,
-      "y": 2252.12,
-      "name_en": "Shanghai Railway Station",
-      "name_zh": "",
-      "transfer_group": "T022"
-    },
-    "04-12": {
       "line": "4",
       "x": 2923.8,
       "y": 2252.12,
       "name_en": "",
       "name_zh": "上海火车站",
-      "transfer_group": "T023"
+      "transfer_group": "T031"
+    },
+    "04-10": {
+      "line": "4",
+      "x": 3464.8,
+      "y": 2252.12,
+      "name_en": "",
+      "name_zh": "海伦路",
+      "transfer_group": "T034"
+    },
+    "04-11": {
+      "line": "4",
+      "x": 3790.36,
+      "y": 2252.12,
+      "name_en": "",
+      "name_zh": "大连路",
+      "transfer_group": "T035"
+    },
+    "04-12": {
+      "line": "4",
+      "x": 3941.2,
+      "y": 2742.64,
+      "name_en": "",
+      "name_zh": "浦东大道",
+      "transfer_group": "T036"
     },
     "04-13": {
       "line": "4",
-      "x": 3312.53,
-      "y": 2252.12,
-      "name_en": "Baoshan Rd.",
-      "name_zh": "宝山路",
-      "transfer_group": "T024"
+      "x": 3941.2,
+      "y": 2991.65,
+      "name_en": "",
+      "name_zh": "世纪大道",
+      "transfer_group": "T014"
     },
     "04-14": {
       "line": "4",
-      "x": 3469.19,
-      "y": 2252.12,
-      "name_en": "Hailun Rd.",
-      "name_zh": "海伦路",
-      "transfer_group": "T029"
+      "x": 3655.0,
+      "y": 2273.5,
+      "name_en": "",
+      "name_zh": "临平路",
+      "transfer_group": null
     },
     "04-15": {
       "line": "4",
-      "x": 3804.51,
-      "y": 2252.12,
-      "name_en": "Dalian Rd.",
-      "name_zh": "大连路",
-      "transfer_group": "T030"
+      "x": 2461.33,
+      "y": 3460.34,
+      "name_en": "",
+      "name_zh": "上海体育场",
+      "transfer_group": null
     },
     "04-16": {
       "line": "4",
-      "x": 3941.2,
-      "y": 2727.04,
-      "name_en": "Pudong Ave.",
-      "name_zh": "浦东大道",
-      "transfer_group": "T031"
+      "x": 2965.0,
+      "y": 3459.5,
+      "name_en": "",
+      "name_zh": "鲁班路",
+      "transfer_group": null
     },
     "04-17": {
       "line": "4",
-      "x": 3941.2,
-      "y": 2985.55,
-      "name_en": "Century Ave.",
-      "name_zh": "世纪大道",
-      "transfer_group": "T008"
+      "x": 3421.5,
+      "y": 3458.5,
+      "name_en": "",
+      "name_zh": "南浦大桥",
+      "transfer_group": null
     },
     "04-18": {
       "line": "4",
-      "x": 3655.0,
-      "y": 2273.5,
-      "name_en": "Linping Rd.",
-      "name_zh": "临平路",
+      "x": 3967.5,
+      "y": 3297.0,
+      "name_en": "",
+      "name_zh": "向城路",
       "transfer_group": null
     },
     "04-19": {
       "line": "4",
-      "x": 2461.33,
-      "y": 3460.34,
-      "name_en": "Shanghai Stadium",
-      "name_zh": "上海体育场",
+      "x": 3969.5,
+      "y": 2491.5,
+      "name_en": "",
+      "name_zh": "杨树浦路",
       "transfer_group": null
     },
     "04-20": {
       "line": "4",
-      "x": 2965.0,
-      "y": 3459.5,
-      "name_en": "Luban Rd.",
-      "name_zh": "鲁班路",
-      "transfer_group": null
+      "x": 3766.0,
+      "y": 3482.0,
+      "name_en": "",
+      "name_zh": "蓝村路",
+      "transfer_group": "T037"
     },
     "04-21": {
       "line": "4",
-      "x": 3421.5,
-      "y": 3458.5,
-      "name_en": "Nanpu Bridge",
-      "name_zh": "南浦大桥",
-      "transfer_group": null
+      "x": 3733.48,
+      "y": 3482.0,
+      "name_en": "",
+      "name_zh": "上海儿童医学中心",
+      "transfer_group": "T037"
     },
     "04-22": {
       "line": "4",
-      "x": 3967.5,
-      "y": 3297.0,
-      "name_en": "Xiangcheng Rd.",
-      "name_zh": "向城路",
+      "x": 3597.62,
+      "y": 3482.0,
+      "name_en": "",
+      "name_zh": "塘桥",
       "transfer_group": null
     },
     "04-23": {
       "line": "4",
-      "x": 3639.5,
-      "y": 3455.5,
-      "name_en": "Tangqiao",
-      "name_zh": "塘桥",
+      "x": 2992.74,
+      "y": 3482.0,
+      "name_en": "",
+      "name_zh": "世博会博物馆",
       "transfer_group": null
     },
     "04-24": {
       "line": "4",
-      "x": 3969.5,
-      "y": 2491.5,
-      "name_en": "Yangshupu Rd.",
-      "name_zh": "杨树浦路",
-      "transfer_group": null
-    },
-    "04-25": {
-      "line": "4",
-      "x": 3834.27,
+      "x": 2755.71,
       "y": 3482.0,
-      "name_en": "Shanghai Children's",
-      "name_zh": "",
-      "transfer_group": null
-    },
-    "04-26": {
-      "line": "4",
-      "x": 3808.97,
-      "y": 3482.0,
-      "name_en": "Medical Center",
-      "name_zh": "上海儿童医学中心",
-      "transfer_group": "T032"
-    },
-    "04-27": {
-      "line": "4",
-      "x": 3317.5,
-      "y": 3482.0,
-      "name_en": "Xizang Rd. (S)",
-      "name_zh": "西藏南路",
-      "transfer_group": "T033"
-    },
-    "04-28": {
-      "line": "4",
-      "x": 2970.14,
-      "y": 3482.0,
-      "name_en": "World Expo Museum",
-      "name_zh": "世博会博物馆",
+      "name_en": "",
+      "name_zh": "大木桥路",
       "transfer_group": null
     },
     "05-01": {
-      "line": "5",
-      "x": 1024.5,
-      "y": 5330.0,
-      "name_en": "Minhang Development Zone",
-      "name_zh": "",
-      "transfer_group": null
-    },
-    "05-02": {
-      "line": "5",
-      "x": 1193.83,
-      "y": 5308.34,
-      "name_en": "Wenjing Rd.",
-      "name_zh": "文井路",
-      "transfer_group": null
-    },
-    "05-03": {
-      "line": "5",
-      "x": 1346.17,
-      "y": 5308.34,
-      "name_en": "Huaning Rd.",
-      "name_zh": "华宁路",
-      "transfer_group": null
-    },
-    "05-04": {
       "line": "5",
       "x": 1042.83,
       "y": 5308.34,
@@ -1595,323 +1503,347 @@
       "name_zh": "闵行开发区",
       "transfer_group": null
     },
-    "05-05": {
+    "05-02": {
+      "line": "5",
+      "x": 1193.83,
+      "y": 5308.34,
+      "name_en": "",
+      "name_zh": "文井路",
+      "transfer_group": null
+    },
+    "05-03": {
+      "line": "5",
+      "x": 1346.17,
+      "y": 5308.34,
+      "name_en": "",
+      "name_zh": "华宁路",
+      "transfer_group": null
+    },
+    "05-04": {
       "line": "5",
       "x": 1570.17,
       "y": 5668.67,
-      "name_en": "Xiaotang",
+      "name_en": "",
       "name_zh": "萧塘",
+      "transfer_group": null
+    },
+    "05-05": {
+      "line": "5",
+      "x": 1613.0,
+      "y": 5422.67,
+      "name_en": "",
+      "name_zh": "江川路",
       "transfer_group": null
     },
     "05-06": {
       "line": "5",
       "x": 1613.0,
-      "y": 5422.67,
-      "name_en": "Jiangchuan Rd.",
-      "name_zh": "江川路",
+      "y": 4504.84,
+      "name_en": "",
+      "name_zh": "银都路",
       "transfer_group": null
     },
     "05-07": {
       "line": "5",
       "x": 1613.0,
-      "y": 4504.84,
-      "name_en": "Yindu Rd.",
-      "name_zh": "银都路",
+      "y": 4686.67,
+      "name_en": "",
+      "name_zh": "颛桥",
       "transfer_group": null
     },
     "05-08": {
       "line": "5",
       "x": 1613.0,
-      "y": 4686.67,
-      "name_en": "Zhuanqiao",
-      "name_zh": "颛桥",
+      "y": 4872.67,
+      "name_en": "",
+      "name_zh": "北桥",
       "transfer_group": null
     },
     "05-09": {
       "line": "5",
       "x": 1613.0,
-      "y": 4872.67,
-      "name_en": "Beiqiao",
-      "name_zh": "北桥",
+      "y": 5055.67,
+      "name_en": "",
+      "name_zh": "剑川路",
       "transfer_group": null
     },
     "05-10": {
       "line": "5",
       "x": 1613.0,
-      "y": 5055.67,
-      "name_en": "Jianchuan Rd.",
-      "name_zh": "剑川路",
+      "y": 5239.0,
+      "name_en": "",
+      "name_zh": "东川路",
       "transfer_group": null
     },
     "05-11": {
       "line": "5",
-      "x": 1613.0,
-      "y": 5239.0,
-      "name_en": "Dongchuan Rd.",
-      "name_zh": "东川路",
+      "x": 2257.5,
+      "y": 5779.07,
+      "name_en": "",
+      "name_zh": "金海湖",
       "transfer_group": null
     },
     "05-12": {
       "line": "5",
       "x": 2257.5,
-      "y": 5779.07,
-      "name_en": "Jinhai Lake",
-      "name_zh": "金海湖",
+      "y": 5889.0,
+      "name_en": "",
+      "name_zh": "奉贤新城",
       "transfer_group": null
     },
     "05-13": {
       "line": "5",
-      "x": 2257.5,
-      "y": 5889.0,
-      "name_en": "Fengxian Xincheng",
-      "name_zh": "奉贤新城",
+      "x": 1613.83,
+      "y": 4394.68,
+      "name_en": "",
+      "name_zh": "春申路",
       "transfer_group": null
     },
     "05-14": {
       "line": "5",
-      "x": 1613.83,
-      "y": 4394.68,
-      "name_en": "Chunshen Rd.",
-      "name_zh": "春申路",
+      "x": 1498.5,
+      "y": 5306.34,
+      "name_en": "",
+      "name_zh": "金平路",
       "transfer_group": null
     },
     "05-15": {
       "line": "5",
-      "x": 1498.5,
-      "y": 5306.34,
-      "name_en": "Jinping Rd.",
-      "name_zh": "金平路",
+      "x": 1566.83,
+      "y": 5574.0,
+      "name_en": "",
+      "name_zh": "西渡",
       "transfer_group": null
     },
     "05-16": {
       "line": "5",
-      "x": 1566.83,
-      "y": 5574.0,
-      "name_en": "Xidu",
-      "name_zh": "西渡",
+      "x": 2113.83,
+      "y": 5690.67,
+      "name_en": "",
+      "name_zh": "望园路",
       "transfer_group": null
     },
     "05-17": {
       "line": "5",
-      "x": 1958.5,
-      "y": 5692.0,
-      "name_en": "Huanchengdong Rd.",
+      "x": 1878.27,
+      "y": 5716.0,
+      "name_en": "",
       "name_zh": "环城东路",
       "transfer_group": null
     },
     "05-18": {
       "line": "5",
-      "x": 2167.99,
+      "x": 1751.05,
       "y": 5716.0,
-      "name_en": "Wangyuan Rd.",
-      "name_zh": "望园路",
+      "name_en": "",
+      "name_zh": "奉浦大道",
       "transfer_group": null
     },
     "05-19": {
       "line": "5",
-      "x": 1763.33,
-      "y": 5716.0,
-      "name_en": "Fengpu Ave.",
-      "name_zh": "奉浦大道",
-      "transfer_group": null
-    },
-    "05-20": {
-      "line": "5",
-      "x": 1618.99,
-      "y": 4160.3,
-      "name_en": "Xinzhuang",
+      "x": 1602.71,
+      "y": 4181.13,
+      "name_en": "",
       "name_zh": "莘庄",
       "transfer_group": "T001"
     },
     "06-01": {
       "line": "6",
-      "x": 3739.75,
-      "y": 3234.64,
-      "name_en": "Pudian Rd.",
-      "name_zh": "浦电路",
-      "transfer_group": null
+      "x": 3058.83,
+      "y": 4134.0,
+      "name_en": "",
+      "name_zh": "东方体育中心",
+      "transfer_group": "T038"
     },
     "06-02": {
       "line": "6",
-      "x": 3075.1,
-      "y": 4134.0,
-      "name_en": "Oriental Sports Center",
-      "name_zh": "东方体育中心",
-      "transfer_group": "T034"
+      "x": 3739.75,
+      "y": 3234.64,
+      "name_en": "",
+      "name_zh": "浦电路",
+      "transfer_group": null
     },
     "06-03": {
       "line": "6",
-      "x": 3171.5,
+      "x": 3357.17,
       "y": 4154.5,
-      "name_en": "Lingyan Rd. (S)",
-      "name_zh": "灵岩南路",
+      "name_en": "",
+      "name_zh": "上南路",
       "transfer_group": null
     },
     "06-04": {
       "line": "6",
-      "x": 3357.17,
-      "y": 4154.5,
-      "name_en": "Shangnan Rd.",
-      "name_zh": "上南路",
+      "x": 3542.54,
+      "y": 4148.0,
+      "name_en": "",
+      "name_zh": "华夏西路",
       "transfer_group": null
     },
     "06-05": {
       "line": "6",
-      "x": 3542.54,
-      "y": 4148.0,
-      "name_en": "Huaxia Rd. (W)",
-      "name_zh": "华夏西路",
+      "x": 4564.83,
+      "y": 1791.0,
+      "name_en": "",
+      "name_zh": "洲海路",
       "transfer_group": null
     },
     "06-06": {
       "line": "6",
       "x": 4564.83,
-      "y": 1791.0,
-      "name_en": "Zhouhai Rd.",
-      "name_zh": "洲海路",
+      "y": 1903.0,
+      "name_en": "",
+      "name_zh": "五洲大道",
       "transfer_group": null
     },
     "06-07": {
       "line": "6",
       "x": 4564.83,
-      "y": 1903.0,
-      "name_en": "Wuzhou Ave.",
-      "name_zh": "五洲大道",
+      "y": 2013.67,
+      "name_en": "",
+      "name_zh": "东靖路",
       "transfer_group": null
     },
     "06-08": {
       "line": "6",
-      "x": 4564.83,
-      "y": 2013.67,
-      "name_en": "Dongjing Rd.",
-      "name_zh": "东靖路",
+      "x": 4136.17,
+      "y": 2865.0,
+      "name_en": "",
+      "name_zh": "源深体育中心",
       "transfer_group": null
     },
     "06-09": {
       "line": "6",
       "x": 4687.83,
       "y": 1446.0,
-      "name_en": "Hangjin Rd.",
+      "name_en": "",
       "name_zh": "航津路",
       "transfer_group": null
     },
     "06-10": {
       "line": "6",
-      "x": 3615.5,
-      "y": 4068.23,
-      "name_en": "Gaoqing Rd.",
-      "name_zh": "高青路",
+      "x": 4687.83,
+      "y": 1565.67,
+      "name_en": "",
+      "name_zh": "外高桥保税区南",
       "transfer_group": null
     },
     "06-11": {
       "line": "6",
-      "x": 4566.17,
-      "y": 2274.33,
-      "name_en": "Wulian Rd.",
-      "name_zh": "五莲路",
+      "x": 3640.17,
+      "y": 3642.67,
+      "name_en": "",
+      "name_zh": "临沂新村",
       "transfer_group": null
     },
     "06-12": {
       "line": "6",
-      "x": 4566.17,
-      "y": 2366.34,
-      "name_en": "Boxing Rd.",
-      "name_zh": "博兴路",
+      "x": 3615.5,
+      "y": 4068.23,
+      "name_en": "",
+      "name_zh": "高青路",
       "transfer_group": null
     },
     "06-13": {
       "line": "6",
-      "x": 4290.5,
-      "y": 2711.0,
-      "name_en": "Beiyangjing Rd.",
-      "name_zh": "北洋泾路",
+      "x": 4566.17,
+      "y": 2274.33,
+      "name_en": "",
+      "name_zh": "五莲路",
       "transfer_group": null
     },
     "06-14": {
       "line": "6",
-      "x": 3699.33,
-      "y": 3586.17,
-      "name_en": "Linyi Xincun",
-      "name_zh": "临沂新村",
+      "x": 4566.17,
+      "y": 2366.34,
+      "name_en": "",
+      "name_zh": "博兴路",
       "transfer_group": null
     },
     "06-15": {
       "line": "6",
-      "x": 4535.98,
-      "y": 2464.85,
-      "name_en": "Jinqiao Rd.",
-      "name_zh": "金桥路",
+      "x": 4290.5,
+      "y": 2711.0,
+      "name_en": "",
+      "name_zh": "北洋泾路",
       "transfer_group": null
     },
     "06-16": {
       "line": "6",
-      "x": 3594.17,
-      "y": 3982.44,
-      "name_en": "Dongming Rd.",
-      "name_zh": "东明路",
+      "x": 4689.5,
+      "y": 1323.67,
+      "name_en": "",
+      "name_zh": "外高桥保税区北",
       "transfer_group": null
     },
     "06-17": {
       "line": "6",
-      "x": 3594.17,
-      "y": 3726.73,
-      "name_en": "Gaoke Rd. (W)",
-      "name_zh": "高科西路",
-      "transfer_group": "T035"
+      "x": 4535.98,
+      "y": 2464.85,
+      "name_en": "",
+      "name_zh": "金桥路",
+      "transfer_group": null
     },
     "06-18": {
       "line": "6",
-      "x": 3762.88,
-      "y": 3470.42,
-      "name_en": "Medical Center",
-      "name_zh": "上海儿童医学中心",
-      "transfer_group": "T032"
+      "x": 3594.17,
+      "y": 3998.04,
+      "name_en": "",
+      "name_zh": "东明路",
+      "transfer_group": null
     },
     "06-19": {
       "line": "6",
-      "x": 3766.0,
-      "y": 3420.61,
-      "name_en": "Lancun Rd.",
-      "name_zh": "蓝村路",
-      "transfer_group": null
+      "x": 3594.17,
+      "y": 3742.33,
+      "name_en": "",
+      "name_zh": "高科西路",
+      "transfer_group": "T039"
     },
     "06-20": {
       "line": "6",
-      "x": 4175.47,
-      "y": 2792.91,
-      "name_en": "Minsheng Rd.",
-      "name_zh": "民生路",
-      "transfer_group": "T036"
+      "x": 3733.48,
+      "y": 3516.03,
+      "name_en": "",
+      "name_zh": "上海儿童医学中心",
+      "transfer_group": "T037"
     },
     "06-21": {
       "line": "6",
-      "x": 4432.22,
-      "y": 2531.81,
-      "name_en": "Yunshan Rd.",
-      "name_zh": "云山路",
+      "x": 3766.0,
+      "y": 3436.21,
+      "name_en": "",
+      "name_zh": "蓝村路",
       "transfer_group": "T037"
     },
     "06-22": {
       "line": "6",
-      "x": 4542.14,
-      "y": 2203.4,
-      "name_en": "Jufeng Rd.",
-      "name_zh": "巨峰路",
-      "transfer_group": "T038"
+      "x": 4167.67,
+      "y": 2800.85,
+      "name_en": "",
+      "name_zh": "民生路",
+      "transfer_group": "T040"
     },
     "06-23": {
       "line": "6",
+      "x": 4542.1,
+      "y": 2219.04,
+      "name_en": "",
+      "name_zh": "巨峰路",
+      "transfer_group": null
+    },
+    "06-24": {
+      "line": "6",
       "x": 4664.83,
-      "y": 1199.34,
-      "name_en": "Gangcheng Rd.",
+      "y": 1204.77,
+      "name_en": "",
       "name_zh": "港城路",
-      "transfer_group": "T039"
+      "transfer_group": "T041"
     },
     "07-01": {
       "line": "7",
       "x": 4435.17,
       "y": 3184.67,
-      "name_en": "Huamu Rd.",
+      "name_en": "",
       "name_zh": "花木路",
       "transfer_group": null
     },
@@ -1919,7 +1851,7 @@
       "line": "7",
       "x": 2962.17,
       "y": 3796.34,
-      "name_en": "Houtan",
+      "name_en": "",
       "name_zh": "后滩",
       "transfer_group": null
     },
@@ -1927,7 +1859,7 @@
       "line": "7",
       "x": 3443.0,
       "y": 3796.84,
-      "name_en": "Yuntai Rd.",
+      "name_en": "",
       "name_zh": "云台路",
       "transfer_group": null
     },
@@ -1935,263 +1867,255 @@
       "line": "7",
       "x": 2610.5,
       "y": 2627.5,
-      "name_en": "Changping Rd.",
+      "name_en": "",
       "name_zh": "昌平路",
       "transfer_group": null
     },
     "07-05": {
       "line": "7",
-      "x": 2562.75,
-      "y": 1554.5,
-      "name_en": "Changzhong Rd.",
-      "name_zh": "场中路",
+      "x": 4137.0,
+      "y": 3516.5,
+      "name_en": "",
+      "name_zh": "芳华路",
       "transfer_group": null
     },
     "07-06": {
       "line": "7",
       "x": 2562.75,
-      "y": 1670.25,
-      "name_en": "Dachang Town",
-      "name_zh": "大场镇",
+      "y": 1554.5,
+      "name_en": "",
+      "name_zh": "场中路",
       "transfer_group": null
     },
     "07-07": {
       "line": "7",
       "x": 2562.75,
-      "y": 1786.75,
-      "name_en": "Xingzhi Rd.",
-      "name_zh": "行知路",
+      "y": 1670.25,
+      "name_en": "",
+      "name_zh": "大场镇",
       "transfer_group": null
     },
     "07-08": {
       "line": "7",
-      "x": 4048.67,
-      "y": 3606.67,
-      "name_en": "Jinxiu Rd.",
-      "name_zh": "锦绣路",
+      "x": 2562.75,
+      "y": 1786.75,
+      "name_en": "",
+      "name_zh": "行知路",
       "transfer_group": null
     },
     "07-09": {
       "line": "7",
-      "x": 3960.33,
-      "y": 3695.0,
-      "name_en": "Yanggao Rd. (S)",
-      "name_zh": "杨高南路",
+      "x": 4048.67,
+      "y": 3606.67,
+      "name_en": "",
+      "name_zh": "锦绣路",
       "transfer_group": null
     },
     "07-10": {
       "line": "7",
-      "x": 2562.75,
-      "y": 1904.5,
-      "name_en": "Dahua 3rd Rd.",
-      "name_zh": "大华三路",
+      "x": 3960.33,
+      "y": 3695.0,
+      "name_en": "",
+      "name_zh": "杨高南路",
       "transfer_group": null
     },
     "07-11": {
       "line": "7",
       "x": 2562.75,
-      "y": 2137.75,
-      "name_en": "Langao Rd.",
-      "name_zh": "岚皋路",
+      "y": 1904.5,
+      "name_en": "",
+      "name_zh": "大华三路",
       "transfer_group": null
     },
     "07-12": {
       "line": "7",
       "x": 2562.75,
-      "y": 2020.5,
-      "name_en": "Xincun Rd.",
-      "name_zh": "新村路",
+      "y": 2137.75,
+      "name_en": "",
+      "name_zh": "岚皋路",
       "transfer_group": null
     },
     "07-13": {
       "line": "7",
-      "x": 2116.25,
-      "y": 1291.75,
-      "name_en": "Shanghai University",
-      "name_zh": "上海大学",
+      "x": 2562.75,
+      "y": 2020.5,
+      "name_en": "",
+      "name_zh": "新村路",
       "transfer_group": null
     },
     "07-14": {
       "line": "7",
       "x": 1711.25,
       "y": 406.25,
-      "name_en": "Luonan Xincun",
+      "name_en": "",
       "name_zh": "罗南新村",
       "transfer_group": null
     },
     "07-15": {
       "line": "7",
-      "x": 1710.75,
-      "y": 1140.75,
-      "name_en": "Qihua Rd.",
-      "name_zh": "祁华路",
+      "x": 2116.25,
+      "y": 1291.75,
+      "name_en": "",
+      "name_zh": "上海大学",
       "transfer_group": null
     },
     "07-16": {
       "line": "7",
-      "x": 1710.5,
-      "y": 775.25,
-      "name_en": "Liuhang",
-      "name_zh": "刘行",
+      "x": 1710.75,
+      "y": 1140.75,
+      "name_en": "",
+      "name_zh": "祁华路",
       "transfer_group": null
     },
     "07-17": {
       "line": "7",
-      "x": 1710.25,
-      "y": 590.75,
-      "name_en": "Panguang Rd.",
-      "name_zh": "潘广路",
+      "x": 1710.5,
+      "y": 775.25,
+      "name_en": "",
+      "name_zh": "刘行",
       "transfer_group": null
     },
     "07-18": {
       "line": "7",
       "x": 1710.25,
-      "y": 223.25,
-      "name_en": "Meilan Lake",
-      "name_zh": "美兰湖",
+      "y": 590.75,
+      "name_en": "",
+      "name_zh": "潘广路",
       "transfer_group": null
     },
     "07-19": {
       "line": "7",
-      "x": 2503.25,
-      "y": 1392.5,
-      "name_en": "Shangda Rd.",
-      "name_zh": "上大路",
+      "x": 1710.25,
+      "y": 223.25,
+      "name_en": "",
+      "name_zh": "美兰湖",
       "transfer_group": null
     },
     "07-20": {
       "line": "7",
-      "x": 4379.22,
-      "y": 3240.52,
-      "name_en": "Zhangjiang High",
-      "name_zh": "",
+      "x": 2503.25,
+      "y": 1392.5,
+      "name_en": "",
+      "name_zh": "上大路",
       "transfer_group": null
     },
     "07-21": {
       "line": "7",
-      "x": 4215.25,
-      "y": 3404.22,
-      "name_en": "Longyang Rd.",
+      "x": 4217.49,
+      "y": 3401.98,
+      "name_en": "",
       "name_zh": "龙阳路",
-      "transfer_group": "T040"
+      "transfer_group": "T013"
     },
     "07-22": {
       "line": "7",
-      "x": 4556.83,
-      "y": 3968.78,
-      "name_en": "Zhongke Rd.",
-      "name_zh": "中科路",
-      "transfer_group": "T041"
+      "x": 3594.17,
+      "y": 3776.0,
+      "name_en": "",
+      "name_zh": "高科西路",
+      "transfer_group": "T039"
     },
     "07-23": {
       "line": "7",
-      "x": 3594.17,
+      "x": 3317.5,
       "y": 3776.0,
-      "name_en": "Gaoke Rd. (W)",
-      "name_zh": "高科西路",
-      "transfer_group": "T035"
+      "name_en": "",
+      "name_zh": "耀华路",
+      "transfer_group": "T042"
     },
     "07-24": {
       "line": "7",
-      "x": 4933.83,
-      "y": 4376.28,
-      "name_en": "Shanghai International",
-      "name_zh": "Resort上海国际旅游度假区",
-      "transfer_group": "T042"
+      "x": 3099.89,
+      "y": 3776.0,
+      "name_en": "",
+      "name_zh": "长清路",
+      "transfer_group": "T043"
     },
     "07-25": {
       "line": "7",
       "x": 5155.17,
       "y": 4923.5,
-      "name_en": "Pudong Airport Terminal",
+      "name_en": "",
       "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T007"
+      "transfer_group": "T011"
     },
     "07-26": {
       "line": "7",
-      "x": 2605.0,
-      "y": 3752.56,
-      "name_en": "Middle Longhua Rd.",
+      "x": 2600.38,
+      "y": 3746.96,
+      "name_en": "",
       "name_zh": "龙华中路",
-      "transfer_group": "T043"
+      "transfer_group": "T044"
     },
     "07-27": {
       "line": "7",
       "x": 2589.13,
-      "y": 3532.6,
-      "name_en": "Dong'an Rd.",
+      "y": 3548.2,
+      "name_en": "",
       "name_zh": "东安路",
       "transfer_group": null
     },
     "07-28": {
       "line": "7",
       "x": 2589.13,
-      "y": 3296.8,
-      "name_en": "Zhaojiabang Rd.",
+      "y": 3312.4,
+      "name_en": "",
       "name_zh": "肇家浜路",
       "transfer_group": null
     },
     "07-29": {
       "line": "7",
       "x": 2589.13,
-      "y": 2921.45,
-      "name_en": "Changshu Rd.",
+      "y": 2937.05,
+      "name_en": "",
       "name_zh": "常熟路",
-      "transfer_group": null
+      "transfer_group": "T006"
     },
     "07-30": {
       "line": "7",
       "x": 2589.13,
-      "y": 2780.47,
-      "name_en": "Jing'an Temple",
+      "y": 2796.07,
+      "name_en": "",
       "name_zh": "静安寺",
-      "transfer_group": "T044"
+      "transfer_group": "T045"
     },
     "07-31": {
       "line": "7",
       "x": 2589.13,
-      "y": 2512.38,
-      "name_en": "Changshou Rd.",
+      "y": 2527.98,
+      "name_en": "",
       "name_zh": "长寿路",
       "transfer_group": null
     },
     "07-32": {
       "line": "7",
       "x": 2589.13,
-      "y": 2298.29,
-      "name_en": "Zhenping Rd.",
+      "y": 2313.89,
+      "name_en": "",
       "name_zh": "镇坪路",
-      "transfer_group": "T028"
+      "transfer_group": null
     },
     "07-33": {
       "line": "7",
-      "x": 2371.28,
-      "y": 1319.51,
-      "name_en": "Nanchen Rd.",
+      "x": 2357.74,
+      "y": 1318.5,
+      "name_en": "",
       "name_zh": "南陈路",
       "transfer_group": null
     },
     "07-34": {
       "line": "7",
-      "x": 2117.76,
-      "y": 1318.5,
-      "name_en": "Fengxiang Rd.",
-      "name_zh": "丰翔路",
-      "transfer_group": null
-    },
-    "07-35": {
-      "line": "7",
       "x": 1738.0,
-      "y": 949.37,
-      "name_en": "Gucun Park",
+      "y": 964.97,
+      "name_en": "",
       "name_zh": "顾村公园",
-      "transfer_group": "T045"
+      "transfer_group": "T046"
     },
     "08-01": {
       "line": "8",
       "x": 4129.74,
       "y": 1804.92,
-      "name_en": "Middle Yanji Rd.",
+      "name_en": "",
       "name_zh": "延吉中路",
       "transfer_group": null
     },
@@ -2199,7 +2123,7 @@
       "line": "8",
       "x": 3834.33,
       "y": 1967.34,
-      "name_en": "Anshan Xincun",
+      "name_en": "",
       "name_zh": "鞍山新村",
       "transfer_group": null
     },
@@ -2207,7 +2131,7 @@
       "line": "8",
       "x": 3522.61,
       "y": 1967.17,
-      "name_en": "Quyang Rd.",
+      "name_en": "",
       "name_zh": "曲阳路",
       "transfer_group": null
     },
@@ -2215,7 +2139,7 @@
       "line": "8",
       "x": 4049.16,
       "y": 1887.67,
-      "name_en": "Huangxing Rd.",
+      "name_en": "",
       "name_zh": "黄兴路",
       "transfer_group": null
     },
@@ -2223,7 +2147,7 @@
       "line": "8",
       "x": 3168.0,
       "y": 3999.0,
-      "name_en": "Yangsi",
+      "name_en": "",
       "name_zh": "杨思",
       "transfer_group": null
     },
@@ -2231,7 +2155,7 @@
       "line": "8",
       "x": 3231.5,
       "y": 2120.17,
-      "name_en": "Zhongxing Rd.",
+      "name_en": "",
       "name_zh": "中兴路",
       "transfer_group": null
     },
@@ -2239,7 +2163,7 @@
       "line": "8",
       "x": 4180.17,
       "y": 1730.5,
-      "name_en": "Huangxing Park",
+      "name_en": "",
       "name_zh": "黄兴公园",
       "transfer_group": null
     },
@@ -2247,7 +2171,7 @@
       "line": "8",
       "x": 2970.0,
       "y": 4301.17,
-      "name_en": "Luheng Rd.",
+      "name_en": "",
       "name_zh": "芦恒路",
       "transfer_group": null
     },
@@ -2255,7 +2179,7 @@
       "line": "8",
       "x": 2970.0,
       "y": 4545.75,
-      "name_en": "Pujiang Town",
+      "name_en": "",
       "name_zh": "浦江镇",
       "transfer_group": null
     },
@@ -2263,7 +2187,7 @@
       "line": "8",
       "x": 3340.0,
       "y": 3626.75,
-      "name_en": "China Art Museum",
+      "name_en": "",
       "name_zh": "中华艺术宫",
       "transfer_group": null
     },
@@ -2271,7 +2195,7 @@
       "line": "8",
       "x": 3296.17,
       "y": 2042.16,
-      "name_en": "Xizang Rd. (N)",
+      "name_en": "",
       "name_zh": "西藏北路",
       "transfer_group": null
     },
@@ -2279,7 +2203,7 @@
       "line": "8",
       "x": 4180.17,
       "y": 1424.34,
-      "name_en": "Shiguang Rd.",
+      "name_en": "",
       "name_zh": "市光路",
       "transfer_group": null
     },
@@ -2287,7 +2211,7 @@
       "line": "8",
       "x": 4181.67,
       "y": 1629.67,
-      "name_en": "Xiangyin Rd.",
+      "name_en": "",
       "name_zh": "翔殷路",
       "transfer_group": null
     },
@@ -2295,7 +2219,7 @@
       "line": "8",
       "x": 4181.83,
       "y": 1528.84,
-      "name_en": "Nenjiang Rd.",
+      "name_en": "",
       "name_zh": "嫩江路",
       "transfer_group": null
     },
@@ -2303,7 +2227,7 @@
       "line": "8",
       "x": 2971.25,
       "y": 4683.25,
-      "name_en": "Jiangyue Rd.",
+      "name_en": "",
       "name_zh": "江月路",
       "transfer_group": null
     },
@@ -2311,111 +2235,103 @@
       "line": "8",
       "x": 2972.5,
       "y": 4820.0,
-      "name_en": "Lianhang Rd.",
+      "name_en": "",
       "name_zh": "联航路",
       "transfer_group": null
     },
     "08-17": {
       "line": "8",
-      "x": 3936.4,
-      "y": 1973.89,
-      "name_en": "Jiangpu Rd.",
+      "x": 3931.71,
+      "y": 1977.48,
+      "name_en": "",
       "name_zh": "江浦路",
-      "transfer_group": "T046"
+      "transfer_group": "T047"
     },
     "08-18": {
       "line": "8",
-      "x": 3661.49,
+      "x": 3647.48,
       "y": 1986.67,
-      "name_en": "Siping Rd.",
+      "name_en": "",
       "name_zh": "四平路",
-      "transfer_group": "T047"
+      "transfer_group": "T048"
     },
     "08-19": {
-      "line": "8",
-      "x": 3486.61,
-      "y": 1986.67,
-      "name_en": "Dongbaoxing Rd.",
-      "name_zh": "东宝兴路",
-      "transfer_group": null
-    },
-    "08-20": {
       "line": "8",
       "x": 3381.81,
       "y": 1989.04,
       "name_en": "",
       "name_zh": "虹口足球场",
-      "transfer_group": "T025"
+      "transfer_group": "T032"
+    },
+    "08-20": {
+      "line": "8",
+      "x": 3231.5,
+      "y": 2315.89,
+      "name_en": "",
+      "name_zh": "宝山路",
+      "transfer_group": null
     },
     "08-21": {
       "line": "8",
       "x": 3231.5,
-      "y": 2403.28,
-      "name_en": "Qufu Rd.",
+      "y": 2418.88,
+      "name_en": "",
       "name_zh": "曲阜路",
-      "transfer_group": null
+      "transfer_group": "T049"
     },
     "08-22": {
       "line": "8",
-      "x": 3250.69,
-      "y": 2751.35,
-      "name_en": "People's Square",
-      "name_zh": "人民广场",
-      "transfer_group": "T006"
+      "x": 3317.5,
+      "y": 3024.45,
+      "name_en": "",
+      "name_zh": "老西门",
+      "transfer_group": "T050"
     },
     "08-23": {
       "line": "8",
       "x": 3317.5,
-      "y": 3008.85,
-      "name_en": "Laoximen",
-      "name_zh": "老西门",
+      "y": 3312.45,
+      "name_en": "",
+      "name_zh": "陆家浜路",
       "transfer_group": null
     },
     "08-24": {
       "line": "8",
       "x": 3317.5,
-      "y": 3296.85,
-      "name_en": "Lujiabang Rd.",
-      "name_zh": "陆家浜路",
+      "y": 3546.74,
+      "name_en": "",
+      "name_zh": "西藏南路",
       "transfer_group": null
     },
     "08-25": {
       "line": "8",
       "x": 3317.5,
-      "y": 3531.14,
-      "name_en": "Xizang Rd. (S)",
-      "name_zh": "西藏南路",
-      "transfer_group": "T033"
+      "y": 3737.4,
+      "name_en": "",
+      "name_zh": "耀华路",
+      "transfer_group": "T042"
     },
     "08-26": {
       "line": "8",
-      "x": 3317.5,
-      "y": 3721.8,
-      "name_en": "Yaohua Rd.",
-      "name_zh": "耀华路",
+      "x": 3313.29,
+      "y": 3986.63,
+      "name_en": "",
+      "name_zh": "成山路",
       "transfer_group": null
     },
     "08-27": {
       "line": "8",
-      "x": 3316.53,
-      "y": 3975.43,
-      "name_en": "Chengshan Rd.",
-      "name_zh": "成山路",
-      "transfer_group": "T048"
-    },
-    "08-28": {
-      "line": "8",
-      "x": 3075.1,
-      "y": 4107.91,
-      "name_en": "Oriental Sports Center",
+      "x": 3030.84,
+      "y": 4156.27,
+      "name_en": "",
       "name_zh": "东方体育中心",
-      "transfer_group": "T034"
+      "transfer_group": "T038"
     },
     "09-01": {
       "line": "9",
       "x": 1170.2,
       "y": 3432.7,
-      "name_en": "Qibao",
+      "name_en": "",
       "name_zh": "七宝",
       "transfer_group": null
     },
@@ -2423,7 +2339,7 @@
       "line": "9",
       "x": 1458.5,
       "y": 3427.34,
-      "name_en": "Hechuan Rd.",
+      "name_en": "",
       "name_zh": "合川路",
       "transfer_group": null
     },
@@ -2431,7 +2347,7 @@
       "line": "9",
       "x": 4774.17,
       "y": 2619.84,
-      "name_en": "Jinji Rd.",
+      "name_en": "",
       "name_zh": "金吉路",
       "transfer_group": null
     },
@@ -2439,7 +2355,7 @@
       "line": "9",
       "x": 769.83,
       "y": 3857.17,
-      "name_en": "Sheshan",
+      "name_en": "",
       "name_zh": "佘山",
       "transfer_group": null
     },
@@ -2447,7 +2363,7 @@
       "line": "9",
       "x": 666.67,
       "y": 4033.35,
-      "name_en": "Dongjing",
+      "name_en": "",
       "name_zh": "洞泾",
       "transfer_group": null
     },
@@ -2455,7 +2371,7 @@
       "line": "9",
       "x": 869.33,
       "y": 3761.01,
-      "name_en": "Sijing",
+      "name_en": "",
       "name_zh": "泗泾",
       "transfer_group": null
     },
@@ -2463,7 +2379,7 @@
       "line": "9",
       "x": 2948.17,
       "y": 3265.0,
-      "name_en": "Dapuqiao",
+      "name_en": "",
       "name_zh": "打浦桥",
       "transfer_group": null
     },
@@ -2471,7 +2387,7 @@
       "line": "9",
       "x": 664.33,
       "y": 4227.17,
-      "name_en": "Songjiang University Town",
+      "name_en": "",
       "name_zh": "松江大学城",
       "transfer_group": null
     },
@@ -2479,7 +2395,7 @@
       "line": "9",
       "x": 4691.42,
       "y": 2706.58,
-      "name_en": "Jinqiao",
+      "name_en": "",
       "name_zh": "金桥",
       "transfer_group": null
     },
@@ -2487,7 +2403,7 @@
       "line": "9",
       "x": 1613.67,
       "y": 3474.17,
-      "name_en": "Caohejing Hi-Tech Park",
+      "name_en": "",
       "name_zh": "漕河泾开发区",
       "transfer_group": null
     },
@@ -2495,7 +2411,7 @@
       "line": "9",
       "x": 968.08,
       "y": 3665.09,
-      "name_en": "Jiuting",
+      "name_en": "",
       "name_zh": "九亭",
       "transfer_group": null
     },
@@ -2503,7 +2419,7 @@
       "line": "9",
       "x": 1301.33,
       "y": 3474.34,
-      "name_en": "Xingzhong Rd.",
+      "name_en": "",
       "name_zh": "星中路",
       "transfer_group": null
     },
@@ -2511,7 +2427,7 @@
       "line": "9",
       "x": 4915.5,
       "y": 2531.84,
-      "name_en": "Gutang Rd.",
+      "name_en": "",
       "name_zh": "顾唐路",
       "transfer_group": null
     },
@@ -2519,7 +2435,7 @@
       "line": "9",
       "x": 5052.5,
       "y": 2531.84,
-      "name_en": "Minlei Rd.",
+      "name_en": "",
       "name_zh": "民雷路",
       "transfer_group": null
     },
@@ -2527,7 +2443,7 @@
       "line": "9",
       "x": 3505.84,
       "y": 3119.83,
-      "name_en": "Xiaonanmen",
+      "name_en": "",
       "name_zh": "小南门",
       "transfer_group": null
     },
@@ -2535,15 +2451,15 @@
       "line": "9",
       "x": 5191.33,
       "y": 2532.67,
-      "name_en": "Caolu",
+      "name_en": "",
       "name_zh": "曹路",
       "transfer_group": null
     },
     "09-17": {
       "line": "9",
-      "x": 632.31,
-      "y": 4401.2,
-      "name_en": "Songjiang Sports Center",
+      "x": 549.58,
+      "y": 4483.09,
+      "name_en": "",
       "name_zh": "松江体育中心",
       "transfer_group": null
     },
@@ -2551,31 +2467,31 @@
       "line": "9",
       "x": 632.31,
       "y": 4401.2,
-      "name_en": "Songjiang Xincheng",
+      "name_en": "",
       "name_zh": "松江新城",
       "transfer_group": null
     },
     "09-19": {
       "line": "9",
-      "x": 3750.0,
-      "y": 3052.5,
-      "name_en": "Shangcheng Rd.",
-      "name_zh": "商城路",
+      "x": 385.58,
+      "y": 4647.75,
+      "name_en": "",
+      "name_zh": "上海松江站",
       "transfer_group": null
     },
     "09-20": {
       "line": "9",
-      "x": 467.92,
-      "y": 4566.08,
-      "name_en": "Shanghai Songjiang Railway Station",
-      "name_zh": "上海松江站",
+      "x": 3750.0,
+      "y": 3052.5,
+      "name_en": "",
+      "name_zh": "商城路",
       "transfer_group": null
     },
     "09-21": {
       "line": "9",
       "x": 467.92,
       "y": 4566.08,
-      "name_en": "Zuibaichi Park",
+      "name_en": "",
       "name_zh": "醉白池",
       "transfer_group": null
     },
@@ -2583,639 +2499,671 @@
       "line": "9",
       "x": 4398.58,
       "y": 3001.92,
-      "name_en": "Fangdian Rd.",
+      "name_en": "",
       "name_zh": "芳甸路",
       "transfer_group": null
     },
     "09-23": {
       "line": "9",
-      "x": 4506.36,
-      "y": 2858.19,
-      "name_en": "Huangyang Rd.",
-      "name_zh": "黄杨路",
-      "transfer_group": "T049"
+      "x": 4871.37,
+      "y": 2513.0,
+      "name_en": "",
+      "name_zh": "金海路",
+      "transfer_group": "T051"
     },
     "09-24": {
       "line": "9",
-      "x": 4215.14,
-      "y": 3027.0,
-      "name_en": "Science & Technology",
-      "name_zh": "",
-      "transfer_group": "T050"
+      "x": 4494.16,
+      "y": 2870.31,
+      "name_en": "",
+      "name_zh": "黄杨路",
+      "transfer_group": "T052"
     },
     "09-25": {
       "line": "9",
-      "x": 4197.71,
-      "y": 3027.0,
-      "name_en": "Yanggao Rd. (M)",
-      "name_zh": "杨高中路",
-      "transfer_group": "T050"
+      "x": 4493.95,
+      "y": 2870.51,
+      "name_en": "",
+      "name_zh": "蓝天路",
+      "transfer_group": "T052"
     },
     "09-26": {
       "line": "9",
-      "x": 3897.28,
+      "x": 4197.71,
       "y": 3027.0,
-      "name_en": "Century Ave.",
-      "name_zh": "世纪大道",
-      "transfer_group": "T008"
+      "name_en": "",
+      "name_zh": "杨高中路",
+      "transfer_group": "T053"
     },
     "09-27": {
       "line": "9",
-      "x": 2499.5,
-      "y": 3242.54,
-      "name_en": "Hengshan Rd.",
-      "name_zh": "衡山路",
-      "transfer_group": null
+      "x": 3900.82,
+      "y": 3027.0,
+      "name_en": "",
+      "name_zh": "世纪大道",
+      "transfer_group": "T014"
     },
     "09-28": {
       "line": "9",
-      "x": 2390.28,
+      "x": 2475.61,
       "y": 3242.54,
-      "name_en": "Xujiahui",
-      "name_zh": "徐家汇",
-      "transfer_group": "T003"
+      "name_en": "",
+      "name_zh": "衡山路",
+      "transfer_group": null
     },
     "09-29": {
       "line": "9",
-      "x": 2145.12,
-      "y": 3248.03,
-      "name_en": "Yishan Rd.",
+      "x": 2104.07,
+      "y": 3273.31,
+      "name_en": "",
       "name_zh": "宜山路",
-      "transfer_group": "T015"
+      "transfer_group": "T025"
     },
     "09-30": {
       "line": "9",
-      "x": 1083.99,
-      "y": 3519.47,
-      "name_en": "Zhongchun Rd.",
+      "x": 1768.48,
+      "y": 3451.34,
+      "name_en": "",
+      "name_zh": "桂林路",
+      "transfer_group": "T054"
+    },
+    "09-31": {
+      "line": "9",
+      "x": 1062.75,
+      "y": 3540.29,
+      "name_en": "",
       "name_zh": "中春路",
       "transfer_group": null
     },
     "10-01": {
       "line": "10",
-      "x": 4253.75,
-      "y": 1225.77,
-      "name_en": "Shuangjiang Rd.",
-      "name_zh": "双江路",
+      "x": 1776.5,
+      "y": 2871.34,
+      "name_en": "",
+      "name_zh": "水城路",
       "transfer_group": null
     },
     "10-02": {
       "line": "10",
-      "x": 4844.64,
-      "y": 1204.77,
-      "name_en": "Waigaoqiao Free Trade Zone (N)",
-      "name_zh": "外高桥保税区北",
+      "x": 3485.75,
+      "y": 2388.75,
+      "name_en": "",
+      "name_zh": "四川北路",
       "transfer_group": null
     },
     "10-03": {
       "line": "10",
-      "x": 1776.5,
-      "y": 2871.34,
-      "name_en": "Shuicheng Rd.",
-      "name_zh": "水城路",
+      "x": 1523.33,
+      "y": 2987.84,
+      "name_en": "",
+      "name_zh": "龙柏新村",
       "transfer_group": null
     },
     "10-04": {
       "line": "10",
-      "x": 3485.75,
-      "y": 2388.75,
-      "name_en": "Sichuan Rd. (N)",
-      "name_zh": "四川北路",
+      "x": 1385.17,
+      "y": 3124.67,
+      "name_en": "",
+      "name_zh": "紫藤路",
       "transfer_group": null
     },
     "10-05": {
       "line": "10",
-      "x": 1523.33,
-      "y": 2987.84,
-      "name_en": "Longbai Xincun",
-      "name_zh": "龙柏新村",
+      "x": 3724.71,
+      "y": 1905.46,
+      "name_en": "",
+      "name_zh": "同济大学",
       "transfer_group": null
     },
     "10-06": {
       "line": "10",
-      "x": 1385.17,
-      "y": 3124.67,
-      "name_en": "Ziteng Rd.",
-      "name_zh": "紫藤路",
+      "x": 4823.5,
+      "y": 1180.34,
+      "name_en": "",
+      "name_zh": "基隆路",
       "transfer_group": null
     },
     "10-07": {
       "line": "10",
-      "x": 3724.71,
-      "y": 1905.46,
-      "name_en": "Tongji University",
-      "name_zh": "同济大学",
+      "x": 1181.17,
+      "y": 3236.34,
+      "name_en": "",
+      "name_zh": "航中路",
       "transfer_group": null
     },
     "10-08": {
       "line": "10",
-      "x": 1308.83,
-      "y": 2831.0,
-      "name_en": "Terminal 1",
-      "name_zh": "虹桥1号航站楼",
+      "x": 3918.0,
+      "y": 1648.04,
+      "name_en": "",
+      "name_zh": "江湾体育场",
       "transfer_group": null
     },
     "10-09": {
       "line": "10",
-      "x": 4823.5,
-      "y": 1180.34,
-      "name_en": "Jilong Rd.",
-      "name_zh": "基隆路",
+      "x": 3918.0,
+      "y": 1749.09,
+      "name_en": "",
+      "name_zh": "五角场",
       "transfer_group": null
     },
     "10-10": {
       "line": "10",
-      "x": 1181.17,
-      "y": 3236.34,
-      "name_en": "Hangzhong Rd.",
-      "name_zh": "航中路",
+      "x": 3918.0,
+      "y": 1445.96,
+      "name_en": "",
+      "name_zh": "殷高东路",
       "transfer_group": null
     },
     "10-11": {
       "line": "10",
       "x": 3918.0,
-      "y": 1648.04,
-      "name_en": "Jiangwan Stadium",
-      "name_zh": "江湾体育场",
+      "y": 1547.0,
+      "name_en": "",
+      "name_zh": "三门路",
       "transfer_group": null
     },
     "10-12": {
       "line": "10",
       "x": 3918.0,
-      "y": 1749.09,
-      "name_en": "Wujiaochang",
-      "name_zh": "五角场",
+      "y": 1342.04,
+      "name_en": "",
+      "name_zh": "新江湾城",
       "transfer_group": null
     },
     "10-13": {
       "line": "10",
-      "x": 3918.0,
-      "y": 1445.96,
-      "name_en": "Yingao Rd. (E)",
-      "name_zh": "殷高东路",
+      "x": 1520.83,
+      "y": 2824.0,
+      "name_en": "",
+      "name_zh": "上海动物园",
       "transfer_group": null
     },
     "10-14": {
       "line": "10",
-      "x": 3918.0,
-      "y": 1547.0,
-      "name_en": "Sanmen Rd.",
-      "name_zh": "三门路",
+      "x": 4032.75,
+      "y": 1178.5,
+      "name_en": "",
+      "name_zh": "国帆路",
       "transfer_group": null
     },
     "10-15": {
       "line": "10",
-      "x": 3918.0,
-      "y": 1342.04,
-      "name_en": "New Jiangwan City",
-      "name_zh": "新江湾城",
+      "x": 4528.5,
+      "y": 1178.5,
+      "name_en": "",
+      "name_zh": "高桥",
       "transfer_group": null
     },
     "10-16": {
       "line": "10",
-      "x": 1520.83,
-      "y": 2824.0,
-      "name_en": "Shanghai Zoo",
-      "name_zh": "上海动物园",
+      "x": 1954.7,
+      "y": 2931.54,
+      "name_en": "",
+      "name_zh": "伊犁路",
       "transfer_group": null
     },
     "10-17": {
       "line": "10",
-      "x": 4032.75,
-      "y": 1178.5,
-      "name_en": "Guofan Rd.",
-      "name_zh": "国帆路",
+      "x": 2419.0,
+      "y": 3038.34,
+      "name_en": "",
+      "name_zh": "上海图书馆",
       "transfer_group": null
     },
     "10-18": {
       "line": "10",
-      "x": 4392.0,
-      "y": 1178.5,
-      "name_en": "West Gaoqiao",
-      "name_zh": "高桥西",
+      "x": 2037.19,
+      "y": 3020.69,
+      "name_en": "",
+      "name_zh": "宋园路",
       "transfer_group": null
     },
     "10-19": {
       "line": "10",
-      "x": 4528.5,
-      "y": 1178.5,
-      "name_en": "Gaoqiao",
-      "name_zh": "高桥",
+      "x": 3581.63,
+      "y": 2123.13,
+      "name_en": "",
+      "name_zh": "邮电新村",
       "transfer_group": null
     },
     "10-20": {
       "line": "10",
-      "x": 1954.7,
-      "y": 2931.54,
-      "name_en": "Yili Rd.",
-      "name_zh": "伊犁路",
-      "transfer_group": null
+      "x": 4633.6,
+      "y": 1204.77,
+      "name_en": "",
+      "name_zh": "港城路",
+      "transfer_group": "T041"
     },
     "10-21": {
       "line": "10",
-      "x": 2419.0,
-      "y": 3038.34,
-      "name_en": "Shanghai Library",
-      "name_zh": "上海图书馆",
+      "x": 4338.59,
+      "y": 1204.77,
+      "name_en": "",
+      "name_zh": "高桥西",
       "transfer_group": null
     },
     "10-22": {
       "line": "10",
-      "x": 2037.19,
-      "y": 3020.69,
-      "name_en": "Songyuan Rd.",
-      "name_zh": "宋园路",
+      "x": 4200.79,
+      "y": 1204.77,
+      "name_en": "",
+      "name_zh": "双江路",
       "transfer_group": null
     },
     "10-23": {
       "line": "10",
-      "x": 3581.63,
-      "y": 2123.13,
-      "name_en": "Youdian Xincun",
-      "name_zh": "邮电新村",
-      "transfer_group": null
+      "x": 3647.48,
+      "y": 2016.21,
+      "name_en": "",
+      "name_zh": "四平路",
+      "transfer_group": "T048"
     },
     "10-24": {
       "line": "10",
-      "x": 4664.83,
-      "y": 1204.77,
-      "name_en": "Gangcheng Rd.",
-      "name_zh": "港城路",
-      "transfer_group": "T039"
+      "x": 3464.8,
+      "y": 2217.0,
+      "name_en": "",
+      "name_zh": "海伦路",
+      "transfer_group": "T034"
     },
     "10-25": {
       "line": "10",
-      "x": 3661.49,
-      "y": 2002.2,
-      "name_en": "Siping Rd.",
-      "name_zh": "四平路",
-      "transfer_group": "T047"
+      "x": 3463.33,
+      "y": 2576.87,
+      "name_en": "",
+      "name_zh": "天潼路",
+      "transfer_group": null
     },
     "10-26": {
       "line": "10",
-      "x": 3469.19,
-      "y": 2202.67,
-      "name_en": "Hailun Rd.",
-      "name_zh": "海伦路",
-      "transfer_group": "T029"
+      "x": 3463.33,
+      "y": 2688.51,
+      "name_en": "",
+      "name_zh": "南京东路",
+      "transfer_group": "T016"
     },
     "10-27": {
       "line": "10",
-      "x": 3463.33,
-      "y": 2561.27,
-      "name_en": "Tiantong Rd.",
-      "name_zh": "天潼路",
+      "x": 3447.61,
+      "y": 2956.25,
+      "name_en": "",
+      "name_zh": "豫园",
       "transfer_group": null
     },
     "10-28": {
       "line": "10",
-      "x": 3463.33,
-      "y": 2672.91,
-      "name_en": "Nanjing Rd. (E)",
-      "name_zh": "南京东路",
-      "transfer_group": null
+      "x": 3325.8,
+      "y": 3058.96,
+      "name_en": "",
+      "name_zh": "老西门",
+      "transfer_group": "T050"
     },
     "10-29": {
       "line": "10",
-      "x": 3458.64,
-      "y": 2936.19,
-      "name_en": "Yu Garden",
-      "name_zh": "豫园",
-      "transfer_group": "T051"
+      "x": 2808.95,
+      "y": 2987.75,
+      "name_en": "",
+      "name_zh": "陕西南路",
+      "transfer_group": "T007"
     },
     "10-30": {
       "line": "10",
-      "x": 3099.89,
-      "y": 3061.38,
-      "name_en": "Site of the First CPC National",
-      "name_zh": "",
-      "transfer_group": "T052"
+      "x": 2242.27,
+      "y": 3066.41,
+      "name_en": "",
+      "name_zh": "交通大学",
+      "transfer_group": null
     },
     "10-31": {
       "line": "10",
-      "x": 2095.72,
-      "y": 3041.9,
-      "name_en": "Hongqiao Rd.",
+      "x": 2111.69,
+      "y": 3055.2,
+      "name_en": "",
       "name_zh": "虹桥路",
-      "transfer_group": "T016"
+      "transfer_group": "T026"
     },
     "10-32": {
       "line": "10",
-      "x": 1723.18,
-      "y": 2850.11,
-      "name_en": "Longxi Rd.",
-      "name_zh": "龙溪路",
-      "transfer_group": null
+      "x": 1927.47,
+      "y": 2865.24,
+      "name_en": "",
+      "name_zh": "红宝石路",
+      "transfer_group": "T055"
     },
     "10-33": {
       "line": "10",
-      "x": 1194.29,
+      "x": 1709.84,
       "y": 2850.11,
-      "name_en": "Hongqiao Airport",
-      "name_zh": "",
-      "transfer_group": "T011"
+      "name_en": "",
+      "name_zh": "龙溪路",
+      "transfer_group": null
     },
     "10-34": {
       "line": "10",
-      "x": 1162.77,
+      "x": 1339.77,
       "y": 2850.11,
-      "name_en": "Terminal 2",
-      "name_zh": "虹桥2号 航站楼",
-      "transfer_group": "T011"
+      "name_en": "",
+      "name_zh": "虹桥1号航站楼",
+      "transfer_group": null
     },
     "10-35": {
       "line": "10",
-      "x": 977.16,
+      "x": 1174.94,
       "y": 2850.11,
-      "name_en": "Hongqiao Railway",
-      "name_zh": "",
-      "transfer_group": "T012"
+      "name_en": "",
+      "name_zh": "虹桥2号 航站楼",
+      "transfer_group": "T020"
     },
     "11-01": {
       "line": "11",
-      "x": 607.5,
-      "y": 1390.22,
-      "name_en": "Zhaofeng Rd.",
-      "name_zh": "兆丰路",
+      "x": 1859.94,
+      "y": 1795.9,
+      "name_en": "",
+      "name_zh": "李子园",
       "transfer_group": null
     },
     "11-02": {
       "line": "11",
-      "x": 1859.94,
-      "y": 1795.9,
-      "name_en": "Liziyuan",
-      "name_zh": "李子园",
+      "x": 3489.83,
+      "y": 4277.14,
+      "name_en": "",
+      "name_zh": "三林东",
       "transfer_group": null
     },
     "11-03": {
       "line": "11",
-      "x": 3302.5,
-      "y": 4274.29,
-      "name_en": "Sanlin",
-      "name_zh": "三林",
+      "x": 3678.5,
+      "y": 4276.47,
+      "name_en": "",
+      "name_zh": "浦三路",
       "transfer_group": null
     },
     "11-04": {
       "line": "11",
-      "x": 3489.83,
-      "y": 4277.14,
-      "name_en": "East Sanlin",
-      "name_zh": "三林东",
+      "x": 4518.44,
+      "y": 4428.2,
+      "name_en": "",
+      "name_zh": "康新公路",
       "transfer_group": null
     },
     "11-05": {
       "line": "11",
-      "x": 3678.5,
-      "y": 4276.47,
-      "name_en": "Pusan Rd.",
-      "name_zh": "浦三路",
+      "x": 1102.83,
+      "y": 758.34,
+      "name_en": "",
+      "name_zh": "白银路",
       "transfer_group": null
     },
     "11-06": {
       "line": "11",
-      "x": 4518.44,
-      "y": 4428.2,
-      "name_en": "Kangxin Hwy.",
-      "name_zh": "康新公路",
+      "x": 4594.05,
+      "y": 4554.2,
+      "name_en": "",
+      "name_zh": "迪士尼",
       "transfer_group": null
     },
     "11-07": {
       "line": "11",
-      "x": 1102.83,
-      "y": 758.34,
-      "name_en": "Baiyin Rd.",
-      "name_zh": "白银路",
+      "x": 2525.34,
+      "y": 3874.84,
+      "name_en": "",
+      "name_zh": "云锦路",
       "transfer_group": null
     },
     "11-08": {
       "line": "11",
-      "x": 4594.05,
-      "y": 4554.2,
-      "name_en": "Disney Resort",
-      "name_zh": "迪士尼",
+      "x": 728.83,
+      "y": 1367.67,
+      "name_en": "",
+      "name_zh": "安亭",
       "transfer_group": null
     },
     "11-09": {
       "line": "11",
-      "x": 2525.34,
-      "y": 3874.84,
-      "name_en": "Yunjin Rd.",
-      "name_zh": "云锦路",
+      "x": 483.5,
+      "y": 1442.67,
+      "name_en": "",
+      "name_zh": "光明路",
       "transfer_group": null
     },
     "11-10": {
       "line": "11",
-      "x": 728.83,
-      "y": 1367.67,
-      "name_en": "Anting",
-      "name_zh": "安亭",
+      "x": 908.17,
+      "y": 1190.33,
+      "name_en": "",
+      "name_zh": "昌吉东路",
       "transfer_group": null
     },
     "11-11": {
       "line": "11",
-      "x": 483.5,
-      "y": 1442.67,
-      "name_en": "Guangming Rd.",
-      "name_zh": "光明路",
+      "x": 1104.5,
+      "y": 498.34,
+      "name_en": "",
+      "name_zh": "嘉定西",
       "transfer_group": null
     },
     "11-12": {
       "line": "11",
-      "x": 908.17,
-      "y": 1190.33,
-      "name_en": "Changji Rd. (E)",
-      "name_zh": "昌吉东路",
+      "x": 997.0,
+      "y": 1102.5,
+      "name_en": "",
+      "name_zh": "上海赛车场",
       "transfer_group": null
     },
     "11-13": {
       "line": "11",
-      "x": 1104.5,
-      "y": 498.34,
-      "name_en": "West Jiading",
-      "name_zh": "嘉定西",
+      "x": 1104.83,
+      "y": 231.67,
+      "name_en": "",
+      "name_zh": "嘉定北",
       "transfer_group": null
     },
     "11-14": {
       "line": "11",
-      "x": 997.0,
-      "y": 1102.5,
-      "name_en": "Shanghai Cirsuit",
-      "name_zh": "上海赛车场",
+      "x": 1205.17,
+      "y": 1074.0,
+      "name_en": "",
+      "name_zh": "嘉定新城",
       "transfer_group": null
     },
     "11-15": {
       "line": "11",
-      "x": 1104.83,
-      "y": 231.67,
-      "name_en": "North Jiading",
-      "name_zh": "嘉定北",
+      "x": 2666.5,
+      "y": 4012.67,
+      "name_en": "",
+      "name_zh": "龙耀路",
       "transfer_group": null
     },
     "11-16": {
       "line": "11",
-      "x": 1205.17,
-      "y": 1074.0,
-      "name_en": "Jiading Xincheng",
-      "name_zh": "嘉定新城",
+      "x": 817.68,
+      "y": 1282.16,
+      "name_en": "",
+      "name_zh": "上海汽车城",
       "transfer_group": null
     },
     "11-17": {
       "line": "11",
-      "x": 2666.5,
-      "y": 4012.67,
-      "name_en": "Longyao Rd.",
-      "name_zh": "龙耀路",
+      "x": 1304.5,
+      "y": 1172.0,
+      "name_en": "",
+      "name_zh": "马陆",
       "transfer_group": null
     },
     "11-18": {
       "line": "11",
-      "x": 817.68,
-      "y": 1282.16,
-      "name_en": "Shanghai Automobile City",
-      "name_zh": "上海汽车城",
+      "x": 1697.5,
+      "y": 1564.34,
+      "name_en": "",
+      "name_zh": "武威路",
       "transfer_group": null
     },
     "11-19": {
       "line": "11",
-      "x": 1304.5,
-      "y": 1172.0,
-      "name_en": "Malu",
-      "name_zh": "马陆",
+      "x": 1797.33,
+      "y": 1663.5,
+      "name_en": "",
+      "name_zh": "祁连山路",
       "transfer_group": null
     },
     "11-20": {
       "line": "11",
-      "x": 1697.5,
-      "y": 1564.34,
-      "name_en": "Wuwei Rd.",
-      "name_zh": "武威路",
+      "x": 1400.83,
+      "y": 1267.0,
+      "name_en": "",
+      "name_zh": "陈翔公路",
       "transfer_group": null
     },
     "11-21": {
       "line": "11",
-      "x": 1797.33,
-      "y": 1663.5,
-      "name_en": "Qilianshan Rd.",
-      "name_zh": "祁连山路",
+      "x": 1599.5,
+      "y": 1465.0,
+      "name_en": "",
+      "name_zh": "桃浦新村",
       "transfer_group": null
     },
     "11-22": {
       "line": "11",
-      "x": 1400.83,
-      "y": 1267.0,
-      "name_en": "Chenxiang Hwy.",
-      "name_zh": "陈翔公路",
+      "x": 1500.67,
+      "y": 1366.17,
+      "name_en": "",
+      "name_zh": "南翔",
       "transfer_group": null
     },
     "11-23": {
       "line": "11",
-      "x": 1599.5,
-      "y": 1465.0,
-      "name_en": "Taopu Xincun",
-      "name_zh": "桃浦新村",
-      "transfer_group": null
+      "x": 4348.47,
+      "y": 4301.17,
+      "name_en": "",
+      "name_zh": "罗山路",
+      "transfer_group": "T056"
     },
     "11-24": {
       "line": "11",
-      "x": 1500.67,
-      "y": 1366.17,
-      "name_en": "Nanxiang",
-      "name_zh": "南翔",
-      "transfer_group": null
+      "x": 4016.9,
+      "y": 4301.17,
+      "name_en": "",
+      "name_zh": "御桥",
+      "transfer_group": "T057"
     },
     "11-25": {
       "line": "11",
-      "x": 4025.93,
-      "y": 4301.17,
-      "name_en": "Yuqiao",
-      "name_zh": "御桥",
-      "transfer_group": "T053"
+      "x": 555.18,
+      "y": 1419.0,
+      "name_en": "",
+      "name_zh": "兆丰路",
+      "transfer_group": null
     },
     "11-26": {
       "line": "11",
-      "x": 354.59,
+      "x": 343.28,
       "y": 1419.0,
-      "name_en": "Huaqiao",
+      "name_en": "",
       "name_zh": "花桥",
       "transfer_group": null
     },
     "11-27": {
       "line": "11",
-      "x": 3057.1,
-      "y": 4146.01,
-      "name_en": "Oriental Sports Center",
-      "name_zh": "东方体育中心",
-      "transfer_group": "T034"
+      "x": 3263.68,
+      "y": 4301.17,
+      "name_en": "",
+      "name_zh": "三林",
+      "transfer_group": null
     },
     "11-28": {
       "line": "11",
-      "x": 2869.42,
-      "y": 4137.96,
-      "name_en": "Lingzhao Xincun",
-      "name_zh": "凌兆新村",
+      "x": 3144.42,
+      "y": 4228.09,
+      "name_en": "",
+      "name_zh": "灵岩南路",
       "transfer_group": null
     },
     "11-29": {
       "line": "11",
-      "x": 2353.82,
-      "y": 3735.51,
-      "name_en": "Longhu",
-      "name_zh": "龙华",
-      "transfer_group": "T054"
+      "x": 3010.83,
+      "y": 4137.96,
+      "name_en": "",
+      "name_zh": "东方体育中心",
+      "transfer_group": "T038"
     },
     "11-30": {
       "line": "11",
-      "x": 2329.36,
-      "y": 3118.44,
-      "name_en": "Jiaotong University",
-      "name_zh": "交通大学",
+      "x": 2844.32,
+      "y": 4137.96,
+      "name_en": "",
+      "name_zh": "凌兆新村",
       "transfer_group": null
     },
     "11-31": {
       "line": "11",
-      "x": 2327.09,
-      "y": 2780.25,
-      "name_en": "Jiangsu Rd.",
-      "name_zh": "江苏路",
-      "transfer_group": null
+      "x": 2354.82,
+      "y": 3736.61,
+      "name_en": "",
+      "name_zh": "龙华",
+      "transfer_group": "T058"
     },
     "11-32": {
       "line": "11",
-      "x": 2325.3,
-      "y": 2514.47,
-      "name_en": "Longde Rd.",
-      "name_zh": "隆德路",
-      "transfer_group": null
+      "x": 2330.61,
+      "y": 3304.4,
+      "name_en": "",
+      "name_zh": "徐家汇",
+      "transfer_group": "T005"
     },
     "11-33": {
       "line": "11",
-      "x": 2323.85,
-      "y": 2298.22,
-      "name_en": "Caoyang Rd.",
-      "name_zh": "曹杨路",
-      "transfer_group": "T027"
+      "x": 2327.19,
+      "y": 2795.74,
+      "name_en": "",
+      "name_zh": "江苏路",
+      "transfer_group": null
     },
     "11-34": {
       "line": "11",
-      "x": 2151.21,
-      "y": 2055.17,
-      "name_en": "Zhenru",
-      "name_zh": "真如",
-      "transfer_group": "T055"
+      "x": 2326.31,
+      "y": 2663.62,
+      "name_en": "",
+      "name_zh": "武定路",
+      "transfer_group": null
     },
     "11-35": {
       "line": "11",
-      "x": 2061.35,
-      "y": 1965.31,
-      "name_en": "Railway Station",
+      "x": 2325.41,
+      "y": 2529.98,
+      "name_en": "",
+      "name_zh": "隆德路",
+      "transfer_group": null
+    },
+    "11-36": {
+      "line": "11",
+      "x": 2323.95,
+      "y": 2313.69,
+      "name_en": "",
+      "name_zh": "曹杨路",
+      "transfer_group": null
+    },
+    "11-37": {
+      "line": "11",
+      "x": 2146.76,
+      "y": 2050.72,
+      "name_en": "",
+      "name_zh": "真如",
+      "transfer_group": "T059"
+    },
+    "11-38": {
+      "line": "11",
+      "x": 2058.03,
+      "y": 1962.0,
+      "name_en": "",
       "name_zh": "上海西站",
-      "transfer_group": "T056"
+      "transfer_group": "T060"
     },
     "12-01": {
       "line": "12",
       "x": 4316.5,
       "y": 2180.5,
-      "name_en": "Fuxing Island",
+      "name_en": "",
       "name_zh": "复兴岛",
       "transfer_group": null
     },
@@ -3223,7 +3171,7 @@
       "line": "12",
       "x": 4714.25,
       "y": 2141.0,
-      "name_en": "Yanggao Rd. (N)",
+      "name_en": "",
       "name_zh": "杨高北路",
       "transfer_group": null
     },
@@ -3231,7 +3179,7 @@
       "line": "12",
       "x": 4879.0,
       "y": 2369.0,
-      "name_en": "Shenjiang Rd.",
+      "name_en": "",
       "name_zh": "申江路",
       "transfer_group": null
     },
@@ -3239,7 +3187,7 @@
       "line": "12",
       "x": 4880.5,
       "y": 2231.75,
-      "name_en": "Jinjing Rd.",
+      "name_en": "",
       "name_zh": "金京路",
       "transfer_group": null
     },
@@ -3247,7 +3195,7 @@
       "line": "12",
       "x": 4149.25,
       "y": 2180.25,
-      "name_en": "Longchang Rd.",
+      "name_en": "",
       "name_zh": "隆昌路",
       "transfer_group": null
     },
@@ -3255,7 +3203,7 @@
       "line": "12",
       "x": 4236.5,
       "y": 2137.5,
-      "name_en": "Aiguo Rd.",
+      "name_en": "",
       "name_zh": "爱国路",
       "transfer_group": null
     },
@@ -3263,7 +3211,7 @@
       "line": "12",
       "x": 4451.0,
       "y": 2137.25,
-      "name_en": "Donglu Rd.",
+      "name_en": "",
       "name_zh": "东陆路",
       "transfer_group": null
     },
@@ -3271,7 +3219,7 @@
       "line": "12",
       "x": 1584.25,
       "y": 3733.5,
-      "name_en": "Hongmei Rd.",
+      "name_en": "",
       "name_zh": "虹梅路",
       "transfer_group": null
     },
@@ -3279,7 +3227,7 @@
       "line": "12",
       "x": 1101.5,
       "y": 3898.5,
-      "name_en": "Qixin Rd.",
+      "name_en": "",
       "name_zh": "七莘路",
       "transfer_group": null
     },
@@ -3287,7 +3235,7 @@
       "line": "12",
       "x": 3741.0,
       "y": 2377.0,
-      "name_en": "Tilanqiao",
+      "name_en": "",
       "name_zh": "提篮桥",
       "transfer_group": null
     },
@@ -3295,7 +3243,7 @@
       "line": "12",
       "x": 4062.5,
       "y": 2134.25,
-      "name_en": "Ningguo Rd.",
+      "name_en": "",
       "name_zh": "宁国路",
       "transfer_group": null
     },
@@ -3303,7 +3251,7 @@
       "line": "12",
       "x": 1516.87,
       "y": 3798.13,
-      "name_en": "Donglan Rd.",
+      "name_en": "",
       "name_zh": "东兰路",
       "transfer_group": null
     },
@@ -3311,143 +3259,143 @@
       "line": "12",
       "x": 3648.5,
       "y": 2472.0,
-      "name_en": "Terminal",
+      "name_en": "",
       "name_zh": "国际港客运中心",
       "transfer_group": null
     },
     "12-14": {
       "line": "12",
-      "x": 3648.5,
-      "y": 2472.0,
-      "name_en": "International Cruise",
-      "name_zh": "",
+      "x": 1670.25,
+      "y": 3684.0,
+      "name_en": "",
+      "name_zh": "虹漕路",
       "transfer_group": null
     },
     "12-15": {
       "line": "12",
-      "x": 1670.25,
-      "y": 3684.0,
-      "name_en": "Hongcao Rd.",
-      "name_zh": "虹漕路",
+      "x": 1360.5,
+      "y": 3895.5,
+      "name_en": "",
+      "name_zh": "顾戴路",
       "transfer_group": null
     },
     "12-16": {
       "line": "12",
-      "x": 1360.5,
-      "y": 3895.5,
-      "name_en": "Gudai Rd.",
-      "name_zh": "顾戴路",
-      "transfer_group": null
+      "x": 4860.0,
+      "y": 2469.15,
+      "name_en": "",
+      "name_zh": "金海路",
+      "transfer_group": "T051"
     },
     "12-17": {
       "line": "12",
-      "x": 4860.0,
-      "y": 2453.55,
-      "name_en": "Jinhai Rd.",
-      "name_zh": "金海路",
+      "x": 3903.71,
+      "y": 2179.8,
+      "name_en": "",
+      "name_zh": "江浦公园",
       "transfer_group": null
     },
     "12-18": {
       "line": "12",
-      "x": 4542.14,
-      "y": 2159.5,
-      "name_en": "Jufeng Rd.",
-      "name_zh": "巨峰路",
-      "transfer_group": "T038"
+      "x": 3790.36,
+      "y": 2293.15,
+      "name_en": "",
+      "name_zh": "大连路",
+      "transfer_group": "T035"
     },
     "12-19": {
       "line": "12",
-      "x": 3913.87,
-      "y": 2169.95,
-      "name_en": "Jiangpu Park",
-      "name_zh": "江浦公园",
-      "transfer_group": "T057"
+      "x": 3231.5,
+      "y": 2458.18,
+      "name_en": "",
+      "name_zh": "曲阜路",
+      "transfer_group": "T049"
     },
     "12-20": {
       "line": "12",
-      "x": 3804.51,
-      "y": 2278.99,
-      "name_en": "Dalian Rd.",
-      "name_zh": "大连路",
-      "transfer_group": "T030"
+      "x": 3001.5,
+      "y": 2458.18,
+      "name_en": "",
+      "name_zh": "汉中路",
+      "transfer_group": "T009"
     },
     "12-21": {
       "line": "12",
-      "x": 3158.9,
-      "y": 2458.18,
-      "name_en": "Xinzha Rd.",
-      "name_zh": "新闸路",
+      "x": 2918.94,
+      "y": 2795.37,
+      "name_en": "",
+      "name_zh": "南京西路",
       "transfer_group": null
     },
     "12-22": {
       "line": "12",
-      "x": 2919.0,
-      "y": 2780.47,
-      "name_en": "Nanjing Rd. (W)",
-      "name_zh": "南京西路",
-      "transfer_group": null
+      "x": 2809.75,
+      "y": 2940.94,
+      "name_en": "",
+      "name_zh": "陕西南路",
+      "transfer_group": "T007"
     },
     "12-23": {
       "line": "12",
-      "x": 2814.79,
-      "y": 2927.14,
-      "name_en": "Shanxi Rd. (S)",
-      "name_zh": "陕西南路",
-      "transfer_group": "T058"
-    },
-    "12-24": {
-      "line": "12",
       "x": 2808.95,
-      "y": 3297.18,
-      "name_en": "Jiashan Rd.",
+      "y": 3312.78,
+      "name_en": "",
       "name_zh": "嘉善路",
       "transfer_group": null
     },
+    "12-24": {
+      "line": "12",
+      "x": 2600.38,
+      "y": 3710.62,
+      "name_en": "",
+      "name_zh": "龙华中路",
+      "transfer_group": "T044"
+    },
     "12-25": {
       "line": "12",
-      "x": 2808.95,
-      "y": 3425.14,
-      "name_en": "Damuqiao Rd.",
-      "name_zh": "大木桥路",
+      "x": 2425.65,
+      "y": 3710.62,
+      "name_en": "",
+      "name_zh": "上海游泳馆",
       "transfer_group": null
     },
     "12-26": {
       "line": "12",
-      "x": 2605.0,
+      "x": 2354.82,
       "y": 3710.62,
-      "name_en": "Middle Longhua Rd.",
-      "name_zh": "龙华中路",
-      "transfer_group": "T043"
+      "name_en": "",
+      "name_zh": "龙华",
+      "transfer_group": "T058"
     },
     "12-27": {
       "line": "12",
-      "x": 2448.59,
+      "x": 2220.5,
       "y": 3710.62,
-      "name_en": "Swimming Center",
-      "name_zh": "上海游泳馆",
-      "transfer_group": null
+      "name_en": "",
+      "name_zh": "龙漕路",
+      "transfer_group": "T024"
     },
     "12-28": {
       "line": "12",
-      "x": 2353.82,
+      "x": 2065.5,
       "y": 3710.62,
-      "name_en": "Longhu",
-      "name_zh": "龙华",
-      "transfer_group": "T054"
+      "name_en": "",
+      "name_zh": "漕宝路",
+      "transfer_group": "T003"
     },
     "12-29": {
       "line": "12",
-      "x": 1848.37,
+      "x": 1840.07,
       "y": 3710.62,
-      "name_en": "Guilin Park",
+      "name_en": "",
       "name_zh": "桂林公园",
       "transfer_group": null
     },
     "12-30": {
       "line": "12",
-      "x": 1276.84,
+      "x": 1258.24,
       "y": 3922.81,
-      "name_en": "Hongxin Rd.",
+      "name_en": "",
       "name_zh": "虹莘路",
       "transfer_group": null
     },
@@ -3455,7 +3403,7 @@
       "line": "13",
       "x": 3780.5,
       "y": 3950.87,
-      "name_en": "Xia'nan Rd.",
+      "name_en": "",
       "name_zh": "下南路",
       "transfer_group": null
     },
@@ -3463,431 +3411,423 @@
       "line": "13",
       "x": 3961.17,
       "y": 3951.67,
-      "name_en": "Chenchun Rd.",
+      "name_en": "",
       "name_zh": "陈春路",
       "transfer_group": null
     },
     "13-03": {
       "line": "13",
-      "x": 1656.83,
-      "y": 2399.67,
-      "name_en": "Zhenbei Rd.",
-      "name_zh": "真北路",
+      "x": 1560.67,
+      "y": 2301.17,
+      "name_en": "",
+      "name_zh": "祁连山南路",
       "transfer_group": null
     },
     "13-04": {
       "line": "13",
-      "x": 4745.17,
-      "y": 4006.34,
-      "name_en": "Xuelin Rd.",
-      "name_zh": "学林路",
+      "x": 1656.83,
+      "y": 2399.67,
+      "name_en": "",
+      "name_zh": "真北路",
       "transfer_group": null
     },
     "13-05": {
       "line": "13",
-      "x": 4876.17,
+      "x": 4615.83,
       "y": 4006.34,
-      "name_en": "Zhangjiang Rd.",
-      "name_zh": "张江路",
-      "transfer_group": null
+      "name_en": "",
+      "name_zh": "中科路",
+      "transfer_group": "T061"
     },
     "13-06": {
       "line": "13",
-      "x": 1389.5,
-      "y": 2207.67,
-      "name_en": "Fengzhuang",
-      "name_zh": "丰庄",
-      "transfer_group": null
+      "x": 4745.17,
+      "y": 4006.34,
+      "name_en": "",
+      "name_zh": "学林路",
+      "transfer_group": "T062"
     },
     "13-07": {
       "line": "13",
-      "x": 3870.83,
-      "y": 3906.67,
-      "name_en": "Beicai",
-      "name_zh": "北蔡",
-      "transfer_group": null
+      "x": 4876.17,
+      "y": 4006.34,
+      "name_en": "",
+      "name_zh": "张江路",
+      "transfer_group": "T063"
     },
     "13-08": {
       "line": "13",
-      "x": 3075.5,
-      "y": 3638.58,
-      "name_en": "Shibo Ave.",
-      "name_zh": "世博大道",
+      "x": 1389.5,
+      "y": 2207.67,
+      "name_en": "",
+      "name_zh": "丰庄",
       "transfer_group": null
     },
     "13-09": {
       "line": "13",
-      "x": 2760.83,
-      "y": 2432.34,
-      "name_en": "Jiangning Rd.",
-      "name_zh": "江宁路",
+      "x": 3870.83,
+      "y": 3906.67,
+      "name_en": "",
+      "name_zh": "北蔡",
       "transfer_group": null
     },
     "13-10": {
       "line": "13",
-      "x": 3690.83,
-      "y": 3904.67,
-      "name_en": "Huapeng Rd.",
-      "name_zh": "华鹏路",
+      "x": 3075.5,
+      "y": 3638.58,
+      "name_en": "",
+      "name_zh": "世博大道",
       "transfer_group": null
     },
     "13-11": {
       "line": "13",
-      "x": 895.17,
-      "y": 2205.0,
-      "name_en": "Jinyun Rd.",
-      "name_zh": "金运路",
+      "x": 2760.83,
+      "y": 2432.34,
+      "name_en": "",
+      "name_zh": "江宁路",
       "transfer_group": null
     },
     "13-12": {
       "line": "13",
-      "x": 1134.17,
-      "y": 2205.0,
-      "name_en": "Jinshajiang Rd. (W)",
-      "name_zh": "金沙江西路",
+      "x": 3690.83,
+      "y": 3904.67,
+      "name_en": "",
+      "name_zh": "华鹏路",
       "transfer_group": null
     },
     "13-13": {
       "line": "13",
-      "x": 3316.53,
-      "y": 3930.62,
-      "name_en": "Chengshan Rd.",
-      "name_zh": "成山路",
-      "transfer_group": "T048"
+      "x": 895.17,
+      "y": 2205.0,
+      "name_en": "",
+      "name_zh": "金运路",
+      "transfer_group": null
     },
     "13-14": {
       "line": "13",
-      "x": 3099.89,
-      "y": 3724.79,
-      "name_en": "Changqing Rd.",
-      "name_zh": "长清路",
+      "x": 1134.17,
+      "y": 2205.0,
+      "name_en": "",
+      "name_zh": "金沙江西路",
       "transfer_group": null
     },
     "13-15": {
       "line": "13",
-      "x": 3099.89,
-      "y": 3299.18,
-      "name_en": "Madang Rd.",
-      "name_zh": "马当路",
+      "x": 4219.48,
+      "y": 4029.34,
+      "name_en": "",
+      "name_zh": "北中路",
       "transfer_group": null
     },
     "13-16": {
       "line": "13",
       "x": 3099.89,
-      "y": 3146.27,
-      "name_en": "Congress·Xintiandi",
-      "name_zh": "一大会址·新天地",
-      "transfer_group": null
+      "y": 3740.39,
+      "name_en": "",
+      "name_zh": "长清路",
+      "transfer_group": "T043"
     },
     "13-17": {
       "line": "13",
       "x": 3099.89,
-      "y": 3099.47,
-      "name_en": "Site of the First CPC National",
-      "name_zh": "",
-      "transfer_group": "T052"
+      "y": 3314.78,
+      "name_en": "",
+      "name_zh": "马当路",
+      "transfer_group": null
     },
     "13-18": {
       "line": "13",
-      "x": 3047.78,
-      "y": 2990.5,
-      "name_en": "Congress ·Huangpi Rd. (S)",
-      "name_zh": "一大会址·黄陂南路",
-      "transfer_group": "T004"
+      "x": 3099.89,
+      "y": 3161.87,
+      "name_en": "",
+      "name_zh": "一大会址·新天地",
+      "transfer_group": null
     },
     "13-19": {
       "line": "13",
-      "x": 3006.17,
-      "y": 2662.34,
-      "name_en": "History Museum",
-      "name_zh": "自然博物馆",
-      "transfer_group": null
+      "x": 3048.93,
+      "y": 2991.96,
+      "name_en": "",
+      "name_zh": "一大会址·黄陂南路",
+      "transfer_group": "T008"
     },
     "13-20": {
       "line": "13",
       "x": 3006.17,
-      "y": 2619.14,
-      "name_en": "Shanghai Natural",
-      "name_zh": "",
-      "transfer_group": null
+      "y": 2676.74,
+      "name_en": "",
+      "name_zh": "自然博物馆",
+      "transfer_group": "T017"
     },
     "13-21": {
       "line": "13",
-      "x": 1463.05,
-      "y": 2231.29,
-      "name_en": "Qilianshan Rd. (S)",
-      "name_zh": "祁连山南路",
-      "transfer_group": null
+      "x": 2447.37,
+      "y": 2458.58,
+      "name_en": "",
+      "name_zh": "武宁路",
+      "transfer_group": "T064"
+    },
+    "13-22": {
+      "line": "13",
+      "x": 2131.0,
+      "y": 2458.58,
+      "name_en": "",
+      "name_zh": "金沙江路",
+      "transfer_group": "T028"
+    },
+    "13-23": {
+      "line": "13",
+      "x": 1879.69,
+      "y": 2458.58,
+      "name_en": "",
+      "name_zh": "大渡河路",
+      "transfer_group": "T065"
     },
     "14-01": {
       "line": "14",
       "x": 4870.0,
       "y": 2864.58,
-      "name_en": "Stadium",
+      "name_en": "",
       "name_zh": "浦东足球场",
       "transfer_group": null
     },
     "14-02": {
       "line": "14",
-      "x": 2433.25,
-      "y": 2603.75,
-      "name_en": "Wuding Rd.",
-      "name_zh": "武定路",
+      "x": 1551.86,
+      "y": 1974.25,
+      "name_en": "",
+      "name_zh": "真新新村",
       "transfer_group": null
     },
     "14-03": {
       "line": "14",
-      "x": 1551.86,
-      "y": 1974.25,
-      "name_en": "Zhenxin Xincu",
-      "name_zh": "真新新村",
+      "x": 4724.0,
+      "y": 2908.25,
+      "name_en": "",
+      "name_zh": "云顺路",
       "transfer_group": null
     },
     "14-04": {
       "line": "14",
-      "x": 4724.0,
-      "y": 2908.25,
-      "name_en": "Yunshun Rd.",
-      "name_zh": "云顺路",
+      "x": 1802.25,
+      "y": 2016.75,
+      "name_en": "",
+      "name_zh": "真光路",
       "transfer_group": null
     },
     "14-05": {
       "line": "14",
-      "x": 1802.25,
-      "y": 2016.75,
-      "name_en": "Zhenguang Rd.",
-      "name_zh": "真光路",
+      "x": 1480.75,
+      "y": 1903.0,
+      "name_en": "",
+      "name_zh": "定边路",
       "transfer_group": null
     },
     "14-06": {
       "line": "14",
-      "x": 1480.75,
-      "y": 1903.0,
-      "name_en": "Dingbian Rd.",
-      "name_zh": "定边路",
+      "x": 1333.25,
+      "y": 1830.5,
+      "name_en": "",
+      "name_zh": "嘉怡路",
       "transfer_group": null
     },
     "14-07": {
       "line": "14",
-      "x": 1333.25,
-      "y": 1830.5,
-      "name_en": "Jiayi Rd.",
-      "name_zh": "嘉怡路",
+      "x": 5159.75,
+      "y": 2909.0,
+      "name_en": "",
+      "name_zh": "桂桥路",
       "transfer_group": null
     },
     "14-08": {
       "line": "14",
-      "x": 5159.75,
-      "y": 2909.0,
-      "name_en": "Guiqiao Rd.",
-      "name_zh": "桂桥路",
+      "x": 5014.5,
+      "y": 2910.5,
+      "name_en": "",
+      "name_zh": "金粤路",
       "transfer_group": null
     },
     "14-09": {
       "line": "14",
-      "x": 5014.5,
-      "y": 2910.5,
-      "name_en": "Jinyue Rd.",
-      "name_zh": "金粤路",
+      "x": 4274.97,
+      "y": 2525.99,
+      "name_en": "",
+      "name_zh": "歇浦路",
       "transfer_group": null
     },
     "14-10": {
       "line": "14",
-      "x": 4274.97,
-      "y": 2525.99,
-      "name_en": "Xiepu Rd.",
-      "name_zh": "歇浦路",
+      "x": 773.5,
+      "y": 1827.75,
+      "name_en": "",
+      "name_zh": "封浜",
       "transfer_group": null
     },
     "14-11": {
       "line": "14",
-      "x": 773.5,
+      "x": 961.25,
       "y": 1827.75,
-      "name_en": "Fengbang",
-      "name_zh": "封浜",
+      "name_en": "",
+      "name_zh": "乐秀路",
       "transfer_group": null
     },
     "14-12": {
       "line": "14",
-      "x": 961.25,
+      "x": 1148.36,
       "y": 1827.75,
-      "name_en": "Lexiu Rd.",
-      "name_zh": "乐秀路",
+      "name_en": "",
+      "name_zh": "临洮路",
       "transfer_group": null
     },
     "14-13": {
       "line": "14",
-      "x": 1148.36,
-      "y": 1827.75,
-      "name_en": "Lintao Rd.",
-      "name_zh": "临洮路",
+      "x": 2297.5,
+      "y": 2075.0,
+      "name_en": "",
+      "name_zh": "中宁路",
       "transfer_group": null
     },
     "14-14": {
       "line": "14",
-      "x": 2297.5,
-      "y": 2075.0,
-      "name_en": "Zhongning Rd.",
-      "name_zh": "中宁路",
+      "x": 4104.12,
+      "y": 2696.63,
+      "name_en": "",
+      "name_zh": "源深路",
       "transfer_group": null
     },
     "14-15": {
       "line": "14",
-      "x": 4104.12,
-      "y": 2696.63,
-      "name_en": "Yuanshen Rd.",
-      "name_zh": "源深路",
-      "transfer_group": null
+      "x": 2157.98,
+      "y": 2039.5,
+      "name_en": "",
+      "name_zh": "真如",
+      "transfer_group": "T059"
     },
     "14-16": {
       "line": "14",
-      "x": 2166.88,
-      "y": 2039.5,
-      "name_en": "Zhenru",
-      "name_zh": "真如",
-      "transfer_group": "T055"
+      "x": 2447.37,
+      "y": 2421.48,
+      "name_en": "",
+      "name_zh": "武宁路",
+      "transfer_group": "T064"
     },
     "14-17": {
       "line": "14",
-      "x": 2447.37,
-      "y": 2405.88,
-      "name_en": "Wuning Rd.",
-      "name_zh": "武宁路",
-      "transfer_group": null
+      "x": 2621.7,
+      "y": 2762.58,
+      "name_en": "",
+      "name_zh": "静安寺",
+      "transfer_group": "T045"
     },
     "14-18": {
       "line": "14",
-      "x": 2613.91,
-      "y": 2754.99,
-      "name_en": "Jing'an Temple",
-      "name_zh": "静安寺",
-      "transfer_group": "T044"
+      "x": 2809.86,
+      "y": 2899.17,
+      "name_en": "",
+      "name_zh": "陕西南路",
+      "transfer_group": "T007"
     },
     "14-19": {
       "line": "14",
-      "x": 2814.86,
-      "y": 2899.18,
-      "name_en": "Shanxi Rd. (S)",
-      "name_zh": "陕西南路",
-      "transfer_group": "T058"
+      "x": 3076.75,
+      "y": 2899.87,
+      "name_en": "",
+      "name_zh": "淮海中路",
+      "transfer_group": null
     },
     "14-20": {
       "line": "14",
-      "x": 3096.52,
-      "y": 2899.93,
-      "name_en": "Huaihai Rd. (M)",
-      "name_zh": "淮海中路",
-      "transfer_group": "T005"
-    },
-    "14-21": {
-      "line": "14",
-      "x": 3381.97,
-      "y": 2900.68,
-      "name_en": "Dashijie",
+      "x": 3375.98,
+      "y": 2900.67,
+      "name_en": "",
       "name_zh": "大世界",
       "transfer_group": null
     },
-    "14-22": {
-      "line": "14",
-      "x": 3449.08,
-      "y": 2898.98,
-      "name_en": "Yu Garden",
-      "name_zh": "豫园",
-      "transfer_group": "T051"
-    },
-    "14-23": {
+    "14-21": {
       "line": "14",
       "x": 3707.29,
       "y": 2778.03,
-      "name_en": "Lujiazui",
+      "name_en": "",
       "name_zh": "陆家嘴",
-      "transfer_group": "T010"
+      "transfer_group": "T015"
+    },
+    "14-22": {
+      "line": "14",
+      "x": 3751.81,
+      "y": 2777.6,
+      "name_en": "",
+      "name_zh": "浦东南路",
+      "transfer_group": "T015"
+    },
+    "14-23": {
+      "line": "14",
+      "x": 3941.52,
+      "y": 2775.76,
+      "name_en": "",
+      "name_zh": "浦东大道",
+      "transfer_group": "T036"
     },
     "14-24": {
       "line": "14",
-      "x": 3772.15,
-      "y": 2777.4,
-      "name_en": "Pudong Rd. (S)",
-      "name_zh": "浦东南路",
-      "transfer_group": "T009"
+      "x": 4217.41,
+      "y": 2622.75,
+      "name_en": "",
+      "name_zh": "昌邑路",
+      "transfer_group": "T066"
     },
     "14-25": {
       "line": "14",
-      "x": 3941.67,
-      "y": 2775.75,
-      "name_en": "Pudong Ave.",
-      "name_zh": "浦东大道",
-      "transfer_group": "T031"
+      "x": 4465.0,
+      "y": 2573.87,
+      "name_en": "",
+      "name_zh": "云山路",
+      "transfer_group": null
     },
     "14-26": {
       "line": "14",
-      "x": 4225.2,
-      "y": 2614.7,
-      "name_en": "Changyi Rd.",
-      "name_zh": "昌邑路",
-      "transfer_group": "T059"
-    },
-    "14-27": {
-      "line": "14",
-      "x": 4464.6,
-      "y": 2563.65,
-      "name_en": "Yunshan Rd.",
-      "name_zh": "云山路",
-      "transfer_group": "T037"
-    },
-    "14-28": {
-      "line": "14",
       "x": 4465.0,
-      "y": 2640.24,
-      "name_en": "Deping Rd.",
+      "y": 2655.84,
+      "name_en": "",
       "name_zh": "德平路",
       "transfer_group": null
     },
-    "14-29": {
+    "14-27": {
       "line": "14",
       "x": 4465.0,
-      "y": 2826.16,
-      "name_en": "Lantian Rd.",
+      "y": 2841.35,
+      "name_en": "",
       "name_zh": "蓝天路",
-      "transfer_group": null
+      "transfer_group": "T052"
     },
-    "14-30": {
+    "14-28": {
       "line": "14",
-      "x": 4534.33,
-      "y": 2886.36,
-      "name_en": "Huangyang Rd.",
+      "x": 4510.15,
+      "y": 2886.41,
+      "name_en": "",
       "name_zh": "黄杨路",
-      "transfer_group": "T049"
+      "transfer_group": "T052"
     },
-    "14-31": {
+    "14-29": {
       "line": "14",
-      "x": 4694.81,
-      "y": 2886.03,
-      "name_en": "Taierzhuang Rd.",
+      "x": 4672.24,
+      "y": 2886.07,
+      "name_en": "",
       "name_zh": "台儿庄路",
-      "transfer_group": null
-    },
-    "14-32": {
-      "line": "14",
-      "x": 4941.73,
-      "y": 2885.52,
-      "name_en": "Pudong Football",
-      "name_zh": "",
       "transfer_group": null
     },
     "15-01": {
       "line": "15",
       "x": 1738.0,
       "y": 958.0,
-      "name_en": "Gucun Park",
+      "name_en": "",
       "name_zh": "顾村公园",
-      "transfer_group": "T045"
+      "transfer_group": "T046"
     },
     "15-02": {
       "line": "15",
       "x": 2125.25,
       "y": 4155.5,
-      "name_en": "Luoxiu Rd.",
+      "name_en": "",
       "name_zh": "罗秀路",
       "transfer_group": null
     },
@@ -3895,7 +3835,7 @@
       "line": "15",
       "x": 2125.25,
       "y": 4274.0,
-      "name_en": "Zhumei Rd.",
+      "name_en": "",
       "name_zh": "朱梅路",
       "transfer_group": null
     },
@@ -3903,7 +3843,7 @@
       "line": "15",
       "x": 2125.25,
       "y": 5416.75,
-      "name_en": "Zizhu Hi-tech Park",
+      "name_en": "",
       "name_zh": "紫竹高新区",
       "transfer_group": null
     },
@@ -3911,7 +3851,7 @@
       "line": "15",
       "x": 2125.25,
       "y": 4575.5,
-      "name_en": "Hongmei Rd. (S)",
+      "name_en": "",
       "name_zh": "虹梅南路",
       "transfer_group": null
     },
@@ -3919,7 +3859,7 @@
       "line": "15",
       "x": 2125.25,
       "y": 4717.0,
-      "name_en": "Jingxi Rd.",
+      "name_en": "",
       "name_zh": "景西路",
       "transfer_group": null
     },
@@ -3927,7 +3867,7 @@
       "line": "15",
       "x": 2125.25,
       "y": 4856.5,
-      "name_en": "Shujian Rd.",
+      "name_en": "",
       "name_zh": "曙建路",
       "transfer_group": null
     },
@@ -3935,7 +3875,7 @@
       "line": "15",
       "x": 2126.25,
       "y": 4995.75,
-      "name_en": "Shuangbai Rd.",
+      "name_en": "",
       "name_zh": "双柏路",
       "transfer_group": null
     },
@@ -3943,7 +3883,7 @@
       "line": "15",
       "x": 2126.25,
       "y": 5136.5,
-      "name_en": "Yuanjiang Rd.",
+      "name_en": "",
       "name_zh": "元江路",
       "transfer_group": null
     },
@@ -3951,7 +3891,7 @@
       "line": "15",
       "x": 2041.17,
       "y": 1695.05,
-      "name_en": "Gulang Rd.",
+      "name_en": "",
       "name_zh": "古浪路",
       "transfer_group": null
     },
@@ -3959,135 +3899,143 @@
       "line": "15",
       "x": 2041.17,
       "y": 1798.0,
-      "name_en": "Wuwei Rd. (E)",
+      "name_en": "",
       "name_zh": "武威东路",
       "transfer_group": null
     },
     "15-12": {
       "line": "15",
       "x": 2041.17,
-      "y": 1798.0,
-      "name_en": "Shanghai West",
-      "name_zh": "",
+      "y": 1390.0,
+      "name_en": "",
+      "name_zh": "丰翔路",
       "transfer_group": null
     },
     "15-13": {
       "line": "15",
-      "x": 1959.89,
-      "y": 1014.89,
-      "name_en": "Jinqiu Rd.",
-      "name_zh": "锦秋路",
+      "x": 2041.17,
+      "y": 1491.0,
+      "name_en": "",
+      "name_zh": "南大路",
       "transfer_group": null
     },
     "15-14": {
       "line": "15",
       "x": 2041.17,
-      "y": 1491.0,
-      "name_en": "Nanda Rd.",
-      "name_zh": "南大路",
+      "y": 1593.9,
+      "name_en": "",
+      "name_zh": "祁安路",
       "transfer_group": null
     },
     "15-15": {
       "line": "15",
-      "x": 2041.17,
-      "y": 1593.9,
-      "name_en": "Qi’an Rd.",
-      "name_zh": "祁安路",
+      "x": 2127.75,
+      "y": 5277.0,
+      "name_en": "",
+      "name_zh": "永德路",
       "transfer_group": null
     },
     "15-16": {
       "line": "15",
-      "x": 2127.75,
-      "y": 5277.0,
-      "name_en": "Yongde Rd.",
-      "name_zh": "永德路",
+      "x": 2110.5,
+      "y": 4030.75,
+      "name_en": "",
+      "name_zh": "华东理工大学",
       "transfer_group": null
     },
     "15-17": {
       "line": "15",
-      "x": 2110.5,
-      "y": 4030.75,
-      "name_en": "Science and Technology",
-      "name_zh": "华东理工大学",
+      "x": 1793.83,
+      "y": 3182.67,
+      "name_en": "",
+      "name_zh": "姚虹路",
       "transfer_group": null
     },
     "15-18": {
       "line": "15",
       "x": 1793.83,
-      "y": 3182.67,
-      "name_en": "Yaohong Rd.",
-      "name_zh": "姚虹路",
+      "y": 3304.34,
+      "name_en": "",
+      "name_zh": "吴中路",
       "transfer_group": null
     },
     "15-19": {
       "line": "15",
-      "x": 1793.83,
-      "y": 3304.34,
-      "name_en": "Wuzhong Rd.",
-      "name_zh": "吴中路",
+      "x": 1854.41,
+      "y": 2540.0,
+      "name_en": "",
+      "name_zh": "长风公园",
       "transfer_group": null
     },
     "15-20": {
       "line": "15",
-      "x": 1854.41,
-      "y": 2540.0,
-      "name_en": "Changfeng Park",
-      "name_zh": "长风公园",
+      "x": 1900.43,
+      "y": 2193.74,
+      "name_en": "",
+      "name_zh": "梅岭北路",
       "transfer_group": null
     },
     "15-21": {
       "line": "15",
-      "x": 1900.43,
-      "y": 2193.74,
-      "name_en": "Meiling Rd. (N)",
-      "name_zh": "梅岭北路",
+      "x": 1976.21,
+      "y": 1068.31,
+      "name_en": "",
+      "name_zh": "锦秋路",
       "transfer_group": null
     },
     "15-22": {
       "line": "15",
       "x": 2017.37,
-      "y": 1965.41,
-      "name_en": "Railway Station",
+      "y": 1962.09,
+      "name_en": "",
       "name_zh": "上海西站",
-      "transfer_group": "T056"
+      "transfer_group": "T060"
     },
     "15-23": {
       "line": "15",
-      "x": 2015.47,
-      "y": 2091.45,
-      "name_en": "Tongchuan Rd.",
+      "x": 2001.56,
+      "y": 2120.91,
+      "name_en": "",
       "name_zh": "铜川路",
       "transfer_group": null
     },
     "15-24": {
       "line": "15",
-      "x": 1879.65,
-      "y": 2404.28,
-      "name_en": "Daduhe Rd.",
+      "x": 1879.69,
+      "y": 2419.86,
+      "name_en": "",
       "name_zh": "大渡河路",
-      "transfer_group": null
+      "transfer_group": "T065"
     },
     "15-25": {
       "line": "15",
-      "x": 1880.24,
-      "y": 2668.93,
-      "name_en": "Loushanguan Rd.",
+      "x": 1880.27,
+      "y": 2684.46,
+      "name_en": "",
       "name_zh": "娄山关路",
-      "transfer_group": null
+      "transfer_group": "T019"
     },
     "15-26": {
       "line": "15",
-      "x": 1768.48,
-      "y": 3395.35,
-      "name_en": "Guilin Rd.",
-      "name_zh": "桂林路",
-      "transfer_group": null
+      "x": 1880.67,
+      "y": 2865.34,
+      "name_en": "",
+      "name_zh": "红宝石路",
+      "transfer_group": "T055"
     },
     "15-27": {
       "line": "15",
+      "x": 1768.48,
+      "y": 3410.95,
+      "name_en": "",
+      "name_zh": "桂林路",
+      "transfer_group": "T054"
+    },
+    "15-28": {
+      "line": "15",
       "x": 2102.5,
-      "y": 4397.89,
-      "name_en": "Jinghong Rd.",
+      "y": 4413.49,
+      "name_en": "",
       "name_zh": "景洪路",
       "transfer_group": null
     },
@@ -4095,7 +4043,7 @@
       "line": "16",
       "x": 4481.25,
       "y": 5469.75,
-      "name_en": "Xinchang",
+      "name_en": "",
       "name_zh": "新场",
       "transfer_group": null
     },
@@ -4103,7 +4051,7 @@
       "line": "16",
       "x": 4371.25,
       "y": 5054.0,
-      "name_en": "East Hangtou",
+      "name_en": "",
       "name_zh": "航头东",
       "transfer_group": null
     },
@@ -4111,7 +4059,7 @@
       "line": "16",
       "x": 4371.5,
       "y": 4792.5,
-      "name_en": "Heshahangcheng",
+      "name_en": "",
       "name_zh": "鹤沙航城",
       "transfer_group": null
     },
@@ -4119,7 +4067,7 @@
       "line": "16",
       "x": 4373.25,
       "y": 4530.25,
-      "name_en": "East Zhoupu",
+      "name_en": "",
       "name_zh": "周浦东",
       "transfer_group": null
     },
@@ -4127,31 +4075,31 @@
       "line": "16",
       "x": 5175.25,
       "y": 5791.0,
-      "name_en": "Dishui Lake",
+      "name_en": "",
       "name_zh": "滴水湖",
       "transfer_group": null
     },
     "16-06": {
       "line": "16",
-      "x": 5079.0,
-      "y": 5697.5,
-      "name_en": "Lingang Ave.",
-      "name_zh": "临港大道",
+      "x": 4892.0,
+      "y": 5507.25,
+      "name_en": "",
+      "name_zh": "惠南东",
       "transfer_group": null
     },
     "16-07": {
       "line": "16",
-      "x": 4652.5,
-      "y": 5421.0,
-      "name_en": "Wild Animal Park",
-      "name_zh": "野生动物园",
+      "x": 5079.0,
+      "y": 5697.5,
+      "name_en": "",
+      "name_zh": "临港大道",
       "transfer_group": null
     },
     "16-08": {
       "line": "16",
       "x": 4816.5,
       "y": 5421.0,
-      "name_en": "Huinan",
+      "name_en": "",
       "name_zh": "惠南",
       "transfer_group": null
     },
@@ -4159,463 +4107,407 @@
       "line": "16",
       "x": 4984.38,
       "y": 5602.63,
-      "name_en": "Shuyuan",
+      "name_en": "",
       "name_zh": "书院",
       "transfer_group": null
     },
     "16-10": {
       "line": "16",
-      "x": 4277.14,
-      "y": 3532.0,
-      "name_en": "Fanghua Rd.",
-      "name_zh": "芳华路",
-      "transfer_group": "T060"
+      "x": 4350.5,
+      "y": 4096.26,
+      "name_en": "",
+      "name_zh": "华夏中路",
+      "transfer_group": null
     },
     "16-11": {
       "line": "16",
       "x": 4350.5,
-      "y": 4080.66,
-      "name_en": "Middle Huaxia Rd.",
-      "name_zh": "华夏中路",
-      "transfer_group": null
+      "y": 4262.32,
+      "name_en": "",
+      "name_zh": "罗山路",
+      "transfer_group": "T056"
     },
     "16-12": {
       "line": "16",
       "x": 4350.5,
-      "y": 4246.72,
-      "name_en": "Luoshan Rd.",
-      "name_zh": "罗山路",
+      "y": 4438.65,
+      "name_en": "",
+      "name_zh": "秀沿路",
       "transfer_group": null
     },
     "16-13": {
       "line": "16",
-      "x": 4350.5,
-      "y": 4423.05,
-      "name_en": "Xiuyan Rd.",
-      "name_zh": "秀沿路",
-      "transfer_group": null
-    },
-    "16-14": {
-      "line": "16",
-      "x": 4821.1,
+      "x": 4592.73,
       "y": 5446.0,
-      "name_en": "East Huinan",
-      "name_zh": "惠南东",
+      "name_en": "",
+      "name_zh": "野生动物园",
       "transfer_group": null
     },
     "17-01": {
       "line": "17",
-      "x": 970.17,
+      "x": 964.72,
       "y": 2801.0,
-      "name_en": "Hongqiao Railway",
-      "name_zh": "",
-      "transfer_group": "T012"
+      "name_en": "",
+      "name_zh": "虹桥火车站",
+      "transfer_group": "T021"
     },
     "17-02": {
       "line": "17",
-      "x": 955.39,
-      "y": 2801.0,
-      "name_en": "Station",
-      "name_zh": "虹桥火车站",
-      "transfer_group": "T012"
+      "x": 569.83,
+      "y": 3428.67,
+      "name_en": "",
+      "name_zh": "青浦新城",
+      "transfer_group": null
     },
     "17-03": {
       "line": "17",
       "x": 569.83,
-      "y": 3428.67,
-      "name_en": "Qingpu Xincheng",
-      "name_zh": "青浦新城",
+      "y": 3068.0,
+      "name_en": "",
+      "name_zh": "嘉松中路",
       "transfer_group": null
     },
     "17-04": {
       "line": "17",
       "x": 569.83,
-      "y": 3068.0,
-      "name_en": "Middle Jiasong Rd.",
-      "name_zh": "嘉松中路",
+      "y": 3670.34,
+      "name_en": "",
+      "name_zh": "淀山湖大道",
       "transfer_group": null
     },
     "17-05": {
       "line": "17",
       "x": 569.83,
-      "y": 3670.34,
-      "name_en": "Dianshanhu Ave.",
-      "name_zh": "淀山湖大道",
+      "y": 3548.67,
+      "name_en": "",
+      "name_zh": "漕盈路",
       "transfer_group": null
     },
     "17-06": {
       "line": "17",
-      "x": 569.83,
-      "y": 3548.67,
-      "name_en": "Caoying Rd.",
-      "name_zh": "漕盈路",
+      "x": 571.66,
+      "y": 3308.34,
+      "name_en": "",
+      "name_zh": "汇金路",
       "transfer_group": null
     },
     "17-07": {
       "line": "17",
       "x": 571.66,
-      "y": 3308.34,
-      "name_en": "Huijin Rd.",
-      "name_zh": "汇金路",
+      "y": 3187.67,
+      "name_en": "",
+      "name_zh": "赵巷",
       "transfer_group": null
     },
     "17-08": {
       "line": "17",
-      "x": 571.66,
-      "y": 3187.67,
-      "name_en": "Zhaoxiang",
-      "name_zh": "赵巷",
+      "x": 453.53,
+      "y": 3885.97,
+      "name_en": "",
+      "name_zh": "东方绿舟",
       "transfer_group": null
     },
     "17-09": {
       "line": "17",
-      "x": 453.53,
-      "y": 3885.97,
-      "name_en": "Oriental Land",
-      "name_zh": "东方绿舟",
+      "x": 538.8,
+      "y": 3792.7,
+      "name_en": "",
+      "name_zh": "朱家角",
       "transfer_group": null
     },
     "17-10": {
       "line": "17",
-      "x": 538.8,
-      "y": 3792.7,
-      "name_en": "Zhujiajiao",
-      "name_zh": "朱家角",
+      "x": 537.21,
+      "y": 2986.23,
+      "name_en": "",
+      "name_zh": "徐泾北城",
       "transfer_group": null
     },
     "17-11": {
       "line": "17",
-      "x": 537.21,
-      "y": 2986.23,
-      "name_en": "Xujingbeicheng",
-      "name_zh": "徐泾北城",
-      "transfer_group": null
+      "x": 664.91,
+      "y": 2848.26,
+      "name_en": "",
+      "name_zh": "蟠龙路",
+      "transfer_group": "T023"
     },
     "17-12": {
       "line": "17",
-      "x": 664.91,
-      "y": 2848.26,
-      "name_en": "Panlong Rd.",
-      "name_zh": "蟠龙路",
-      "transfer_group": "T014"
-    },
-    "17-13": {
-      "line": "17",
       "x": 597.08,
       "y": 2915.99,
-      "name_en": "Xuying Rd.",
+      "name_en": "",
       "name_zh": "徐盈路",
       "transfer_group": null
     },
-    "17-14": {
-      "line": "17",
-      "x": 854.6,
-      "y": 2801.0,
-      "name_en": "Shanghai National",
-      "name_zh": "Accounting Institute 蟠",
-      "transfer_group": "T013"
-    },
-    "17-15": {
-      "line": "17",
-      "x": 819.81,
-      "y": 2801.0,
-      "name_en": "Panxiang Rd. ·",
-      "name_zh": "",
-      "transfer_group": "T013"
-    },
-    "17-16": {
+    "17-13": {
       "line": "17",
       "x": 782.79,
       "y": 2801.0,
       "name_en": "",
       "name_zh": "国家会展中心",
-      "transfer_group": "T013"
-    },
-    "17-17": {
-      "line": "17",
-      "x": 764.93,
-      "y": 2802.52,
-      "name_en": "National Exhibition",
-      "name_zh": "",
-      "transfer_group": "T013"
-    },
-    "17-18": {
-      "line": "17",
-      "x": 752.87,
-      "y": 2806.04,
-      "name_en": "and Convention Center",
-      "name_zh": "",
-      "transfer_group": "T013"
+      "transfer_group": "T022"
     },
     "18-01": {
       "line": "18",
       "x": 3519.27,
       "y": 1282.0,
-      "name_en": "Changjiang Rd. (S)",
+      "name_en": "",
       "name_zh": "长江南路",
-      "transfer_group": "T026"
+      "transfer_group": "T033"
     },
     "18-02": {
       "line": "18",
       "x": 4043.17,
-      "y": 5458.0,
-      "name_en": "Hangtou",
-      "name_zh": "航头",
+      "y": 5294.0,
+      "name_en": "",
+      "name_zh": "下沙",
       "transfer_group": null
     },
     "18-03": {
       "line": "18",
       "x": 4043.17,
-      "y": 5294.0,
-      "name_en": "Xiasha",
-      "name_zh": "下沙",
+      "y": 5458.0,
+      "name_en": "",
+      "name_zh": "航头",
       "transfer_group": null
     },
     "18-04": {
       "line": "18",
       "x": 4128.83,
       "y": 2363.34,
-      "name_en": "Danyang Rd.",
+      "name_en": "",
       "name_zh": "丹阳路",
       "transfer_group": null
     },
     "18-05": {
       "line": "18",
-      "x": 4052.17,
-      "y": 2287.38,
-      "name_en": "Pingliang Rd.",
-      "name_zh": "平凉路",
+      "x": 3543.83,
+      "y": 1432.67,
+      "name_en": "",
+      "name_zh": "殷高路",
       "transfer_group": null
     },
     "18-06": {
       "line": "18",
-      "x": 3543.83,
-      "y": 1432.67,
-      "name_en": "Yin'gao Rd.",
-      "name_zh": "殷高路",
+      "x": 4041.5,
+      "y": 4794.0,
+      "name_en": "",
+      "name_zh": "繁荣路",
       "transfer_group": null
     },
     "18-07": {
       "line": "18",
       "x": 4041.5,
-      "y": 4794.0,
-      "name_en": "Fanrong Rd.",
-      "name_zh": "繁荣路",
+      "y": 5127.34,
+      "name_en": "",
+      "name_zh": "鹤涛路",
       "transfer_group": null
     },
     "18-08": {
       "line": "18",
       "x": 4041.5,
-      "y": 5127.34,
-      "name_en": "Hetao Rd.",
-      "name_zh": "鹤涛路",
+      "y": 4628.0,
+      "name_en": "",
+      "name_zh": "周浦",
       "transfer_group": null
     },
     "18-09": {
       "line": "18",
       "x": 4041.5,
-      "y": 4628.0,
-      "name_en": "Zhoupu",
-      "name_zh": "周浦",
+      "y": 4960.0,
+      "name_en": "",
+      "name_zh": "沈梅路",
       "transfer_group": null
     },
     "18-10": {
       "line": "18",
-      "x": 4041.5,
-      "y": 4960.0,
-      "name_en": "Shenmei Rd.",
-      "name_zh": "沈梅路",
+      "x": 4189.17,
+      "y": 3808.67,
+      "name_en": "",
+      "name_zh": "芳芯路",
       "transfer_group": null
     },
     "18-11": {
       "line": "18",
-      "x": 4189.17,
-      "y": 3920.34,
-      "name_en": "Beizhong Rd.",
-      "name_zh": "北中路",
+      "x": 3692.17,
+      "y": 1665.34,
+      "name_en": "",
+      "name_zh": "复旦大学",
       "transfer_group": null
     },
     "18-12": {
       "line": "18",
-      "x": 4189.17,
-      "y": 3808.67,
-      "name_en": "Fangxin Rd.",
-      "name_zh": "芳芯路",
+      "x": 3903.97,
+      "y": 1875.86,
+      "name_en": "",
+      "name_zh": "抚顺路",
       "transfer_group": null
     },
     "18-13": {
       "line": "18",
-      "x": 3692.17,
-      "y": 1665.34,
-      "name_en": "Fudan University",
-      "name_zh": "复旦大学",
+      "x": 4039.5,
+      "y": 4461.0,
+      "name_en": "",
+      "name_zh": "康桥",
       "transfer_group": null
     },
     "18-14": {
       "line": "18",
-      "x": 3581.5,
-      "y": 1553.67,
-      "name_en": "Economics",
+      "x": 3615.07,
+      "y": 1624.64,
+      "name_en": "",
       "name_zh": "上海财经大学",
       "transfer_group": null
     },
     "18-15": {
       "line": "18",
-      "x": 3581.5,
-      "y": 1553.67,
-      "name_en": "sity of Finance and",
-      "name_zh": "",
+      "x": 3785.96,
+      "y": 1795.52,
+      "name_en": "",
+      "name_zh": "国权路",
       "transfer_group": null
     },
     "18-16": {
       "line": "18",
-      "x": 3903.97,
-      "y": 1875.86,
-      "name_en": "Fushun Rd.",
-      "name_zh": "抚顺路",
-      "transfer_group": null
+      "x": 3956.52,
+      "y": 2011.35,
+      "name_en": "",
+      "name_zh": "江浦路",
+      "transfer_group": "T047"
     },
     "18-17": {
       "line": "18",
-      "x": 4039.5,
-      "y": 4461.0,
-      "name_en": "Kangqiao",
-      "name_zh": "康桥",
+      "x": 4106.01,
+      "y": 2306.66,
+      "name_en": "",
+      "name_zh": "平凉路",
       "transfer_group": null
     },
     "18-18": {
       "line": "18",
-      "x": 3787.9,
-      "y": 1797.46,
-      "name_en": "Guoquan Rd",
-      "name_zh": "国权路",
-      "transfer_group": null
+      "x": 4197.71,
+      "y": 2603.68,
+      "name_en": "",
+      "name_zh": "昌邑路",
+      "transfer_group": "T066"
     },
     "18-19": {
       "line": "18",
-      "x": 3956.52,
-      "y": 1995.75,
-      "name_en": "Jiangpu Rd.",
-      "name_zh": "江浦路",
-      "transfer_group": "T046"
+      "x": 4197.71,
+      "y": 2830.38,
+      "name_en": "",
+      "name_zh": "民生路",
+      "transfer_group": "T040"
     },
     "18-20": {
       "line": "18",
-      "x": 3959.96,
-      "y": 2153.44,
-      "name_en": "Jiangpu Park",
-      "name_zh": "江浦公园",
-      "transfer_group": "T057"
+      "x": 4197.71,
+      "y": 2994.09,
+      "name_en": "",
+      "name_zh": "杨高中路",
+      "transfer_group": "T053"
     },
     "18-21": {
       "line": "18",
-      "x": 4197.71,
-      "y": 2588.08,
-      "name_en": "Changyi Rd.",
-      "name_zh": "昌邑路",
-      "transfer_group": "T059"
+      "x": 4261.5,
+      "y": 3217.0,
+      "name_en": "",
+      "name_zh": "迎春路",
+      "transfer_group": null
     },
     "18-22": {
       "line": "18",
-      "x": 4197.71,
-      "y": 2814.78,
-      "name_en": "Minsheng Rd.",
-      "name_zh": "民生路",
-      "transfer_group": "T036"
+      "x": 4261.5,
+      "y": 3401.98,
+      "name_en": "",
+      "name_zh": "龙阳路",
+      "transfer_group": "T013"
     },
     "18-23": {
       "line": "18",
-      "x": 4197.71,
-      "y": 2898.11,
-      "name_en": "Yuanshen Sports Center",
-      "name_zh": "源深体育中心",
+      "x": 4163.5,
+      "y": 4096.26,
+      "name_en": "",
+      "name_zh": "莲溪路",
       "transfer_group": null
     },
     "18-24": {
       "line": "18",
-      "x": 4197.71,
-      "y": 2978.49,
-      "name_en": "Yanggao Rd. (M)",
-      "name_zh": "杨高中路",
-      "transfer_group": "T050"
-    },
-    "18-25": {
-      "line": "18",
-      "x": 4215.14,
-      "y": 3044.58,
-      "name_en": "Science & Technology",
-      "name_zh": "",
-      "transfer_group": "T050"
-    },
-    "18-26": {
-      "line": "18",
-      "x": 4261.5,
-      "y": 3201.4,
-      "name_en": "Yingchun Rd.",
-      "name_zh": "迎春路",
-      "transfer_group": null
-    },
-    "18-27": {
-      "line": "18",
-      "x": 4261.5,
-      "y": 3404.22,
-      "name_en": "Longyang Rd.",
-      "name_zh": "龙阳路",
-      "transfer_group": "T040"
-    },
-    "18-28": {
-      "line": "18",
-      "x": 4261.5,
-      "y": 3536.55,
-      "name_en": "Fanghua Rd.",
-      "name_zh": "芳华路",
-      "transfer_group": "T060"
-    },
-    "18-29": {
-      "line": "18",
-      "x": 4163.5,
-      "y": 4080.66,
-      "name_en": "Lianxi Rd.",
-      "name_zh": "莲溪路",
-      "transfer_group": null
-    },
-    "18-30": {
-      "line": "18",
-      "x": 4066.44,
-      "y": 4303.02,
-      "name_en": "Yuqiao",
+      "x": 4066.42,
+      "y": 4303.43,
+      "name_en": "",
       "name_zh": "御桥",
-      "transfer_group": "T053"
+      "transfer_group": "T057"
     },
     "AL-01": {
       "line": "AL",
-      "x": 4560.5,
-      "y": 3968.78,
-      "name_en": "Zhongke Rd.",
-      "name_zh": "中科路",
-      "transfer_group": "T041"
+      "x": 4313.83,
+      "y": 3429.36,
+      "name_en": "",
+      "name_zh": "龙阳路",
+      "transfer_group": "T013"
     },
     "AL-02": {
       "line": "AL",
-      "x": 4937.5,
-      "y": 4376.28,
-      "name_en": "Shanghai International",
-      "name_zh": "Resort上海国际旅游度假区",
-      "transfer_group": "T042"
+      "x": 4313.83,
+      "y": 3429.36,
+      "name_en": "",
+      "name_zh": "张江高科",
+      "transfer_group": "T013"
     },
     "AL-03": {
       "line": "AL",
+      "x": 4525.52,
+      "y": 3515.84,
+      "name_en": "",
+      "name_zh": "金科路",
+      "transfer_group": "T010"
+    },
+    "AL-04": {
+      "line": "AL",
+      "x": 4560.5,
+      "y": 3984.38,
+      "name_en": "",
+      "name_zh": "中科路",
+      "transfer_group": "T061"
+    },
+    "AL-05": {
+      "line": "AL",
+      "x": 4723.17,
+      "y": 4125.02,
+      "name_en": "",
+      "name_zh": "学林路",
+      "transfer_group": "T062"
+    },
+    "AL-06": {
+      "line": "AL",
+      "x": 4873.17,
+      "y": 4125.02,
+      "name_en": "",
+      "name_zh": "张江路",
+      "transfer_group": "T063"
+    },
+    "AL-07": {
+      "line": "AL",
+      "x": 4937.5,
+      "y": 4299.16,
+      "name_en": "",
+      "name_zh": "海天三路",
+      "transfer_group": "T012"
+    },
+    "AL-08": {
+      "line": "AL",
       "x": 5158.83,
       "y": 4919.19,
-      "name_en": "Pudong Airport Terminal",
+      "name_en": "",
       "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T007"
+      "transfer_group": "T011"
     },
     "Pujiang-01": {
       "line": "Pujiang",
       "x": 3036.17,
       "y": 5453.67,
-      "name_en": "Huizhen Rd.",
+      "name_en": "",
       "name_zh": "汇臻路",
       "transfer_group": null
     },
@@ -4623,7 +4515,7 @@
       "line": "Pujiang",
       "x": 3170.83,
       "y": 5118.67,
-      "name_en": "Minrui Rd.",
+      "name_en": "",
       "name_zh": "闵瑞路",
       "transfer_group": null
     },
@@ -4631,7 +4523,7 @@
       "line": "Pujiang",
       "x": 3170.83,
       "y": 5253.0,
-      "name_en": "Puhang Rd.",
+      "name_en": "",
       "name_zh": "浦航路",
       "transfer_group": null
     },
@@ -4639,7 +4531,7 @@
       "line": "Pujiang",
       "x": 3170.83,
       "y": 5380.67,
-      "name_en": "Dongcheng 1st Rd.",
+      "name_en": "",
       "name_zh": "东城一路",
       "transfer_group": null
     },
@@ -4647,15 +4539,15 @@
       "line": "Pujiang",
       "x": 3144.17,
       "y": 4986.0,
-      "name_en": "Sanlu Hwy.",
+      "name_en": "",
       "name_zh": "三鲁公路",
       "transfer_group": null
     },
     "Pujiang-06": {
       "line": "Pujiang",
-      "x": 3047.71,
+      "x": 3032.54,
       "y": 4987.34,
-      "name_en": "Shendu Hwy.",
+      "name_en": "",
       "name_zh": "沈杜公路",
       "transfer_group": null
     }

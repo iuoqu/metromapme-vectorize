@@ -3,560 +3,613 @@
     "group_id": "T001",
     "station_ids": [
       "01-01",
-      "05-20"
+      "05-19"
     ],
-    "center_x": 1622.74,
-    "center_y": 4155.65
+    "center_x": 1614.61,
+    "center_y": 4166.07
   },
   {
     "group_id": "T002",
     "station_ids": [
-      "01-19",
-      "04-01"
+      "01-18",
+      "03-14"
     ],
-    "center_x": 2168.11,
-    "center_y": 3377.26
+    "center_x": 1965.55,
+    "center_y": 3837.36
   },
   {
     "group_id": "T003",
     "station_ids": [
-      "01-20",
-      "09-28"
+      "01-19",
+      "12-28"
     ],
-    "center_x": 2373.51,
-    "center_y": 3225.71
+    "center_x": 2065.5,
+    "center_y": 3691.33
   },
   {
     "group_id": "T004",
     "station_ids": [
-      "01-21",
-      "13-18"
+      "01-20",
+      "03-18",
+      "04-01"
     ],
-    "center_x": 3054.5,
-    "center_y": 2985.21
+    "center_x": 2146.12,
+    "center_y": 3387.35
   },
   {
     "group_id": "T005",
     "station_ids": [
-      "01-23",
-      "14-20"
+      "01-21",
+      "11-32"
     ],
-    "center_x": 3112.92,
-    "center_y": 2915.84
+    "center_x": 2313.24,
+    "center_y": 3286.96
   },
   {
     "group_id": "T006",
     "station_ids": [
-      "01-24",
-      "08-22"
+      "01-22",
+      "07-29"
     ],
-    "center_x": 3231.1,
-    "center_y": 2765.9
+    "center_x": 2593.72,
+    "center_y": 2959.05
   },
   {
     "group_id": "T007",
     "station_ids": [
-      "02-09",
-      "07-25",
+      "01-23",
+      "10-29",
+      "12-22",
+      "14-18"
+    ],
+    "center_x": 2809.58,
+    "center_y": 2951.97
+  },
+  {
+    "group_id": "T008",
+    "station_ids": [
+      "01-24",
+      "13-19"
+    ],
+    "center_x": 3048.93,
+    "center_y": 2985.98
+  },
+  {
+    "group_id": "T009",
+    "station_ids": [
+      "01-26",
+      "12-20"
+    ],
+    "center_x": 3001.5,
+    "center_y": 2434.99
+  },
+  {
+    "group_id": "T010",
+    "station_ids": [
+      "02-04",
       "AL-03"
+    ],
+    "center_x": 4557.32,
+    "center_y": 3445.36
+  },
+  {
+    "group_id": "T011",
+    "station_ids": [
+      "02-08",
+      "07-25",
+      "AL-08"
     ],
     "center_x": 5170.5,
     "center_y": 4919.4
   },
   {
-    "group_id": "T008",
-    "station_ids": [
-      "02-17",
-      "04-17",
-      "09-26"
-    ],
-    "center_x": 3911.92,
-    "center_y": 2999.37
-  },
-  {
-    "group_id": "T009",
-    "station_ids": [
-      "02-18",
-      "14-24"
-    ],
-    "center_x": 3772.16,
-    "center_y": 2788.7
-  },
-  {
-    "group_id": "T010",
-    "station_ids": [
-      "02-19",
-      "14-23"
-    ],
-    "center_x": 3707.39,
-    "center_y": 2789.05
-  },
-  {
-    "group_id": "T011",
-    "station_ids": [
-      "02-22",
-      "02-23",
-      "10-33",
-      "10-34"
-    ],
-    "center_x": 1168.44,
-    "center_y": 2832.63
-  },
-  {
     "group_id": "T012",
     "station_ids": [
-      "02-24",
-      "02-25",
-      "10-35",
-      "17-01",
-      "17-02"
+      "02-11",
+      "AL-07"
     ],
-    "center_x": 965.66,
-    "center_y": 2819.62
+    "center_x": 5057.64,
+    "center_y": 4291.09
   },
   {
     "group_id": "T013",
     "station_ids": [
-      "02-26",
-      "02-27",
-      "02-28",
-      "02-29",
-      "02-30",
-      "17-14",
-      "17-15",
-      "17-16",
-      "17-17",
-      "17-18"
+      "02-15",
+      "07-21",
+      "18-22",
+      "AL-01",
+      "AL-02"
     ],
-    "center_x": 796.61,
-    "center_y": 2813.58
+    "center_x": 4296.39,
+    "center_y": 3411.74
   },
   {
     "group_id": "T014",
     "station_ids": [
-      "02-31",
-      "17-12"
+      "02-17",
+      "04-13",
+      "09-27"
+    ],
+    "center_x": 3914.28,
+    "center_y": 3003.43
+  },
+  {
+    "group_id": "T015",
+    "station_ids": [
+      "02-18",
+      "02-19",
+      "14-21",
+      "14-22"
+    ],
+    "center_x": 3729.61,
+    "center_y": 2788.93
+  },
+  {
+    "group_id": "T016",
+    "station_ids": [
+      "02-20",
+      "10-26"
+    ],
+    "center_x": 3463.32,
+    "center_y": 2707.65
+  },
+  {
+    "group_id": "T017",
+    "station_ids": [
+      "02-21",
+      "13-20"
+    ],
+    "center_x": 3006.15,
+    "center_y": 2701.62
+  },
+  {
+    "group_id": "T018",
+    "station_ids": [
+      "02-22",
+      "03-22",
+      "04-05"
+    ],
+    "center_x": 2136.83,
+    "center_y": 2698.35
+  },
+  {
+    "group_id": "T019",
+    "station_ids": [
+      "02-23",
+      "15-25"
+    ],
+    "center_x": 1880.26,
+    "center_y": 2705.16
+  },
+  {
+    "group_id": "T020",
+    "station_ids": [
+      "02-24",
+      "10-35"
+    ],
+    "center_x": 1166.32,
+    "center_y": 2833.07
+  },
+  {
+    "group_id": "T021",
+    "station_ids": [
+      "02-25",
+      "17-01"
+    ],
+    "center_x": 964.72,
+    "center_y": 2812.0
+  },
+  {
+    "group_id": "T022",
+    "station_ids": [
+      "02-26",
+      "17-13"
+    ],
+    "center_x": 783.35,
+    "center_y": 2812.19
+  },
+  {
+    "group_id": "T023",
+    "station_ids": [
+      "02-27",
+      "17-11"
     ],
     "center_x": 682.46,
     "center_y": 2865.65
   },
   {
-    "group_id": "T015",
+    "group_id": "T024",
     "station_ids": [
       "03-16",
+      "12-27"
+    ],
+    "center_x": 2220.5,
+    "center_y": 3691.35
+  },
+  {
+    "group_id": "T025",
+    "station_ids": [
+      "03-19",
       "04-02",
       "09-29"
     ],
-    "center_x": 2141.54,
-    "center_y": 3221.76
+    "center_x": 2127.86,
+    "center_y": 3273.31
   },
   {
-    "group_id": "T016",
+    "group_id": "T026",
     "station_ids": [
-      "03-17",
+      "03-20",
       "04-03",
       "10-31"
     ],
-    "center_x": 2125.07,
-    "center_y": 3019.72
+    "center_x": 2130.4,
+    "center_y": 3034.55
   },
   {
-    "group_id": "T017",
+    "group_id": "T027",
     "station_ids": [
-      "03-18",
+      "03-21",
       "04-04"
     ],
     "center_x": 2139.75,
-    "center_y": 2843.04
+    "center_y": 2858.64
   },
   {
-    "group_id": "T018",
-    "station_ids": [
-      "03-19",
-      "04-05"
-    ],
-    "center_x": 2139.75,
-    "center_y": 2668.93
-  },
-  {
-    "group_id": "T019",
-    "station_ids": [
-      "03-20",
-      "04-06"
-    ],
-    "center_x": 2139.75,
-    "center_y": 2399.61
-  },
-  {
-    "group_id": "T020",
-    "station_ids": [
-      "03-21",
-      "04-07"
-    ],
-    "center_x": 2176.8,
-    "center_y": 2254.48
-  },
-  {
-    "group_id": "T021",
-    "station_ids": [
-      "03-22",
-      "04-10"
-    ],
-    "center_x": 2765.54,
-    "center_y": 2243.06
-  },
-  {
-    "group_id": "T022",
+    "group_id": "T028",
     "station_ids": [
       "03-23",
-      "04-11"
+      "04-06",
+      "13-22"
     ],
-    "center_x": 2835.29,
+    "center_x": 2136.83,
+    "center_y": 2429.67
+  },
+  {
+    "group_id": "T029",
+    "station_ids": [
+      "03-24",
+      "04-07"
+    ],
+    "center_x": 2168.68,
+    "center_y": 2260.3
+  },
+  {
+    "group_id": "T030",
+    "station_ids": [
+      "03-25",
+      "04-08"
+    ],
+    "center_x": 2742.87,
     "center_y": 2243.06
   },
   {
-    "group_id": "T023",
+    "group_id": "T031",
     "station_ids": [
-      "03-24",
-      "04-12"
+      "03-26",
+      "04-09"
     ],
     "center_x": 2923.8,
     "center_y": 2243.06
   },
   {
-    "group_id": "T024",
+    "group_id": "T032",
     "station_ids": [
-      "03-25",
-      "04-13"
-    ],
-    "center_x": 3301.56,
-    "center_y": 2235.8
-  },
-  {
-    "group_id": "T025",
-    "station_ids": [
-      "03-26",
-      "08-20"
+      "03-27",
+      "08-19"
     ],
     "center_x": 3377.15,
     "center_y": 1972.38
   },
   {
-    "group_id": "T026",
+    "group_id": "T033",
     "station_ids": [
       "03-28",
       "18-01"
     ],
-    "center_x": 3524.9,
-    "center_y": 1274.22
-  },
-  {
-    "group_id": "T027",
-    "station_ids": [
-      "04-08",
-      "11-33"
-    ],
-    "center_x": 2323.85,
-    "center_y": 2275.17
-  },
-  {
-    "group_id": "T028",
-    "station_ids": [
-      "04-09",
-      "07-32"
-    ],
-    "center_x": 2589.13,
-    "center_y": 2275.2
-  },
-  {
-    "group_id": "T029",
-    "station_ids": [
-      "04-14",
-      "10-26"
-    ],
-    "center_x": 3469.19,
-    "center_y": 2227.39
-  },
-  {
-    "group_id": "T030",
-    "station_ids": [
-      "04-15",
-      "12-20"
-    ],
-    "center_x": 3804.51,
-    "center_y": 2265.55
-  },
-  {
-    "group_id": "T031",
-    "station_ids": [
-      "04-16",
-      "14-25"
-    ],
-    "center_x": 3941.43,
-    "center_y": 2751.39
-  },
-  {
-    "group_id": "T032",
-    "station_ids": [
-      "04-26",
-      "06-18"
-    ],
-    "center_x": 3785.93,
-    "center_y": 3476.21
-  },
-  {
-    "group_id": "T033",
-    "station_ids": [
-      "04-27",
-      "08-25"
-    ],
-    "center_x": 3317.5,
-    "center_y": 3506.57
+    "center_x": 3528.19,
+    "center_y": 1271.01
   },
   {
     "group_id": "T034",
     "station_ids": [
-      "06-02",
-      "08-28",
-      "11-27"
+      "04-10",
+      "10-24"
     ],
-    "center_x": 3069.1,
-    "center_y": 4129.31
+    "center_x": 3464.8,
+    "center_y": 2234.56
   },
   {
     "group_id": "T035",
     "station_ids": [
-      "06-17",
-      "07-23"
+      "04-11",
+      "12-18"
     ],
-    "center_x": 3594.17,
-    "center_y": 3751.36
+    "center_x": 3790.36,
+    "center_y": 2272.64
   },
   {
     "group_id": "T036",
     "station_ids": [
-      "06-20",
-      "18-22"
+      "04-12",
+      "14-23"
     ],
-    "center_x": 4186.59,
-    "center_y": 2803.85
+    "center_x": 3941.36,
+    "center_y": 2759.2
   },
   {
     "group_id": "T037",
     "station_ids": [
-      "06-21",
-      "14-27"
+      "04-20",
+      "04-21",
+      "06-20",
+      "06-21"
     ],
-    "center_x": 4448.41,
-    "center_y": 2547.73
+    "center_x": 3749.74,
+    "center_y": 3479.06
   },
   {
     "group_id": "T038",
     "station_ids": [
-      "06-22",
-      "12-18"
+      "06-01",
+      "08-27",
+      "11-29"
     ],
-    "center_x": 4542.14,
-    "center_y": 2181.45
+    "center_x": 3033.5,
+    "center_y": 4142.74
   },
   {
     "group_id": "T039",
     "station_ids": [
-      "06-23",
-      "10-24"
+      "06-19",
+      "07-22"
     ],
-    "center_x": 4664.83,
-    "center_y": 1202.05
+    "center_x": 3594.17,
+    "center_y": 3759.16
   },
   {
     "group_id": "T040",
     "station_ids": [
-      "07-21",
-      "18-27"
+      "06-22",
+      "18-19"
     ],
-    "center_x": 4238.38,
-    "center_y": 3404.22
+    "center_x": 4182.69,
+    "center_y": 2815.61
   },
   {
     "group_id": "T041",
     "station_ids": [
-      "07-22",
-      "AL-01"
+      "06-24",
+      "10-20"
     ],
-    "center_x": 4558.66,
-    "center_y": 3968.78
+    "center_x": 4649.22,
+    "center_y": 1204.77
   },
   {
     "group_id": "T042",
     "station_ids": [
-      "07-24",
-      "AL-02"
+      "07-23",
+      "08-25"
     ],
-    "center_x": 4935.66,
-    "center_y": 4376.28
+    "center_x": 3317.5,
+    "center_y": 3756.7
   },
   {
     "group_id": "T043",
     "station_ids": [
-      "07-26",
-      "12-26"
+      "07-24",
+      "13-16"
     ],
-    "center_x": 2605.0,
-    "center_y": 3731.59
+    "center_x": 3099.89,
+    "center_y": 3758.19
   },
   {
     "group_id": "T044",
     "station_ids": [
-      "07-30",
-      "14-18"
+      "07-26",
+      "12-24"
     ],
-    "center_x": 2601.52,
-    "center_y": 2767.73
+    "center_x": 2600.38,
+    "center_y": 3728.79
   },
   {
     "group_id": "T045",
     "station_ids": [
-      "07-35",
-      "15-01"
+      "07-30",
+      "14-17"
     ],
-    "center_x": 1738.0,
-    "center_y": 953.68
+    "center_x": 2605.41,
+    "center_y": 2779.32
   },
   {
     "group_id": "T046",
     "station_ids": [
-      "08-17",
-      "18-19"
+      "07-34",
+      "15-01"
     ],
-    "center_x": 3946.46,
-    "center_y": 1984.82
+    "center_x": 1738.0,
+    "center_y": 961.49
   },
   {
     "group_id": "T047",
     "station_ids": [
-      "08-18",
-      "10-25"
+      "08-17",
+      "18-16"
     ],
-    "center_x": 3661.49,
-    "center_y": 1994.43
+    "center_x": 3944.11,
+    "center_y": 1994.41
   },
   {
     "group_id": "T048",
     "station_ids": [
-      "08-27",
-      "13-13"
+      "08-18",
+      "10-23"
     ],
-    "center_x": 3316.53,
-    "center_y": 3953.02
+    "center_x": 3647.48,
+    "center_y": 2001.44
   },
   {
     "group_id": "T049",
     "station_ids": [
-      "09-23",
-      "14-30"
+      "08-21",
+      "12-19"
     ],
-    "center_x": 4520.34,
-    "center_y": 2872.28
+    "center_x": 3231.5,
+    "center_y": 2438.53
   },
   {
     "group_id": "T050",
     "station_ids": [
-      "09-24",
-      "09-25",
-      "18-24",
-      "18-25"
+      "08-22",
+      "10-28"
     ],
-    "center_x": 4206.43,
-    "center_y": 3019.27
+    "center_x": 3321.65,
+    "center_y": 3041.7
   },
   {
     "group_id": "T051",
     "station_ids": [
-      "10-29",
-      "14-22"
+      "09-23",
+      "12-16"
     ],
-    "center_x": 3453.86,
-    "center_y": 2917.59
+    "center_x": 4865.68,
+    "center_y": 2491.07
   },
   {
     "group_id": "T052",
     "station_ids": [
-      "10-30",
-      "13-17"
+      "09-24",
+      "09-25",
+      "14-27",
+      "14-28"
     ],
-    "center_x": 3099.89,
-    "center_y": 3080.43
+    "center_x": 4490.82,
+    "center_y": 2867.14
   },
   {
     "group_id": "T053",
     "station_ids": [
-      "11-25",
-      "18-30"
+      "09-26",
+      "18-20"
     ],
-    "center_x": 4046.18,
-    "center_y": 4302.1
+    "center_x": 4197.71,
+    "center_y": 3010.55
   },
   {
     "group_id": "T054",
     "station_ids": [
-      "11-29",
-      "12-28"
+      "09-30",
+      "15-27"
     ],
-    "center_x": 2353.82,
-    "center_y": 3723.07
+    "center_x": 1768.48,
+    "center_y": 3431.14
   },
   {
     "group_id": "T055",
     "station_ids": [
-      "11-34",
-      "14-16"
+      "10-32",
+      "15-26"
     ],
-    "center_x": 2159.05,
-    "center_y": 2047.34
+    "center_x": 1904.07,
+    "center_y": 2865.29
   },
   {
     "group_id": "T056",
     "station_ids": [
-      "11-35",
-      "15-22"
+      "11-23",
+      "16-11"
     ],
-    "center_x": 2039.36,
-    "center_y": 1965.36
+    "center_x": 4349.49,
+    "center_y": 4281.74
   },
   {
     "group_id": "T057",
     "station_ids": [
-      "12-19",
-      "18-20"
+      "11-24",
+      "18-24"
     ],
-    "center_x": 3936.91,
-    "center_y": 2161.69
+    "center_x": 4041.66,
+    "center_y": 4302.3
   },
   {
     "group_id": "T058",
     "station_ids": [
-      "12-23",
-      "14-19"
+      "11-31",
+      "12-26"
     ],
-    "center_x": 2814.82,
-    "center_y": 2913.16
+    "center_x": 2354.82,
+    "center_y": 3723.61
   },
   {
     "group_id": "T059",
     "station_ids": [
-      "14-26",
-      "18-21"
+      "11-37",
+      "14-15"
     ],
-    "center_x": 4211.45,
-    "center_y": 2601.39
+    "center_x": 2152.37,
+    "center_y": 2045.11
   },
   {
     "group_id": "T060",
     "station_ids": [
-      "16-10",
-      "18-28"
+      "11-38",
+      "15-22"
     ],
-    "center_x": 4269.32,
-    "center_y": 3534.28
+    "center_x": 2037.7,
+    "center_y": 1962.05
+  },
+  {
+    "group_id": "T061",
+    "station_ids": [
+      "13-05",
+      "AL-04"
+    ],
+    "center_x": 4588.16,
+    "center_y": 3995.36
+  },
+  {
+    "group_id": "T062",
+    "station_ids": [
+      "13-06",
+      "AL-05"
+    ],
+    "center_x": 4734.17,
+    "center_y": 4065.68
+  },
+  {
+    "group_id": "T063",
+    "station_ids": [
+      "13-07",
+      "AL-06"
+    ],
+    "center_x": 4874.67,
+    "center_y": 4065.68
+  },
+  {
+    "group_id": "T064",
+    "station_ids": [
+      "13-21",
+      "14-16"
+    ],
+    "center_x": 2447.37,
+    "center_y": 2440.03
+  },
+  {
+    "group_id": "T065",
+    "station_ids": [
+      "13-23",
+      "15-24"
+    ],
+    "center_x": 1879.69,
+    "center_y": 2439.22
+  },
+  {
+    "group_id": "T066",
+    "station_ids": [
+      "14-24",
+      "18-18"
+    ],
+    "center_x": 4207.56,
+    "center_y": 2613.22
   }
 ]
