@@ -1073,13 +1073,19 @@ def assign_stations_geometric(
     for ci, cl in enumerate(transfer_clusters):
         cx, cy = cl["cx"], cl["cy"]
         tol = SMALL_BOX_TOL if cl.get("small") else TRANSFER_CLUSTER_TOL_PT
+        # For large (non-small) clusters: test all member shape centers so a line
+        # passing near one sub-shape isn't excluded just because the centroid is far.
+        # (e.g. 曹杨路: L14 passes near the upper 29×29 box at y=2187, but the
+        # dominant centroid is the 29×59 capsule at y=2237 which is 34.6pt from L14.)
+        test_pts = [(cx, cy)] if cl.get("small") else cl.get("shape_centers", [(cx, cy)])
         members = set()
         for line_id, polys in polylines_per_line.items():
             best_d = float("inf")
-            for poly in polys:
-                d, _ = project_to_polyline((cx, cy), poly)
-                if d < best_d:
-                    best_d = d
+            for sx, sy in test_pts:
+                for poly in polys:
+                    d, _ = project_to_polyline((sx, sy), poly)
+                    if d < best_d:
+                        best_d = d
             if best_d <= tol:
                 members.add(line_id)
         cluster_lines[ci] = members
@@ -1094,6 +1100,39 @@ def assign_stations_geometric(
     # decorative shapes). For lines WITH ticks, require ≥2 lines per cluster to
     # suppress false-positive decorative white shapes.
     tick_lines = set(ticks_per_line.keys())
+
+    # Special case: a small-box cluster located at the TERMINUS (first/last polyline
+    # point) of a non-tick line is that line's own station marker, not a shared
+    # transfer.  If a tick-enabled line also claims it only because the polyline
+    # passes within SMALL_BOX_TOL but has no tick there, remove that tick-line.
+    # (Fixes L2 falsely claiming the AL western-terminus marker at Hongqiao.)
+    _NON_TICK_TERMINUS_TOL = 15.0
+    _TICK_NEAR_TOL = 20.0
+    _line_endpoints: dict[str, list[tuple[float, float]]] = {
+        lid: [poly[0] for poly in polys if poly] + [poly[-1] for poly in polys if poly]
+        for lid, polys in polylines_per_line.items()
+    }
+    for ci, cl in enumerate(transfer_clusters):
+        if not cl.get("small"):
+            continue
+        cx, cy = cl["cx"], cl["cy"]
+        members = cluster_lines[ci]
+        at_non_tick_terminus = any(
+            lid not in tick_lines and any(
+                math.hypot(cx - ex, cy - ey) <= _NON_TICK_TERMINUS_TOL
+                for ex, ey in _line_endpoints.get(lid, [])
+            )
+            for lid in members
+        )
+        if not at_non_tick_terminus:
+            continue
+        to_remove = {
+            lid for lid in members
+            if lid in tick_lines
+            and not any(math.hypot(cx - tx, cy - ty) <= _TICK_NEAR_TOL
+                        for tx, ty in ticks_per_line[lid])
+        }
+        cluster_lines[ci] -= to_remove
 
     for ci, members in cluster_lines.items():
         cl = transfer_clusters[ci]
@@ -1438,7 +1477,9 @@ def extract_station_marker_clusters(page: fitz.Page) -> list[dict]:
             cy = sum(raw[m]["cy"] for m in members) / len(members)
         path_d = " ".join(raw[m]["path_d"] for m in members)
         small = all(raw[m]["small"] for m in members)
-        clusters.append({"cx": cx, "cy": cy, "path_d": path_d, "small": small})
+        shape_centers = [(raw[m]["cx"], raw[m]["cy"]) for m in members]
+        clusters.append({"cx": cx, "cy": cy, "path_d": path_d, "small": small,
+                         "shape_centers": shape_centers})
     return clusters
 
 
