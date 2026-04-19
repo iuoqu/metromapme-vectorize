@@ -1634,17 +1634,22 @@ def write_clean_svg(
     line_colors: dict[str, str],
     color_to_line: dict[tuple, str],
     out_path: Path,
+    include_stations: bool = True,
 ) -> None:
     """
     Write a minimal SVG containing ONLY the line shapes and station markers.
     No labels, legends, backgrounds, icons, or decorative text — suitable for
     flexible downstream display (colour swaps, highlighting, interactive routes).
 
-    Layers:
+    Layers (outermost → innermost in SVG document order; later = on top):
       <g id="lines">           — colored line strokes (one <g data-line="X"> per line)
       <g id="line-extensions"> — manual extensions for stations beyond the PDF route
-      <g id="transfers">       — transfer cluster shapes (white capsules with dark border)
-      <g id="stations">        — non-transfer station markers (small rounded rects)
+      <g id="transfers">       — transfer cluster shapes (hollow capsules)  [skipped if include_stations=False]
+      <g id="stations">        — non-transfer station markers (hollow rects) [skipped if include_stations=False]
+      <g id="ticks">           — tick marks + synthetic ticks for manual stations
+
+    Set include_stations=False to get a lines+ticks-only diagram (no
+    station/transfer markers) useful for route-shape-only displays.
     """
     rect = page.rect
     COLOR_TOL = 0.025
@@ -1780,51 +1785,52 @@ def write_clean_svg(
         prev_by_line[lid] = meta
     parts.append('</g>')
 
-    # ── Transfer station shapes (hollow: line passes through) ────────────
-    parts.append('<g id="transfers" fill="none">')
-    rendered_clusters: set[int] = set()
-    for sid, meta in stations.items():
-        if not meta.get("transfer_group"):
-            continue
-        cl = station_cluster.get(sid)
-        if cl is None:
-            continue
-        cl_key = id(cl)
-        if cl_key in rendered_clusters:
-            continue
-        rendered_clusters.add(cl_key)
-        parts.append(
-            f'<path data-tgroup="{meta["transfer_group"]}" '
-            f'd="{cl["path_d"]}" stroke="#333" stroke-width="6" />'
-        )
-    parts.append('</g>')
+    if include_stations:
+        # ── Transfer station shapes (hollow: line passes through) ────────────
+        parts.append('<g id="transfers" fill="none">')
+        rendered_clusters: set[int] = set()
+        for sid, meta in stations.items():
+            if not meta.get("transfer_group"):
+                continue
+            cl = station_cluster.get(sid)
+            if cl is None:
+                continue
+            cl_key = id(cl)
+            if cl_key in rendered_clusters:
+                continue
+            rendered_clusters.add(cl_key)
+            parts.append(
+                f'<path data-tgroup="{meta["transfer_group"]}" '
+                f'd="{cl["path_d"]}" stroke="#333" stroke-width="6" />'
+            )
+        parts.append('</g>')
 
-    # ── Regular (non-transfer) station markers (hollow) ──────────────────
-    parts.append('<g id="stations" fill="none">')
-    hw, hh = 16, 11
-    for sid, meta in stations.items():
-        if meta.get("transfer_group"):
-            continue
-        color = line_colors.get(meta["line"], "#000")
-        x, y = meta["x"], meta["y"]
-        parts.append(
-            f'<rect id="{sid}" data-line="{meta["line"]}" '
-            f'x="{x-hw:.1f}" y="{y-hh:.1f}" width="{hw*2}" height="{hh*2}" '
-            f'rx="11" ry="11" stroke="{color}" stroke-width="5" />'
-        )
-    # Fallback circles for transfer stations without a cluster shape
-    for sid, meta in stations.items():
-        if not meta.get("transfer_group"):
-            continue
-        if station_cluster.get(sid) is not None:
-            continue
-        color = line_colors.get(meta["line"], "#000")
-        parts.append(
-            f'<circle id="{sid}" data-line="{meta["line"]}" data-tgroup="{meta["transfer_group"]}" '
-            f'cx="{meta["x"]:.1f}" cy="{meta["y"]:.1f}" r="22" '
-            f'stroke="{color}" stroke-width="6" />'
-        )
-    parts.append('</g>')
+        # ── Regular (non-transfer) station markers (hollow) ──────────────────
+        parts.append('<g id="stations" fill="none">')
+        hw, hh = 16, 11
+        for sid, meta in stations.items():
+            if meta.get("transfer_group"):
+                continue
+            color = line_colors.get(meta["line"], "#000")
+            x, y = meta["x"], meta["y"]
+            parts.append(
+                f'<rect id="{sid}" data-line="{meta["line"]}" '
+                f'x="{x-hw:.1f}" y="{y-hh:.1f}" width="{hw*2}" height="{hh*2}" '
+                f'rx="11" ry="11" stroke="{color}" stroke-width="5" />'
+            )
+        # Fallback circles for transfer stations without a cluster shape
+        for sid, meta in stations.items():
+            if not meta.get("transfer_group"):
+                continue
+            if station_cluster.get(sid) is not None:
+                continue
+            color = line_colors.get(meta["line"], "#000")
+            parts.append(
+                f'<circle id="{sid}" data-line="{meta["line"]}" data-tgroup="{meta["transfer_group"]}" '
+                f'cx="{meta["x"]:.1f}" cy="{meta["y"]:.1f}" r="22" '
+                f'stroke="{color}" stroke-width="6" />'
+            )
+        parts.append('</g>')
 
     # ── Ticks (tiny perpendicular stroke at each non-transfer stop, on top) ──
     parts.append('<g id="ticks" fill="none" stroke-linecap="butt">')
@@ -2224,6 +2230,11 @@ def main() -> int:
     print("→ Writing clean SVG (lines + stations only)...")
     write_clean_svg(page, stations, line_colors_hex, color_to_line,
                     OUT_DIR / "shanghai-metro-clean.svg")
+
+    print("→ Writing lines-only SVG (no station/transfer markers)...")
+    write_clean_svg(page, stations, line_colors_hex, color_to_line,
+                    OUT_DIR / "shanghai-metro-lines.svg",
+                    include_stations=False)
 
     print()
     print(f"✓ Total stations: {len(stations)}")
