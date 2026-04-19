@@ -36,9 +36,7 @@
         "01-25",
         "01-26",
         "01-27",
-        "01-28",
-        "01-29",
-        "01-30"
+        "01-28"
       ],
       "branches": {},
       "color": "#e20229",
@@ -77,13 +75,7 @@
         "02-28",
         "02-29",
         "02-30",
-        "02-31",
-        "02-32",
-        "02-33",
-        "02-34",
-        "02-35",
-        "02-36",
-        "02-37"
+        "02-31"
       ],
       "branches": {},
       "color": "#8bc21f",
@@ -121,8 +113,7 @@
         "03-27",
         "03-28",
         "03-29",
-        "03-30",
-        "03-31"
+        "03-30"
       ],
       "branches": {},
       "color": "#fdd700",
@@ -155,8 +146,7 @@
         "04-22",
         "04-23",
         "04-24",
-        "04-25",
-        "04-26"
+        "04-25"
       ],
       "branches": {},
       "color": "#461d85",
@@ -260,12 +250,7 @@
         "07-30",
         "07-31",
         "07-32",
-        "07-33",
-        "07-34",
-        "07-35",
-        "07-36",
-        "07-37",
-        "07-38"
+        "07-33"
       ],
       "branches": {},
       "color": "#ec6e00",
@@ -303,8 +288,7 @@
         "08-27",
         "08-28",
         "08-29",
-        "08-30",
-        "08-31"
+        "08-30"
       ],
       "branches": {},
       "color": "#0095da",
@@ -346,9 +330,7 @@
         "09-31",
         "09-32",
         "09-33",
-        "09-34",
-        "09-35",
-        "09-36"
+        "09-34"
       ],
       "branches": {},
       "color": "#87c9ec",
@@ -393,9 +375,7 @@
         "10-34",
         "10-35",
         "10-36",
-        "10-37",
-        "10-38",
-        "10-39"
+        "10-37"
       ],
       "branches": {},
       "color": "#c6afd3",
@@ -441,9 +421,7 @@
         "11-35",
         "11-36",
         "11-37",
-        "11-38",
-        "11-39",
-        "11-40"
+        "11-38"
       ],
       "branches": {},
       "color": "#861a2a",
@@ -483,8 +461,7 @@
         "12-29",
         "12-30",
         "12-31",
-        "12-32",
-        "12-33"
+        "12-32"
       ],
       "branches": {},
       "color": "#00785f",
@@ -523,8 +500,7 @@
         "13-28",
         "13-29",
         "13-30",
-        "13-31",
-        "13-32"
+        "13-31"
       ],
       "branches": {},
       "color": "#e899c0",
@@ -599,9 +575,7 @@
         "15-26",
         "15-27",
         "15-28",
-        "15-29",
-        "15-30",
-        "15-31"
+        "15-29"
       ],
       "branches": {},
       "color": "#cab08d",
@@ -622,8 +596,7 @@
         "16-10",
         "16-11",
         "16-12",
-        "16-13",
-        "16-14"
+        "16-13"
       ],
       "branches": {},
       "color": "#98d1c0",
@@ -677,8 +650,7 @@
         "18-22",
         "18-23",
         "18-24",
-        "18-25",
-        "18-26"
+        "18-25"
       ],
       "branches": {},
       "color": "#c4984f",
@@ -688,10 +660,7 @@
       "id": "AL",
       "trunk": [
         "AL-01",
-        "AL-02",
-        "AL-03",
-        "AL-04",
-        "AL-05"
+        "AL-02"
       ],
       "branches": {},
       "color": "#0d7370",
@@ -859,117 +828,85 @@
     },
     "01-19": {
       "line": "1",
-      "x": 1812.83,
-      "y": 3965.1,
-      "name_en": "",
-      "name_zh": "锦江乐园",
-      "transfer_group": null
-    },
-    "01-20": {
-      "line": "1",
-      "x": 1881.67,
-      "y": 3896.42,
-      "name_en": "",
-      "name_zh": "上海南站",
-      "transfer_group": "T002"
-    },
-    "01-21": {
-      "line": "1",
       "x": 1915.52,
       "y": 3862.64,
       "name_en": "",
       "name_zh": "上海南站",
-      "transfer_group": "T003"
+      "transfer_group": "T002"
     },
-    "01-22": {
+    "01-20": {
       "line": "1",
       "x": 2062.59,
       "y": 3707.84,
       "name_en": "",
       "name_zh": "漕宝路",
-      "transfer_group": "T004"
+      "transfer_group": "T003"
     },
-    "01-23": {
+    "01-21": {
       "line": "1",
       "x": 2154.33,
       "y": 3410.52,
       "name_en": "",
       "name_zh": "上海体育馆",
-      "transfer_group": "T005"
+      "transfer_group": "T004"
     },
-    "01-24": {
+    "01-22": {
       "line": "1",
       "x": 2324.39,
       "y": 3241.11,
       "name_en": "",
       "name_zh": "徐家汇",
-      "transfer_group": "T006"
+      "transfer_group": "T005"
     },
-    "01-25": {
+    "01-23": {
       "line": "1",
       "x": 2587.49,
       "y": 2984.45,
       "name_en": "",
       "name_zh": "常熟路",
-      "transfer_group": "T007"
+      "transfer_group": "T006"
     },
-    "01-26": {
+    "01-24": {
       "line": "1",
       "x": 2808.95,
       "y": 2980.0,
       "name_en": "",
       "name_zh": "陕西南路",
-      "transfer_group": "T008"
+      "transfer_group": "T007"
     },
-    "01-27": {
+    "01-25": {
       "line": "1",
       "x": 3162.67,
       "y": 2897.35,
       "name_en": "",
       "name_zh": "淮海中路",
-      "transfer_group": "T009"
+      "transfer_group": "T008"
     },
-    "01-28": {
+    "01-26": {
       "line": "1",
       "x": 3211.5,
       "y": 2726.88,
       "name_en": "",
       "name_zh": "人民广场",
-      "transfer_group": "T010"
+      "transfer_group": "T009"
     },
-    "01-29": {
+    "01-27": {
       "line": "1",
       "x": 3006.28,
       "y": 2452.35,
       "name_en": "",
       "name_zh": "汉中路",
-      "transfer_group": "T011"
+      "transfer_group": "T010"
     },
-    "01-30": {
+    "01-28": {
       "line": "1",
       "x": 3001.5,
       "y": 2260.93,
       "name_en": "",
       "name_zh": "上海火车站",
-      "transfer_group": "T012"
+      "transfer_group": "T011"
     },
     "02-01": {
-      "line": "2",
-      "x": 5197.5,
-      "y": 4915.5,
-      "name_en": "",
-      "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T013"
-    },
-    "02-02": {
-      "line": "2",
-      "x": 5197.5,
-      "y": 4915.5,
-      "name_en": "",
-      "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T014"
-    },
-    "02-03": {
       "line": "2",
       "x": 5188.38,
       "y": 3498.74,
@@ -977,7 +914,7 @@
       "name_zh": "华夏东路",
       "transfer_group": null
     },
-    "02-04": {
+    "02-02": {
       "line": "2",
       "x": 5188.38,
       "y": 3695.0,
@@ -985,7 +922,7 @@
       "name_zh": "川沙",
       "transfer_group": null
     },
-    "02-05": {
+    "02-03": {
       "line": "2",
       "x": 5188.38,
       "y": 3892.0,
@@ -993,7 +930,7 @@
       "name_zh": "凌空路",
       "transfer_group": null
     },
-    "02-06": {
+    "02-04": {
       "line": "2",
       "x": 5188.38,
       "y": 4087.0,
@@ -1001,7 +938,7 @@
       "name_zh": "远东大道",
       "transfer_group": null
     },
-    "02-07": {
+    "02-05": {
       "line": "2",
       "x": 5188.38,
       "y": 4283.0,
@@ -1009,7 +946,7 @@
       "name_zh": "海天三路",
       "transfer_group": null
     },
-    "02-08": {
+    "02-06": {
       "line": "2",
       "x": 4033.8,
       "y": 3111.7,
@@ -1017,7 +954,7 @@
       "name_zh": "上海科技馆",
       "transfer_group": null
     },
-    "02-09": {
+    "02-07": {
       "line": "2",
       "x": 4102.73,
       "y": 3210.86,
@@ -1025,7 +962,7 @@
       "name_zh": "世纪公园",
       "transfer_group": null
     },
-    "02-10": {
+    "02-08": {
       "line": "2",
       "x": 4417.28,
       "y": 3385.49,
@@ -1033,7 +970,7 @@
       "name_zh": "张江高科",
       "transfer_group": null
     },
-    "02-11": {
+    "02-09": {
       "line": "2",
       "x": 4589.0,
       "y": 3385.49,
@@ -1041,7 +978,7 @@
       "name_zh": "金科路",
       "transfer_group": null
     },
-    "02-12": {
+    "02-10": {
       "line": "2",
       "x": 4932.98,
       "y": 3385.49,
@@ -1049,7 +986,7 @@
       "name_zh": "唐镇",
       "transfer_group": null
     },
-    "02-13": {
+    "02-11": {
       "line": "2",
       "x": 5104.53,
       "y": 3385.49,
@@ -1057,7 +994,7 @@
       "name_zh": "创新中路",
       "transfer_group": null
     },
-    "02-14": {
+    "02-12": {
       "line": "2",
       "x": 4760.51,
       "y": 3385.49,
@@ -1065,7 +1002,7 @@
       "name_zh": "广兰路",
       "transfer_group": null
     },
-    "02-15": {
+    "02-13": {
       "line": "2",
       "x": 708.81,
       "y": 2893.7,
@@ -1073,7 +1010,7 @@
       "name_zh": "蟠龙路",
       "transfer_group": null
     },
-    "02-16": {
+    "02-14": {
       "line": "2",
       "x": 1290.99,
       "y": 2714.92,
@@ -1081,7 +1018,7 @@
       "name_zh": "淞虹路",
       "transfer_group": null
     },
-    "02-17": {
+    "02-15": {
       "line": "2",
       "x": 1494.99,
       "y": 2714.92,
@@ -1089,7 +1026,7 @@
       "name_zh": "北新泾",
       "transfer_group": null
     },
-    "02-18": {
+    "02-16": {
       "line": "2",
       "x": 1698.5,
       "y": 2714.92,
@@ -1097,157 +1034,125 @@
       "name_zh": "威宁路",
       "transfer_group": null
     },
-    "02-19": {
-      "line": "2",
-      "x": 4470.85,
-      "y": 3396.0,
-      "name_en": "",
-      "name_zh": "张江高科",
-      "transfer_group": "T015"
-    },
-    "02-20": {
-      "line": "2",
-      "x": 4318.93,
-      "y": 3393.77,
-      "name_en": "",
-      "name_zh": "张江高科",
-      "transfer_group": "T016"
-    },
-    "02-21": {
+    "02-17": {
       "line": "2",
       "x": 4271.48,
       "y": 3360.0,
       "name_en": "",
       "name_zh": "龙阳路",
-      "transfer_group": "T017"
+      "transfer_group": "T012"
     },
-    "02-22": {
+    "02-18": {
       "line": "2",
       "x": 3939.56,
       "y": 3031.53,
       "name_en": "",
       "name_zh": "世纪大道",
-      "transfer_group": "T018"
+      "transfer_group": "T013"
     },
-    "02-23": {
+    "02-19": {
       "line": "2",
       "x": 3789.54,
       "y": 2799.98,
       "name_en": "",
       "name_zh": "浦东南路",
-      "transfer_group": "T019"
+      "transfer_group": "T014"
     },
-    "02-24": {
+    "02-20": {
       "line": "2",
       "x": 3686.19,
       "y": 2781.21,
       "name_en": "",
       "name_zh": "陆家嘴",
-      "transfer_group": "T020"
+      "transfer_group": "T015"
     },
-    "02-25": {
+    "02-21": {
       "line": "2",
       "x": 3463.41,
       "y": 2726.78,
       "name_en": "",
       "name_zh": "南京东路",
-      "transfer_group": "T021"
+      "transfer_group": "T016"
     },
-    "02-26": {
+    "02-22": {
       "line": "2",
       "x": 3224.03,
       "y": 2726.64,
       "name_en": "",
       "name_zh": "人民广场",
-      "transfer_group": "T010"
+      "transfer_group": "T009"
     },
-    "02-27": {
+    "02-23": {
       "line": "2",
       "x": 3003.24,
       "y": 2726.51,
       "name_en": "",
       "name_zh": "自然博物馆",
-      "transfer_group": "T022"
+      "transfer_group": "T017"
     },
-    "02-28": {
-      "line": "2",
-      "x": 2959.74,
-      "y": 2726.49,
-      "name_en": "",
-      "name_zh": "自然博物馆",
-      "transfer_group": "T023"
-    },
-    "02-29": {
+    "02-24": {
       "line": "2",
       "x": 2917.22,
       "y": 2726.46,
       "name_en": "",
       "name_zh": "南京西路",
-      "transfer_group": "T024"
+      "transfer_group": "T018"
     },
-    "02-30": {
+    "02-25": {
       "line": "2",
       "x": 2585.41,
       "y": 2726.27,
       "name_en": "",
       "name_zh": "静安寺",
-      "transfer_group": "T025"
+      "transfer_group": "T019"
     },
-    "02-31": {
+    "02-26": {
       "line": "2",
       "x": 2323.72,
       "y": 2726.12,
       "name_en": "",
       "name_zh": "江苏路",
-      "transfer_group": "T026"
+      "transfer_group": "T020"
     },
-    "02-32": {
+    "02-27": {
       "line": "2",
       "x": 2135.81,
       "y": 2726.01,
       "name_en": "",
       "name_zh": "中山公园",
-      "transfer_group": "T027"
+      "transfer_group": "T021"
     },
-    "02-33": {
+    "02-28": {
       "line": "2",
       "x": 1880.57,
       "y": 2725.86,
       "name_en": "",
       "name_zh": "娄山关路",
-      "transfer_group": "T028"
+      "transfer_group": "T022"
     },
-    "02-34": {
+    "02-29": {
       "line": "2",
       "x": 1141.35,
       "y": 2821.58,
       "name_en": "",
       "name_zh": "虹桥2号 航站楼",
-      "transfer_group": "T029"
+      "transfer_group": "T023"
     },
-    "02-35": {
-      "line": "2",
-      "x": 1064.17,
-      "y": 2823.0,
-      "name_en": "",
-      "name_zh": "虹桥火车站",
-      "transfer_group": "T030"
-    },
-    "02-36": {
+    "02-30": {
       "line": "2",
       "x": 977.16,
       "y": 2823.0,
       "name_en": "",
       "name_zh": "虹桥火车站",
-      "transfer_group": "T031"
+      "transfer_group": "T024"
     },
-    "02-37": {
+    "02-31": {
       "line": "2",
       "x": 841.92,
       "y": 2823.0,
       "name_en": "",
       "name_zh": "国家会展中心",
-      "transfer_group": "T032"
+      "transfer_group": "T025"
     },
     "03-01": {
       "line": "3",
@@ -1255,7 +1160,7 @@
       "y": 3862.0,
       "name_en": "",
       "name_zh": "上海南站",
-      "transfer_group": "T003"
+      "transfer_group": "T002"
     },
     "03-02": {
       "line": "3",
@@ -1383,7 +1288,7 @@
       "y": 3708.38,
       "name_en": "",
       "name_zh": "龙漕路",
-      "transfer_group": "T033"
+      "transfer_group": "T026"
     },
     "03-18": {
       "line": "3",
@@ -1391,7 +1296,7 @@
       "y": 3414.71,
       "name_en": "",
       "name_zh": "上海体育馆",
-      "transfer_group": "T005"
+      "transfer_group": "T004"
     },
     "03-19": {
       "line": "3",
@@ -1399,7 +1304,7 @@
       "y": 3242.54,
       "name_en": "",
       "name_zh": "宜山路",
-      "transfer_group": "T034"
+      "transfer_group": "T027"
     },
     "03-20": {
       "line": "3",
@@ -1407,7 +1312,7 @@
       "y": 3067.11,
       "name_en": "",
       "name_zh": "虹桥路",
-      "transfer_group": "T035"
+      "transfer_group": "T028"
     },
     "03-21": {
       "line": "3",
@@ -1415,7 +1320,7 @@
       "y": 2897.81,
       "name_en": "",
       "name_zh": "延安西路",
-      "transfer_group": "T036"
+      "transfer_group": "T029"
     },
     "03-22": {
       "line": "3",
@@ -1423,7 +1328,7 @@
       "y": 2726.52,
       "name_en": "",
       "name_zh": "中山公园",
-      "transfer_group": "T027"
+      "transfer_group": "T021"
     },
     "03-23": {
       "line": "3",
@@ -1431,7 +1336,7 @@
       "y": 2459.18,
       "name_en": "",
       "name_zh": "金沙江路",
-      "transfer_group": "T037"
+      "transfer_group": "T030"
     },
     "03-24": {
       "line": "3",
@@ -1439,7 +1344,7 @@
       "y": 2234.0,
       "name_en": "",
       "name_zh": "曹杨路",
-      "transfer_group": "T038"
+      "transfer_group": "T031"
     },
     "03-25": {
       "line": "3",
@@ -1447,7 +1352,7 @@
       "y": 2234.0,
       "name_en": "",
       "name_zh": "镇坪路",
-      "transfer_group": "T039"
+      "transfer_group": "T032"
     },
     "03-26": {
       "line": "3",
@@ -1455,7 +1360,7 @@
       "y": 2234.0,
       "name_en": "",
       "name_zh": "中潭路",
-      "transfer_group": "T040"
+      "transfer_group": "T033"
     },
     "03-27": {
       "line": "3",
@@ -1463,39 +1368,31 @@
       "y": 2234.0,
       "name_en": "",
       "name_zh": "上海火车站",
-      "transfer_group": "T012"
+      "transfer_group": "T011"
     },
     "03-28": {
-      "line": "3",
-      "x": 3070.02,
-      "y": 2234.0,
-      "name_en": "",
-      "name_zh": "中兴路",
-      "transfer_group": null
-    },
-    "03-29": {
       "line": "3",
       "x": 3281.49,
       "y": 2224.78,
       "name_en": "",
       "name_zh": "宝山路",
-      "transfer_group": "T041"
+      "transfer_group": "T034"
     },
-    "03-30": {
+    "03-29": {
       "line": "3",
       "x": 3372.5,
       "y": 1990.0,
       "name_en": "",
       "name_zh": "虹口足球场",
-      "transfer_group": "T042"
+      "transfer_group": "T035"
     },
-    "03-31": {
+    "03-30": {
       "line": "3",
       "x": 3517.0,
       "y": 1279.68,
       "name_en": "",
       "name_zh": "长江南路",
-      "transfer_group": "T043"
+      "transfer_group": "T036"
     },
     "04-01": {
       "line": "4",
@@ -1503,7 +1400,7 @@
       "y": 3242.54,
       "name_en": "",
       "name_zh": "宜山路",
-      "transfer_group": "T034"
+      "transfer_group": "T027"
     },
     "04-02": {
       "line": "4",
@@ -1511,7 +1408,7 @@
       "y": 3067.11,
       "name_en": "",
       "name_zh": "虹桥路",
-      "transfer_group": "T035"
+      "transfer_group": "T028"
     },
     "04-03": {
       "line": "4",
@@ -1519,7 +1416,7 @@
       "y": 2897.81,
       "name_en": "",
       "name_zh": "延安西路",
-      "transfer_group": "T036"
+      "transfer_group": "T029"
     },
     "04-04": {
       "line": "4",
@@ -1527,7 +1424,7 @@
       "y": 2726.52,
       "name_en": "",
       "name_zh": "中山公园",
-      "transfer_group": "T027"
+      "transfer_group": "T021"
     },
     "04-05": {
       "line": "4",
@@ -1535,81 +1432,73 @@
       "y": 2459.18,
       "name_en": "",
       "name_zh": "金沙江路",
-      "transfer_group": "T037"
+      "transfer_group": "T030"
     },
     "04-06": {
-      "line": "4",
-      "x": 2328.07,
-      "y": 2252.12,
-      "name_en": "",
-      "name_zh": "曹杨路",
-      "transfer_group": "T038"
-    },
-    "04-07": {
       "line": "4",
       "x": 2585.48,
       "y": 2252.12,
       "name_en": "",
       "name_zh": "镇坪路",
-      "transfer_group": "T039"
+      "transfer_group": "T032"
     },
-    "04-08": {
+    "04-07": {
       "line": "4",
       "x": 2775.48,
       "y": 2252.12,
       "name_en": "",
       "name_zh": "中潭路",
-      "transfer_group": "T040"
+      "transfer_group": "T033"
     },
-    "04-09": {
+    "04-08": {
       "line": "4",
       "x": 3002.84,
       "y": 2252.12,
       "name_en": "",
       "name_zh": "上海火车站",
-      "transfer_group": "T012"
+      "transfer_group": "T011"
     },
-    "04-10": {
+    "04-09": {
       "line": "4",
       "x": 3287.76,
       "y": 2252.12,
       "name_en": "",
       "name_zh": "宝山路",
-      "transfer_group": "T041"
+      "transfer_group": "T034"
     },
-    "04-11": {
+    "04-10": {
       "line": "4",
       "x": 3463.33,
       "y": 2252.12,
       "name_en": "",
       "name_zh": "海伦路",
-      "transfer_group": "T044"
+      "transfer_group": "T037"
     },
-    "04-12": {
+    "04-11": {
       "line": "4",
       "x": 3846.09,
       "y": 2252.12,
       "name_en": "",
       "name_zh": "大连路",
-      "transfer_group": "T045"
+      "transfer_group": "T038"
     },
-    "04-13": {
+    "04-12": {
       "line": "4",
       "x": 3941.2,
       "y": 2779.27,
       "name_en": "",
       "name_zh": "浦东大道",
-      "transfer_group": "T046"
+      "transfer_group": "T039"
     },
-    "04-14": {
+    "04-13": {
       "line": "4",
       "x": 3941.2,
       "y": 3029.88,
       "name_en": "",
       "name_zh": "世纪大道",
-      "transfer_group": "T018"
+      "transfer_group": "T013"
     },
-    "04-15": {
+    "04-14": {
       "line": "4",
       "x": 3655.0,
       "y": 2262.81,
@@ -1617,7 +1506,7 @@
       "name_zh": "临平路",
       "transfer_group": null
     },
-    "04-16": {
+    "04-15": {
       "line": "4",
       "x": 2461.33,
       "y": 3471.17,
@@ -1625,7 +1514,7 @@
       "name_zh": "上海体育场",
       "transfer_group": null
     },
-    "04-17": {
+    "04-16": {
       "line": "4",
       "x": 2965.0,
       "y": 3470.75,
@@ -1633,7 +1522,7 @@
       "name_zh": "鲁班路",
       "transfer_group": null
     },
-    "04-18": {
+    "04-17": {
       "line": "4",
       "x": 3421.5,
       "y": 3470.25,
@@ -1641,7 +1530,7 @@
       "name_zh": "南浦大桥",
       "transfer_group": null
     },
-    "04-19": {
+    "04-18": {
       "line": "4",
       "x": 3954.35,
       "y": 3297.0,
@@ -1649,7 +1538,7 @@
       "name_zh": "向城路",
       "transfer_group": null
     },
-    "04-20": {
+    "04-19": {
       "line": "4",
       "x": 3639.5,
       "y": 3468.75,
@@ -1657,7 +1546,7 @@
       "name_zh": "塘桥",
       "transfer_group": null
     },
-    "04-21": {
+    "04-20": {
       "line": "4",
       "x": 3955.35,
       "y": 2491.5,
@@ -1665,45 +1554,45 @@
       "name_zh": "杨树浦路",
       "transfer_group": null
     },
-    "04-22": {
+    "04-21": {
       "line": "4",
       "x": 3764.2,
       "y": 3482.0,
       "name_en": "",
       "name_zh": "蓝村路",
-      "transfer_group": "T047"
+      "transfer_group": "T040"
     },
-    "04-23": {
+    "04-22": {
       "line": "4",
       "x": 3318.5,
       "y": 3482.0,
       "name_en": "",
       "name_zh": "西藏南路",
-      "transfer_group": "T048"
+      "transfer_group": "T041"
     },
-    "04-24": {
+    "04-23": {
       "line": "4",
       "x": 2809.0,
       "y": 3482.0,
       "name_en": "",
       "name_zh": "大木桥路",
-      "transfer_group": "T049"
+      "transfer_group": "T042"
     },
-    "04-25": {
+    "04-24": {
       "line": "4",
       "x": 2585.5,
       "y": 3482.0,
       "name_en": "",
       "name_zh": "东安路",
-      "transfer_group": "T050"
+      "transfer_group": "T043"
     },
-    "04-26": {
+    "04-25": {
       "line": "4",
       "x": 2148.67,
       "y": 3415.7,
       "name_en": "",
       "name_zh": "上海体育馆",
-      "transfer_group": "T005"
+      "transfer_group": "T004"
     },
     "05-01": {
       "line": "5",
@@ -1863,7 +1752,7 @@
       "y": 4134.0,
       "name_en": "",
       "name_zh": "东方体育中心",
-      "transfer_group": "T051"
+      "transfer_group": "T044"
     },
     "06-02": {
       "line": "6",
@@ -2023,7 +1912,7 @@
       "y": 3927.88,
       "name_en": "",
       "name_zh": "东明路",
-      "transfer_group": "T052"
+      "transfer_group": "T045"
     },
     "06-22": {
       "line": "6",
@@ -2031,7 +1920,7 @@
       "y": 3781.88,
       "name_en": "",
       "name_zh": "高科西路",
-      "transfer_group": "T053"
+      "transfer_group": "T046"
     },
     "06-23": {
       "line": "6",
@@ -2039,7 +1928,7 @@
       "y": 3480.09,
       "name_en": "",
       "name_zh": "蓝村路",
-      "transfer_group": "T047"
+      "transfer_group": "T040"
     },
     "06-24": {
       "line": "6",
@@ -2047,7 +1936,7 @@
       "y": 3030.51,
       "name_en": "",
       "name_zh": "世纪大道",
-      "transfer_group": "T018"
+      "transfer_group": "T013"
     },
     "06-25": {
       "line": "6",
@@ -2055,7 +1944,7 @@
       "y": 2772.17,
       "name_en": "",
       "name_zh": "民生路",
-      "transfer_group": "T054"
+      "transfer_group": "T047"
     },
     "06-26": {
       "line": "6",
@@ -2063,7 +1952,7 @@
       "y": 2527.33,
       "name_en": "",
       "name_zh": "云山路",
-      "transfer_group": "T055"
+      "transfer_group": "T048"
     },
     "06-27": {
       "line": "6",
@@ -2071,7 +1960,7 @@
       "y": 2154.17,
       "name_en": "",
       "name_zh": "巨峰路",
-      "transfer_group": "T056"
+      "transfer_group": "T049"
     },
     "06-28": {
       "line": "6",
@@ -2079,17 +1968,9 @@
       "y": 1204.77,
       "name_en": "",
       "name_zh": "港城路",
-      "transfer_group": "T057"
+      "transfer_group": "T050"
     },
     "07-01": {
-      "line": "7",
-      "x": 4310.17,
-      "y": 3433.67,
-      "name_en": "",
-      "name_zh": "张江高科",
-      "transfer_group": "T016"
-    },
-    "07-02": {
       "line": "7",
       "x": 2962.17,
       "y": 3786.17,
@@ -2097,7 +1978,7 @@
       "name_zh": "后滩",
       "transfer_group": null
     },
-    "07-03": {
+    "07-02": {
       "line": "7",
       "x": 3443.0,
       "y": 3786.42,
@@ -2105,7 +1986,7 @@
       "name_zh": "云台路",
       "transfer_group": null
     },
-    "07-04": {
+    "07-03": {
       "line": "7",
       "x": 2599.81,
       "y": 2627.5,
@@ -2113,7 +1994,7 @@
       "name_zh": "昌平路",
       "transfer_group": null
     },
-    "07-05": {
+    "07-04": {
       "line": "7",
       "x": 4128.45,
       "y": 3507.95,
@@ -2121,7 +2002,7 @@
       "name_zh": "芳华路",
       "transfer_group": null
     },
-    "07-06": {
+    "07-05": {
       "line": "7",
       "x": 2575.38,
       "y": 1786.75,
@@ -2129,7 +2010,7 @@
       "name_zh": "行知路",
       "transfer_group": null
     },
-    "07-07": {
+    "07-06": {
       "line": "7",
       "x": 2575.38,
       "y": 1670.25,
@@ -2137,7 +2018,7 @@
       "name_zh": "大场镇",
       "transfer_group": null
     },
-    "07-08": {
+    "07-07": {
       "line": "7",
       "x": 2575.38,
       "y": 1554.5,
@@ -2145,7 +2026,7 @@
       "name_zh": "场中路",
       "transfer_group": null
     },
-    "07-09": {
+    "07-08": {
       "line": "7",
       "x": 4039.62,
       "y": 3597.62,
@@ -2153,7 +2034,7 @@
       "name_zh": "锦绣路",
       "transfer_group": null
     },
-    "07-10": {
+    "07-09": {
       "line": "7",
       "x": 3951.25,
       "y": 3685.92,
@@ -2161,7 +2042,7 @@
       "name_zh": "杨高南路",
       "transfer_group": null
     },
-    "07-11": {
+    "07-10": {
       "line": "7",
       "x": 2575.94,
       "y": 2137.75,
@@ -2169,7 +2050,7 @@
       "name_zh": "岚皋路",
       "transfer_group": null
     },
-    "07-12": {
+    "07-11": {
       "line": "7",
       "x": 2575.94,
       "y": 2020.5,
@@ -2177,7 +2058,7 @@
       "name_zh": "新村路",
       "transfer_group": null
     },
-    "07-13": {
+    "07-12": {
       "line": "7",
       "x": 2575.94,
       "y": 1904.5,
@@ -2185,7 +2066,7 @@
       "name_zh": "大华三路",
       "transfer_group": null
     },
-    "07-14": {
+    "07-13": {
       "line": "7",
       "x": 2312.75,
       "y": 1305.13,
@@ -2193,7 +2074,7 @@
       "name_zh": "南陈路",
       "transfer_group": null
     },
-    "07-15": {
+    "07-14": {
       "line": "7",
       "x": 2116.25,
       "y": 1305.13,
@@ -2201,7 +2082,7 @@
       "name_zh": "上海大学",
       "transfer_group": null
     },
-    "07-16": {
+    "07-15": {
       "line": "7",
       "x": 1724.62,
       "y": 406.25,
@@ -2209,7 +2090,7 @@
       "name_zh": "罗南新村",
       "transfer_group": null
     },
-    "07-17": {
+    "07-16": {
       "line": "7",
       "x": 4415.41,
       "y": 3185.42,
@@ -2217,7 +2098,7 @@
       "name_zh": "花木路",
       "transfer_group": null
     },
-    "07-18": {
+    "07-17": {
       "line": "7",
       "x": 1724.38,
       "y": 1140.75,
@@ -2225,7 +2106,7 @@
       "name_zh": "祁华路",
       "transfer_group": null
     },
-    "07-19": {
+    "07-18": {
       "line": "7",
       "x": 1724.25,
       "y": 775.25,
@@ -2233,7 +2114,7 @@
       "name_zh": "刘行",
       "transfer_group": null
     },
-    "07-20": {
+    "07-19": {
       "line": "7",
       "x": 1724.12,
       "y": 590.75,
@@ -2241,7 +2122,7 @@
       "name_zh": "潘广路",
       "transfer_group": null
     },
-    "07-21": {
+    "07-20": {
       "line": "7",
       "x": 1724.12,
       "y": 223.25,
@@ -2249,7 +2130,7 @@
       "name_zh": "美兰湖",
       "transfer_group": null
     },
-    "07-22": {
+    "07-21": {
       "line": "7",
       "x": 2493.18,
       "y": 1402.57,
@@ -2257,133 +2138,101 @@
       "name_zh": "上大路",
       "transfer_group": null
     },
-    "07-23": {
-      "line": "7",
-      "x": 4473.29,
-      "y": 3518.42,
-      "name_en": "",
-      "name_zh": "张江高科",
-      "transfer_group": "T015"
-    },
-    "07-24": {
+    "07-22": {
       "line": "7",
       "x": 4260.37,
       "y": 3359.17,
       "name_en": "",
       "name_zh": "龙阳路",
-      "transfer_group": "T017"
+      "transfer_group": "T012"
     },
-    "07-25": {
+    "07-23": {
       "line": "7",
       "x": 3595.39,
       "y": 3776.0,
       "name_en": "",
       "name_zh": "高科西路",
-      "transfer_group": "T053"
+      "transfer_group": "T046"
     },
-    "07-26": {
+    "07-24": {
       "line": "7",
       "x": 3318.5,
       "y": 3776.0,
       "name_en": "",
       "name_zh": "耀华路",
-      "transfer_group": "T058"
+      "transfer_group": "T051"
     },
-    "07-27": {
+    "07-25": {
       "line": "7",
       "x": 3099.71,
       "y": 3776.0,
       "name_en": "",
       "name_zh": "长清路",
-      "transfer_group": "T059"
+      "transfer_group": "T052"
     },
-    "07-28": {
-      "line": "7",
-      "x": 5155.17,
-      "y": 4882.72,
-      "name_en": "",
-      "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T060"
-    },
-    "07-29": {
-      "line": "7",
-      "x": 5155.17,
-      "y": 4920.59,
-      "name_en": "",
-      "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T013"
-    },
-    "07-30": {
-      "line": "7",
-      "x": 5155.17,
-      "y": 4920.59,
-      "name_en": "",
-      "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T014"
-    },
-    "07-31": {
+    "07-26": {
       "line": "7",
       "x": 2589.13,
       "y": 3707.75,
       "name_en": "",
       "name_zh": "龙华中路",
-      "transfer_group": "T061"
+      "transfer_group": "T053"
     },
-    "07-32": {
+    "07-27": {
       "line": "7",
       "x": 2589.13,
       "y": 3481.71,
       "name_en": "",
       "name_zh": "东安路",
-      "transfer_group": "T050"
+      "transfer_group": "T043"
     },
-    "07-33": {
+    "07-28": {
       "line": "7",
       "x": 2589.13,
       "y": 3242.54,
       "name_en": "",
       "name_zh": "肇家浜路",
-      "transfer_group": "T062"
+      "transfer_group": "T054"
     },
-    "07-34": {
+    "07-29": {
       "line": "7",
       "x": 2589.13,
       "y": 2980.04,
       "name_en": "",
       "name_zh": "常熟路",
-      "transfer_group": "T007"
+      "transfer_group": "T006"
     },
-    "07-35": {
+    "07-30": {
       "line": "7",
       "x": 2589.13,
       "y": 2726.52,
       "name_en": "",
       "name_zh": "静安寺",
-      "transfer_group": "T025"
+      "transfer_group": "T019"
     },
-    "07-36": {
+    "07-31": {
       "line": "7",
       "x": 2589.13,
       "y": 2458.18,
       "name_en": "",
       "name_zh": "长寿路",
-      "transfer_group": "T063"
+      "transfer_group": "T055"
     },
-    "07-37": {
+    "07-32": {
       "line": "7",
       "x": 2589.13,
       "y": 2236.69,
       "name_en": "",
       "name_zh": "镇坪路",
-      "transfer_group": "T039"
+      "transfer_group": "T032"
     },
-    "07-38": {
+    "07-33": {
       "line": "7",
       "x": 1738.0,
       "y": 958.0,
       "name_en": "",
       "name_zh": "顾村公园",
-      "transfer_group": "T064"
+      "transfer_group": "T056"
     },
     "08-01": {
       "line": "8",
@@ -2527,7 +2376,7 @@
       "y": 1959.36,
       "name_en": "",
       "name_zh": "江浦路",
-      "transfer_group": "T065"
+      "transfer_group": "T057"
     },
     "08-19": {
       "line": "8",
@@ -2535,7 +2384,7 @@
       "y": 1986.67,
       "name_en": "",
       "name_zh": "四平路",
-      "transfer_group": "T066"
+      "transfer_group": "T058"
     },
     "08-20": {
       "line": "8",
@@ -2543,95 +2392,87 @@
       "y": 1992.24,
       "name_en": "",
       "name_zh": "虹口足球场",
-      "transfer_group": "T042"
+      "transfer_group": "T035"
     },
     "08-21": {
-      "line": "8",
-      "x": 3231.5,
-      "y": 2236.69,
-      "name_en": "",
-      "name_zh": "宝山路",
-      "transfer_group": "T041"
-    },
-    "08-22": {
       "line": "8",
       "x": 3231.5,
       "y": 2458.18,
       "name_en": "",
       "name_zh": "曲阜路",
-      "transfer_group": "T067"
+      "transfer_group": "T059"
     },
-    "08-23": {
+    "08-22": {
       "line": "8",
       "x": 3234.03,
       "y": 2724.0,
       "name_en": "",
       "name_zh": "人民广场",
-      "transfer_group": "T010"
+      "transfer_group": "T009"
     },
-    "08-24": {
+    "08-23": {
       "line": "8",
       "x": 3317.5,
       "y": 2899.04,
       "name_en": "",
       "name_zh": "大世界",
-      "transfer_group": "T068"
+      "transfer_group": "T060"
     },
-    "08-25": {
+    "08-24": {
       "line": "8",
       "x": 3317.5,
       "y": 3061.38,
       "name_en": "",
       "name_zh": "老西门",
-      "transfer_group": "T069"
+      "transfer_group": "T061"
     },
-    "08-26": {
+    "08-25": {
       "line": "8",
       "x": 3317.5,
       "y": 3242.54,
       "name_en": "",
       "name_zh": "陆家浜路",
-      "transfer_group": "T070"
+      "transfer_group": "T062"
     },
-    "08-27": {
+    "08-26": {
       "line": "8",
       "x": 3317.5,
       "y": 3481.71,
       "name_en": "",
       "name_zh": "西藏南路",
-      "transfer_group": "T048"
+      "transfer_group": "T041"
     },
-    "08-28": {
+    "08-27": {
       "line": "8",
       "x": 3317.5,
       "y": 3781.88,
       "name_en": "",
       "name_zh": "耀华路",
-      "transfer_group": "T058"
+      "transfer_group": "T051"
     },
-    "08-29": {
+    "08-28": {
       "line": "8",
       "x": 3317.5,
       "y": 3929.25,
       "name_en": "",
       "name_zh": "成山路",
-      "transfer_group": "T071"
+      "transfer_group": "T063"
     },
-    "08-30": {
+    "08-29": {
       "line": "8",
       "x": 3050.86,
       "y": 4134.4,
       "name_en": "",
       "name_zh": "东方体育中心",
-      "transfer_group": "T051"
+      "transfer_group": "T044"
     },
-    "08-31": {
+    "08-30": {
       "line": "8",
       "x": 2947.5,
       "y": 4949.34,
       "name_en": "",
       "name_zh": "沈杜公路",
-      "transfer_group": "T072"
+      "transfer_group": "T064"
     },
     "09-01": {
       "line": "9",
@@ -2823,7 +2664,7 @@
       "y": 2516.42,
       "name_en": "",
       "name_zh": "金海路",
-      "transfer_group": "T073"
+      "transfer_group": "T065"
     },
     "09-25": {
       "line": "9",
@@ -2831,7 +2672,7 @@
       "y": 2876.3,
       "name_en": "",
       "name_zh": "蓝天路",
-      "transfer_group": "T074"
+      "transfer_group": "T066"
     },
     "09-26": {
       "line": "9",
@@ -2839,7 +2680,7 @@
       "y": 3027.0,
       "name_en": "",
       "name_zh": "杨高中路",
-      "transfer_group": "T075"
+      "transfer_group": "T067"
     },
     "09-27": {
       "line": "9",
@@ -2847,7 +2688,7 @@
       "y": 3027.0,
       "name_en": "",
       "name_zh": "世纪大道",
-      "transfer_group": "T018"
+      "transfer_group": "T013"
     },
     "09-28": {
       "line": "9",
@@ -2855,7 +2696,7 @@
       "y": 3242.54,
       "name_en": "",
       "name_zh": "陆家浜路",
-      "transfer_group": "T070"
+      "transfer_group": "T062"
     },
     "09-29": {
       "line": "9",
@@ -2863,7 +2704,7 @@
       "y": 3242.54,
       "name_en": "",
       "name_zh": "马当路",
-      "transfer_group": "T076"
+      "transfer_group": "T068"
     },
     "09-30": {
       "line": "9",
@@ -2871,7 +2712,7 @@
       "y": 3242.54,
       "name_en": "",
       "name_zh": "嘉善路",
-      "transfer_group": "T077"
+      "transfer_group": "T069"
     },
     "09-31": {
       "line": "9",
@@ -2879,7 +2720,7 @@
       "y": 3242.54,
       "name_en": "",
       "name_zh": "肇家浜路",
-      "transfer_group": "T062"
+      "transfer_group": "T054"
     },
     "09-32": {
       "line": "9",
@@ -2887,7 +2728,7 @@
       "y": 3242.54,
       "name_en": "",
       "name_zh": "徐家汇",
-      "transfer_group": "T006"
+      "transfer_group": "T005"
     },
     "09-33": {
       "line": "9",
@@ -2895,7 +2736,7 @@
       "y": 3250.54,
       "name_en": "",
       "name_zh": "宜山路",
-      "transfer_group": "T034"
+      "transfer_group": "T027"
     },
     "09-34": {
       "line": "9",
@@ -2903,23 +2744,7 @@
       "y": 3451.34,
       "name_en": "",
       "name_zh": "桂林路",
-      "transfer_group": "T078"
-    },
-    "09-35": {
-      "line": "9",
-      "x": 1064.66,
-      "y": 3538.42,
-      "name_en": "",
-      "name_zh": "中春路",
-      "transfer_group": null
-    },
-    "09-36": {
-      "line": "9",
-      "x": 336.83,
-      "y": 4660.67,
-      "name_en": "",
-      "name_zh": "上海松江站",
-      "transfer_group": null
+      "transfer_group": "T070"
     },
     "10-01": {
       "line": "10",
@@ -3111,7 +2936,7 @@
       "y": 1204.77,
       "name_en": "",
       "name_zh": "港城路",
-      "transfer_group": "T057"
+      "transfer_group": "T050"
     },
     "10-25": {
       "line": "10",
@@ -3119,7 +2944,7 @@
       "y": 1836.28,
       "name_en": "",
       "name_zh": "国权路",
-      "transfer_group": "T079"
+      "transfer_group": "T071"
     },
     "10-26": {
       "line": "10",
@@ -3127,7 +2952,7 @@
       "y": 1986.31,
       "name_en": "",
       "name_zh": "四平路",
-      "transfer_group": "T066"
+      "transfer_group": "T058"
     },
     "10-27": {
       "line": "10",
@@ -3135,7 +2960,7 @@
       "y": 2248.77,
       "name_en": "",
       "name_zh": "海伦路",
-      "transfer_group": "T044"
+      "transfer_group": "T037"
     },
     "10-28": {
       "line": "10",
@@ -3143,7 +2968,7 @@
       "y": 2506.0,
       "name_en": "",
       "name_zh": "天潼路",
-      "transfer_group": "T080"
+      "transfer_group": "T072"
     },
     "10-29": {
       "line": "10",
@@ -3151,7 +2976,7 @@
       "y": 2728.77,
       "name_en": "",
       "name_zh": "南京东路",
-      "transfer_group": "T021"
+      "transfer_group": "T016"
     },
     "10-30": {
       "line": "10",
@@ -3159,7 +2984,7 @@
       "y": 2889.37,
       "name_en": "",
       "name_zh": "豫园",
-      "transfer_group": "T081"
+      "transfer_group": "T073"
     },
     "10-31": {
       "line": "10",
@@ -3167,7 +2992,7 @@
       "y": 3060.6,
       "name_en": "",
       "name_zh": "老西门",
-      "transfer_group": "T069"
+      "transfer_group": "T061"
     },
     "10-32": {
       "line": "10",
@@ -3175,7 +3000,7 @@
       "y": 3061.38,
       "name_en": "",
       "name_zh": "一大会址·黄陂南路",
-      "transfer_group": "T082"
+      "transfer_group": "T074"
     },
     "10-33": {
       "line": "10",
@@ -3183,7 +3008,7 @@
       "y": 2987.75,
       "name_en": "",
       "name_zh": "陕西南路",
-      "transfer_group": "T008"
+      "transfer_group": "T007"
     },
     "10-34": {
       "line": "10",
@@ -3191,7 +3016,7 @@
       "y": 3065.94,
       "name_en": "",
       "name_zh": "上海图书馆",
-      "transfer_group": "T083"
+      "transfer_group": "T075"
     },
     "10-35": {
       "line": "10",
@@ -3199,39 +3024,23 @@
       "y": 3065.01,
       "name_en": "",
       "name_zh": "虹桥路",
-      "transfer_group": "T035"
+      "transfer_group": "T028"
     },
     "10-36": {
-      "line": "10",
-      "x": 1341.91,
-      "y": 2850.11,
-      "name_en": "",
-      "name_zh": "虹桥1号航站楼",
-      "transfer_group": null
-    },
-    "10-37": {
       "line": "10",
       "x": 1144.15,
       "y": 2850.11,
       "name_en": "",
       "name_zh": "虹桥2号 航站楼",
-      "transfer_group": "T029"
+      "transfer_group": "T023"
     },
-    "10-38": {
-      "line": "10",
-      "x": 1064.17,
-      "y": 2850.11,
-      "name_en": "",
-      "name_zh": "虹桥火车站",
-      "transfer_group": "T030"
-    },
-    "10-39": {
+    "10-37": {
       "line": "10",
       "x": 977.16,
       "y": 2850.11,
       "name_en": "",
       "name_zh": "虹桥火车站",
-      "transfer_group": "T031"
+      "transfer_group": "T024"
     },
     "11-01": {
       "line": "11",
@@ -3455,7 +3264,7 @@
       "y": 4302.63,
       "name_en": "",
       "name_zh": "罗山路",
-      "transfer_group": "T084"
+      "transfer_group": "T076"
     },
     "11-29": {
       "line": "11",
@@ -3463,95 +3272,79 @@
       "y": 4301.17,
       "name_en": "",
       "name_zh": "御桥",
-      "transfer_group": "T085"
+      "transfer_group": "T077"
     },
     "11-30": {
-      "line": "11",
-      "x": 344.5,
-      "y": 1419.0,
-      "name_en": "",
-      "name_zh": "花桥",
-      "transfer_group": null
-    },
-    "11-31": {
       "line": "11",
       "x": 3048.05,
       "y": 4142.18,
       "name_en": "",
       "name_zh": "东方体育中心",
-      "transfer_group": "T051"
+      "transfer_group": "T044"
     },
-    "11-32": {
+    "11-31": {
       "line": "11",
       "x": 2336.37,
       "y": 3705.81,
       "name_en": "",
       "name_zh": "龙华",
-      "transfer_group": "T086"
+      "transfer_group": "T078"
     },
-    "11-33": {
+    "11-32": {
       "line": "11",
       "x": 2330.2,
       "y": 3242.51,
       "name_en": "",
       "name_zh": "徐家汇",
-      "transfer_group": "T006"
+      "transfer_group": "T005"
     },
-    "11-34": {
+    "11-33": {
       "line": "11",
       "x": 2328.99,
       "y": 3062.78,
       "name_en": "",
       "name_zh": "上海图书馆",
-      "transfer_group": "T083"
+      "transfer_group": "T075"
     },
-    "11-35": {
+    "11-34": {
       "line": "11",
       "x": 2326.74,
       "y": 2728.75,
       "name_en": "",
       "name_zh": "江苏路",
-      "transfer_group": "T026"
+      "transfer_group": "T020"
     },
-    "11-36": {
+    "11-35": {
       "line": "11",
       "x": 2324.93,
       "y": 2458.18,
       "name_en": "",
       "name_zh": "隆德路",
-      "transfer_group": "T087"
+      "transfer_group": "T079"
     },
-    "11-37": {
+    "11-36": {
       "line": "11",
       "x": 2312.5,
       "y": 2219.39,
       "name_en": "",
       "name_zh": "曹杨路",
-      "transfer_group": "T038"
+      "transfer_group": "T031"
     },
-    "11-38": {
+    "11-37": {
       "line": "11",
       "x": 2140.69,
       "y": 2044.65,
       "name_en": "",
       "name_zh": "真如",
-      "transfer_group": "T088"
+      "transfer_group": "T080"
     },
-    "11-39": {
+    "11-38": {
       "line": "11",
       "x": 2017.02,
       "y": 1920.99,
       "name_en": "",
       "name_zh": "上海西站",
-      "transfer_group": "T089"
-    },
-    "11-40": {
-      "line": "11",
-      "x": 1981.75,
-      "y": 1885.71,
-      "name_en": "",
-      "name_zh": "上海西站",
-      "transfer_group": null
+      "transfer_group": "T081"
     },
     "12-01": {
       "line": "12",
@@ -3559,7 +3352,7 @@
       "y": 2510.0,
       "name_en": "",
       "name_zh": "金海路",
-      "transfer_group": "T073"
+      "transfer_group": "T065"
     },
     "12-02": {
       "line": "12",
@@ -3695,15 +3488,15 @@
       "y": 2159.5,
       "name_en": "",
       "name_zh": "巨峰路",
-      "transfer_group": "T056"
+      "transfer_group": "T049"
     },
     "12-19": {
       "line": "12",
       "x": 3958.78,
       "y": 2159.5,
       "name_en": "",
-      "name_zh": "江浦公园",
-      "transfer_group": "T090"
+      "name_zh": "宁国路",
+      "transfer_group": "T082"
     },
     "12-20": {
       "line": "12",
@@ -3711,7 +3504,7 @@
       "y": 2243.09,
       "name_en": "",
       "name_zh": "大连路",
-      "transfer_group": "T045"
+      "transfer_group": "T038"
     },
     "12-21": {
       "line": "12",
@@ -3719,7 +3512,7 @@
       "y": 2508.47,
       "name_en": "",
       "name_zh": "天潼路",
-      "transfer_group": "T080"
+      "transfer_group": "T072"
     },
     "12-22": {
       "line": "12",
@@ -3727,7 +3520,7 @@
       "y": 2458.18,
       "name_en": "",
       "name_zh": "曲阜路",
-      "transfer_group": "T067"
+      "transfer_group": "T059"
     },
     "12-23": {
       "line": "12",
@@ -3735,7 +3528,7 @@
       "y": 2458.41,
       "name_en": "",
       "name_zh": "汉中路",
-      "transfer_group": "T011"
+      "transfer_group": "T010"
     },
     "12-24": {
       "line": "12",
@@ -3743,79 +3536,71 @@
       "y": 2727.12,
       "name_en": "",
       "name_zh": "南京西路",
-      "transfer_group": "T024"
+      "transfer_group": "T018"
     },
     "12-25": {
-      "line": "12",
-      "x": 2919.0,
-      "y": 2727.39,
-      "name_en": "",
-      "name_zh": "自然博物馆",
-      "transfer_group": "T023"
-    },
-    "12-26": {
       "line": "12",
       "x": 2808.95,
       "y": 2985.5,
       "name_en": "",
       "name_zh": "陕西南路",
-      "transfer_group": "T008"
+      "transfer_group": "T007"
     },
-    "12-27": {
+    "12-26": {
       "line": "12",
       "x": 2808.95,
       "y": 3242.54,
       "name_en": "",
       "name_zh": "嘉善路",
-      "transfer_group": "T077"
+      "transfer_group": "T069"
     },
-    "12-28": {
+    "12-27": {
       "line": "12",
       "x": 2808.95,
       "y": 3481.71,
       "name_en": "",
       "name_zh": "大木桥路",
-      "transfer_group": "T049"
+      "transfer_group": "T042"
     },
-    "12-29": {
+    "12-28": {
       "line": "12",
       "x": 2586.84,
       "y": 3710.62,
       "name_en": "",
       "name_zh": "龙华中路",
-      "transfer_group": "T061"
+      "transfer_group": "T053"
     },
-    "12-30": {
+    "12-29": {
       "line": "12",
       "x": 2326.37,
       "y": 3710.62,
       "name_en": "",
       "name_zh": "龙华",
-      "transfer_group": "T086"
+      "transfer_group": "T078"
     },
-    "12-31": {
+    "12-30": {
       "line": "12",
       "x": 2223.42,
       "y": 3710.62,
       "name_en": "",
       "name_zh": "龙漕路",
-      "transfer_group": "T033"
+      "transfer_group": "T026"
     },
-    "12-32": {
+    "12-31": {
       "line": "12",
       "x": 2064.09,
       "y": 3710.62,
       "name_en": "",
       "name_zh": "漕宝路",
-      "transfer_group": "T004"
+      "transfer_group": "T003"
     },
-    "12-33": {
+    "12-32": {
       "line": "12",
       "x": 1770.42,
       "y": 3710.62,
       "name_en": "",
       "name_zh": "桂林公园",
-      "transfer_group": "T091"
+      "transfer_group": "T083"
     },
     "13-01": {
       "line": "13",
@@ -3959,7 +3744,7 @@
       "y": 4029.34,
       "name_en": "",
       "name_zh": "华夏中路",
-      "transfer_group": "T092"
+      "transfer_group": "T084"
     },
     "13-19": {
       "line": "13",
@@ -3967,7 +3752,7 @@
       "y": 4026.02,
       "name_en": "",
       "name_zh": "莲溪路",
-      "transfer_group": "T093"
+      "transfer_group": "T085"
     },
     "13-20": {
       "line": "13",
@@ -3975,7 +3760,7 @@
       "y": 3930.62,
       "name_en": "",
       "name_zh": "东明路",
-      "transfer_group": "T052"
+      "transfer_group": "T045"
     },
     "13-21": {
       "line": "13",
@@ -3983,7 +3768,7 @@
       "y": 3930.62,
       "name_en": "",
       "name_zh": "成山路",
-      "transfer_group": "T071"
+      "transfer_group": "T063"
     },
     "13-22": {
       "line": "13",
@@ -3991,7 +3776,7 @@
       "y": 3799.34,
       "name_en": "",
       "name_zh": "长清路",
-      "transfer_group": "T059"
+      "transfer_group": "T052"
     },
     "13-23": {
       "line": "13",
@@ -3999,7 +3784,7 @@
       "y": 3242.54,
       "name_en": "",
       "name_zh": "马当路",
-      "transfer_group": "T076"
+      "transfer_group": "T068"
     },
     "13-24": {
       "line": "13",
@@ -4007,7 +3792,7 @@
       "y": 3062.88,
       "name_en": "",
       "name_zh": "一大会址·黄陂南路",
-      "transfer_group": "T082"
+      "transfer_group": "T074"
     },
     "13-25": {
       "line": "13",
@@ -4015,63 +3800,55 @@
       "y": 2727.39,
       "name_en": "",
       "name_zh": "自然博物馆",
-      "transfer_group": "T022"
+      "transfer_group": "T017"
     },
     "13-26": {
-      "line": "13",
-      "x": 3006.17,
-      "y": 2727.39,
-      "name_en": "",
-      "name_zh": "自然博物馆",
-      "transfer_group": "T023"
-    },
-    "13-27": {
       "line": "13",
       "x": 2982.26,
       "y": 2470.53,
       "name_en": "",
       "name_zh": "汉中路",
-      "transfer_group": "T011"
+      "transfer_group": "T010"
     },
-    "13-28": {
+    "13-27": {
       "line": "13",
       "x": 2587.41,
       "y": 2458.58,
       "name_en": "",
       "name_zh": "长寿路",
-      "transfer_group": "T063"
+      "transfer_group": "T055"
     },
-    "13-29": {
+    "13-28": {
       "line": "13",
       "x": 2447.37,
       "y": 2458.58,
       "name_en": "",
       "name_zh": "武宁路",
-      "transfer_group": "T094"
+      "transfer_group": "T086"
     },
-    "13-30": {
+    "13-29": {
       "line": "13",
       "x": 2324.71,
       "y": 2458.58,
       "name_en": "",
       "name_zh": "隆德路",
-      "transfer_group": "T087"
+      "transfer_group": "T079"
     },
-    "13-31": {
+    "13-30": {
       "line": "13",
       "x": 2135.81,
       "y": 2458.58,
       "name_en": "",
       "name_zh": "金沙江路",
-      "transfer_group": "T037"
+      "transfer_group": "T030"
     },
-    "13-32": {
+    "13-31": {
       "line": "13",
       "x": 1876.33,
       "y": 2458.58,
       "name_en": "",
       "name_zh": "大渡河路",
-      "transfer_group": "T095"
+      "transfer_group": "T087"
     },
     "14-01": {
       "line": "14",
@@ -4207,7 +3984,7 @@
       "y": 2039.5,
       "name_en": "",
       "name_zh": "铜川路",
-      "transfer_group": "T096"
+      "transfer_group": "T088"
     },
     "14-18": {
       "line": "14",
@@ -4215,7 +3992,7 @@
       "y": 2039.5,
       "name_en": "",
       "name_zh": "真如",
-      "transfer_group": "T088"
+      "transfer_group": "T080"
     },
     "14-19": {
       "line": "14",
@@ -4223,7 +4000,7 @@
       "y": 2199.57,
       "name_en": "",
       "name_zh": "曹杨路",
-      "transfer_group": "T038"
+      "transfer_group": "T031"
     },
     "14-20": {
       "line": "14",
@@ -4231,7 +4008,7 @@
       "y": 2458.18,
       "name_en": "",
       "name_zh": "武宁路",
-      "transfer_group": "T094"
+      "transfer_group": "T086"
     },
     "14-21": {
       "line": "14",
@@ -4239,7 +4016,7 @@
       "y": 2726.91,
       "name_en": "",
       "name_zh": "静安寺",
-      "transfer_group": "T025"
+      "transfer_group": "T019"
     },
     "14-22": {
       "line": "14",
@@ -4247,7 +4024,7 @@
       "y": 2900.11,
       "name_en": "",
       "name_zh": "淮海中路",
-      "transfer_group": "T009"
+      "transfer_group": "T008"
     },
     "14-23": {
       "line": "14",
@@ -4255,7 +4032,7 @@
       "y": 2900.51,
       "name_en": "",
       "name_zh": "大世界",
-      "transfer_group": "T068"
+      "transfer_group": "T060"
     },
     "14-24": {
       "line": "14",
@@ -4263,7 +4040,7 @@
       "y": 2889.9,
       "name_en": "",
       "name_zh": "豫园",
-      "transfer_group": "T081"
+      "transfer_group": "T073"
     },
     "14-25": {
       "line": "14",
@@ -4271,7 +4048,7 @@
       "y": 2778.22,
       "name_en": "",
       "name_zh": "陆家嘴",
-      "transfer_group": "T020"
+      "transfer_group": "T015"
     },
     "14-26": {
       "line": "14",
@@ -4279,7 +4056,7 @@
       "y": 2777.23,
       "name_en": "",
       "name_zh": "浦东南路",
-      "transfer_group": "T019"
+      "transfer_group": "T014"
     },
     "14-27": {
       "line": "14",
@@ -4287,7 +4064,7 @@
       "y": 2775.74,
       "name_en": "",
       "name_zh": "浦东大道",
-      "transfer_group": "T046"
+      "transfer_group": "T039"
     },
     "14-28": {
       "line": "14",
@@ -4295,7 +4072,7 @@
       "y": 2643.7,
       "name_en": "",
       "name_zh": "昌邑路",
-      "transfer_group": "T097"
+      "transfer_group": "T089"
     },
     "14-29": {
       "line": "14",
@@ -4303,7 +4080,7 @@
       "y": 2525.62,
       "name_en": "",
       "name_zh": "云山路",
-      "transfer_group": "T055"
+      "transfer_group": "T048"
     },
     "14-30": {
       "line": "14",
@@ -4311,7 +4088,7 @@
       "y": 2879.91,
       "name_en": "",
       "name_zh": "蓝天路",
-      "transfer_group": "T074"
+      "transfer_group": "T066"
     },
     "15-01": {
       "line": "15",
@@ -4319,7 +4096,7 @@
       "y": 958.0,
       "name_en": "",
       "name_zh": "顾村公园",
-      "transfer_group": "T064"
+      "transfer_group": "T056"
     },
     "15-02": {
       "line": "15",
@@ -4495,7 +4272,7 @@
       "y": 1920.34,
       "name_en": "",
       "name_zh": "上海西站",
-      "transfer_group": "T089"
+      "transfer_group": "T081"
     },
     "15-24": {
       "line": "15",
@@ -4503,7 +4280,7 @@
       "y": 2040.67,
       "name_en": "",
       "name_zh": "铜川路",
-      "transfer_group": "T096"
+      "transfer_group": "T088"
     },
     "15-25": {
       "line": "15",
@@ -4511,7 +4288,7 @@
       "y": 2458.18,
       "name_en": "",
       "name_zh": "大渡河路",
-      "transfer_group": "T095"
+      "transfer_group": "T087"
     },
     "15-26": {
       "line": "15",
@@ -4519,7 +4296,7 @@
       "y": 2729.42,
       "name_en": "",
       "name_zh": "娄山关路",
-      "transfer_group": "T028"
+      "transfer_group": "T022"
     },
     "15-27": {
       "line": "15",
@@ -4527,7 +4304,7 @@
       "y": 3452.34,
       "name_en": "",
       "name_zh": "桂林路",
-      "transfer_group": "T078"
+      "transfer_group": "T070"
     },
     "15-28": {
       "line": "15",
@@ -4535,31 +4312,15 @@
       "y": 3707.75,
       "name_en": "",
       "name_zh": "桂林公园",
-      "transfer_group": "T091"
+      "transfer_group": "T083"
     },
     "15-29": {
-      "line": "15",
-      "x": 1882.22,
-      "y": 3831.78,
-      "name_en": "",
-      "name_zh": "上海南站",
-      "transfer_group": "T002"
-    },
-    "15-30": {
       "line": "15",
       "x": 1913.37,
       "y": 3863.48,
       "name_en": "",
       "name_zh": "上海南站",
-      "transfer_group": "T003"
-    },
-    "15-31": {
-      "line": "15",
-      "x": 2102.5,
-      "y": 4349.17,
-      "name_en": "",
-      "name_zh": "朱梅路",
-      "transfer_group": null
+      "transfer_group": "T002"
     },
     "16-01": {
       "line": "16",
@@ -4567,7 +4328,7 @@
       "y": 3370.39,
       "name_en": "",
       "name_zh": "龙阳路",
-      "transfer_group": "T017"
+      "transfer_group": "T012"
     },
     "16-02": {
       "line": "16",
@@ -4651,27 +4412,19 @@
     },
     "16-12": {
       "line": "16",
-      "x": 4274.5,
-      "y": 3426.36,
-      "name_en": "",
-      "name_zh": "张江高科",
-      "transfer_group": "T016"
-    },
-    "16-13": {
-      "line": "16",
       "x": 4350.5,
       "y": 4029.34,
       "name_en": "",
       "name_zh": "华夏中路",
-      "transfer_group": "T092"
+      "transfer_group": "T084"
     },
-    "16-14": {
+    "16-13": {
       "line": "16",
       "x": 4350.5,
       "y": 4302.34,
       "name_en": "",
       "name_zh": "罗山路",
-      "transfer_group": "T084"
+      "transfer_group": "T076"
     },
     "17-01": {
       "line": "17",
@@ -4679,7 +4432,7 @@
       "y": 2801.0,
       "name_en": "",
       "name_zh": "虹桥火车站",
-      "transfer_group": "T031"
+      "transfer_group": "T024"
     },
     "17-02": {
       "line": "17",
@@ -4775,7 +4528,7 @@
       "y": 2801.0,
       "name_en": "",
       "name_zh": "国家会展中心",
-      "transfer_group": "T032"
+      "transfer_group": "T025"
     },
     "18-01": {
       "line": "18",
@@ -4783,7 +4536,7 @@
       "y": 1282.0,
       "name_en": "",
       "name_zh": "长江南路",
-      "transfer_group": "T043"
+      "transfer_group": "T036"
     },
     "18-02": {
       "line": "18",
@@ -4911,7 +4664,7 @@
       "y": 1838.78,
       "name_en": "",
       "name_zh": "国权路",
-      "transfer_group": "T079"
+      "transfer_group": "T071"
     },
     "18-18": {
       "line": "18",
@@ -4919,15 +4672,15 @@
       "y": 1962.01,
       "name_en": "",
       "name_zh": "江浦路",
-      "transfer_group": "T065"
+      "transfer_group": "T057"
     },
     "18-19": {
       "line": "18",
       "x": 3961.0,
       "y": 2156.12,
       "name_en": "",
-      "name_zh": "江浦公园",
-      "transfer_group": "T090"
+      "name_zh": "宁国路",
+      "transfer_group": "T082"
     },
     "18-20": {
       "line": "18",
@@ -4935,7 +4688,7 @@
       "y": 2642.03,
       "name_en": "",
       "name_zh": "昌邑路",
-      "transfer_group": "T097"
+      "transfer_group": "T089"
     },
     "18-21": {
       "line": "18",
@@ -4943,7 +4696,7 @@
       "y": 2771.71,
       "name_en": "",
       "name_zh": "民生路",
-      "transfer_group": "T054"
+      "transfer_group": "T047"
     },
     "18-22": {
       "line": "18",
@@ -4951,7 +4704,7 @@
       "y": 3027.33,
       "name_en": "",
       "name_zh": "杨高中路",
-      "transfer_group": "T075"
+      "transfer_group": "T067"
     },
     "18-23": {
       "line": "18",
@@ -4959,31 +4712,23 @@
       "y": 3365.17,
       "name_en": "",
       "name_zh": "龙阳路",
-      "transfer_group": "T017"
+      "transfer_group": "T012"
     },
     "18-24": {
-      "line": "18",
-      "x": 4261.5,
-      "y": 3426.36,
-      "name_en": "",
-      "name_zh": "张江高科",
-      "transfer_group": "T016"
-    },
-    "18-25": {
       "line": "18",
       "x": 4163.5,
       "y": 4029.34,
       "name_en": "",
       "name_zh": "莲溪路",
-      "transfer_group": "T093"
+      "transfer_group": "T085"
     },
-    "18-26": {
+    "18-25": {
       "line": "18",
       "x": 4066.47,
       "y": 4302.35,
       "name_en": "",
       "name_zh": "御桥",
-      "transfer_group": "T085"
+      "transfer_group": "T077"
     },
     "AL-01": {
       "line": "AL",
@@ -4991,39 +4736,15 @@
       "y": 3429.36,
       "name_en": "",
       "name_zh": "张江高科",
-      "transfer_group": "T016"
+      "transfer_group": null
     },
     "AL-02": {
       "line": "AL",
-      "x": 4473.11,
-      "y": 3514.27,
-      "name_en": "",
-      "name_zh": "张江高科",
-      "transfer_group": "T015"
-    },
-    "AL-03": {
-      "line": "AL",
-      "x": 5158.83,
-      "y": 4882.72,
-      "name_en": "",
-      "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T060"
-    },
-    "AL-04": {
-      "line": "AL",
       "x": 5158.83,
       "y": 4919.19,
       "name_en": "",
       "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T013"
-    },
-    "AL-05": {
-      "line": "AL",
-      "x": 5158.83,
-      "y": 4919.19,
-      "name_en": "",
-      "name_zh": "1&2浦东1号2号航站楼",
-      "transfer_group": "T014"
+      "transfer_group": null
     },
     "Pujiang-01": {
       "line": "Pujiang",
@@ -5031,7 +4752,7 @@
       "y": 4953.39,
       "name_en": "",
       "name_zh": "沈杜公路",
-      "transfer_group": "T072"
+      "transfer_group": "T064"
     },
     "Pujiang-02": {
       "line": "Pujiang",

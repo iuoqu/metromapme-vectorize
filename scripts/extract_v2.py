@@ -48,7 +48,7 @@ TEXT_PAIR_DX = 80.0               # max x-diff to pair English+Chinese text
 TEXT_PAIR_DY = 80.0               # max y-diff (Chinese typically below English)
 STATION_TO_LINE_MAX_DIST = 130.0  # how far a label center can be from a line
 SECONDARY_ASSIGN_TOL_PT = 50.0    # snap-point proximity for secondary line assignment
-TRANSFER_CLUSTER_TOL_PT = 65.0    # spatial tolerance for transfer group clustering
+TRANSFER_CLUSTER_TOL_PT = 30.0    # spatial tolerance for transfer group clustering
 SECONDARY_LINE_MAX_DIST = 35.0    # only assign to extra lines if very close
 # Lines that allow a larger label-to-polyline distance (labels placed far from stroke)
 LINE_STATION_MAX_DIST_OVERRIDES: dict[str, float] = {
@@ -662,9 +662,13 @@ def extract_polylines_per_color(
     for d in drawings:
         if d.get("type") != "s":
             continue
-        # Accept both standard (width=16) and Pujiang-style (width=8) strokes
+        # Accept both standard (width=16) and Pujiang-style (width=8) strokes.
+        # w=8 is ONLY used by the Pujiang Line — other lines use this width for
+        # shared-track indicators that must not be merged into the regular polyline.
         w = d.get("width", 0)
-        if abs(w - LINE_STROKE_WIDTH) >= 0.5 and abs(w - 8.0) >= 0.5:
+        is_thin = abs(w - 8.0) < 0.5
+        is_std = abs(w - LINE_STROKE_WIDTH) < 0.5
+        if not is_std and not is_thin:
             continue
         c = d.get("color")
         if not c:
@@ -680,6 +684,9 @@ def extract_polylines_per_color(
                 best_dist = dist
                 line_id = lid
         if line_id is None or best_dist >= 3 * COLOR_TOL:
+            continue
+        # Only allow thin (w=8) strokes for lines that officially use that width
+        if is_thin and line_id != "Pujiang":
             continue
 
         # Reconstruct path from items
@@ -942,6 +949,10 @@ def assign_stations_geometric(
                     best_d = d
             if best_d <= TRANSFER_CLUSTER_TOL_PT:
                 members.add(line_id)
+        # Only use clusters where ≥2 lines pass through (single-line clusters
+        # are decorative white shapes, not actual transfer stations).
+        # Exception: keep single-member sets so we can do a fallback pass for
+        # lines that end up with 0 stations (e.g. AL after L7 polyline fix).
         cluster_lines[ci] = members
 
     # Collect every (line_id, x, y, marker_id) station position
@@ -949,8 +960,21 @@ def assign_stations_geometric(
     for line_id, ticks in ticks_per_line.items():
         for i, (x, y) in enumerate(ticks):
             all_markers.append((line_id, x, y, f"tick:{line_id}:{i}"))
+    # Lines that have no tick marks rely solely on transfer clusters for any stations.
+    # Allow single-line clusters for those lines (they're real station markers, not
+    # decorative shapes). For lines WITH ticks, require ≥2 lines per cluster to
+    # suppress false-positive decorative white shapes.
+    tick_lines = set(ticks_per_line.keys())
+
     for ci, members in cluster_lines.items():
         cl = transfer_clusters[ci]
+        # Apply min_lines filter: multi-line = always valid; single-line only for
+        # no-tick lines (AL etc.) or the cluster is very close (≤12pt) to one line.
+        if len(members) < 2:
+            # Check if the sole member line has 0 ticks (then it's allowed)
+            if not members or (members & tick_lines):
+                continue  # skip: single-line cluster on a ticked line = likely decorative
+
         # Snap to each line's polyline so the marker sits on that line, not at the
         # cluster centroid (which is between lines)
         for line_id in members:
