@@ -648,6 +648,130 @@ def extract_station_ticks(
     return per_line
 
 
+# ── Phase 4a.1: extract the white-bordered "planned/suburban" line (AL) ──
+def extract_white_bordered_line(page: fitz.Page) -> list[list[tuple[float, float]]]:
+    """
+    The Airport Link Line (机场联络线) planned segment is drawn as a filled
+    polygon (type='fs', fill=white, stroke=gray #757575, w=2) with outer+inner
+    boundaries ~16pt apart forming a "pipe" shape.
+
+    Returns the centerline polyline(s) approximated by sampling boundary
+    midpoints. Used to register AL as a proper line so its station markers
+    can be geometrically matched.
+    """
+    target = None
+    for d in page.get_drawings():
+        if d.get("type") != "fs":
+            continue
+        fill = d.get("fill")
+        c = d.get("color")
+        items = d.get("items", [])
+        if not fill or not c or len(items) < 20:
+            continue
+        if not all(x > 0.95 for x in fill):
+            continue
+        if not (0.4 < c[0] < 0.5 and abs(c[0] - c[1]) < 0.05 and abs(c[1] - c[2]) < 0.05):
+            continue
+        w = d.get("width", 0)
+        if abs((w or 0) - 2.0) > 0.5:
+            continue
+        target = d
+        break
+    if not target:
+        return []
+
+    # Collect each segment's pair of endpoints (from `l` and `c` items).
+    # Then: for each "long" segment (len > 50pt), find its matching parallel
+    # segment on the OPPOSITE side of the pipe (~16pt away) and produce the
+    # centerline by averaging. Works because the pipe is axis-aligned or
+    # smoothly curved.
+    segments: list[tuple[tuple[float,float], tuple[float,float]]] = []
+    for it in target["items"]:
+        op = it[0]
+        if op == "l":
+            segments.append(((it[1].x, it[1].y), (it[2].x, it[2].y)))
+        elif op == "c":
+            p0, p3 = it[1], it[4]
+            segments.append(((p0.x, p0.y), (p3.x, p3.y)))
+
+    # Collect dense sample points for distance queries
+    dense_pts: list[tuple[float, float]] = []
+    for a, b in segments:
+        seg_len = math.hypot(b[0]-a[0], b[1]-a[1])
+        n = max(2, int(seg_len / 10) + 1)
+        for k in range(n+1):
+            t = k / n
+            dense_pts.append((a[0] + t*(b[0]-a[0]), a[1] + t*(b[1]-a[1])))
+
+    def nearest_d(pt):
+        return min(math.hypot(pt[0]-q[0], pt[1]-q[1]) for q in dense_pts)
+
+    # For each dense point, move inward by 8pt perpendicular to the local boundary.
+    # Approximation: for each dense point p, find the dense point q that's
+    # ~16pt away; their midpoint is on the centerline.
+    LINE_W = 16.0
+    centerline_set: set[tuple[float, float]] = set()
+    for p in dense_pts:
+        # find any point q where |d - 16| < 3 and q is not super-close to p
+        for q in dense_pts:
+            d = math.hypot(p[0]-q[0], p[1]-q[1])
+            if abs(d - LINE_W) < 3 and d > 8:
+                mx, my = (p[0]+q[0])/2, (p[1]+q[1])/2
+                # Snap to 2pt grid to dedupe
+                centerline_set.add((round(mx/2)*2, round(my/2)*2))
+                break
+
+    if not centerline_set:
+        return []
+
+    pts_list = list(centerline_set)
+    # Chain: greedy nearest-neighbor starting from westernmost-lowest point
+    start = min(pts_list, key=lambda p: p[0] + p[1])
+    chain = [start]
+    remaining = [p for p in pts_list if p != start]
+    while remaining:
+        last = chain[-1]
+        nxt = min(remaining, key=lambda p: (p[0]-last[0])**2 + (p[1]-last[1])**2)
+        if math.hypot(nxt[0]-last[0], nxt[1]-last[1]) > 60:
+            break
+        chain.append(nxt)
+        remaining.remove(nxt)
+    return [chain] if len(chain) >= 5 else []
+
+
+def extract_al_rect_markers(page: fitz.Page) -> list[tuple[float, float]]:
+    """
+    Non-transfer station markers for the white-bordered AL line: rounded
+    rectangle shape with dark-gray border (#242424-ish) and white fill,
+    ~39×29pt, 6 path items.
+    """
+    markers: list[tuple[float, float]] = []
+    for d in page.get_drawings():
+        if d.get("type") != "fs":
+            continue
+        c = d.get("color")
+        fill = d.get("fill")
+        if not c or not fill:
+            continue
+        if not all(x > 0.95 for x in fill):
+            continue
+        if not all(x < 0.2 for x in c):
+            continue
+        w = d.get("width", 0)
+        if abs((w or 0) - 3.0) > 0.5:
+            continue
+        r = d.get("rect")
+        if not r:
+            continue
+        if max(r.width, r.height) > 50 or min(r.width, r.height) < 10:
+            continue
+        items = d.get("items", [])
+        if len(items) != 6:
+            continue
+        markers.append(((r.x0+r.x1)/2, (r.y0+r.y1)/2))
+    return markers
+
+
 # ── Phase 4: extract per-color polylines ─────────────────────────────
 def extract_polylines_per_color(
     page: fitz.Page, color_to_line: dict[tuple, str]
@@ -1020,9 +1144,20 @@ def assign_stations_geometric(
         )
         per_line[line_id].append((label, x, y, arc, mid))
 
-    # Sort each line by arc-length
+    # Sort each line by arc-length, then dedupe markers that are too close
+    # (within 25pt) — happens when the same station is detected as both a
+    # tick rectangle and a transfer-cluster circle.
+    DEDUP_TOL = 10.0
     for lid in per_line:
         per_line[lid].sort(key=lambda e: e[3])
+        deduped = []
+        for entry in per_line[lid]:
+            _, x, y, _, _ = entry
+            if any(math.hypot(x - px, y - py) < DEDUP_TOL
+                   for _, px, py, _, _ in deduped):
+                continue
+            deduped.append(entry)
+        per_line[lid] = deduped
 
     return per_line, cluster_lines
 
@@ -1373,12 +1508,34 @@ def main() -> int:
 
     print("→ Extracting line polylines...")
     polylines = extract_polylines_per_color(page, color_to_line)
+
+    # Merge the white-bordered AL centerline into AL's polyline set so its
+    # stations (drawn in the "white fill + gray border" style) can be
+    # detected by the same geometry-first assignment as other lines.
+    white_al = extract_white_bordered_line(page)
+    if white_al:
+        polylines.setdefault("AL", []).extend(white_al)
+        print(f"  + AL white-bordered centerline: {len(white_al[0])} pts")
+
     for lid, polys in sorted(polylines.items()):
         n = sum(len(p) for p in polys)
         print(f"  Line {lid}: {len(polys)} polylines, {n} pts")
 
     print("→ Extracting station tick markers...")
     ticks_per_line = extract_station_ticks(page, color_to_line)
+
+    # AL non-transfer stations are drawn as 39×29 dark-gray bordered white-fill
+    # rectangles on top of the line, not as colored perpendicular ticks. Find
+    # rectangles that sit on (or very close to) the AL centerline and register
+    # them as AL ticks.
+    if "AL" in polylines:
+        al_rects = extract_al_rect_markers(page)
+        al_polys = polylines["AL"]
+        for mx, my in al_rects:
+            best_d = min(project_to_polyline((mx, my), p)[0] for p in al_polys)
+            if best_d <= 20.0:
+                ticks_per_line.setdefault("AL", []).append((mx, my))
+
     for lid, ticks in sorted(ticks_per_line.items()):
         print(f"  Line {lid}: {len(ticks)} ticks")
     total_ticks = sum(len(t) for t in ticks_per_line.values())
