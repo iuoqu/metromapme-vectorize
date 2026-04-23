@@ -1,0 +1,524 @@
+﻿{
+  "poi_osm_node_2282173827": {
+    "anchor_station": "朱家角",
+    "best_exit": "Exit 5",
+    "name": {
+      "zh": "朱家角镇"
+    },
+    "walk_distance_m": 404,
+    "walk_time_min": 6
+  },
+  "poi_osm_node_3750123105": {
+    "anchor_station": "南京东路",
+    "best_exit": "Exit 6",
+    "name": {
+      "zh": "上海外滩美术馆"
+    },
+    "walk_distance_m": 362,
+    "walk_time_min": 5
+  },
+  "poi_osm_node_401228371": {
+    "anchor_station": "云顺路",
+    "best_exit": "Exit 3",
+    "name": {
+      "zh": "社庄庙"
+    },
+    "walk_distance_m": 512,
+    "walk_time_min": 7
+  },
+  "poi_osm_node_4062667177": {
+    "anchor_station": "迪士尼",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "太空幸会史迪奇"
+    },
+    "walk_distance_m": 817,
+    "walk_time_min": 11
+  },
+  "poi_osm_node_4062667712": {
+    "anchor_station": "迪士尼",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "巴斯光年星际营救"
+    },
+    "walk_distance_m": 870,
+    "walk_time_min": 12
+  },
+  "poi_osm_node_4628253490": {
+    "anchor_station": "江苏路",
+    "best_exit": "Exit 4",
+    "name": {
+      "zh": "陆汉斌打字机博物馆"
+    },
+    "walk_distance_m": 602,
+    "walk_time_min": 8
+  },
+  "poi_osm_node_5436983736": {
+    "anchor_station": "人民广场",
+    "best_exit": "Exit 12",
+    "name": {
+      "zh": "五卅运动纪念碑"
+    },
+    "walk_distance_m": 55,
+    "walk_time_min": 1
+  },
+  "poi_osm_node_5530017322": {
+    "anchor_station": "人民广场",
+    "best_exit": "Exit 11",
+    "name": {
+      "zh": "上海市历史博物馆"
+    },
+    "walk_distance_m": 150,
+    "walk_time_min": 2
+  },
+  "poi_osm_node_662708794": {
+    "anchor_station": "宝山路",
+    "best_exit": "Exit 2",
+    "name": {
+      "zh": "上海铁路博物馆"
+    },
+    "walk_distance_m": 154,
+    "walk_time_min": 2
+  },
+  "poi_osm_node_8095636848": {
+    "anchor_station": "人民广场",
+    "best_exit": "Exit 15",
+    "name": {
+      "zh": "中共中央与中央军委联络点旧址"
+    },
+    "walk_distance_m": 356,
+    "walk_time_min": 5
+  },
+  "poi_osm_relation_10369752": {
+    "anchor_station": "一大会址·新天地",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "太平桥公园"
+    },
+    "walk_distance_m": 402,
+    "walk_time_min": 6
+  },
+  "poi_osm_relation_18069663": {
+    "anchor_station": "世博大道",
+    "best_exit": "Exit 3",
+    "name": {
+      "zh": "世博文化公园"
+    },
+    "walk_distance_m": 846,
+    "walk_time_min": 12
+  },
+  "poi_osm_relation_1919664": {
+    "anchor_station": "迎春路",
+    "best_exit": "Exit 3",
+    "name": {
+      "zh": "世纪公园"
+    },
+    "walk_distance_m": 355,
+    "walk_time_min": 5
+  },
+  "poi_osm_relation_2142077": {
+    "anchor_station": "南京东路",
+    "best_exit": "Exit 7",
+    "name": {
+      "zh": "外滩"
+    },
+    "walk_distance_m": 796,
+    "walk_time_min": 11
+  },
+  "poi_osm_way_10691100": {
+    "anchor_station": "陆家嘴",
+    "best_exit": "Exit 7",
+    "name": {
+      "zh": "上海环球金融中心"
+    },
+    "walk_distance_m": 445,
+    "walk_time_min": 6
+  },
+  "poi_osm_way_13981430": {
+    "anchor_station": "静安寺",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "静安寺"
+    },
+    "walk_distance_m": 74,
+    "walk_time_min": 1
+  },
+  "poi_osm_way_155515137": {
+    "anchor_station": "徐家汇",
+    "best_exit": "Exit 3",
+    "name": {
+      "zh": "徐家汇圣依纳爵主教座堂"
+    },
+    "walk_distance_m": 130,
+    "walk_time_min": 2
+  },
+  "poi_osm_way_156311798": {
+    "anchor_station": "上海赛车场",
+    "best_exit": "Exit 8",
+    "name": {
+      "zh": "上海国际赛车场"
+    },
+    "walk_distance_m": 689,
+    "walk_time_min": 10
+  },
+  "poi_osm_way_161090899": {
+    "anchor_station": "大世界",
+    "best_exit": "Exit 4",
+    "name": {
+      "zh": "上海博物馆"
+    },
+    "walk_distance_m": 301,
+    "walk_time_min": 4
+  },
+  "poi_osm_way_164050136": {
+    "anchor_station": "衡山路",
+    "best_exit": "Exit 2",
+    "name": {
+      "zh": "衡山公园"
+    },
+    "walk_distance_m": 529,
+    "walk_time_min": 7
+  },
+  "poi_osm_way_165792123": {
+    "anchor_station": "陆家嘴",
+    "best_exit": "Exit 7",
+    "name": {
+      "zh": "上海中心大厦"
+    },
+    "walk_distance_m": 383,
+    "walk_time_min": 5
+  },
+  "poi_osm_way_183944730": {
+    "anchor_station": "南翔",
+    "best_exit": "Exit 2",
+    "name": {
+      "zh": "古猗园"
+    },
+    "walk_distance_m": 782,
+    "walk_time_min": 11
+  },
+  "poi_osm_way_189040099": {
+    "anchor_station": "大世界",
+    "best_exit": "Exit 2",
+    "name": {
+      "zh": "大境阁"
+    },
+    "walk_distance_m": 400,
+    "walk_time_min": 6
+  },
+  "poi_osm_way_206382288": {
+    "anchor_station": "中华艺术宫",
+    "best_exit": "Exit 3",
+    "name": {
+      "zh": "中华艺术宫"
+    },
+    "walk_distance_m": 107,
+    "walk_time_min": 1
+  },
+  "poi_osm_way_206501415": {
+    "anchor_station": "上海汽车城",
+    "best_exit": "Exit 3",
+    "name": {
+      "zh": "上海汽车博物馆"
+    },
+    "walk_distance_m": 1213,
+    "walk_time_min": 17
+  },
+  "poi_osm_way_206608461": {
+    "anchor_station": "提篮桥",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "上海犹太难民纪念馆"
+    },
+    "walk_distance_m": 151,
+    "walk_time_min": 2
+  },
+  "poi_osm_way_256259778": {
+    "anchor_station": "徐家汇",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "光启公园"
+    },
+    "walk_distance_m": 236,
+    "walk_time_min": 3
+  },
+  "poi_osm_way_266615881": {
+    "anchor_station": "顾村公园",
+    "best_exit": "Exit 2",
+    "name": {
+      "zh": "顾村公园"
+    },
+    "walk_distance_m": 378,
+    "walk_time_min": 5
+  },
+  "poi_osm_way_293829293": {
+    "anchor_station": "打浦桥",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "田子坊"
+    },
+    "walk_distance_m": 142,
+    "walk_time_min": 2
+  },
+  "poi_osm_way_298132744": {
+    "anchor_station": "西藏南路",
+    "best_exit": "Exit 2",
+    "name": {
+      "zh": "上海当代艺术博物馆"
+    },
+    "walk_distance_m": 750,
+    "walk_time_min": 10
+  },
+  "poi_osm_way_372180467": {
+    "anchor_station": "一大会址·黄陂南路",
+    "best_exit": "Exit 2",
+    "name": {
+      "zh": "中共一大会址"
+    },
+    "walk_distance_m": 336,
+    "walk_time_min": 5
+  },
+  "poi_osm_way_39763744": {
+    "anchor_station": "人民广场",
+    "best_exit": "Exit 18",
+    "name": {
+      "zh": "人民公园"
+    },
+    "walk_distance_m": 135,
+    "walk_time_min": 2
+  },
+  "poi_osm_way_39763758": {
+    "anchor_station": "人民广场",
+    "best_exit": "Exit 11",
+    "name": {
+      "zh": "上海大剧院"
+    },
+    "walk_distance_m": 284,
+    "walk_time_min": 4
+  },
+  "poi_osm_way_39763847": {
+    "anchor_station": "人民广场",
+    "best_exit": "Exit 2",
+    "name": {
+      "zh": "上海城市规划展示馆"
+    },
+    "walk_distance_m": 39,
+    "walk_time_min": 1
+  },
+  "poi_osm_way_40036584": {
+    "anchor_station": "豫园",
+    "best_exit": "Exit 3",
+    "name": {
+      "zh": "豫园"
+    },
+    "walk_distance_m": 470,
+    "walk_time_min": 7
+  },
+  "poi_osm_way_40036659": {
+    "anchor_station": "豫园",
+    "best_exit": "Exit 3",
+    "name": {
+      "zh": "上海城隍庙"
+    },
+    "walk_distance_m": 533,
+    "walk_time_min": 7
+  },
+  "poi_osm_way_40324703": {
+    "anchor_station": "人民广场",
+    "best_exit": "Exit 11",
+    "name": {
+      "zh": "上海当代艺术馆"
+    },
+    "walk_distance_m": 166,
+    "walk_time_min": 2
+  },
+  "poi_osm_way_40325255": {
+    "anchor_station": "一大会址·黄陂南路",
+    "best_exit": "Exit 2",
+    "name": {
+      "zh": "新天地"
+    },
+    "walk_distance_m": 344,
+    "walk_time_min": 5
+  },
+  "poi_osm_way_404677930": {
+    "anchor_station": "世博大道",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "上海世博公园"
+    },
+    "walk_distance_m": 430,
+    "walk_time_min": 6
+  },
+  "poi_osm_way_404694432": {
+    "anchor_station": "龙华",
+    "best_exit": "Exit 4",
+    "name": {
+      "zh": "龙华寺"
+    },
+    "walk_distance_m": 154,
+    "walk_time_min": 2
+  },
+  "poi_osm_way_404709025": {
+    "anchor_station": "人民广场",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "人民广场"
+    },
+    "walk_distance_m": 242,
+    "walk_time_min": 3
+  },
+  "poi_osm_way_405467372": {
+    "anchor_station": "打浦桥",
+    "best_exit": "Exit 4",
+    "name": {
+      "zh": "绍兴公园"
+    },
+    "walk_distance_m": 535,
+    "walk_time_min": 7
+  },
+  "poi_osm_way_425762388": {
+    "anchor_station": "自然博物馆",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "上海自然博物馆"
+    },
+    "walk_distance_m": 73,
+    "walk_time_min": 1
+  },
+  "poi_osm_way_428380180": {
+    "anchor_station": "延安西路",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "天山公园"
+    },
+    "walk_distance_m": 172,
+    "walk_time_min": 2
+  },
+  "poi_osm_way_43927496": {
+    "anchor_station": "上海科技馆",
+    "best_exit": "Exit 7",
+    "name": {
+      "zh": "上海科技馆"
+    },
+    "walk_distance_m": 138,
+    "walk_time_min": 2
+  },
+  "poi_osm_way_462007561": {
+    "anchor_station": "上海动物园",
+    "best_exit": "Exit 4",
+    "name": {
+      "zh": "上海动物园"
+    },
+    "walk_distance_m": 479,
+    "walk_time_min": 7
+  },
+  "poi_osm_way_47011877": {
+    "anchor_station": "龙华",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "龙华塔"
+    },
+    "walk_distance_m": 108,
+    "walk_time_min": 2
+  },
+  "poi_osm_way_483567862": {
+    "anchor_station": "迪士尼",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "星球大战远征基地"
+    },
+    "walk_distance_m": 971,
+    "walk_time_min": 13
+  },
+  "poi_osm_way_490656166": {
+    "anchor_station": "世博会博物馆",
+    "best_exit": "Exit 2",
+    "name": {
+      "zh": "世博会博物馆"
+    },
+    "walk_distance_m": 225,
+    "walk_time_min": 3
+  },
+  "poi_osm_way_494342315": {
+    "anchor_station": "迪士尼",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "小熊维尼历险记"
+    },
+    "walk_distance_m": 963,
+    "walk_time_min": 13
+  },
+  "poi_osm_way_494348161": {
+    "anchor_station": "迪士尼",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "奇幻童话城堡"
+    },
+    "walk_distance_m": 751,
+    "walk_time_min": 10
+  },
+  "poi_osm_way_494725605": {
+    "anchor_station": "迪士尼",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "上海迪士尼乐园"
+    },
+    "walk_distance_m": 705,
+    "walk_time_min": 10
+  },
+  "poi_osm_way_610744664": {
+    "anchor_station": "滴水湖",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "上海天文馆"
+    },
+    "walk_distance_m": 741,
+    "walk_time_min": 10
+  },
+  "poi_osm_way_62072384": {
+    "anchor_station": "豫园",
+    "best_exit": "Exit 3",
+    "name": {
+      "zh": "九曲桥"
+    },
+    "walk_distance_m": 438,
+    "walk_time_min": 6
+  },
+  "poi_osm_way_62072391": {
+    "anchor_station": "豫园",
+    "best_exit": "Exit 3",
+    "name": {
+      "zh": "豫园商城"
+    },
+    "walk_distance_m": 417,
+    "walk_time_min": 6
+  },
+  "poi_osm_way_745254448": {
+    "anchor_station": "打浦桥",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "法租界会审公廨旧址"
+    },
+    "walk_distance_m": 328,
+    "walk_time_min": 5
+  },
+  "poi_osm_way_803292747": {
+    "anchor_station": "陆家嘴",
+    "best_exit": "Exit 1",
+    "name": {
+      "zh": "浦东美术馆"
+    },
+    "walk_distance_m": 488,
+    "walk_time_min": 7
+  },
+  "poi_osm_way_888883225": {
+    "anchor_station": "虹莘路",
+    "best_exit": "Exit 4",
+    "name": {
+      "zh": "热带风暴水上乐园"
+    },
+    "walk_distance_m": 740,
+    "walk_time_min": 10
+  }
+}

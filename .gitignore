@@ -8,7 +8,7 @@ __pycache__/
 # Local caches / generated artifacts
 shanghai_subway_*_cache.json
 shanghai_pois_raw_cache.json
-poi_to_metro_exit.json
+# poi_to_metro_exit.json  # keep tracked (output for the current POI batch)
 
 # If you want to version this dataset, remove the next line.
 # shanghai_metro_station_exits.json
